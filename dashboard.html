@@ -1,0 +1,1749 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DealScope — Private Market Deal Screener</title>
+<meta name="description" content="Motor cuantitativo de screening para oportunidades de inversión en empresas privadas — scoring determinístico de 5 pilares, comparables por machine learning, modelo LBO, simulación Monte Carlo, y backtest contra el mercado.">
+<meta property="og:title" content="DealScope — Private Market Deal Screener">
+<meta property="og:description" content="Motor de screening de inversión con datos financieros reales, Deal Score determinístico, modelo LBO, Monte Carlo de 10,000 escenarios, y backtest contra el S&P SmallCap 600.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DealScope — Private Market Deal Screener">
+<meta name="twitter:description" content="Motor cuantitativo de screening de inversión en empresas — scoring determinístico, LBO, Monte Carlo y backtest real.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2245%22 cy=%2245%22 r=%2230%22 fill=%22none%22 stroke=%22%23E3B25E%22 stroke-width=%228%22/><line x1=%2266%22 y1=%2266%22 x2=%2290%22 y2=%2290%22 stroke=%22%23E3B25E%22 stroke-width=%228%22/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0E12;
+    --surface: #12171D;
+    --surface-2: #1A2129;
+    --surface-3: #212B35;
+    --border: #262E38;
+    --border-soft: #1D242D;
+    --text-primary: #E7EBEF;
+    --text-secondary: #8C99A8;
+    --text-tertiary: #5D6A78;
+    --accent: #E3B25E;
+    --accent-dim: #7A6538;
+    --positive: #5FBF8B;
+    --negative: #E2636B;
+    --tier-high: #E3B25E;
+    --tier-priority: #5AACC6;
+    --tier-watchlist: #8C99A8;
+    --tier-rejected: #5D6A78;
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+    --font-ui: 'Inter', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* Signature background: faint scope reticle */
+  .scope-bg {
+    position: fixed;
+    top: -10%; right: -8%;
+    width: 640px; height: 640px;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+
+  h1 .dot { color: var(--accent); }
+
+  .tagline {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    max-width: 480px;
+    line-height: 1.5;
+  }
+
+  .stat-strip {
+    display: flex;
+    gap: 32px;
+  }
+
+  .stat {
+    text-align: right;
+  }
+
+  .stat-value {
+    font-family: var(--font-mono);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-top: 6px;
+  }
+
+  .stat.high .stat-value { color: var(--tier-high); }
+  .stat.watch .stat-value { color: var(--tier-watchlist); }
+  .stat.rejected .stat-value { color: var(--tier-rejected); }
+
+  /* ---------- Controls ---------- */
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    padding: 7px 14px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .chip:hover { border-color: var(--accent-dim); color: var(--text-primary); }
+  .chip.active { background: var(--surface-3); border-color: var(--accent); color: var(--accent); }
+
+  select {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 8px 12px;
+    outline: none;
+  }
+
+  /* ---------- Table ---------- */
+  .table-wrap {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border-soft);
+    cursor: pointer;
+    transition: background 0.12s ease;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface-2); }
+
+  td { padding: 14px 16px; font-size: 13px; vertical-align: middle; }
+
+  .rank-cell {
+    font-family: var(--font-mono);
+    color: var(--text-tertiary);
+    font-size: 12px;
+    width: 36px;
+  }
+
+  .company-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+
+  .company-industry {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+  }
+
+  .score-cell { display: flex; align-items: center; gap: 10px; }
+
+  .score-num {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 16px;
+    width: 34px;
+  }
+
+  .score-bar-track {
+    width: 90px;
+    height: 4px;
+    background: var(--surface-3);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .score-bar-fill { height: 100%; border-radius: 2px; }
+
+  .fingerprint { display: flex; gap: 2px; align-items: flex-end; height: 20px; }
+  .fingerprint .seg { width: 4px; border-radius: 1px; background: var(--surface-3); }
+
+  .tier-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 3px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .tier-badge.High-Priority { background: rgba(227,178,94,0.12); color: var(--tier-high); border: 1px solid rgba(227,178,94,0.3); }
+  .tier-badge.Priority { background: rgba(90,172,198,0.12); color: var(--tier-priority); border: 1px solid rgba(90,172,198,0.3); }
+  .tier-badge.Watchlist { background: rgba(140,153,168,0.1); color: var(--tier-watchlist); border: 1px solid rgba(140,153,168,0.25); }
+  .tier-badge.Rejected { background: rgba(93,106,120,0.08); color: var(--tier-rejected); border: 1px solid rgba(93,106,120,0.2); }
+
+  .mono { font-family: var(--font-mono); }
+  .num-positive { color: var(--positive); }
+  .num-negative { color: var(--negative); }
+  .text-right { text-align: right; }
+
+
+  /* ---------- Hero / Landing ---------- */
+  .hero { padding: 8px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+  .hero-desc { font-size: 16px; line-height: 1.65; color: var(--text-secondary); max-width: 640px; margin-bottom: 28px; }
+  .hero-desc strong { color: var(--text-primary); font-weight: 600; }
+  .search-bar { position: relative; max-width: 480px; margin-bottom: 32px; }
+  .search-bar input { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px 14px 42px; font-family: var(--font-ui); font-size: 14px; color: var(--text-primary); outline: none; transition: border-color 0.15s ease; }
+  .search-bar input:focus { border-color: var(--accent-dim); }
+  .search-bar input::placeholder { color: var(--text-tertiary); }
+  .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--text-tertiary); pointer-events: none; }
+  .featured-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 14px; }
+  .featured-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .featured-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; cursor: pointer; transition: border-color 0.15s ease, transform 0.15s ease; }
+  .featured-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+  .featured-card .fc-score { font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--accent); }
+  .featured-card .fc-name { font-size: 13px; font-weight: 600; margin-top: 6px; }
+  .featured-card .fc-industry { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+  .refresh-strip { display: flex; gap: 24px; align-items: center; margin-bottom: 28px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; flex-wrap: wrap; }
+  .refresh-item { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); }
+  .refresh-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--positive); flex-shrink: 0; }
+  .refresh-item .highlight { color: var(--accent); font-weight: 600; }
+  .earnings-countdown { display: flex; align-items: center; gap: 10px; background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: 5px; padding: 12px 16px; margin-top: 4px; }
+  .earnings-countdown .ec-num { font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--accent); }
+  .earnings-countdown .ec-label { font-size: 11px; color: var(--text-tertiary); line-height: 1.4; }
+
+  /* ---------- Toolbar (export + compare) ---------- */
+  .toolbar { display: flex; gap: 10px; align-items: center; }
+  .toolbar-btn {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+    padding: 8px 14px; border-radius: 4px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text-secondary); cursor: pointer;
+    transition: all 0.15s ease; display: flex; align-items: center; gap: 6px;
+  }
+  .toolbar-btn:hover { border-color: var(--accent-dim); color: var(--text-primary); }
+  .toolbar-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .toolbar-btn.primary { background: rgba(227,178,94,0.1); border-color: var(--accent-dim); color: var(--accent); }
+
+  .row-check { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+  .check-cell { width: 28px; }
+
+  /* ---------- Scatter chart ---------- */
+  .chart-section { margin-bottom: 32px; }
+  .chart-wrap {
+    border: 1px solid var(--border); border-radius: 6px; background: var(--surface);
+    padding: 20px; position: relative;
+  }
+  .chart-dot { cursor: pointer; transition: r 0.12s ease; }
+  .chart-dot:hover { stroke: var(--text-primary); stroke-width: 1.5; }
+  .chart-axis-label { font-family: var(--font-mono); font-size: 10px; fill: var(--text-tertiary); }
+  .chart-tick-label { font-family: var(--font-mono); font-size: 9px; fill: var(--text-tertiary); }
+  .chart-legend { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+  .chart-legend-item { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); }
+  .chart-legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .chart-tooltip {
+    position: absolute; background: var(--surface-3); border: 1px solid var(--border);
+    border-radius: 4px; padding: 8px 10px; font-family: var(--font-mono); font-size: 11px;
+    pointer-events: none; opacity: 0; transition: opacity 0.1s ease; z-index: 5; white-space: nowrap;
+  }
+
+  /* ---------- Compare modal ---------- */
+  .compare-overlay {
+    position: fixed; inset: 0; background: rgba(6,8,10,0.75); backdrop-filter: blur(2px);
+    z-index: 20; display: none; align-items: flex-start; justify-content: center;
+    overflow-y: auto; padding: 60px 20px;
+  }
+  .compare-overlay.open { display: flex; }
+  .compare-modal {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    max-width: 1100px; width: 100%; padding: 32px; position: relative;
+  }
+  .compare-close {
+    position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface-2); color: var(--text-secondary);
+    display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px;
+  }
+  .compare-close:hover { color: var(--text-primary); }
+  .compare-grid { display: grid; gap: 16px; margin-top: 24px; overflow-x: auto; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .compare-table th, .compare-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border-soft); white-space: nowrap; }
+  .compare-table th { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; }
+  .compare-table td.metric-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; }
+  .compare-table td.company-col { font-weight: 600; }
+
+  /* ---------- Historical trend (drawer) ---------- */
+  .trend-wrap { margin-bottom: 8px; }
+  .trend-empty { font-size: 12px; color: var(--text-tertiary); background: var(--surface-2); border-radius: 5px; padding: 12px; }
+  .trend-legend { display: flex; gap: 14px; margin-top: 6px; }
+  .trend-legend-item { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); }
+  .trend-legend-dot { width: 7px; height: 7px; border-radius: 50%; }
+
+  /* ---------- Backtest section ---------- */
+  .backtest-section { margin-bottom: 32px; }
+  .backtest-card {
+    border: 1px solid var(--border); border-radius: 6px; background: var(--surface);
+    padding: 20px;
+  }
+  .backtest-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px; }
+  .backtest-stat { background: var(--surface-2); border-radius: 5px; padding: 12px 14px; }
+  .backtest-stat .v { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: var(--accent); }
+  .backtest-stat .l { font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+  .backtest-interpretation { font-size: 13px; color: var(--text-secondary); line-height: 1.6; padding: 12px 14px; background: var(--surface-2); border-left: 2px solid var(--accent-dim); border-radius: 3px; margin-bottom: 12px; }
+  .backtest-caveat { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-tertiary); line-height: 1.6; }
+
+  /* ---------- Weight sliders ---------- */
+  .weights-section { margin-bottom: 28px; }
+  .weights-card { border: 1px solid var(--border); border-radius: 6px; background: var(--surface); padding: 20px; }
+  .weights-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .weight-item { display: flex; flex-direction: column; gap: 8px; }
+  .weight-item label { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-secondary); display: flex; justify-content: space-between; }
+  .weight-item label .wv { color: var(--accent); font-weight: 600; }
+  .weight-item input[type="range"] { accent-color: var(--accent); width: 100%; }
+  .weights-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); }
+  .weights-reset { background: none; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 4px; padding: 6px 12px; cursor: pointer; font-family: var(--font-mono); font-size: 10.5px; }
+  .weights-reset:hover { border-color: var(--accent-dim); color: var(--text-primary); }
+  .weights-warn { color: var(--negative); }
+  @media (max-width: 720px) { .weights-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- Vista: pestañas Ranking / Gráficas ---------- */
+  .view-tabs { display: flex; gap: 8px; margin-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .view-tab {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 12px 4px; margin-right: 24px; background: none; border: none; cursor: pointer;
+    color: var(--text-tertiary); border-bottom: 2px solid transparent; transition: all 0.15s ease;
+  }
+  .view-tab:hover { color: var(--text-secondary); }
+  .view-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .view-panel { display: none; }
+  .view-panel.active { display: block; }
+
+  /* ---------- Galería de gráficas ---------- */
+  .gallery-search { max-width: 480px; margin-bottom: 24px; }
+  .gallery-grid { display: flex; flex-direction: column; gap: 16px; }
+  .gallery-card { border: 1px solid var(--border); border-radius: 6px; background: var(--surface); padding: 20px; }
+  .gallery-card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+  .gallery-card-header .name { font-size: 16px; font-weight: 600; }
+  .gallery-card-header .industry { font-size: 11px; color: var(--text-tertiary); margin-left: 8px; }
+  .gallery-card-header .score { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: var(--accent); }
+  .gallery-charts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .gallery-chart-block .gc-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 8px; }
+  @media (max-width: 900px) { .gallery-charts { grid-template-columns: 1fr; } }
+
+  /* ---------- Glosario ---------- */
+  .glossary-section { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .glossary-intro { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; max-width: 640px; line-height: 1.6; }
+  .glossary-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .glossary-group h3 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .glossary-term { margin-bottom: 12px; }
+  .glossary-term dt { font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; color: var(--text-primary); }
+  .glossary-term dd { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; margin-top: 2px; }
+  @media (max-width: 720px) { .glossary-groups { grid-template-columns: 1fr; } }
+  .back-to-top { font-family: var(--font-mono); font-size: 11px; color: var(--accent); text-decoration: none; display: inline-block; margin-top: 20px; }
+
+  @media print {
+    .hero, .search-bar, .refresh-strip, .featured-row, .featured-label,
+    .controls, .drawer, .overlay, .compare-overlay, .scope-bg, .check-cell { display: none !important; }
+    body { background: white; color: black; }
+    table, th, td { border-color: #ccc !important; color: black !important; }
+    .table-wrap { border-color: #ccc !important; }
+  }
+  @media (max-width: 720px) { .featured-row { grid-template-columns: repeat(2, 1fr); } }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ---------- Detail Drawer ---------- */
+  .overlay {
+    position: fixed; inset: 0;
+    background: rgba(6,8,10,0.7);
+    backdrop-filter: blur(2px);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .overlay.open { opacity: 1; pointer-events: auto; }
+
+  .drawer {
+    position: fixed;
+    top: 0; right: 0;
+    width: min(680px, 100%);
+    height: 100vh;
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+    z-index: 11;
+    transform: translateX(100%);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+
+  .drawer-inner { padding: 32px; }
+
+  .drawer-close {
+    position: absolute;
+    top: 28px; right: 28px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text-secondary);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .drawer-close:hover { color: var(--text-primary); border-color: var(--accent-dim); }
+
+  .drawer h2 {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 600;
+    max-width: 480px;
+    line-height: 1.15;
+  }
+
+  .drawer .sub {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-top: 6px;
+    font-family: var(--font-mono);
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 32px 0 14px;
+  }
+
+  .pillar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .pillar-name { width: 130px; color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
+  .pillar-track { flex: 1; height: 6px; background: var(--surface-3); border-radius: 3px; overflow: hidden; }
+  .pillar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+  .pillar-val { width: 54px; text-align: right; font-family: var(--font-mono); color: var(--text-primary); }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .metric-box {
+    background: var(--surface-2);
+    border: 1px solid var(--border-soft);
+    border-radius: 5px;
+    padding: 14px;
+  }
+  .metric-box .v { font-family: var(--font-mono); font-size: 19px; font-weight: 600; }
+  .metric-box .l { font-size: 10px; color: var(--text-tertiary); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .lbo-callouts { display: flex; gap: 16px; }
+  .lbo-callout {
+    flex: 1;
+    background: var(--surface-2);
+    border: 1px solid var(--accent-dim);
+    border-radius: 5px;
+    padding: 16px;
+    text-align: center;
+  }
+  .lbo-callout .v { font-family: var(--font-mono); font-size: 26px; font-weight: 700; color: var(--accent); }
+  .lbo-callout .l { font-size: 10px; color: var(--text-tertiary); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .heatmap { border-collapse: collapse; width: 100%; font-family: var(--font-mono); font-size: 11px; }
+  .heatmap th, .heatmap td { padding: 8px; text-align: center; border: 1px solid var(--border-soft); }
+  .heatmap th { color: var(--text-tertiary); font-weight: 500; font-size: 10px; }
+  .heatmap .corner { background: var(--surface-2); }
+
+  .memo-block { margin-bottom: 18px; }
+  .memo-block p { font-size: 13.5px; line-height: 1.6; color: var(--text-primary); }
+  .memo-block ul { padding-left: 18px; margin-top: 6px; }
+  .memo-block li { font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 4px; }
+  .memo-note {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-tertiary);
+    background: var(--surface-2);
+    border-left: 2px solid var(--accent-dim);
+    padding: 8px 12px;
+    margin-top: 8px;
+  }
+  .rec-badge {
+    display: inline-block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    background: rgba(227,178,94,0.1);
+    border: 1px solid var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .risk-flags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .risk-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    padding: 4px 9px;
+    border-radius: 3px;
+    background: rgba(226,99,107,0.1);
+    color: var(--negative);
+    border: 1px solid rgba(226,99,107,0.25);
+  }
+
+  @media (max-width: 720px) {
+    h1 { font-size: 32px; }
+    .stat-strip { gap: 18px; }
+    .stat-value { font-size: 20px; }
+    thead th:nth-child(4), td:nth-child(4) { display: none; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<svg class="scope-bg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#E3B25E" stroke-width="0.5"/>
+  <circle cx="100" cy="100" r="60" fill="none" stroke="#E3B25E" stroke-width="0.5"/>
+  <line x1="100" y1="0" x2="100" y2="200" stroke="#E3B25E" stroke-width="0.5"/>
+  <line x1="0" y1="100" x2="200" y2="100" stroke="#E3B25E" stroke-width="0.5"/>
+</svg>
+
+<div class="wrap" id="top">
+  <header>
+    <div>
+      <div class="eyebrow">Private Market Screening</div>
+      <h1>DealScope<span class="dot">.</span></h1>
+      <div class="tagline">Motor cuantitativo de screening para oportunidades de inversión en empresas privadas — scoring determinístico, comparables, LBO y análisis de sensibilidad.</div>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><div class="stat-value" id="statTotal">—</div><div class="stat-label">Analizadas</div></div>
+      <div class="stat high"><div class="stat-value" id="statHigh">—</div><div class="stat-label">High Priority</div></div>
+      <div class="stat watch"><div class="stat-value" id="statWatch">—</div><div class="stat-label">Watchlist</div></div>
+      <div class="stat rejected"><div class="stat-value" id="statRejected">—</div><div class="stat-label">Rejected</div></div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <p class="hero-desc">
+      <strong>DealScope</strong> es un motor de screening de inversión en empresas privadas. Analiza estados financieros, los compara contra empresas similares (comparables), calcula un <strong>Deal Score de 0 a 100</strong> con una metodología transparente de 5 factores, y simula una compra apalancada (LBO) a 5 años para estimar el retorno esperado (IRR y MOIC) de cada oportunidad.
+    </p>
+    <div class="search-bar">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar empresa por nombre o industria...">
+    </div>
+    <div class="featured-label">Empresas destacadas</div>
+    <div class="featured-row" id="featuredRow"></div>
+    <div class="refresh-strip" id="refreshStrip"></div>
+  </div>
+
+  <div class="view-tabs">
+    <button class="view-tab active" id="tabRanking">Ranking</button>
+    <button class="view-tab" id="tabCharts">Gráficas</button>
+    <button class="view-tab" onclick="document.getElementById('glossary').scrollIntoView({behavior:'smooth'})">Glosario ↓</button>
+  </div>
+
+  <div class="view-panel active" id="rankingView">
+  <div class="backtest-section" id="backtestSection"></div>
+
+  <div class="chart-section">
+    <div class="featured-label">Growth vs. Valuation</div>
+    <div class="chart-wrap">
+      <div id="chartContainer"></div>
+      <div class="chart-tooltip" id="chartTooltip"></div>
+    </div>
+  </div>
+
+  <div class="weights-section">
+    <div class="featured-label">Pesos del Deal Score (ajustables)</div>
+    <div class="weights-card">
+      <div class="weights-grid" id="weightsGrid"></div>
+      <div class="weights-footer">
+        <span id="weightsTotalLabel">Total: 100 / 100</span>
+        <button class="weights-reset" id="weightsReset">Restablecer default</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="chip-row" id="tierChips">
+      <div class="chip active" data-tier="all">Todas</div>
+      <div class="chip" data-tier="High Priority">High Priority</div>
+      <div class="chip" data-tier="Priority">Priority</div>
+      <div class="chip" data-tier="Watchlist">Watchlist</div>
+      <div class="chip" data-tier="Rejected">Rejected</div>
+    </div>
+    <div class="toolbar">
+      <select id="industryFilter"><option value="all">Todas las industrias</option></select>
+      <button class="toolbar-btn" id="exportCsvBtn">Exportar CSV</button>
+      <button class="toolbar-btn" id="exportPdfBtn">Exportar PDF</button>
+      <button class="toolbar-btn primary" id="compareBtn" disabled>Comparar (0)</button>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="check-cell"></th>
+          <th>#</th>
+          <th>Empresa</th>
+          <th>Deal Score</th>
+          <th>Perfil</th>
+          <th>Tier</th>
+          <th class="text-right">Growth</th>
+          <th class="text-right">IRR</th>
+          <th class="text-right">MOIC</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+  </div>
+
+  <div class="view-panel" id="chartsView">
+    <div class="gallery-search">
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="gallerySearchInput" placeholder="Buscar empresa en la galería de gráficas...">
+      </div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+
+  <div class="glossary-section" id="glossary">
+    <div class="featured-label">Glosario — Todos los términos del modelo</div>
+    <div class="glossary-intro">Referencia completa de cada término financiero y técnico usado en DealScope, organizada por categoría. Si algo del ranking o del panel de detalle no te queda claro, aquí está explicado.</div>
+    <div class="glossary-groups">
+
+      <div class="glossary-group">
+        <h3>Los 5 Pilares del Deal Score</h3>
+        <dl>
+          <div class="glossary-term"><dt>Financial Quality (25 pts)</dt><dd>Qué tan rentable es el negocio. Se calcula con EBITDA margin, FCF margin y ROIC proxy.</dd></div>
+          <div class="glossary-term"><dt>Growth (20 pts)</dt><dd>Qué tan rápido creció el revenue el último año, comparado con una banda de referencia de 0%-40%.</dd></div>
+          <div class="glossary-term"><dt>Risk (20 pts)</dt><dd>Qué tan peligrosa es financieramente la empresa: apalancamiento (Debt/EBITDA), cobertura de intereses, y concentración de clientes.</dd></div>
+          <div class="glossary-term"><dt>Valuation (20 pts)</dt><dd>Si la empresa está cara o barata comparada con su peer group (grupo de empresas similares).</dd></div>
+          <div class="glossary-term"><dt>Strategic Fit (15 pts)</dt><dd>Qué tan predecible es su ingreso, medido por el % de revenue recurrente.</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>Métricas Financieras</h3>
+        <dl>
+          <div class="glossary-term"><dt>Revenue</dt><dd>Los ingresos totales de la empresa en el año.</dd></div>
+          <div class="glossary-term"><dt>EBITDA</dt><dd>Ganancia operativa antes de intereses, impuestos, depreciación y amortización — mide cuánto gana el negocio antes de ajustes contables.</dd></div>
+          <div class="glossary-term"><dt>EBITDA Margin</dt><dd>EBITDA ÷ Revenue. Si es 20%, de cada $100 de venta, $20 quedan como ganancia operativa.</dd></div>
+          <div class="glossary-term"><dt>FCF (Free Cash Flow)</dt><dd>El efectivo que le queda a la empresa después de todos sus gastos operativos y de inversión — el dinero real disponible.</dd></div>
+          <div class="glossary-term"><dt>Debt/EBITDA</dt><dd>Cuántos años de EBITDA le tomaría a la empresa pagar toda su deuda. Más bajo = menos riesgoso.</dd></div>
+          <div class="glossary-term"><dt>Interest Coverage</dt><dd>EBITDA ÷ gastos de interés. Qué tan fácil le es a la empresa pagar los intereses de su deuda.</dd></div>
+          <div class="glossary-term"><dt>ROIC (proxy)</dt><dd>Aproximación de qué tan eficiente es la empresa generando ganancias con el capital que tiene invertido.</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>Valuación</h3>
+        <dl>
+          <div class="glossary-term"><dt>EV (Enterprise Value)</dt><dd>El valor total de la empresa — lo que costaría comprarla completa, incluyendo su deuda.</dd></div>
+          <div class="glossary-term"><dt>EV/EBITDA</dt><dd>El múltiplo más usado en M&amp;A y Private Equity: cuántas veces el EBITDA anual vale la empresa.</dd></div>
+          <div class="glossary-term"><dt>EV/Revenue</dt><dd>Lo mismo que EV/EBITDA pero contra ingresos en vez de ganancia — útil para empresas con EBITDA bajo o negativo.</dd></div>
+          <div class="glossary-term"><dt>Peer Median EV/EBITDA</dt><dd>La mediana de ese múltiplo entre las empresas de su mismo peer group (grupo de comparables).</dd></div>
+          <div class="glossary-term"><dt>Discount / Premium</dt><dd>Si la empresa está más barata (descuento) o más cara (premium) que sus comparables.</dd></div>
+          <div class="glossary-term"><dt>Peer Cluster</dt><dd>El grupo de empresas parecidas, calculado con machine learning (k-means) sobre métricas financieras reales — no solo por el nombre de industria.</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>LBO (Compra Apalancada)</h3>
+        <dl>
+          <div class="glossary-term"><dt>LBO (Leveraged Buyout)</dt><dd>Comprar una empresa usando una mezcla de dinero propio y deuda prestada.</dd></div>
+          <div class="glossary-term"><dt>Sponsor Equity</dt><dd>El dinero propio que pone el fondo comprador (el "sponsor") en la transacción.</dd></div>
+          <div class="glossary-term"><dt>Entry / Exit Multiple</dt><dd>El múltiplo EV/EBITDA al comprar la empresa (entry) y al venderla 5 años después (exit).</dd></div>
+          <div class="glossary-term"><dt>Cash Sweep</dt><dd>Usar el flujo de caja libre de cada año para pagar deuda más rápido de lo mínimo requerido.</dd></div>
+          <div class="glossary-term"><dt>IRR (Internal Rate of Return)</dt><dd>El % de ganancia anual promedio de la inversión a lo largo de los 5 años.</dd></div>
+          <div class="glossary-term"><dt>MOIC (Multiple on Invested Capital)</dt><dd>Por cuánto se multiplicó el dinero invertido. Ej: 3.0x significa que se triplicó.</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>Riesgo y Probabilidad</h3>
+        <dl>
+          <div class="glossary-term"><dt>Sensitivity Analysis</dt><dd>Tabla que muestra el IRR/MOIC bajo distintas combinaciones fijas de exit multiple y growth rate.</dd></div>
+          <div class="glossary-term"><dt>Monte Carlo</dt><dd>Simular miles de escenarios aleatorios (no solo una tabla fija) para dar un rango de resultados con probabilidades.</dd></div>
+          <div class="glossary-term"><dt>Percentil (p10 / p50 / p90)</dt><dd>p10 = el peor 10% de los escenarios salió así o peor. p50 = la mediana, el escenario "típico". p90 = el mejor 10% salió así o mejor.</dd></div>
+          <div class="glossary-term"><dt>Prob. IRR &gt; 15% / 20%</dt><dd>De todos los escenarios simulados, qué porcentaje tuvo un IRR mayor a ese umbral.</dd></div>
+          <div class="glossary-term"><dt>Risk Flags</dt><dd>Banderas automáticas de alerta detectadas por reglas (ej. "alta concentración de cliente", "deuda elevada").</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>Backtest y Otros</h3>
+        <dl>
+          <div class="glossary-term"><dt>Backtest</dt><dd>Probar si el modelo hubiera funcionado en el pasado, usando datos históricos reales en vez de datos de hoy.</dd></div>
+          <div class="glossary-term"><dt>Correlación (Spearman)</dt><dd>Número entre -1 y 1 que mide si dos cosas se mueven juntas (score alto → retorno alto). Cerca de 0 = sin relación.</dd></div>
+          <div class="glossary-term"><dt>p-value</dt><dd>Qué tan confiable es esa correlación estadísticamente. Menor a 0.10 se considera significativo en este proyecto.</dd></div>
+          <div class="glossary-term"><dt>Benchmark</dt><dd>El índice de mercado (S&amp;P SmallCap 600) contra el que se compara si el modelo "le ganó al mercado".</dd></div>
+          <div class="glossary-term"><dt>Tier</dt><dd>La clasificación de una empresa según su score: High Priority (80-100), Priority (65-79), Watchlist (40-64), Rejected (0-39).</dd></div>
+          <div class="glossary-term"><dt>Ticker</dt><dd>El símbolo bursátil de la empresa (ej. AMSWA, NRC, BBW).</dd></div>
+          <div class="glossary-term"><dt>Next Earnings Date</dt><dd>La fecha estimada del próximo reporte financiero trimestral de esa empresa.</dd></div>
+        </dl>
+      </div>
+
+    </div>
+    <a class="back-to-top" href="#top">↑ Volver arriba</a>
+  </div>
+
+  <footer>
+    <span>DealScope — Motor determinístico en Python + interpretación por LLM · Datos reales vía Yahoo Finance</span>
+    <span id="footerCount">28 empresas</span>
+  </footer>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="compare-overlay" id="compareOverlay">
+  <div class="compare-modal">
+    <div class="compare-close" id="compareClose">&times;</div>
+    <div class="eyebrow">Comparación</div>
+    <h2 style="font-family: var(--font-display); font-size: 26px;">Empresas seleccionadas</h2>
+    <div class="compare-grid" id="compareGrid"></div>
+  </div>
+</div>
+<div class="drawer" id="drawer">
+  <div class="drawer-inner" id="drawerContent"></div>
+</div>
+
+<script>
+const SCREEN_DATA = {"generated_at": "2026-09-23T00:03:41.821671+00:00", "next_refresh_due": "2026-09-26T00:03:41.821671+00:00", "companies": [{"company": "Perdoceo Education Corporation", "industry": "Education Technology", "deal_score": 77.9, "priority_tier": "Priority", "score_breakdown": {"financial_quality": 19.5, "growth": 12.1, "risk": 19.2, "valuation": 20.0, "strategic_fit": 7.1}, "revenue_growth": 0.242, "ebitda_margin": 0.3131, "fcf_margin": 0.2182, "debt_ebitda": 0.43, "interest_coverage": 40.98, "ev_ebitda": 5.04, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": -0.6553, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.3491, "moic": 4.47, "sponsor_equity": 600322694.0, "exit_equity": 2683251925.0, "next_earnings_date": "2026-11-09", "ticker": "PRDO", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 695208000.0, 710004000.0, 681263000.0, 846096000.0], "ebitda": [null, 154403000.0, 209412000.0, 216698000.0, 264928000.0], "debt": [33841000.0, 27047000.0, 131537000.0, 118331000.0, null], "cash": [109408000.0, 118009000.0, 109130000.0, 110970000.0, null], "price_history": [{"year": "2021", "close": 10.99}, {"year": "2022", "close": 12.99}, {"year": "2023", "close": 16.62}, {"year": "2024", "close": 25.6}, {"year": "2025", "close": 28.91}, {"year": "2026", "close": 31.23}]}, "score_history": [{"date": "2026-09-23", "score": 77.9}], "sensitivity": {"exit_multiples": [7, 8, 9, 10, 11], "growth_rates": [0.05, 0.1, 0.15, 0.2], "irr_matrix": [[0.3034, 0.3784, 0.441, 0.5037], [0.3403, 0.4157, 0.48, 0.5444], [0.3735, 0.4494, 0.5153, 0.5812], [0.4038, 0.4803, 0.5476, 0.6148], [0.4317, 0.5088, 0.5773, 0.6459]], "moic_matrix": [[3.76, 4.98, 6.21, 7.69], [4.32, 5.69, 7.1, 8.78], [4.89, 6.4, 7.99, 9.88], [5.45, 7.11, 8.88, 10.98], [6.01, 7.82, 9.76, 12.08]]}, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.221, "irr_p50": 0.33, "irr_p90": 0.4213, "moic_p10": 2.71, "moic_p50": 4.16, "moic_p90": 5.8, "prob_irr_above_15pct": 0.984, "prob_irr_above_20pct": 0.937, "prob_loss": 0.0, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 1.0, "histogram": {"bin_edges": [0.0246, 0.0701, 0.1156, 0.1611, 0.2066, 0.2521, 0.2977, 0.3432, 0.3887, 0.4342, 0.4797, 0.5252, 0.5707], "counts": [10, 45, 166, 507, 1014, 1708, 2281, 2178, 1363, 600, 117, 11]}}, "ai_memo": null}, {"company": "Insteel Industries, Inc.", "industry": "Industrial Tech", "deal_score": 65.0, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 7.5, "growth": 11.2, "risk": 19.2, "valuation": 20.0, "strategic_fit": 7.1}, "revenue_growth": 0.2239, "ebitda_margin": 0.1115, "fcf_margin": -0.027, "debt_ebitda": 0.04, "interest_coverage": 1389.37, "ev_ebitda": 7.78, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": -0.4675, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Negative Free Cash Flow"], "irr": 0.3045, "moic": 3.78, "sponsor_equity": 252954749.0, "exit_equity": 955448080.0, "next_earnings_date": "2026-10-22", "ticker": "IIIN", "historical": {"years": ["2022", "2023", "2024", "2025"], "revenue": [826832000.0, 649188000.0, 529198000.0, 647706000.0], "ebitda": [176304000.0, 55146000.0, 40789000.0, 72247000.0], "debt": [null, 1569000.0, 1935000.0, 1688000.0, 3903000.0], "cash": [null, 48316000.0, 125670000.0, 111538000.0, 38630000.0], "price_history": [{"year": "2021", "close": 31.81}, {"year": "2022", "close": 23.65}, {"year": "2023", "close": 35.48}, {"year": "2024", "close": 25.98}, {"year": "2025", "close": 31.58}, {"year": "2026", "close": 30.09}]}, "score_history": [{"date": "2026-09-23", "score": 65.0}], "sensitivity": {"exit_multiples": [7, 8, 9, 10, 11], "growth_rates": [0.05, 0.1, 0.15, 0.2], "irr_matrix": [[0.1047, 0.1927, 0.2719, 0.3455], [0.1498, 0.2351, 0.3131, 0.3864], [0.1888, 0.2723, 0.3496, 0.4229], [0.2233, 0.3056, 0.3826, 0.456], [0.2542, 0.3358, 0.4127, 0.4863]], "moic_matrix": [[1.65, 2.41, 3.33, 4.41], [2.01, 2.87, 3.9, 5.12], [2.37, 3.33, 4.48, 5.83], [2.74, 3.79, 5.05, 6.54], [3.1, 4.25, 5.63, 7.25]]}, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.1445, "irr_p50": 0.2803, "irr_p90": 0.3914, "moic_p10": 1.96, "moic_p50": 3.44, "moic_p90": 5.21, "prob_irr_above_15pct": 0.891, "prob_irr_above_20pct": 0.781, "prob_loss": 0.005, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.988, "histogram": {"bin_edges": [-0.1354, -0.078, -0.0206, 0.0368, 0.0941, 0.1515, 0.2089, 0.2663, 0.3237, 0.381, 0.4384, 0.4958, 0.5532], "counts": [6, 17, 96, 288, 711, 1321, 1995, 2416, 1912, 970, 242, 26]}}, "ai_memo": null}, {"company": "Quanex Building Products Corpor", "industry": "Industrials", "deal_score": 62.5, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 2.1, "growth": 20.0, "risk": 13.3, "valuation": 20.0, "strategic_fit": 7.1}, "revenue_growth": 0.4381, "ebitda_margin": -0.0453, "fcf_margin": 0.0359, "debt_ebitda": -10.11, "interest_coverage": -1.49, "ev_ebitda": -20.62, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": -2.4111, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Weak Interest Coverage"], "irr": null, "moic": null, "sponsor_equity": null, "exit_equity": null, "next_earnings_date": "2026-09-03", "ticker": "NX", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 1221502000.0, 1130583000.0, 1277862000.0, 1837641000.0], "ebitda": [null, 152431000.0, 148048000.0, 123003000.0, -83337000.0], "debt": [null, 87687000.0, 116385000.0, 892978000.0, 853734000.0], "cash": [null, 55093000.0, 58474000.0, 97744000.0, 76018000.0], "price_history": [{"year": "2021", "close": 23.12}, {"year": "2022", "close": 22.42}, {"year": "2023", "close": 29.3}, {"year": "2024", "close": 23.49}, {"year": "2025", "close": 15.18}, {"year": "2026", "close": 20.66}]}, "score_history": [{"date": "2026-09-23", "score": 62.5}], "sensitivity": null, "monte_carlo": null, "ai_memo": null}, {"company": "United States Lime & Minerals, ", "industry": "Industrials", "deal_score": 61.9, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 16.1, "growth": 8.7, "risk": 19.2, "valuation": 10.8, "strategic_fit": 7.1}, "revenue_growth": 0.1731, "ebitda_margin": 0.4912, "fcf_margin": 0.1264, "debt_ebitda": 0.02, "interest_coverage": 940.02, "ev_ebitda": 15.61, "peer_median_ev_ebitda": 15.98, "ev_ebitda_discount": -0.0231, "peer_cluster": 4, "peer_cluster_size": 3, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.2868, "moic": 3.53, "sponsor_equity": 1285749158.0, "exit_equity": 4535787517.0, "next_earnings_date": "2026-10-28", "ticker": "USLM", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 236150000.0, 281330000.0, 317721000.0, 372727000.0], "ebitda": [null, 76982000.0, 109249000.0, 149092000.0, 183078000.0], "debt": [null, 5540000.0, 5501000.0, 5039000.0, 4013000.0], "cash": [null, 133384000.0, 187964000.0, 278031000.0, 371124000.0], "price_history": [{"year": "2021", "close": 25.36}, {"year": "2022", "close": 27.85}, {"year": "2023", "close": 45.77}, {"year": "2024", "close": 132.23}, {"year": "2025", "close": 119.55}, {"year": "2026", "close": 113.78}]}, "score_history": [{"date": "2026-09-23", "score": 61.9}], "sensitivity": {"exit_multiples": [7, 8, 9, 10, 11], "growth_rates": [0.05, 0.1, 0.15, 0.2], "irr_matrix": [[-0.2922, -0.1025, 0.0123, 0.1026], [-0.1851, -0.0409, 0.0617, 0.1469], [-0.1156, 0.0081, 0.1034, 0.1852], [-0.0629, 0.049, 0.1396, 0.2191], [-0.0199, 0.0844, 0.1717, 0.2496]], "moic_matrix": [[0.18, 0.58, 1.06, 1.63], [0.36, 0.81, 1.35, 1.98], [0.54, 1.04, 1.64, 2.34], [0.72, 1.27, 1.92, 2.69], [0.9, 1.5, 2.21, 3.05]]}, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.1205, "irr_p50": 0.2619, "irr_p90": 0.3765, "moic_p10": 1.77, "moic_p50": 3.2, "moic_p90": 4.94, "prob_irr_above_15pct": 0.848, "prob_irr_above_20pct": 0.72, "prob_loss": 0.011, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.978, "histogram": {"bin_edges": [-0.2086, -0.146, -0.0834, -0.0207, 0.0419, 0.1045, 0.1671, 0.2297, 0.2923, 0.3549, 0.4176, 0.4802, 0.5428], "counts": [5, 10, 56, 163, 543, 1123, 1892, 2492, 2194, 1182, 311, 29]}}, "ai_memo": null}, {"company": "Strategic Education, Inc.", "industry": "Education Technology", "deal_score": 61.4, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 13.9, "growth": 2.0, "risk": 19.2, "valuation": 19.2, "strategic_fit": 7.1}, "revenue_growth": 0.0396, "ebitda_margin": 0.1928, "fcf_margin": 0.1221, "debt_ebitda": 0.44, "interest_coverage": 38.19, "ev_ebitda": 6.78, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": -0.2764, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth"], "irr": 0.1533, "moic": 2.04, "sponsor_equity": 745848115.0, "exit_equity": 1521696089.0, "next_earnings_date": "2026-11-05", "ticker": "STRA", "historical": {"years": ["2022", "2023", "2024", "2025"], "revenue": [1065480000.0, 1132924000.0, 1219930000.0, 1268220000.0], "ebitda": [137116000.0, 170434000.0, 201654000.0, 244550000.0], "debt": [null, 259281000.0, 213325000.0, 125226000.0, 109121000.0], "cash": [null, 213667000.0, 168481000.0, 137074000.0, 140757000.0], "price_history": [{"year": "2021", "close": 50.28}, {"year": "2022", "close": 70.59}, {"year": "2023", "close": 85.72}, {"year": "2024", "close": 88.74}, {"year": "2025", "close": 78.43}, {"year": "2026", "close": 76.47}]}, "score_history": [{"date": "2026-09-23", "score": 61.4}], "sensitivity": {"exit_multiples": [7, 8, 9, 10, 11], "growth_rates": [0.05, 0.1, 0.15, 0.2], "irr_matrix": [[0.1811, 0.2625, 0.338, 0.4096], [0.2213, 0.3016, 0.3769, 0.4487], [0.2568, 0.3365, 0.4118, 0.484], [0.2887, 0.3681, 0.4435, 0.5162], [0.3177, 0.397, 0.4727, 0.5459]], "moic_matrix": [[2.3, 3.21, 4.29, 5.57], [2.72, 3.74, 4.95, 6.38], [3.14, 4.26, 5.61, 7.2], [3.55, 4.79, 6.27, 8.01], [3.97, 5.32, 6.93, 8.83]]}, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0962, "irr_p50": 0.1836, "irr_p90": 0.2717, "moic_p10": 1.58, "moic_p50": 2.32, "moic_p90": 3.33, "prob_irr_above_15pct": 0.695, "prob_irr_above_20pct": 0.403, "prob_loss": 0.006, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.981, "histogram": {"bin_edges": [-0.1101, -0.0661, -0.0221, 0.0219, 0.0659, 0.1099, 0.1539, 0.1979, 0.2419, 0.2859, 0.3299, 0.3739, 0.4179], "counts": [7, 20, 85, 346, 931, 1879, 2570, 2176, 1286, 581, 110, 9]}}, "ai_memo": null}, {"company": "Photronics, Inc.", "industry": "Industrial Tech", "deal_score": 60.7, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 16.2, "growth": 0.0, "risk": 19.2, "valuation": 18.2, "strategic_fit": 7.1}, "revenue_growth": -0.0204, "ebitda_margin": 0.3526, "fcf_margin": 0.0347, "debt_ebitda": 0.01, "interest_coverage": 5444.44, "ev_ebitda": 5.09, "peer_median_ev_ebitda": 6.75, "ev_ebitda_discount": -0.2453, "peer_cluster": 6, "peer_cluster_size": 3, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth"], "irr": 0.1323, "moic": 1.86, "sponsor_equity": 686280096.0, "exit_equity": 1277511897.0, "next_earnings_date": "2026-08-26", "ticker": "PLAB", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 824549000.0, 892076000.0, 866946000.0, 849294000.0], "ebitda": [null, 321220000.0, 351214000.0, 330554000.0, 299444000.0], "debt": [null, 43688000.0, 30749000.0, 22959000.0, 5959000.0], "cash": [null, 319680000.0, 499292000.0, 598485000.0, 492256000.0], "price_history": [{"year": "2021", "close": 18.85}, {"year": "2022", "close": 16.83}, {"year": "2023", "close": 31.37}, {"year": "2024", "close": 23.56}, {"year": "2025", "close": 32.0}, {"year": "2026", "close": 30.42}]}, "score_history": [{"date": "2026-09-23", "score": 60.7}], "sensitivity": {"exit_multiples": [7, 8, 9, 10, 11], "growth_rates": [0.05, 0.1, 0.15, 0.2], "irr_matrix": [[0.3008, 0.3752, 0.4377, 0.5003], [0.3375, 0.4125, 0.4767, 0.5409], [0.3706, 0.4461, 0.5119, 0.5776], [0.4008, 0.4769, 0.544, 0.6112], [0.4286, 0.5053, 0.5738, 0.6422]], "moic_matrix": [[3.72, 4.92, 6.14, 7.6], [4.28, 5.62, 7.02, 8.69], [4.84, 6.32, 7.9, 9.77], [5.39, 7.03, 8.78, 10.86], [5.95, 7.73, 9.65, 11.94]]}, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.1149, "irr_p50": 0.1855, "irr_p90": 0.2598, "moic_p10": 1.72, "moic_p50": 2.34, "moic_p90": 3.17, "prob_irr_above_15pct": 0.744, "prob_irr_above_20pct": 0.395, "prob_loss": 0.0, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.995, "histogram": {"bin_edges": [-0.0094, 0.0239, 0.0572, 0.0905, 0.1238, 0.1571, 0.1904, 0.2237, 0.257, 0.2903, 0.3236, 0.3569, 0.3902], "counts": [23, 77, 332, 876, 1706, 2368, 2118, 1421, 744, 284, 47, 4]}}, "ai_memo": null}, {"company": "Build-A-Bear Workshop, Inc.", "industry": "Consumer Products", "deal_score": 60.4, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 11.5, "growth": 3.4, "risk": 18.4, "valuation": 20.0, "strategic_fit": 7.1}, "revenue_growth": 0.0673, "ebitda_margin": 0.1536, "fcf_margin": 0.0134, "debt_ebitda": 1.54, "interest_coverage": 10.81, "ev_ebitda": 5.29, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": -0.4353, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.2186, "moic": 2.69, "sponsor_equity": 193670813.0, "exit_equity": 520400759.0, "next_earnings_date": "2026-08-27", "ticker": "BBW", "historical": {"years": ["2022", "2023", "2024", "2025", "2026"], "revenue": [null, 467937000.0, 486114000.0, 496404000.0, 529832000.0], "ebitda": [null, 74425000.0, 79057000.0, 81052000.0, 81378000.0], "debt": [null, 86516000.0, 83570000.0, 96996000.0, 127298000.0], "cash": [null, 42198000.0, 44327000.0, 27758000.0, 26755000.0], "price_history": [{"year": "2021", "close": 17.31}, {"year": "2022", "close": 21.14}, {"year": "2023", "close": 21.73}, {"year": "2024", "close": 44.67}, {"year": "2025", "close": 60.48}, {"year": "2026", "close": 26.37}]}, "score_history": [{"date": "2026-09-23", "score": 60.4}], "sensitivity": {"exit_multiples": [7, 8, 9, 10, 11], "growth_rates": [0.05, 0.1, 0.15, 0.2], "irr_matrix": [[0.2702, 0.3485, 0.4228, 0.489], [0.3089, 0.3872, 0.4618, 0.5293], [0.3436, 0.4219, 0.4971, 0.5657], [0.375, 0.4536, 0.5293, 0.5991], [0.4038, 0.4827, 0.5591, 0.6299]], "moic_matrix": [[3.31, 4.46, 5.83, 7.32], [3.84, 5.14, 6.68, 8.36], [4.38, 5.81, 7.52, 9.41], [4.92, 6.49, 8.37, 10.46], [5.45, 7.17, 9.21, 11.5]]}, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.142, "irr_p50": 0.2329, "irr_p90": 0.3229, "moic_p10": 1.94, "moic_p50": 2.85, "moic_p90": 4.05, "prob_irr_above_15pct": 0.879, "prob_irr_above_20pct": 0.677, "prob_loss": 0.001, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.996, "histogram": {"bin_edges": [-0.0402, 0.002, 0.0442, 0.0864, 0.1287, 0.1709, 0.2131, 0.2553, 0.2975, 0.3397, 0.382, 0.4242, 0.4664], "counts": [9, 37, 149, 543, 1154, 2009, 2389, 1901, 1172, 526, 102, 9]}}, "ai_memo": null}, {"company": "The Simply Good Foods Company", "industry": "Consumer Products", "deal_score": 59.6, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 11.0, "growth": 4.5, "risk": 17.0, "valuation": 20.0, "strategic_fit": 7.1}, "revenue_growth": 0.0898, "ebitda_margin": 0.1292, "fcf_margin": 0.0739, "debt_ebitda": 2.39, "interest_coverage": 8.06, "ev_ebitda": 6.46, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": -0.3107, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.2294, "moic": 2.81, "sponsor_equity": 544531507.0, "exit_equity": 1529223556.0, "next_earnings_date": "2026-10-22", "ticker": "SMPL", "historical": {"years": ["2022", "2023", "2024", "2025"], "revenue": [1168678000.0, 1242672000.0, 1331321000.0, 1450920000.0], "ebitda": [198369000.0, 232742000.0, 240063000.0, 187446000.0], "debt": [409535000.0, 289358000.0, 402979000.0, 304427000.0], "cash": [67494000.0, 87715000.0, 132530000.0, 98468000.0], "price_history": [{"year": "2021", "close": 41.57}, {"year": "2022", "close": 38.03}, {"year": "2023", "close": 39.6}, {"year": "2024", "close": 38.98}, {"year": "2025", "close": 20.08}, {"year": "2026", "close": 10.01}]}, "score_history": [{"date": "2026-09-23", "score": 59.6}], "sensitivity": {"exit_multiples": [7, 8, 9, 10, 11], "growth_rates": [0.05, 0.1, 0.15, 0.2], "irr_matrix": [[0.1879, 0.2697, 0.3457, 0.4178], [0.229, 0.3098, 0.3855, 0.4579], [0.2653, 0.3455, 0.4212, 0.494], [0.2979, 0.3777, 0.4536, 0.5269], [0.3275, 0.4072, 0.4834, 0.5572]], "moic_matrix": [[2.36, 3.3, 4.41, 5.73], [2.8, 3.85, 5.11, 6.59], [3.24, 4.41, 5.8, 7.44], [3.68, 4.96, 6.49, 8.3], [4.12, 5.52, 7.18, 9.16]]}, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.1272, "irr_p50": 0.2328, "irr_p90": 0.3305, "moic_p10": 1.82, "moic_p50": 2.85, "moic_p90": 4.17, "prob_irr_above_15pct": 0.846, "prob_irr_above_20pct": 0.653, "prob_loss": 0.004, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.99, "histogram": {"bin_edges": [-0.1037, -0.0549, -0.006, 0.0428, 0.0917, 0.1405, 0.1893, 0.2382, 0.287, 0.3359, 0.3847, 0.4336, 0.4824], "counts": [6, 23, 81, 336, 853, 1653, 2316, 2346, 1498, 715, 161, 12]}}, "ai_memo": null}, {"company": "Gencor Industries, Inc.", "industry": "Industrials", "deal_score": 59.2, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 11.9, "growth": 1.0, "risk": 19.2, "valuation": 20.0, "strategic_fit": 7.1}, "revenue_growth": 0.0201, "ebitda_margin": 0.1418, "fcf_margin": 0.1886, "debt_ebitda": 0.0, "interest_coverage": 4331.75, "ev_ebitda": 5.97, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": -0.3631, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth"], "irr": 0.1212, "moic": 1.77, "sponsor_equity": 43956252.0, "exit_equity": 77884712.0, "next_earnings_date": "2026-08-10", "ticker": "GENC", "historical": {"years": ["2022", "2023", "2024", "2025"], "revenue": [103479000.0, 105075000.0, 113166000.0, 115437000.0], "ebitda": [6990000.0, 16259000.0, 16289000.0, 16374000.0], "debt": [null, 396000.0, 328000.0, 330000.0, 339000.0], "cash": [null, 9581000.0, 17031000.0, 25482000.0, 26587000.0], "price_history": [{"year": "2021", "close": 11.53}, {"year": "2022", "close": 10.1}, {"year": "2023", "close": 16.14}, {"year": "2024", "close": 17.65}, {"year": "2025", "close": 12.96}, {"year": "2026", "close": 17.86}]}, "score_history": [{"date": "2026-09-23", "score": 59.2}], "sensitivity": {"exit_multiples": [7, 8, 9, 10, 11], "growth_rates": [0.05, 0.1, 0.15, 0.2], "irr_matrix": [[0.222, 0.3021, 0.3771, 0.4488], [0.2619, 0.3414, 0.4165, 0.4887], [0.2974, 0.3765, 0.4519, 0.5246], [0.3293, 0.4084, 0.4842, 0.5575], [0.3585, 0.4377, 0.5138, 0.5878]], "moic_matrix": [[2.72, 3.74, 4.95, 6.38], [3.2, 4.34, 5.7, 7.31], [3.68, 4.94, 6.45, 8.24], [4.15, 5.54, 7.2, 9.16], [4.63, 6.14, 7.95, 10.09]]}, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.081, "irr_p50": 0.1644, "irr_p90": 0.2489, "moic_p10": 1.48, "moic_p50": 2.14, "moic_p90": 3.04, "prob_irr_above_15pct": 0.589, "prob_irr_above_20pct": 0.292, "prob_loss": 0.008, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.97, "histogram": {"bin_edges": [-0.1155, -0.0732, -0.0309, 0.0115, 0.0538, 0.0961, 0.1385, 0.1808, 0.2231, 0.2654, 0.3078, 0.3501, 0.3924], "counts": [6, 25, 81, 359, 992, 1933, 2624, 2133, 1220, 520, 100, 7]}}, "ai_memo": null}, {"company": "Ennis, Inc.", "industry": "Financial Services", "deal_score": 57.2, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 13.4, "growth": 0.0, "risk": 19.2, "valuation": 17.5, "strategic_fit": 7.1}, "revenue_growth": -0.0056, "ebitda_margin": 0.1779, "fcf_margin": 0.1337, "debt_ebitda": 0.05, "interest_coverage": 356.65, "ev_ebitda": 7.27, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": -0.224, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth"], "irr": 0.0689, "moic": 1.4, "sponsor_equity": 228287434.0, "exit_equity": 318522154.0, "next_earnings_date": "2026-12-21", "ticker": "EBF", "historical": {"years": ["2022", "2023", "2024", "2025", "2026"], "revenue": [null, 431837000.0, 420109000.0, 394618000.0, 392403000.0], "ebitda": [null, 77613000.0, 74024000.0, 68485000.0, 69803000.0], "debt": [null, 13009000.0, 9574000.0, 9476000.0, 9215000.0], "cash": [null, 93968000.0, 81597000.0, 67000000.0, 34570000.0], "price_history": [{"year": "2021", "close": 13.84}, {"year": "2022", "close": 16.52}, {"year": "2023", "close": 17.12}, {"year": "2024", "close": 19.27}, {"year": "2025", "close": 17.35}, {"year": "2026", "close": 22.08}]}, "score_history": [{"date": "2026-09-23", "score": 57.2}], "sensitivity": {"exit_multiples": [7, 8, 9, 10, 11], "growth_rates": [0.05, 0.1, 0.15, 0.2], "irr_matrix": [[0.1509, 0.2342, 0.3107, 0.3828], [0.1923, 0.274, 0.35, 0.4221], [0.2286, 0.3094, 0.3851, 0.4575], [0.2611, 0.3413, 0.417, 0.4898], [0.2906, 0.3704, 0.4463, 0.5194]], "moic_matrix": [[2.02, 2.86, 3.87, 5.06], [2.41, 3.36, 4.48, 5.82], [2.8, 3.85, 5.1, 6.58], [3.19, 4.34, 5.71, 7.34], [3.58, 4.83, 6.33, 8.1]]}, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0429, "irr_p50": 0.1291, "irr_p90": 0.2123, "moic_p10": 1.23, "moic_p50": 1.84, "moic_p90": 2.62, "prob_irr_above_15pct": 0.368, "prob_irr_above_20pct": 0.137, "prob_loss": 0.031, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.908, "histogram": {"bin_edges": [-0.1886, -0.1431, -0.0976, -0.0521, -0.0066, 0.0389, 0.0844, 0.1299, 0.1754, 0.2209, 0.2664, 0.3119, 0.3574], "counts": [6, 7, 51, 191, 655, 1552, 2599, 2582, 1555, 672, 122, 8]}}, "ai_memo": null}, {"company": "Amphastar Pharmaceuticals, Inc.", "industry": "Healthcare Services", "deal_score": 52.4, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 19.6, "growth": 0.0, "risk": 15.7, "valuation": 10.0, "strategic_fit": 7.1}, "revenue_growth": -0.0165, "ebitda_margin": 0.2949, "fcf_margin": 0.3196, "debt_ebitda": 3.24, "interest_coverage": 8.33, "ev_ebitda": 6.75, "peer_median_ev_ebitda": 6.75, "ev_ebitda_discount": 0.0, "peer_cluster": 6, "peer_cluster_size": 3, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth"], "irr": 0.0907, "moic": 1.54, "sponsor_equity": 644724806.0, "exit_equity": 995113034.0, "next_earnings_date": "2026-11-05", "ticker": "AMPH", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 498987000.0, 644395000.0, 731967000.0, 719887000.0], "ebitda": [null, 146161000.0, 240294000.0, 277312000.0, 212306000.0], "debt": [null, 102582000.0, 623642000.0, 650549000.0, 656002000.0], "cash": [null, 156098000.0, 144296000.0, 151609000.0, 170177000.0], "price_history": [{"year": "2021", "close": 23.29}, {"year": "2022", "close": 28.02}, {"year": "2023", "close": 61.85}, {"year": "2024", "close": 37.13}, {"year": "2025", "close": 26.78}, {"year": "2026", "close": 24.32}]}, "score_history": [{"date": "2026-09-23", "score": 52.4}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0678, "irr_p50": 0.1483, "irr_p90": 0.2284, "moic_p10": 1.39, "moic_p50": 2.0, "moic_p90": 2.8, "prob_irr_above_15pct": 0.487, "prob_irr_above_20pct": 0.199, "prob_loss": 0.011, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.957, "histogram": {"bin_edges": [-0.1255, -0.0844, -0.0432, -0.0021, 0.0391, 0.0802, 0.1214, 0.1625, 0.2036, 0.2448, 0.2859, 0.3271, 0.3682], "counts": [7, 20, 74, 327, 941, 1899, 2672, 2219, 1232, 504, 100, 5]}}, "ai_memo": null}, {"company": "Standex International Corporati", "industry": "Industrials", "deal_score": 52.4, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 15.1, "growth": 6.4, "risk": 16.5, "valuation": 7.3, "strategic_fit": 7.1}, "revenue_growth": 0.1285, "ebitda_margin": 0.2605, "fcf_margin": 0.1854, "debt_ebitda": 2.44, "interest_coverage": 7.56, "ev_ebitda": 15.8, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": 0.0817, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.2487, "moic": 3.04, "sponsor_equity": 1652094835.0, "exit_equity": 5014865284.0, "next_earnings_date": "2026-10-29", "ticker": "SXI", "historical": {"years": ["2022", "2023", "2024", "2025", "2026"], "revenue": [null, 741048000.0, 720635000.0, 790107000.0, 891597000.0], "ebitda": [null, 197828000.0, 127807000.0, 128179000.0, 232305000.0], "debt": [null, 207251000.0, 187890000.0, 603701000.0, 566294000.0], "cash": [null, 195706000.0, 154203000.0, 104542000.0, 178734000.0], "price_history": [{"year": "2021", "close": 106.69}, {"year": "2022", "close": 99.8}, {"year": "2023", "close": 155.64}, {"year": "2024", "close": 185.04}, {"year": "2025", "close": 216.5}, {"year": "2026", "close": 271.14}]}, "score_history": [{"date": "2026-09-23", "score": 52.4}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0986, "irr_p50": 0.2331, "irr_p90": 0.3449, "moic_p10": 1.6, "moic_p50": 2.85, "moic_p90": 4.4, "prob_irr_above_15pct": 0.794, "prob_irr_above_20pct": 0.628, "prob_loss": 0.016, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.966, "histogram": {"bin_edges": [-0.247, -0.1838, -0.1207, -0.0575, 0.0057, 0.0688, 0.132, 0.1952, 0.2583, 0.3215, 0.3847, 0.4478, 0.511], "counts": [3, 11, 33, 127, 438, 1022, 1907, 2571, 2311, 1225, 323, 29]}}, "ai_memo": null}, {"company": "ATN International, Inc.", "industry": "Media & Entertainment", "deal_score": 51.9, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 15.1, "growth": 0.0, "risk": 9.7, "valuation": 20.0, "strategic_fit": 7.1}, "revenue_growth": -0.0015, "ebitda_margin": 0.217, "fcf_margin": 0.1657, "debt_ebitda": 4.27, "interest_coverage": 3.3, "ev_ebitda": 6.43, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": -0.3134, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["High Leverage", "Decelerating / Weak Growth"], "irr": 0.0895, "moic": 1.53, "sponsor_equity": 457108819.0, "exit_equity": 701566702.0, "next_earnings_date": "2026-11-09", "ticker": "ATNI", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 725745000.0, 762216000.0, 729075000.0, 727975000.0], "ebitda": [null, 160514000.0, 169410000.0, 144824000.0, 157953000.0], "debt": [null, 566024000.0, 655023000.0, 695247000.0, 693953000.0], "cash": [null, 54660000.0, 49225000.0, 73393000.0, 102491000.0], "price_history": [{"year": "2021", "close": 34.06}, {"year": "2022", "close": 39.28}, {"year": "2023", "close": 34.6}, {"year": "2024", "close": 15.54}, {"year": "2025", "close": 22.34}, {"year": "2026", "close": 29.62}]}, "score_history": [{"date": "2026-09-23", "score": 51.9}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0664, "irr_p50": 0.1472, "irr_p90": 0.2274, "moic_p10": 1.38, "moic_p50": 1.99, "moic_p90": 2.79, "prob_irr_above_15pct": 0.479, "prob_irr_above_20pct": 0.194, "prob_loss": 0.012, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.954, "histogram": {"bin_edges": [-0.1218, -0.081, -0.0402, 0.0005, 0.0413, 0.0821, 0.1229, 0.1637, 0.2045, 0.2452, 0.286, 0.3268, 0.3676], "counts": [7, 30, 82, 378, 989, 1951, 2651, 2144, 1189, 482, 92, 5]}}, "ai_memo": null}, {"company": "Spok Holdings, Inc.", "industry": "B2B SaaS", "deal_score": 51.6, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 12.9, "growth": 0.7, "risk": 19.2, "valuation": 11.7, "strategic_fit": 7.1}, "revenue_growth": 0.0149, "ebitda_margin": 0.1689, "fcf_margin": 0.149, "debt_ebitda": 0.24, "interest_coverage": 68.44, "ev_ebitda": 8.87, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": -0.0524, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth"], "irr": 0.0771, "moic": 1.45, "sponsor_equity": 94239893.0, "exit_equity": 136603873.0, "next_earnings_date": "2026-10-28", "ticker": "SPOK", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 134534000.0, 139025000.0, 137653000.0, 139708000.0], "ebitda": [null, 11138000.0, 26297000.0, 24217000.0, 23597000.0], "debt": [null, 15700000.0, 11086000.0, 8773000.0, 6939000.0], "cash": [null, 35754000.0, 31989000.0, 29145000.0, 25280000.0], "price_history": [{"year": "2021", "close": 5.67}, {"year": "2022", "close": 5.84}, {"year": "2023", "close": 12.14}, {"year": "2024", "close": 13.61}, {"year": "2025", "close": 12.12}, {"year": "2026", "close": 10.53}]}, "score_history": [{"date": "2026-09-23", "score": 51.6}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.034, "irr_p50": 0.1275, "irr_p90": 0.2168, "moic_p10": 1.18, "moic_p50": 1.82, "moic_p90": 2.67, "prob_irr_above_15pct": 0.369, "prob_irr_above_20pct": 0.146, "prob_loss": 0.043, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.889, "histogram": {"bin_edges": [-0.2309, -0.181, -0.1311, -0.0811, -0.0312, 0.0187, 0.0686, 0.1185, 0.1684, 0.2183, 0.2683, 0.3182, 0.3681], "counts": [3, 8, 41, 140, 511, 1303, 2474, 2769, 1784, 795, 161, 11]}}, "ai_memo": null}, {"company": "Lakeland Industries, Inc.", "industry": "Industrials", "deal_score": 51.5, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 3.5, "growth": 7.6, "risk": 13.3, "valuation": 20.0, "strategic_fit": 7.1}, "revenue_growth": 0.1521, "ebitda_margin": -0.0544, "fcf_margin": 0.0913, "debt_ebitda": -3.71, "interest_coverage": -4.89, "ev_ebitda": -11.62, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": -1.7951, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Weak Interest Coverage"], "irr": null, "moic": null, "sponsor_equity": null, "exit_equity": null, "next_earnings_date": "2026-12-09", "ticker": "LAKE", "historical": {"years": ["2023", "2024", "2025", "2026"], "revenue": [112846000.0, 124688000.0, 167211000.0, 192648000.0], "ebitda": [7013000.0, 11519000.0, -13390000.0, -10489000.0], "debt": [null, 5238000.0, 12314000.0, 31648000.0, 47293000.0], "cash": [null, 24639000.0, 25222000.0, 17476000.0, 12515000.0], "price_history": [{"year": "2021", "close": 21.23}, {"year": "2022", "close": 13.01}, {"year": "2023", "close": 18.3}, {"year": "2024", "close": 25.38}, {"year": "2025", "close": 8.84}, {"year": "2026", "close": 10.23}]}, "score_history": [{"date": "2026-09-23", "score": 51.5}], "sensitivity": null, "monte_carlo": null, "ai_memo": null}, {"company": "National HealthCare Corporation", "industry": "Healthcare Services", "deal_score": 50.8, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 8.1, "growth": 8.5, "risk": 19.2, "valuation": 7.9, "strategic_fit": 7.1}, "revenue_growth": 0.1694, "ebitda_margin": 0.1408, "fcf_margin": 0.0416, "debt_ebitda": 0.15, "interest_coverage": 33.55, "ev_ebitda": 15.52, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": 0.0624, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.2768, "moic": 3.39, "sponsor_equity": 1492772198.0, "exit_equity": 5065066695.0, "next_earnings_date": "2026-11-06", "ticker": "NHC", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 1074281000.0, 1141544000.0, 1297937000.0, 1517781000.0], "ebitda": [null, 68283000.0, 131096000.0, 182528000.0, 213723000.0], "debt": [null, 125936000.0, 93387000.0, 214766000.0, 87072000.0], "cash": [null, 58667000.0, 107076000.0, 76121000.0, 92829000.0], "price_history": [{"year": "2021", "close": 60.21}, {"year": "2022", "close": 54.53}, {"year": "2023", "close": 87.72}, {"year": "2024", "close": 104.42}, {"year": "2025", "close": 136.11}, {"year": "2026", "close": 222.86}]}, "score_history": [{"date": "2026-09-23", "score": 50.8}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.1065, "irr_p50": 0.2515, "irr_p90": 0.368, "moic_p10": 1.66, "moic_p50": 3.07, "moic_p90": 4.79, "prob_irr_above_15pct": 0.821, "prob_irr_above_20pct": 0.683, "prob_loss": 0.016, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.967, "histogram": {"bin_edges": [-0.2604, -0.194, -0.1275, -0.061, 0.0054, 0.0719, 0.1383, 0.2048, 0.2712, 0.3377, 0.4041, 0.4706, 0.537], "counts": [3, 9, 36, 122, 417, 966, 1768, 2507, 2381, 1388, 372, 31]}}, "ai_memo": null}, {"company": "Cavco Industries, Inc.", "industry": "Industrials", "deal_score": 50.1, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 8.4, "growth": 5.7, "risk": 19.2, "valuation": 9.7, "strategic_fit": 7.1}, "revenue_growth": 0.1136, "ebitda_margin": 0.1195, "fcf_margin": 0.073, "debt_ebitda": 0.15, "interest_coverage": 495.9, "ev_ebitda": 14.75, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": 0.0098, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.2173, "moic": 2.67, "sponsor_equity": 1781091994.0, "exit_equity": 4761034917.0, "next_earnings_date": "2026-10-29", "ticker": "CVCO", "historical": {"years": ["2023", "2024", "2025", "2026"], "revenue": [2142713000.0, 1794792000.0, 2015458000.0, 2244505000.0], "ebitda": [324576000.0, 219354000.0, 230846000.0, 268284000.0], "debt": [null, 21678000.0, 35148000.0, 31538000.0, 30747000.0], "cash": [null, 271427000.0, 352687000.0, 356225000.0, 236721000.0], "price_history": [{"year": "2021", "close": 317.65}, {"year": "2022", "close": 226.25}, {"year": "2023", "close": 346.62}, {"year": "2024", "close": 446.23}, {"year": "2025", "close": 590.74}, {"year": "2026", "close": 558.39}]}, "score_history": [{"date": "2026-09-23", "score": 50.1}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0782, "irr_p50": 0.2088, "irr_p90": 0.3192, "moic_p10": 1.46, "moic_p50": 2.58, "moic_p90": 3.99, "prob_irr_above_15pct": 0.725, "prob_irr_above_20pct": 0.535, "prob_loss": 0.023, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.948, "histogram": {"bin_edges": [-0.3043, -0.2384, -0.1725, -0.1066, -0.0407, 0.0252, 0.0911, 0.1571, 0.223, 0.2889, 0.3548, 0.4207, 0.4866], "counts": [3, 5, 22, 72, 281, 840, 1745, 2676, 2542, 1406, 377, 31]}}, "ai_memo": null}, {"company": "EVI Industries, Inc.", "industry": "Industrials", "deal_score": 48.3, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 5.4, "growth": 7.3, "risk": 14.8, "valuation": 13.7, "strategic_fit": 7.1}, "revenue_growth": 0.1456, "ebitda_margin": 0.0533, "fcf_margin": 0.0158, "debt_ebitda": 2.65, "interest_coverage": 6.05, "ev_ebitda": 13.0, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": -0.1103, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.2589, "moic": 3.16, "sponsor_equity": 139336070.0, "exit_equity": 440533338.0, "next_earnings_date": "2026-11-09", "ticker": "EVI", "historical": {"years": ["2022", "2023", "2024", "2025", "2026"], "revenue": [null, 354173000.0, 353563000.0, 389830000.0, 446570000.0], "ebitda": [null, 22530000.0, 17611000.0, 20460000.0, 23821000.0], "debt": [null, 44450000.0, 21862000.0, 64775000.0, 63089000.0], "cash": [null, 5921000.0, 4558000.0, 8852000.0, 6774000.0], "price_history": [{"year": "2021", "close": 30.11}, {"year": "2022", "close": 23.01}, {"year": "2023", "close": 23.12}, {"year": "2024", "close": 16.19}, {"year": "2025", "close": 24.64}, {"year": "2026", "close": 19.67}]}, "score_history": [{"date": "2026-09-23", "score": 48.3}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0956, "irr_p50": 0.2359, "irr_p90": 0.3499, "moic_p10": 1.58, "moic_p50": 2.88, "moic_p90": 4.48, "prob_irr_above_15pct": 0.791, "prob_irr_above_20pct": 0.633, "prob_loss": 0.018, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.962, "histogram": {"bin_edges": [-0.2747, -0.2083, -0.1419, -0.0754, -0.009, 0.0574, 0.1238, 0.1903, 0.2567, 0.3231, 0.3896, 0.456, 0.5224], "counts": [3, 7, 32, 110, 379, 953, 1826, 2576, 2425, 1317, 343, 29]}}, "ai_memo": null}, {"company": "American States Water Company", "industry": "Real Estate Services", "deal_score": 47.7, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 12.1, "growth": 5.3, "risk": 13.2, "valuation": 10.0, "strategic_fit": 7.1}, "revenue_growth": 0.1052, "ebitda_margin": 0.4034, "fcf_margin": -0.0388, "debt_ebitda": 3.46, "interest_coverage": 5.67, "ev_ebitda": 15.98, "peer_median_ev_ebitda": 15.98, "ev_ebitda_discount": 0.0, "peer_cluster": 4, "peer_cluster_size": 3, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Negative Free Cash Flow"], "irr": 0.2129, "moic": 2.63, "sponsor_equity": 1908309312.0, "exit_equity": 5010078418.0, "next_earnings_date": "2026-11-04", "ticker": "AWR", "historical": {"years": ["2022", "2023", "2024", "2025"], "revenue": [491528000.0, 595699000.0, 595459000.0, 658073000.0], "ebitda": [170784000.0, 252536000.0, 244049000.0, 265447000.0], "debt": [null, 734428000.0, 917883000.0, 938235000.0, 938377000.0], "cash": [null, 5997000.0, 14073000.0, 26661000.0, 18824000.0], "price_history": [{"year": "2021", "close": 93.16}, {"year": "2022", "close": 84.86}, {"year": "2023", "close": 75.16}, {"year": "2024", "close": 74.27}, {"year": "2025", "close": 71.06}, {"year": "2026", "close": 84.39}]}, "score_history": [{"date": "2026-09-23", "score": 47.7}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0843, "irr_p50": 0.2087, "irr_p90": 0.3159, "moic_p10": 1.5, "moic_p50": 2.58, "moic_p90": 3.95, "prob_irr_above_15pct": 0.734, "prob_irr_above_20pct": 0.537, "prob_loss": 0.019, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.956, "histogram": {"bin_edges": [-0.2566, -0.1952, -0.1338, -0.0724, -0.011, 0.0504, 0.1118, 0.1732, 0.2346, 0.296, 0.3574, 0.4188, 0.4802], "counts": [3, 10, 28, 113, 400, 995, 1996, 2671, 2292, 1167, 298, 27]}}, "ai_memo": null}, {"company": "ScanSource, Inc.", "industry": "Industrial Tech", "deal_score": 47.4, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 6.3, "growth": 3.0, "risk": 19.2, "valuation": 11.8, "strategic_fit": 7.1}, "revenue_growth": 0.0609, "ebitda_margin": 0.0415, "fcf_margin": 0.0295, "debt_ebitda": 0.83, "interest_coverage": 20.32, "ev_ebitda": 8.85, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": -0.055, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.1203, "moic": 1.76, "sponsor_equity": 533596666.0, "exit_equity": 941567195.0, "next_earnings_date": "2026-11-05", "ticker": "SCSC", "historical": {"years": ["2022", "2023", "2024", "2025", "2026"], "revenue": [null, 3787721000.0, 3259809000.0, 3040810000.0, 3226062000.0], "ebitda": [null, 170250000.0, 140881000.0, 132604000.0, 133969000.0], "debt": [null, 343585000.0, 153961000.0, 147106000.0, 110897000.0], "cash": [null, 36178000.0, 185460000.0, 126157000.0, 88374000.0], "price_history": [{"year": "2021", "close": 35.08}, {"year": "2022", "close": 29.22}, {"year": "2023", "close": 39.61}, {"year": "2024", "close": 47.45}, {"year": "2025", "close": 39.06}, {"year": "2026", "close": 57.75}]}, "score_history": [{"date": "2026-09-23", "score": 47.4}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0273, "irr_p50": 0.1393, "irr_p90": 0.2409, "moic_p10": 1.14, "moic_p50": 1.92, "moic_p90": 2.94, "prob_irr_above_15pct": 0.444, "prob_irr_above_20pct": 0.221, "prob_loss": 0.062, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.877, "histogram": {"bin_edges": [-0.385, -0.319, -0.253, -0.187, -0.121, -0.055, 0.011, 0.0769, 0.1429, 0.2089, 0.2749, 0.3409, 0.4069], "counts": [2, 4, 10, 37, 132, 567, 1521, 2906, 2930, 1489, 377, 25]}}, "ai_memo": null}, {"company": "Asure Software Inc", "industry": "B2B SaaS", "deal_score": 46.7, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 8.4, "growth": 8.7, "risk": 11.4, "valuation": 11.1, "strategic_fit": 7.1}, "revenue_growth": 0.1732, "ebitda_margin": 0.1464, "fcf_margin": 0.039, "debt_ebitda": 3.64, "interest_coverage": 4.07, "ev_ebitda": 14.12, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": -0.0337, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.281, "moic": 3.45, "sponsor_equity": 130754491.0, "exit_equity": 451068542.0, "next_earnings_date": "2026-10-29", "ticker": "ASUR", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 95828000.0, 119082000.0, 119792000.0, 140541000.0], "ebitda": [null, 10494000.0, 17150000.0, 13712000.0, 20581000.0], "debt": [null, 43220000.0, 10437000.0, 17733000.0, 74803000.0], "cash": [null, 17010000.0, 30317000.0, 21425000.0, 25244000.0], "price_history": [{"year": "2021", "close": 7.83}, {"year": "2022", "close": 9.34}, {"year": "2023", "close": 9.52}, {"year": "2024", "close": 9.41}, {"year": "2025", "close": 9.42}, {"year": "2026", "close": 8.17}]}, "score_history": [{"date": "2026-09-23", "score": 46.7}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.1123, "irr_p50": 0.2559, "irr_p90": 0.3716, "moic_p10": 1.7, "moic_p50": 3.12, "moic_p90": 4.85, "prob_irr_above_15pct": 0.832, "prob_irr_above_20pct": 0.701, "prob_loss": 0.014, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.972, "histogram": {"bin_edges": [-0.2383, -0.1735, -0.1087, -0.0439, 0.021, 0.0858, 0.1506, 0.2154, 0.2802, 0.3451, 0.4099, 0.4747, 0.5395], "counts": [5, 7, 43, 132, 465, 1044, 1826, 2512, 2303, 1291, 341, 31]}}, "ai_memo": null}, {"company": "Advanced Energy Industries, Inc", "industry": "Industrial Tech", "deal_score": 45.8, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 6.2, "growth": 10.7, "risk": 11.8, "valuation": 10.0, "strategic_fit": 7.1}, "revenue_growth": 0.2138, "ebitda_margin": 0.1358, "fcf_margin": 0.019, "debt_ebitda": 5.64, "interest_coverage": 17.96, "ev_ebitda": 44.75, "peer_median_ev_ebitda": 44.75, "ev_ebitda_discount": 0.0, "peer_cluster": 1, "peer_cluster_size": 1, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["High Leverage"], "irr": 0.2656, "moic": 3.25, "sponsor_equity": 4919081472.0, "exit_equity": 15974522367.0, "next_earnings_date": "2026-11-03", "ticker": "AEIS", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 1845422000.0, 1655800000.0, 1482000000.0, 1798800000.0], "ebitda": [null, 309362000.0, 204200000.0, 142900000.0, 244300000.0], "debt": [null, 484493000.0, 1022753000.0, 671700000.0, 679000000.0], "cash": [null, 458818000.0, 1044556000.0, 722100000.0, 791200000.0], "price_history": [{"year": "2021", "close": 89.61}, {"year": "2022", "close": 84.8}, {"year": "2023", "close": 108.11}, {"year": "2024", "close": 115.19}, {"year": "2025", "close": 209.17}, {"year": "2026", "close": 273.43}]}, "score_history": [{"date": "2026-09-23", "score": 45.8}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0995, "irr_p50": 0.2408, "irr_p90": 0.3556, "moic_p10": 1.61, "moic_p50": 2.94, "moic_p90": 4.58, "prob_irr_above_15pct": 0.8, "prob_irr_above_20pct": 0.65, "prob_loss": 0.017, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.963, "histogram": {"bin_edges": [-0.2705, -0.2039, -0.1374, -0.0708, -0.0042, 0.0623, 0.1289, 0.1955, 0.262, 0.3286, 0.3952, 0.4617, 0.5283], "counts": [3, 9, 33, 114, 400, 960, 1824, 2559, 2402, 1324, 343, 29]}}, "ai_memo": null}, {"company": "NVE Corporation", "industry": "Industrial Tech", "deal_score": 45.6, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 18.4, "growth": 0.9, "risk": 19.2, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.0176, "ebitda_margin": 0.6221, "fcf_margin": 0.2967, "debt_ebitda": 0.06, "interest_coverage": 301.39, "ev_ebitda": 30.57, "peer_median_ev_ebitda": 15.98, "ev_ebitda_discount": 0.9134, "peer_cluster": 4, "peer_cluster_size": 3, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth", "Valuation Premium to Peers"], "irr": 0.0377, "moic": 1.2, "sponsor_equity": 225326822.0, "exit_equity": 271086512.0, "next_earnings_date": "2026-10-21", "ticker": "NVEC", "historical": {"years": ["2023", "2024", "2025", "2026"], "revenue": [38253592.0, 29804179.0, 25874694.0, 26331218.0], "ebitda": [25840920.0, 18827012.0, 16318381.0, 16380519.0], "debt": [null, 518706.0, 355147.0, 921231.0, 905539.0], "cash": [null, 1669896.0, 10283550.0, 8036564.0, 1714040.0], "price_history": [{"year": "2021", "close": 52.18}, {"year": "2022", "close": 53.15}, {"year": "2023", "close": 67.87}, {"year": "2024", "close": 74.13}, {"year": "2025", "close": 57.3}, {"year": "2026", "close": 107.83}]}, "score_history": [{"date": "2026-09-23", "score": 45.6}], "sensitivity": null, "monte_carlo": {"n_sims": 9999, "irr_p10": -0.0205, "irr_p50": 0.087, "irr_p90": 0.183, "moic_p10": 0.9, "moic_p50": 1.52, "moic_p90": 2.32, "prob_irr_above_15pct": 0.198, "prob_irr_above_20pct": 0.065, "prob_loss": 0.141, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.733, "histogram": {"bin_edges": [-0.5237, -0.4512, -0.3787, -0.3062, -0.2337, -0.1612, -0.0887, -0.0161, 0.0564, 0.1289, 0.2014, 0.2739, 0.3464], "counts": [1, 1, 4, 9, 49, 190, 829, 2338, 3710, 2239, 598, 31]}}, "ai_memo": null}, {"company": "UFP Technologies, Inc.", "industry": "Industrials", "deal_score": 45.2, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 9.4, "growth": 9.8, "risk": 18.9, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.195, "ebitda_margin": 0.1849, "fcf_margin": 0.0579, "debt_ebitda": 1.22, "interest_coverage": 11.37, "ev_ebitda": 20.72, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": 0.4179, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Valuation Premium to Peers"], "irr": 0.2708, "moic": 3.31, "sponsor_equity": 1039141210.0, "exit_equity": 3444160826.0, "next_earnings_date": "2026-11-02", "ticker": "UFPT", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 353792000.0, 400072000.0, 504421000.0, 602797000.0], "ebitda": [null, 67367000.0, 68954000.0, 95801000.0, 111467000.0], "debt": [null, 68368000.0, 46037000.0, 206033000.0, 154482000.0], "cash": [null, 4451000.0, 5263000.0, 13450000.0, 20301000.0], "price_history": [{"year": "2021", "close": 70.26}, {"year": "2022", "close": 117.89}, {"year": "2023", "close": 172.04}, {"year": "2024", "close": 244.51}, {"year": "2025", "close": 222.03}, {"year": "2026", "close": 285.2}]}, "score_history": [{"date": "2026-09-23", "score": 45.2}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.1008, "irr_p50": 0.2455, "irr_p90": 0.3627, "moic_p10": 1.62, "moic_p50": 3.0, "moic_p90": 4.7, "prob_irr_above_15pct": 0.807, "prob_irr_above_20pct": 0.663, "prob_loss": 0.017, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.964, "histogram": {"bin_edges": [-0.2705, -0.2035, -0.1365, -0.0695, -0.0025, 0.0645, 0.1315, 0.1985, 0.2655, 0.3325, 0.3995, 0.4665, 0.5335], "counts": [3, 9, 34, 119, 408, 955, 1786, 2518, 2390, 1378, 369, 31]}}, "ai_memo": null}, {"company": "Central Garden & Pet Company", "industry": "Consumer Products", "deal_score": 44.4, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 10.0, "growth": 0.0, "risk": 12.9, "valuation": 14.4, "strategic_fit": 7.1}, "revenue_growth": -0.0223, "ebitda_margin": 0.1148, "fcf_margin": 0.1094, "debt_ebitda": 3.92, "interest_coverage": 6.23, "ev_ebitda": 8.13, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": -0.1315, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth"], "irr": 0.0392, "moic": 1.21, "sponsor_equity": 1315384704.0, "exit_equity": 1593870036.0, "next_earnings_date": "2026-11-25", "ticker": "CENT", "historical": {"years": ["2022", "2023", "2024", "2025"], "revenue": [3338588000.0, 3310083000.0, 3200460000.0, 3129064000.0], "ebitda": [338107000.0, 307170000.0, 290759000.0, 359341000.0], "debt": [null, 1382397000.0, 1374421000.0, 1420447000.0, 1440307000.0], "cash": [null, 177442000.0, 488730000.0, 753550000.0, 882488000.0], "price_history": [{"year": "2021", "close": 41.21}, {"year": "2022", "close": 29.33}, {"year": "2023", "close": 39.24}, {"year": "2024", "close": 38.8}, {"year": "2025", "close": 32.15}, {"year": "2026", "close": 40.23}]}, "score_history": [{"date": "2026-09-23", "score": 44.4}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0076, "irr_p50": 0.1033, "irr_p90": 0.1916, "moic_p10": 1.04, "moic_p50": 1.63, "moic_p90": 2.4, "prob_irr_above_15pct": 0.247, "prob_irr_above_20pct": 0.081, "prob_loss": 0.084, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.814, "histogram": {"bin_edges": [-0.312, -0.2574, -0.2027, -0.1481, -0.0935, -0.0388, 0.0158, 0.0704, 0.1251, 0.1797, 0.2343, 0.289, 0.3436], "counts": [2, 5, 14, 57, 253, 852, 1983, 3111, 2386, 1088, 235, 14]}}, "ai_memo": null}, {"company": "Matthews International Corporat", "industry": "Industrials", "deal_score": 44.3, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 8.2, "growth": 0.0, "risk": 9.0, "valuation": 20.0, "strategic_fit": 7.1}, "revenue_growth": -0.166, "ebitda_margin": 0.1007, "fcf_margin": 0.0177, "debt_ebitda": 4.17, "interest_coverage": 2.4, "ev_ebitda": 8.03, "peer_median_ev_ebitda": -1.76, "ev_ebitda_discount": -5.5555, "peer_cluster": 5, "peer_cluster_size": 4, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["High Leverage", "Weak Interest Coverage", "Decelerating / Weak Growth"], "irr": 0.0331, "moic": 1.18, "sponsor_equity": 545263315.0, "exit_equity": 641623214.0, "next_earnings_date": "2026-11-19", "ticker": "MATW", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 1762403000.0, 1880896000.0, 1795737000.0, 1497689000.0], "ebitda": [null, 27562000.0, 182088000.0, 75647000.0, 150850000.0], "debt": [null, 872882000.0, 864352000.0, 839157000.0, 764117000.0], "cash": [null, 69016000.0, 42101000.0, 40816000.0, 32433000.0], "price_history": [{"year": "2021", "close": 31.26}, {"year": "2022", "close": 26.73}, {"year": "2023", "close": 32.97}, {"year": "2024", "close": 25.75}, {"year": "2025", "close": 25.36}, {"year": "2026", "close": 19.91}]}, "score_history": [{"date": "2026-09-23", "score": 44.3}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0004, "irr_p50": 0.098, "irr_p90": 0.1875, "moic_p10": 1.0, "moic_p50": 1.6, "moic_p90": 2.36, "prob_irr_above_15pct": 0.226, "prob_irr_above_20pct": 0.072, "prob_loss": 0.099, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.79, "histogram": {"bin_edges": [-0.3496, -0.2921, -0.2345, -0.177, -0.1194, -0.0619, -0.0044, 0.0532, 0.1107, 0.1683, 0.2258, 0.2834, 0.3409], "counts": [2, 4, 7, 48, 177, 660, 1726, 3140, 2670, 1264, 286, 16]}}, "ai_memo": null}, {"company": "Huron Consulting Group Inc.", "industry": "Financial Services", "deal_score": 43.5, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 9.2, "growth": 5.8, "risk": 11.1, "valuation": 10.3, "strategic_fit": 7.1}, "revenue_growth": 0.1165, "ebitda_margin": 0.1296, "fcf_margin": 0.0889, "debt_ebitda": 3.93, "interest_coverage": 4.24, "ev_ebitda": 14.47, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": -0.0098, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": [], "irr": 0.2244, "moic": 2.75, "sponsor_equity": 1433156314.0, "exit_equity": 3944058919.0, "next_earnings_date": "2026-11-03", "ticker": "HURN", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 1158961000.0, 1398755000.0, 1521805000.0, 1699143000.0], "ebitda": [null, 137028000.0, 161836000.0, 204032000.0, 220135000.0], "debt": [null, 346086000.0, 373882000.0, 398608000.0, 548340000.0], "cash": [null, 11834000.0, 12149000.0, 21911000.0, 24508000.0], "price_history": [{"year": "2021", "close": 49.9}, {"year": "2022", "close": 72.6}, {"year": "2023", "close": 102.8}, {"year": "2024", "close": 124.26}, {"year": "2025", "close": 172.91}, {"year": "2026", "close": 157.86}]}, "score_history": [{"date": "2026-09-23", "score": 43.5}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0829, "irr_p50": 0.2147, "irr_p90": 0.3247, "moic_p10": 1.49, "moic_p50": 2.64, "moic_p90": 4.08, "prob_irr_above_15pct": 0.741, "prob_irr_above_20pct": 0.559, "prob_loss": 0.021, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.953, "histogram": {"bin_edges": [-0.29, -0.2248, -0.1597, -0.0945, -0.0294, 0.0358, 0.101, 0.1661, 0.2313, 0.2964, 0.3616, 0.4267, 0.4919], "counts": [3, 6, 24, 78, 329, 875, 1791, 2650, 2480, 1371, 363, 30]}}, "ai_memo": null}, {"company": "McGrath RentCorp", "industry": "Real Estate Services", "deal_score": 43.3, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 16.2, "growth": 1.8, "risk": 18.2, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.0365, "ebitda_margin": 0.3715, "fcf_margin": 0.0723, "debt_ebitda": 1.68, "interest_coverage": 11.45, "ev_ebitda": 9.57, "peer_median_ev_ebitda": 6.75, "ev_ebitda_discount": 0.4182, "peer_cluster": 6, "peer_cluster_size": 3, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth", "Valuation Premium to Peers"], "irr": 0.1261, "moic": 1.81, "sponsor_equity": 1510693171.0, "exit_equity": 2735917641.0, "next_earnings_date": "2026-10-22", "ticker": "MGRC", "historical": {"years": ["2022", "2023", "2024", "2025"], "revenue": [635665000.0, 831842000.0, 910942000.0, 944235000.0], "ebitda": [258260000.0, 299397000.0, 468345000.0, 350772000.0], "debt": [null, 413742000.0, 762975000.0, 590208000.0, 514924000.0], "cash": [null, 957000.0, 877000.0, 807000.0, 295000.0], "price_history": [{"year": "2021", "close": 73.48}, {"year": "2022", "close": 92.45}, {"year": "2023", "close": 114.18}, {"year": "2024", "close": 108.56}, {"year": "2025", "close": 103.6}, {"year": "2026", "close": 113.47}]}, "score_history": [{"date": "2026-09-23", "score": 43.3}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0668, "irr_p50": 0.1597, "irr_p90": 0.2511, "moic_p10": 1.38, "moic_p50": 2.1, "moic_p90": 3.07, "prob_irr_above_15pct": 0.557, "prob_irr_above_20pct": 0.285, "prob_loss": 0.017, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.948, "histogram": {"bin_edges": [-0.1752, -0.1271, -0.079, -0.0308, 0.0173, 0.0654, 0.1135, 0.1616, 0.2097, 0.2579, 0.306, 0.3541, 0.4022], "counts": [5, 14, 51, 213, 683, 1570, 2587, 2475, 1546, 701, 144, 11]}}, "ai_memo": null}, {"company": "CTS Corporation", "industry": "Industrial Tech", "deal_score": 42.0, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 13.1, "growth": 2.6, "risk": 19.2, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.0516, "ebitda_margin": 0.2265, "fcf_margin": 0.1332, "debt_ebitda": 0.73, "interest_coverage": 28.46, "ev_ebitda": 13.52, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": 0.443, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Valuation Premium to Peers"], "irr": 0.1225, "moic": 1.78, "sponsor_equity": 745759757.0, "exit_equity": 1329022467.0, "next_earnings_date": "2026-10-27", "ticker": "CTS", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 586869000.0, 550422000.0, 514756000.0, 541318000.0], "ebitda": [null, 112682000.0, 107194000.0, 103739000.0, 122618000.0], "debt": [null, 109360000.0, 96859000.0, 118139000.0, 82794000.0], "cash": [null, 156910000.0, 163876000.0, 94334000.0, 82295000.0], "price_history": [{"year": "2021", "close": 36.12}, {"year": "2022", "close": 38.94}, {"year": "2023", "close": 43.37}, {"year": "2024", "close": 52.46}, {"year": "2025", "close": 42.81}, {"year": "2026", "close": 58.95}]}, "score_history": [{"date": "2026-09-23", "score": 42.0}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0415, "irr_p50": 0.1481, "irr_p90": 0.2473, "moic_p10": 1.23, "moic_p50": 1.99, "moic_p90": 3.02, "prob_irr_above_15pct": 0.489, "prob_irr_above_20pct": 0.25, "prob_loss": 0.043, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.904, "histogram": {"bin_edges": [-0.2943, -0.2358, -0.1774, -0.1189, -0.0604, -0.0019, 0.0565, 0.115, 0.1735, 0.232, 0.2904, 0.3489, 0.4074], "counts": [3, 5, 22, 73, 309, 914, 2054, 2908, 2312, 1124, 253, 23]}}, "ai_memo": null}, {"company": "CorVel Corp.", "industry": "Healthcare Services", "deal_score": 40.1, "priority_tier": "Watchlist", "score_breakdown": {"financial_quality": 10.3, "growth": 3.5, "risk": 19.2, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.0703, "ebitda_margin": 0.1825, "fcf_margin": 0.0957, "debt_ebitda": 0.16, "interest_coverage": 102.66, "ev_ebitda": 19.45, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": 1.0763, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Valuation Premium to Peers"], "irr": 0.1383, "moic": 1.91, "sponsor_equity": 1530502387.0, "exit_equity": 2925340464.0, "next_earnings_date": "2026-11-03", "ticker": "CRVL", "historical": {"years": ["2023", "2024", "2025", "2026"], "revenue": [718562000.0, 795311000.0, 895589000.0, 958527000.0], "ebitda": [109675000.0, 121353000.0, 150360000.0, 174895000.0], "debt": [null, 33760000.0, 31397000.0, 28079000.0, 28107000.0], "cash": [null, 71329000.0, 105563000.0, 170584000.0, 233072000.0], "price_history": [{"year": "2021", "close": 69.33}, {"year": "2022", "close": 48.44}, {"year": "2023", "close": 82.4}, {"year": "2024", "close": 111.26}, {"year": "2025", "close": 67.67}, {"year": "2026", "close": 73.59}]}, "score_history": [{"date": "2026-09-23", "score": 40.1}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.036, "irr_p50": 0.1527, "irr_p90": 0.2574, "moic_p10": 1.19, "moic_p50": 2.04, "moic_p90": 3.14, "prob_irr_above_15pct": 0.513, "prob_irr_above_20pct": 0.283, "prob_loss": 0.051, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.895, "histogram": {"bin_edges": [-0.3683, -0.3023, -0.2363, -0.1703, -0.1043, -0.0383, 0.0277, 0.0937, 0.1597, 0.2257, 0.2917, 0.3577, 0.4237], "counts": [2, 4, 12, 40, 152, 663, 1590, 2881, 2786, 1459, 383, 28]}}, "ai_memo": null}, {"company": "Werner Enterprises, Inc.", "industry": "Logistics", "deal_score": 38.8, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 7.7, "growth": 0.0, "risk": 15.7, "valuation": 8.3, "strategic_fit": 7.1}, "revenue_growth": -0.0184, "ebitda_margin": 0.1024, "fcf_margin": 0.0234, "debt_ebitda": 3.11, "interest_coverage": 7.8, "ev_ebitda": 9.86, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": 0.0524, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth"], "irr": 0.0165, "moic": 1.09, "sponsor_equity": 1351022976.0, "exit_equity": 1466158365.0, "next_earnings_date": "2026-10-29", "ticker": "WERN", "historical": {"years": ["2022", "2023", "2024", "2025"], "revenue": [3289978000.0, 3283499000.0, 3030258000.0, 2974396000.0], "ebitda": [616537000.0, 480825000.0, 372099000.0, 304585000.0], "debt": [null, 693750000.0, 648750000.0, 650000000.0, 752000000.0], "cash": [null, 107240000.0, 61723000.0, 40752000.0, 59922000.0], "price_history": [{"year": "2021", "close": 44.51}, {"year": "2022", "close": 38.09}, {"year": "2023", "close": 40.61}, {"year": "2024", "close": 34.83}, {"year": "2025", "close": 29.65}, {"year": "2026", "close": 34.79}]}, "score_history": [{"date": "2026-09-23", "score": 38.8}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": -0.0194, "irr_p50": 0.0838, "irr_p90": 0.1765, "moic_p10": 0.91, "moic_p50": 1.5, "moic_p90": 2.25, "prob_irr_above_15pct": 0.177, "prob_irr_above_20pct": 0.052, "prob_loss": 0.142, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.727, "histogram": {"bin_edges": [-0.5527, -0.4788, -0.4049, -0.3311, -0.2572, -0.1833, -0.1094, -0.0356, 0.0383, 0.1122, 0.1861, 0.2599, 0.3338], "counts": [1, 1, 2, 5, 32, 104, 581, 1953, 3853, 2674, 756, 38]}}, "ai_memo": null}, {"company": "Preformed Line Products Company", "industry": "Industrials", "deal_score": 38.6, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 5.9, "growth": 6.4, "risk": 19.2, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.1274, "ebitda_margin": 0.1045, "fcf_margin": 0.0291, "debt_ebitda": 0.74, "interest_coverage": 53.69, "ev_ebitda": 29.38, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": 1.0106, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Valuation Premium to Peers"], "irr": 0.2308, "moic": 2.82, "sponsor_equity": 924700781.0, "exit_equity": 2612033209.0, "next_earnings_date": "2026-10-28", "ticker": "PLPC", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 637021000.0, 669679000.0, 593714000.0, 669338000.0], "ebitda": [null, 93348000.0, 105163000.0, 73821000.0, 69953000.0], "debt": [null, 98165000.0, 71813000.0, 36695000.0, 47144000.0], "cash": [null, 37239000.0, 53607000.0, 57244000.0, 83389000.0], "price_history": [{"year": "2021", "close": 62.81}, {"year": "2022", "close": 81.61}, {"year": "2023", "close": 132.02}, {"year": "2024", "close": 126.83}, {"year": "2025", "close": 206.24}, {"year": "2026", "close": 425.2}]}, "score_history": [{"date": "2026-09-23", "score": 38.6}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0831, "irr_p50": 0.216, "irr_p90": 0.3267, "moic_p10": 1.49, "moic_p50": 2.66, "moic_p90": 4.11, "prob_irr_above_15pct": 0.744, "prob_irr_above_20pct": 0.565, "prob_loss": 0.021, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.953, "histogram": {"bin_edges": [-0.2932, -0.2273, -0.1614, -0.0954, -0.0295, 0.0364, 0.1023, 0.1683, 0.2342, 0.3001, 0.366, 0.432, 0.4979], "counts": [3, 7, 23, 78, 336, 895, 1807, 2660, 2487, 1330, 345, 29]}}, "ai_memo": null}, {"company": "Rogers Corporation", "industry": "Industrial Tech", "deal_score": 38.4, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 4.8, "growth": 0.0, "risk": 16.5, "valuation": 10.0, "strategic_fit": 7.1}, "revenue_growth": -0.0233, "ebitda_margin": 0.0128, "fcf_margin": 0.1231, "debt_ebitda": 2.74, "interest_coverage": 8.67, "ev_ebitda": 219.44, "peer_median_ev_ebitda": 219.44, "ev_ebitda_discount": 0.0, "peer_cluster": 0, "peer_cluster_size": 1, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth"], "irr": 0.0, "moic": 1.0, "sponsor_equity": 1026996941.0, "exit_equity": 1026996941.0, "next_earnings_date": "2026-10-29", "ticker": "ROG", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 971200000.0, 908400000.0, 830100000.0, 810800000.0], "ebitda": [null, 195800000.0, 137800000.0, 85300000.0, 10400000.0], "debt": [null, 228500000.0, 48900000.0, 24600000.0, 21800000.0], "cash": [null, 235900000.0, 131700000.0, 159800000.0, 197000000.0], "price_history": [{"year": "2021", "close": 273.0}, {"year": "2022", "close": 119.34}, {"year": "2023", "close": 132.07}, {"year": "2024", "close": 101.61}, {"year": "2025", "close": 91.57}, {"year": "2026", "close": 137.96}]}, "score_history": [{"date": "2026-09-23", "score": 38.4}], "sensitivity": null, "monte_carlo": {"n_sims": 9998, "irr_p10": -0.0433, "irr_p50": 0.065, "irr_p90": 0.1592, "moic_p10": 0.8, "moic_p50": 1.37, "moic_p90": 2.09, "prob_irr_above_15pct": 0.123, "prob_irr_above_20pct": 0.03, "prob_loss": 0.208, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.634, "histogram": {"bin_edges": [-0.5402, -0.4684, -0.3966, -0.3248, -0.253, -0.1812, -0.1094, -0.0376, 0.0342, 0.106, 0.1778, 0.2496, 0.3214], "counts": [2, 2, 3, 18, 48, 217, 821, 2294, 3706, 2271, 590, 26]}}, "ai_memo": null}, {"company": "The Ensign Group, Inc.", "industry": "Healthcare Services", "deal_score": 38.2, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 7.2, "growth": 9.4, "risk": 14.5, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.1872, "ebitda_margin": 0.1123, "fcf_margin": 0.0555, "debt_ebitda": 3.96, "interest_coverage": 71.1, "ev_ebitda": 21.35, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": 0.461, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Valuation Premium to Peers"], "irr": 0.2671, "moic": 3.27, "sponsor_equity": 5455388160.0, "exit_equity": 17815542519.0, "next_earnings_date": "2026-11-03", "ticker": "ENSG", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 3025468000.0, 3729355000.0, 4260485000.0, 5057841000.0], "ebitda": [null, 360375000.0, 353236000.0, 478518000.0, 567937000.0], "debt": [null, 1574061000.0, 1871299000.0, 1974471000.0, 2205785000.0], "cash": [null, 316270000.0, 509626000.0, 464598000.0, 503881000.0], "price_history": [{"year": "2021", "close": 83.18}, {"year": "2022", "close": 93.98}, {"year": "2023", "close": 111.73}, {"year": "2024", "close": 132.55}, {"year": "2025", "close": 174.07}, {"year": "2026", "close": 176.32}]}, "score_history": [{"date": "2026-09-23", "score": 38.2}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0996, "irr_p50": 0.242, "irr_p90": 0.3588, "moic_p10": 1.61, "moic_p50": 2.96, "moic_p90": 4.63, "prob_irr_above_15pct": 0.801, "prob_irr_above_20pct": 0.653, "prob_loss": 0.017, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.963, "histogram": {"bin_edges": [-0.2705, -0.2037, -0.137, -0.0702, -0.0034, 0.0633, 0.1301, 0.1969, 0.2636, 0.3304, 0.3972, 0.4639, 0.5307], "counts": [3, 9, 34, 116, 411, 968, 1818, 2547, 2369, 1341, 353, 31]}}, "ai_memo": null}, {"company": "Forrester Research, Inc.", "industry": "B2B SaaS", "deal_score": 36.3, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 2.0, "growth": 0.0, "risk": 13.3, "valuation": 13.9, "strategic_fit": 7.1}, "revenue_growth": -0.0823, "ebitda_margin": -0.2401, "fcf_margin": 0.0291, "debt_ebitda": -0.67, "interest_coverage": -35.55, "ev_ebitda": -1.56, "peer_median_ev_ebitda": -1.76, "ev_ebitda_discount": -0.1163, "peer_cluster": 5, "peer_cluster_size": 4, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Weak Interest Coverage", "Decelerating / Weak Growth"], "irr": null, "moic": null, "sponsor_equity": null, "exit_equity": null, "next_earnings_date": "2026-10-29", "ticker": "FORR", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 537787000.0, 480779000.0, 432470000.0, 396888000.0], "ebitda": [null, 70126000.0, 41411000.0, 35831000.0, -95279000.0], "debt": [null, 114383000.0, 86854000.0, 72567000.0, 71895000.0], "cash": [null, 103629000.0, 72909000.0, 56087000.0, 63335000.0], "price_history": [{"year": "2021", "close": 58.73}, {"year": "2022", "close": 35.76}, {"year": "2023", "close": 26.81}, {"year": "2024", "close": 15.67}, {"year": "2025", "close": 8.12}, {"year": "2026", "close": 11.75}]}, "score_history": [{"date": "2026-09-23", "score": 36.3}], "sensitivity": null, "monte_carlo": null, "ai_memo": null}, {"company": "Franklin Covey Company", "industry": "Consumer Products", "deal_score": 35.0, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 7.6, "growth": 0.0, "risk": 19.2, "valuation": 1.1, "strategic_fit": 7.1}, "revenue_growth": -0.0702, "ebitda_margin": 0.0588, "fcf_margin": 0.0922, "debt_ebitda": 0.0, "interest_coverage": 27.79, "ev_ebitda": 11.87, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": 0.2673, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth", "Valuation Premium to Peers"], "irr": -0.0, "moic": 1.0, "sponsor_equity": 83856787.0, "exit_equity": 83856787.0, "next_earnings_date": "2026-11-04", "ticker": "FC", "historical": {"years": ["2022", "2023", "2024", "2025"], "revenue": [262841000.0, 280521000.0, 287233000.0, 267067000.0], "ebitda": [34821000.0, 36899000.0, 43078000.0, 15700000.0], "debt": [24264000.0, 15332000.0, 6034000.0, 823000.0], "cash": [60517000.0, 38230000.0, 48663000.0, 31698000.0], "price_history": [{"year": "2021", "close": 46.36}, {"year": "2022", "close": 46.77}, {"year": "2023", "close": 43.53}, {"year": "2024", "close": 37.58}, {"year": "2025", "close": 16.78}, {"year": "2026", "close": 17.56}]}, "score_history": [{"date": "2026-09-23", "score": 35.0}], "sensitivity": null, "monte_carlo": {"n_sims": 9998, "irr_p10": -0.0433, "irr_p50": 0.065, "irr_p90": 0.1592, "moic_p10": 0.8, "moic_p50": 1.37, "moic_p90": 2.09, "prob_irr_above_15pct": 0.123, "prob_irr_above_20pct": 0.03, "prob_loss": 0.208, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.634, "histogram": {"bin_edges": [-0.5402, -0.4684, -0.3966, -0.3248, -0.253, -0.1812, -0.1094, -0.0376, 0.0342, 0.106, 0.1778, 0.2496, 0.3214], "counts": [2, 2, 3, 18, 48, 217, 821, 2294, 3706, 2271, 590, 26]}}, "ai_memo": null}, {"company": "Steven Madden, Ltd.", "industry": "Consumer Products", "deal_score": 34.4, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 5.8, "growth": 5.5, "risk": 16.0, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.11, "ebitda_margin": 0.0487, "fcf_margin": 0.0864, "debt_ebitda": 3.05, "interest_coverage": 10.0, "ev_ebitda": 28.9, "peer_median_ev_ebitda": 14.61, "ev_ebitda_discount": 0.9779, "peer_cluster": 2, "peer_cluster_size": 14, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Valuation Premium to Peers"], "irr": 0.2033, "moic": 2.52, "sponsor_equity": 1605431693.0, "exit_equity": 4050175063.0, "next_earnings_date": "2026-11-04", "ticker": "SHOO", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 2122009000.0, 1981582000.0, 2282927000.0, 2534109000.0], "ebitda": [null, 308027000.0, 235243000.0, 258006000.0, 123460000.0], "debt": [null, 108627000.0, 138878000.0, 152988000.0, 486138000.0], "cash": [null, 274713000.0, 204640000.0, 189924000.0, 112423000.0], "price_history": [{"year": "2021", "close": 41.59}, {"year": "2022", "close": 29.31}, {"year": "2023", "close": 39.46}, {"year": "2024", "close": 40.72}, {"year": "2025", "close": 40.98}, {"year": "2026", "close": 44.45}]}, "score_history": [{"date": "2026-09-23", "score": 34.4}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0699, "irr_p50": 0.1962, "irr_p90": 0.3046, "moic_p10": 1.4, "moic_p50": 2.45, "moic_p90": 3.78, "prob_irr_above_15pct": 0.69, "prob_irr_above_20pct": 0.482, "prob_loss": 0.026, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.939, "histogram": {"bin_edges": [-0.3127, -0.2471, -0.1815, -0.1159, -0.0504, 0.0152, 0.0808, 0.1464, 0.212, 0.2775, 0.3431, 0.4087, 0.4743], "counts": [3, 4, 20, 70, 254, 843, 1790, 2736, 2547, 1358, 348, 27]}}, "ai_memo": null}, {"company": "NRC Health", "industry": "Healthcare Services", "deal_score": 34.4, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 12.8, "growth": 0.0, "risk": 14.5, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": -0.0396, "ebitda_margin": 0.22, "fcf_margin": 0.1476, "debt_ebitda": 2.99, "interest_coverage": 6.35, "ev_ebitda": 18.88, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": 1.0155, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth", "Valuation Premium to Peers"], "irr": 0.0, "moic": 1.0, "sponsor_equity": 256793731.0, "exit_equity": 256793731.0, "next_earnings_date": "2026-10-26", "ticker": "NRC", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 151568000.0, 148580000.0, 143060000.0, 137390000.0], "ebitda": [null, 49301000.0, 46723000.0, 41307000.0, 30230000.0], "debt": [null, 22181000.0, 36684000.0, 62684000.0, 79035000.0], "cash": [null, 25026000.0, 6653000.0, 4233000.0, 4139000.0], "price_history": [{"year": "2021", "close": 36.64}, {"year": "2022", "close": 33.63}, {"year": "2023", "close": 36.86}, {"year": "2024", "close": 16.78}, {"year": "2025", "close": 18.45}, {"year": "2026", "close": 21.86}]}, "score_history": [{"date": "2026-09-23", "score": 34.4}], "sensitivity": null, "monte_carlo": {"n_sims": 9998, "irr_p10": -0.0428, "irr_p50": 0.0659, "irr_p90": 0.1613, "moic_p10": 0.8, "moic_p50": 1.38, "moic_p90": 2.11, "prob_irr_above_15pct": 0.129, "prob_irr_above_20pct": 0.033, "prob_loss": 0.207, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.637, "histogram": {"bin_edges": [-0.5402, -0.4682, -0.3962, -0.3242, -0.2522, -0.1802, -0.1082, -0.0362, 0.0358, 0.1078, 0.1798, 0.2518, 0.3238], "counts": [2, 2, 3, 17, 48, 224, 834, 2327, 3676, 2243, 592, 30]}}, "ai_memo": null}, {"company": "Mesa Laboratories, Inc.", "industry": "Healthcare Services", "deal_score": 34.0, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 13.4, "growth": 1.7, "risk": 11.8, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.0338, "ebitda_margin": 0.1846, "fcf_margin": 0.2143, "debt_ebitda": 3.51, "interest_coverage": 4.3, "ev_ebitda": 18.86, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": 1.0135, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth", "Valuation Premium to Peers"], "irr": 0.0699, "moic": 1.4, "sponsor_equity": 390168547.0, "exit_equity": 547087126.0, "next_earnings_date": "2026-11-05", "ticker": "MLAB", "historical": {"years": ["2023", "2024", "2025", "2026"], "revenue": [219080000.0, 216187000.0, 240978000.0, 249130000.0], "ebitda": [37515000.0, -238377000.0, 42347000.0, 45977000.0], "debt": [186140000.0, 224684000.0, 181472000.0, 155169000.0], "cash": [32910000.0, 28214000.0, 27321000.0, 26928000.0], "price_history": [{"year": "2021", "close": 319.89}, {"year": "2022", "close": 162.58}, {"year": "2023", "close": 103.0}, {"year": "2024", "close": 130.36}, {"year": "2025", "close": 78.15}, {"year": "2026", "close": 134.63}]}, "score_history": [{"date": "2026-09-23", "score": 34.0}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": -0.0005, "irr_p50": 0.1085, "irr_p90": 0.208, "moic_p10": 1.0, "moic_p50": 1.67, "moic_p90": 2.57, "prob_irr_above_15pct": 0.296, "prob_irr_above_20pct": 0.119, "prob_loss": 0.101, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.804, "histogram": {"bin_edges": [-0.5013, -0.4285, -0.3557, -0.2829, -0.2101, -0.1373, -0.0645, 0.0082, 0.081, 0.1538, 0.2266, 0.2994, 0.3722], "counts": [2, 0, 5, 11, 45, 211, 878, 2487, 3569, 2158, 601, 33]}}, "ai_memo": null}, {"company": "OSI Systems, Inc.", "industry": "Industrial Tech", "deal_score": 33.8, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 10.2, "growth": 2.1, "risk": 14.4, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.0425, "ebitda_margin": 0.1465, "fcf_margin": 0.1172, "debt_ebitda": 4.01, "interest_coverage": 9.98, "ev_ebitda": 14.85, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": 0.5854, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["High Leverage", "Decelerating / Weak Growth", "Valuation Premium to Peers"], "irr": 0.0922, "moic": 1.55, "sponsor_equity": 1748151130.0, "exit_equity": 2717540717.0, "next_earnings_date": "2026-10-29", "ticker": "OSIS", "historical": {"years": ["2022", "2023", "2024", "2025", "2026"], "revenue": [null, 1278427000.0, 1538758000.0, 1713166000.0, 1785984000.0], "ebitda": [null, 173792000.0, 231270000.0, 261104000.0, 261620000.0], "debt": [null, 359567000.0, 521550000.0, 649634000.0, 1001049000.0], "cash": [null, 76750000.0, 95353000.0, 106405000.0, 359832000.0], "price_history": [{"year": "2021", "close": 93.2}, {"year": "2022", "close": 79.52}, {"year": "2023", "close": 129.05}, {"year": "2024", "close": 167.43}, {"year": "2025", "close": 255.06}, {"year": "2026", "close": 200.84}]}, "score_history": [{"date": "2026-09-23", "score": 33.8}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0156, "irr_p50": 0.1247, "irr_p90": 0.2254, "moic_p10": 1.08, "moic_p50": 1.8, "moic_p90": 2.76, "prob_irr_above_15pct": 0.372, "prob_irr_above_20pct": 0.169, "prob_loss": 0.078, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.847, "histogram": {"bin_edges": [-0.4068, -0.3405, -0.2743, -0.208, -0.1418, -0.0755, -0.0093, 0.057, 0.1233, 0.1895, 0.2558, 0.322, 0.3883], "counts": [2, 3, 5, 34, 103, 495, 1371, 2924, 3027, 1583, 426, 27]}}, "ai_memo": null}, {"company": "ArcBest Corporation", "industry": "Logistics", "deal_score": 31.6, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 6.4, "growth": 0.0, "risk": 18.1, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": -0.0404, "ebitda_margin": 0.0663, "fcf_margin": 0.037, "debt_ebitda": 1.73, "interest_coverage": 21.5, "ev_ebitda": 12.17, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": 0.2996, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Decelerating / Weak Growth", "Valuation Premium to Peers"], "irr": 0.0, "moic": 1.0, "sponsor_equity": 1455851174.0, "exit_equity": 1455851174.0, "next_earnings_date": "2026-11-04", "ticker": "ARCB", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 5029008000.0, 4427443000.0, 4179019000.0, 4010158000.0], "ebitda": [null, 536068000.0, 341738000.0, 376781000.0, 265793000.0], "debt": [null, 438676000.0, 437731000.0, 413476000.0, 464583000.0], "cash": [null, 158264000.0, 262226000.0, 127444000.0, 102030000.0], "price_history": [{"year": "2021", "close": 117.03}, {"year": "2022", "close": 68.76}, {"year": "2023", "close": 118.56}, {"year": "2024", "close": 92.42}, {"year": "2025", "close": 73.97}, {"year": "2026", "close": 131.71}]}, "score_history": [{"date": "2026-09-23", "score": 31.6}], "sensitivity": null, "monte_carlo": {"n_sims": 9998, "irr_p10": -0.0433, "irr_p50": 0.065, "irr_p90": 0.1592, "moic_p10": 0.8, "moic_p50": 1.37, "moic_p90": 2.09, "prob_irr_above_15pct": 0.123, "prob_irr_above_20pct": 0.03, "prob_loss": 0.208, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.634, "histogram": {"bin_edges": [-0.5402, -0.4684, -0.3966, -0.3248, -0.253, -0.1812, -0.1094, -0.0376, 0.0342, 0.106, 0.1778, 0.2496, 0.3214], "counts": [2, 2, 3, 18, 48, 217, 821, 2294, 3706, 2271, 590, 26]}}, "ai_memo": null}, {"company": "Gibraltar Industries, Inc.", "industry": "Industrials", "deal_score": 31.3, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 13.1, "growth": 5.5, "risk": 5.6, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": 0.1096, "ebitda_margin": 0.1344, "fcf_margin": 0.2709, "debt_ebitda": 8.97, "interest_coverage": 1.86, "ev_ebitda": 17.16, "peer_median_ev_ebitda": 9.37, "ev_ebitda_discount": 0.8322, "peer_cluster": 3, "peer_cluster_size": 18, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["High Leverage", "Weak Interest Coverage", "Valuation Premium to Peers"], "irr": 0.2074, "moic": 2.57, "sponsor_equity": 1178399117.0, "exit_equity": 3023880794.0, "next_earnings_date": "2026-10-29", "ticker": "ROCK", "historical": {"years": ["2021", "2022", "2023", "2024", "2025"], "revenue": [null, 1389966000.0, 1046998000.0, 1023359000.0, 1135501000.0], "ebitda": [null, 156269000.0, 142476000.0, 164794000.0, 152600000.0], "debt": [null, 116423000.0, 46267000.0, 43114000.0, 57679000.0], "cash": [null, 17608000.0, 99426000.0, 269480000.0, 115724000.0], "price_history": [{"year": "2021", "close": 66.68}, {"year": "2022", "close": 45.88}, {"year": "2023", "close": 78.98}, {"year": "2024", "close": 58.9}, {"year": "2025", "close": 49.44}, {"year": "2026", "close": 42.6}]}, "score_history": [{"date": "2026-09-23", "score": 31.3}], "sensitivity": null, "monte_carlo": {"n_sims": 10000, "irr_p10": 0.0719, "irr_p50": 0.2009, "irr_p90": 0.3108, "moic_p10": 1.42, "moic_p50": 2.5, "moic_p90": 3.87, "prob_irr_above_15pct": 0.701, "prob_irr_above_20pct": 0.502, "prob_loss": 0.025, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.941, "histogram": {"bin_edges": [-0.3132, -0.2472, -0.1811, -0.1151, -0.0491, 0.0169, 0.083, 0.149, 0.215, 0.281, 0.3471, 0.4131, 0.4791], "counts": [3, 4, 22, 67, 259, 838, 1753, 2703, 2548, 1403, 371, 29]}}, "ai_memo": null}, {"company": "Cato Corporation (The)", "industry": "Consumer Products", "deal_score": 30.5, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 1.9, "growth": 0.3, "risk": 11.2, "valuation": 10.0, "strategic_fit": 7.1}, "revenue_growth": 0.0062, "ebitda_margin": 0.004, "fcf_margin": 0.0045, "debt_ebitda": 53.3, "interest_coverage": 22.62, "ev_ebitda": 35.14, "peer_median_ev_ebitda": 35.14, "ev_ebitda_discount": 0.0, "peer_cluster": 7, "peer_cluster_size": 1, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["High Leverage", "Decelerating / Weak Growth"], "irr": 0.0135, "moic": 1.07, "sponsor_equity": 41125136.0, "exit_equity": 43977119.0, "next_earnings_date": "2026-11-19", "ticker": "CATO", "historical": {"years": ["2022", "2023", "2024", "2025", "2026"], "revenue": [null, 759260000.0, 708059000.0, 649806000.0, 653812000.0], "ebitda": [null, 12937000.0, -3895000.0, -6237000.0, 2601000.0], "debt": [null, 174767000.0, 153121000.0, 145896000.0, 150448000.0], "cash": [null, 20005000.0, 23940000.0, 20279000.0, 16788000.0], "price_history": [{"year": "2021", "close": 13.43}, {"year": "2022", "close": 7.76}, {"year": "2023", "close": 6.48}, {"year": "2024", "close": 3.9}, {"year": "2025", "close": 3.09}, {"year": "2026", "close": 2.47}]}, "score_history": [{"date": "2026-09-23", "score": 30.5}], "sensitivity": null, "monte_carlo": {"n_sims": 9999, "irr_p10": -0.035, "irr_p50": 0.0728, "irr_p90": 0.1675, "moic_p10": 0.84, "moic_p50": 1.42, "moic_p90": 2.17, "prob_irr_above_15pct": 0.147, "prob_irr_above_20pct": 0.04, "prob_loss": 0.183, "benchmark_cagr": 0.0394, "prob_beat_benchmark": 0.672, "histogram": {"bin_edges": [-0.7295, -0.6412, -0.5529, -0.4646, -0.3763, -0.288, -0.1996, -0.1113, -0.023, 0.0653, 0.1536, 0.2419, 0.3302], "counts": [1, 0, 1, 3, 5, 39, 188, 999, 3347, 4054, 1290, 72]}}, "ai_memo": null}, {"company": "Helen of Troy Limited", "industry": "Consumer Products", "deal_score": 28.9, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 2.4, "growth": 0.0, "risk": 13.3, "valuation": 6.1, "strategic_fit": 7.1}, "revenue_growth": -0.0636, "ebitda_margin": -0.4074, "fcf_margin": 0.0476, "debt_ebitda": -1.06, "interest_coverage": -12.61, "ev_ebitda": -1.97, "peer_median_ev_ebitda": -1.76, "ev_ebitda_discount": 0.1163, "peer_cluster": 5, "peer_cluster_size": 4, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Weak Interest Coverage", "Decelerating / Weak Growth"], "irr": null, "moic": null, "sponsor_equity": null, "exit_equity": null, "next_earnings_date": "2026-10-08", "ticker": "HELE", "historical": {"years": ["2023", "2024", "2025", "2026"], "revenue": [2072667000.0, 2005050000.0, 1907665000.0, 1786290000.0], "ebitda": [256723000.0, 313606000.0, 198634000.0, -727804000.0], "debt": [null, 977084000.0, 702933000.0, 956843000.0, 833695000.0], "cash": [null, 29073000.0, 18501000.0, 18867000.0, 18886000.0], "price_history": [{"year": "2021", "close": 244.47}, {"year": "2022", "close": 110.91}, {"year": "2023", "close": 120.81}, {"year": "2024", "close": 59.83}, {"year": "2025", "close": 21.25}, {"year": "2026", "close": 29.49}]}, "score_history": [{"date": "2026-09-23", "score": 28.9}], "sensitivity": null, "monte_carlo": null, "ai_memo": null}, {"company": "Resources Connection, Inc.", "industry": "Financial Services", "deal_score": 23.7, "priority_tier": "Rejected", "score_breakdown": {"financial_quality": 3.3, "growth": 0.0, "risk": 13.3, "valuation": 0.0, "strategic_fit": 7.1}, "revenue_growth": -0.1802, "ebitda_margin": -0.0432, "fcf_margin": 0.0832, "debt_ebitda": -1.15, "interest_coverage": -14.45, "ev_ebitda": -3.94, "peer_median_ev_ebitda": -1.76, "ev_ebitda_discount": 1.2325, "peer_cluster": 5, "peer_cluster_size": 4, "largest_customer_pct": 0.15, "recurring_revenue_pct": 0.5, "risk_flags": ["Weak Interest Coverage", "Decelerating / Weak Growth", "Valuation Premium to Peers"], "irr": null, "moic": null, "sponsor_equity": null, "exit_equity": null, "next_earnings_date": "2026-10-07", "ticker": "RGP", "historical": {"years": ["2022", "2023", "2024", "2025", "2026"], "revenue": [null, 775643000.0, 632801000.0, 551331000.0, 452006000.0], "ebitda": [null, 84700000.0, 43822000.0, 16371000.0, -19533000.0], "debt": [null, 17734000.0, 13321000.0, 25305000.0, 22522000.0], "cash": [null, 116784000.0, 108892000.0, 86147000.0, 82372000.0], "price_history": [{"year": "2021", "close": 14.18}, {"year": "2022", "close": 15.06}, {"year": "2023", "close": 12.04}, {"year": "2024", "close": 7.65}, {"year": "2025", "close": 4.79}, {"year": "2026", "close": 3.98}]}, "score_history": [{"date": "2026-09-23", "score": 23.7}], "sensitivity": null, "monte_carlo": null, "ai_memo": null}]};
+const DEAL_DATA = SCREEN_DATA.companies;
+const GENERATED_AT = SCREEN_DATA.generated_at;
+const NEXT_REFRESH_DUE = SCREEN_DATA.next_refresh_due;
+const BACKTEST_DATA = {"n": 15, "spearman_correlation": 0.061, "p_value": 0.8298, "interpretation": "Sin relación estadísticamente significativa en esta muestra (muestra pequeña / período único).", "avg_return_top_third": 0.0272, "avg_return_bottom_third": -0.2903, "benchmark_ticker": "^SP600 (S&P SmallCap 600)", "benchmark_return": 0.213, "beat_benchmark": false, "results": [{"ticker": "MGRC", "backtest_year": "2022", "current_year": "2026", "historical_score": 77.0, "forward_return": 0.5442}, {"ticker": "AWR", "backtest_year": "2022", "current_year": "2026", "historical_score": 68.5, "forward_return": -0.0941}, {"ticker": "FC", "backtest_year": "2022", "current_year": "2026", "historical_score": 51.3, "forward_return": -0.6212}, {"ticker": "NVEC", "backtest_year": "2023", "current_year": "2026", "historical_score": 50.0, "forward_return": 1.0665}, {"ticker": "SMPL", "backtest_year": "2022", "current_year": "2026", "historical_score": 49.0, "forward_return": -0.7592}, {"ticker": "CRVL", "backtest_year": "2023", "current_year": "2026", "historical_score": 42.2, "forward_return": 0.0614}, {"ticker": "IIIN", "backtest_year": "2022", "current_year": "2026", "historical_score": 39.9, "forward_return": -0.0541}, {"ticker": "WERN", "backtest_year": "2022", "current_year": "2026", "historical_score": 36.9, "forward_return": -0.2184}, {"ticker": "STRA", "backtest_year": "2022", "current_year": "2026", "historical_score": 35.6, "forward_return": 0.5209}, {"ticker": "CVCO", "backtest_year": "2023", "current_year": "2026", "historical_score": 32.7, "forward_return": 0.7579}, {"ticker": "LAKE", "backtest_year": "2023", "current_year": "2026", "historical_score": 31.4, "forward_return": -0.5181}, {"ticker": "HELE", "backtest_year": "2023", "current_year": "2026", "historical_score": 29.5, "forward_return": -0.8794}, {"ticker": "CENT", "backtest_year": "2022", "current_year": "2026", "historical_score": 26.8, "forward_return": -0.0238}, {"ticker": "MLAB", "backtest_year": "2023", "current_year": "2026", "historical_score": 26.2, "forward_return": -0.5791}, {"ticker": "GENC", "backtest_year": "2022", "current_year": "2026", "historical_score": 24.2, "forward_return": 0.549}]};
+const RUN_STATUS = null;
+
+// ---------- Helpers ----------
+const fmtPct = (v, digits=1) => (v === null || v === undefined) ? '—' : (v*100).toFixed(digits) + '%';
+const fmtX = (v, digits=2) => (v === null || v === undefined) ? '—' : v.toFixed(digits) + 'x';
+const fmtNum = (v) => (v === null || v === undefined) ? '—' : v.toLocaleString('en-US');
+const fmtMoney = (v) => {
+  if (v === null || v === undefined) return '—';
+  if (Math.abs(v) >= 1e6) return '$' + (v/1e6).toFixed(1) + 'M';
+  return '$' + fmtNum(Math.round(v));
+};
+
+const tierColor = {
+  'High Priority': 'var(--tier-high)',
+  'Priority': 'var(--tier-priority)',
+  'Watchlist': 'var(--tier-watchlist)',
+  'Rejected': 'var(--tier-rejected)',
+};
+
+let currentTierFilter = 'all';
+let currentIndustryFilter = 'all';
+let currentSearch = '';
+
+function daysUntil(isoDateStr) {
+  if (!isoDateStr) return null;
+  const target = new Date(isoDateStr);
+  if (isNaN(target.getTime())) return null;
+  const now = new Date();
+  return Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+}
+
+/** Devuelve {days, hours, minutes, seconds, totalMs, isPast} contando en vivo
+ * hasta isoDateStr. Se usa para los countdowns que corren segundo a segundo. */
+function liveCountdown(isoDateStr) {
+  if (!isoDateStr) return null;
+  const target = new Date(isoDateStr);
+  if (isNaN(target.getTime())) return null;
+  const totalMs = target - new Date();
+  const isPast = totalMs <= 0;
+  const abs = Math.abs(totalMs);
+  const days = Math.floor(abs / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((abs / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((abs / (1000 * 60)) % 60);
+  const seconds = Math.floor((abs / 1000) % 60);
+  return { days, hours, minutes, seconds, totalMs, isPast };
+}
+
+function formatCountdown(c) {
+  if (!c) return 'N/D';
+  const pad = n => String(n).padStart(2, '0');
+  if (c.days > 0) return `${c.days}d ${pad(c.hours)}h ${pad(c.minutes)}m ${pad(c.seconds)}s`;
+  return `${pad(c.hours)}h ${pad(c.minutes)}m ${pad(c.seconds)}s`;
+}
+
+function renderRefreshStrip() {
+  const strip = document.getElementById('refreshStrip');
+  const genDate = GENERATED_AT ? new Date(GENERATED_AT) : null;
+  const genLabel = genDate ? genDate.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : 'N/D';
+
+  let healthHtml = '';
+  if (RUN_STATUS) {
+    const isOk = RUN_STATUS.status === 'success';
+    const finishedLabel = RUN_STATUS.finished_at
+      ? new Date(RUN_STATUS.finished_at).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
+      : 'N/D';
+    const dotColor = isOk ? 'var(--positive)' : 'var(--negative)';
+    const label = isOk ? 'Automatización activa' : 'Última corrida automática falló';
+    healthHtml = `
+      <div class="refresh-item" title="${RUN_STATUS.message || ''}">
+        <span class="refresh-dot" style="background:${dotColor}"></span>${label} · ${finishedLabel}
+      </div>`;
+  }
+
+  strip.innerHTML = `
+    <div class="refresh-item"><span class="refresh-dot"></span>Última actualización: <span class="highlight">${genLabel}</span></div>
+    <div class="refresh-item">Próxima actualización de precios/valuación en: <span class="highlight mono" id="liveRefreshCountdown">—</span></div>
+    ${healthHtml}
+  `;
+  tickRefreshCountdown();
+}
+
+function tickRefreshCountdown() {
+  const el = document.getElementById('liveRefreshCountdown');
+  if (!el) return;
+  const c = liveCountdown(NEXT_REFRESH_DUE);
+  if (!c) { el.textContent = 'N/D'; return; }
+  el.textContent = c.isPast ? 'Pendiente de correr refresh_all.sh' : formatCountdown(c);
+}
+
+// Actualiza el countdown global cada segundo, en vivo
+setInterval(tickRefreshCountdown, 1000);
+
+function renderFeatured() {
+  const top = [...DEAL_DATA].sort((a,b) => b.deal_score - a.deal_score).slice(0, 4);
+  const row = document.getElementById('featuredRow');
+  row.innerHTML = top.map(d => `
+    <div class="featured-card" data-company="${d.company}">
+      <div class="fc-score">${d.deal_score.toFixed(0)}</div>
+      <div class="fc-name">${d.company}</div>
+      <div class="fc-industry">${d.industry}</div>
+    </div>
+  `).join('');
+  row.querySelectorAll('.featured-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const d = DEAL_DATA.find(x => x.company === card.dataset.company);
+      if (d) openDrawer(d);
+    });
+  });
+}
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  currentSearch = e.target.value.trim().toLowerCase();
+  renderTable();
+});
+
+function populateIndustryFilter() {
+  const industries = [...new Set(DEAL_DATA.map(d => d.industry))].sort();
+  const sel = document.getElementById('industryFilter');
+  industries.forEach(ind => {
+    const opt = document.createElement('option');
+    opt.value = ind; opt.textContent = ind;
+    sel.appendChild(opt);
+  });
+  sel.addEventListener('change', (e) => {
+    currentIndustryFilter = e.target.value;
+    renderTable();
+  });
+}
+
+function renderStats() {
+  const total = DEAL_DATA.length;
+  const high = DEAL_DATA.filter(d => d.priority_tier === 'High Priority').length;
+  const watch = DEAL_DATA.filter(d => d.priority_tier === 'Watchlist').length;
+  const rejected = DEAL_DATA.filter(d => d.priority_tier === 'Rejected').length;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statHigh').textContent = high;
+  document.getElementById('statWatch').textContent = watch;
+  document.getElementById('statRejected').textContent = rejected;
+  document.getElementById('footerCount').textContent = total + ' empresas';
+}
+
+function fingerprint(breakdown) {
+  const maxes = { financial_quality: 25, growth: 20, risk: 20, valuation: 20, strategic_fit: 15 };
+  const keys = ['financial_quality','growth','risk','valuation','strategic_fit'];
+  return `<div class="fingerprint">` + keys.map(k => {
+    const pct = Math.max(0.08, (breakdown[k] / maxes[k]));
+    const h = Math.round(pct * 20);
+    return `<div class="seg" style="height:${h}px; background: var(--accent); opacity:${0.4 + pct*0.6}"></div>`;
+  }).join('') + `</div>`;
+}
+
+// ---------- Pesos ajustables del score ----------
+const WEIGHT_DEFAULTS = { financial_quality: 25, growth: 20, risk: 20, valuation: 20, strategic_fit: 15 };
+const WEIGHT_LABELS = { financial_quality: 'Financial Quality', growth: 'Growth', risk: 'Risk', valuation: 'Valuation', strategic_fit: 'Strategic Fit' };
+const WEIGHT_MAXES = { financial_quality: 25, growth: 20, risk: 20, valuation: 20, strategic_fit: 15 };
+let currentWeights = { ...WEIGHT_DEFAULTS };
+
+function isDefaultWeights() {
+  return Object.keys(WEIGHT_DEFAULTS).every(k => currentWeights[k] === WEIGHT_DEFAULTS[k]);
+}
+
+function adjustedScore(d) {
+  const totalWeight = Object.values(currentWeights).reduce((a, b) => a + b, 0);
+  if (totalWeight === 0) return 0;
+  let sum = 0;
+  for (const key of Object.keys(WEIGHT_DEFAULTS)) {
+    const frac = (d.score_breakdown[key] || 0) / WEIGHT_MAXES[key];
+    sum += frac * currentWeights[key];
+  }
+  return (sum / totalWeight) * 100;
+}
+
+function getDisplayScore(d) {
+  return isDefaultWeights() ? d.deal_score : adjustedScore(d);
+}
+
+function renderWeights() {
+  const grid = document.getElementById('weightsGrid');
+  grid.innerHTML = Object.keys(WEIGHT_DEFAULTS).map(key => `
+    <div class="weight-item">
+      <label>${WEIGHT_LABELS[key]} <span class="wv" id="wv_${key}">${currentWeights[key]}</span></label>
+      <input type="range" min="0" max="40" value="${currentWeights[key]}" id="slider_${key}" data-key="${key}">
+    </div>
+  `).join('');
+
+  Object.keys(WEIGHT_DEFAULTS).forEach(key => {
+    document.getElementById(`slider_${key}`).addEventListener('input', (e) => {
+      currentWeights[key] = Number(e.target.value);
+      document.getElementById(`wv_${key}`).textContent = currentWeights[key];
+      updateWeightsTotal();
+      renderTable();
+      renderFeatured();
+    });
+  });
+
+  updateWeightsTotal();
+}
+
+function updateWeightsTotal() {
+  const total = Object.values(currentWeights).reduce((a, b) => a + b, 0);
+  const label = document.getElementById('weightsTotalLabel');
+  const suffix = isDefaultWeights() ? ' (default)' : ' — ranking recalculado en vivo';
+  label.innerHTML = `Total: <span class="${total === 0 ? 'weights-warn' : ''}">${total}</span> pts${suffix}`;
+}
+
+document.getElementById('weightsReset').addEventListener('click', () => {
+  currentWeights = { ...WEIGHT_DEFAULTS };
+  renderWeights();
+  renderTable();
+  renderFeatured();
+});
+
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+  let filtered = DEAL_DATA.filter(d => {
+    const tierOk = currentTierFilter === 'all' || d.priority_tier === currentTierFilter;
+    const indOk = currentIndustryFilter === 'all' || d.industry === currentIndustryFilter;
+    const searchOk = !currentSearch || d.company.toLowerCase().includes(currentSearch) || d.industry.toLowerCase().includes(currentSearch);
+    return tierOk && indOk && searchOk;
+  });
+
+  if (!isDefaultWeights()) {
+    filtered = [...filtered].sort((a, b) => adjustedScore(b) - adjustedScore(a));
+  }
+
+  filtered.forEach((d, i) => {
+    const tr = document.createElement('tr');
+    tr.addEventListener('click', (e) => {
+      if (e.target.classList.contains('row-check')) return;
+      openDrawer(d);
+    });
+    const growthClass = d.revenue_growth >= 0 ? 'num-positive' : 'num-negative';
+    const irrClass = (d.irr !== null && d.irr >= 0) ? 'num-positive' : 'num-negative';
+    const isChecked = selectedCompanies.has(d.company);
+    const displayScore = getDisplayScore(d);
+    tr.innerHTML = `
+      <td class="check-cell"><input type="checkbox" class="row-check" data-company="${d.company}" ${isChecked ? 'checked' : ''}></td>
+      <td class="rank-cell mono">${i+1}</td>
+      <td>
+        <div class="company-name">${d.company}</div>
+        <div class="company-industry">${d.industry}</div>
+      </td>
+      <td>
+        <div class="score-cell">
+          <div class="score-num mono">${displayScore.toFixed(0)}</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width:${displayScore}%; background:${tierColor[d.priority_tier]}"></div></div>
+        </div>
+      </td>
+      <td>${fingerprint(d.score_breakdown)}</td>
+      <td><span class="tier-badge ${d.priority_tier.replace(' ','-')}">${d.priority_tier}</span></td>
+      <td class="text-right mono ${growthClass}">${fmtPct(d.revenue_growth)}</td>
+      <td class="text-right mono ${irrClass}">${fmtPct(d.irr)}</td>
+      <td class="text-right mono">${fmtX(d.moic)}</td>
+    `;
+    tr.querySelector('.row-check').addEventListener('click', (e) => e.stopPropagation());
+    tr.querySelector('.row-check').addEventListener('change', (e) => {
+      const company = e.target.dataset.company;
+      if (e.target.checked) selectedCompanies.add(company);
+      else selectedCompanies.delete(company);
+      updateCompareButton();
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+document.getElementById('tierChips').addEventListener('click', (e) => {
+  const chip = e.target.closest('.chip');
+  if (!chip) return;
+  document.querySelectorAll('#tierChips .chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  currentTierFilter = chip.dataset.tier;
+  renderTable();
+});
+
+// ---------- Drawer / detail ----------
+function miniLineChart(labels, series, opts = {}) {
+  // series: [{name, values, color}], values puede tener null (huecos se saltan)
+  const W = 560, H = 140, M = { top: 10, right: 10, bottom: 22, left: 44 };
+  const plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+  const allVals = series.flatMap(s => s.values).filter(v => v !== null && v !== undefined);
+  if (allVals.length === 0) return '<div class="trend-empty">Sin datos suficientes.</div>';
+  const yMin = Math.min(0, ...allVals), yMax = Math.max(...allVals) * 1.15;
+  const xStep = labels.length > 1 ? plotW / (labels.length - 1) : 0;
+  const xPos = i => M.left + i * xStep;
+  const yPos = v => M.top + plotH - ((v - yMin) / (yMax - yMin || 1)) * plotH;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%">`;
+  const yTicks = 3;
+  for (let i = 0; i <= yTicks; i++) {
+    const v = yMin + (yMax - yMin) * (i / yTicks);
+    const y = yPos(v);
+    svg += `<line x1="${M.left}" y1="${y}" x2="${M.left+plotW}" y2="${y}" stroke="var(--border-soft)" stroke-width="1"/>`;
+    svg += `<text x="${M.left-6}" y="${y+3}" text-anchor="end" class="chart-tick-label">${opts.yFmt ? opts.yFmt(v) : v.toFixed(0)}</text>`;
+  }
+  labels.forEach((lab, i) => {
+    svg += `<text x="${xPos(i)}" y="${H-6}" text-anchor="middle" class="chart-tick-label">${lab}</text>`;
+  });
+
+  series.forEach(s => {
+    const pts = s.values.map((v, i) => v === null || v === undefined ? null : `${xPos(i)},${yPos(v)}`).filter(Boolean);
+    if (pts.length > 1) {
+      svg += `<polyline points="${pts.join(' ')}" fill="none" stroke="${s.color}" stroke-width="2"/>`;
+    }
+    s.values.forEach((v, i) => {
+      if (v === null || v === undefined) return;
+      svg += `<circle cx="${xPos(i)}" cy="${yPos(v)}" r="3" fill="${s.color}"/>`;
+    });
+  });
+  svg += '</svg>';
+  return svg;
+}
+
+function scoreHistorySection(scoreHistory) {
+  if (!scoreHistory || scoreHistory.length < 2) {
+    return `<div class="trend-empty">Todavía no hay suficiente historial (se necesita más de una actualización). Cada vez que corras refresh_all.sh se agrega un punto nuevo aquí — con el tiempo se arma la línea de tiempo completa.</div>`;
+  }
+  const labels = scoreHistory.map(h => h.date.slice(5)); // MM-DD
+  const values = scoreHistory.map(h => h.score);
+  const first = values[0], last = values[values.length - 1];
+  const delta = last - first;
+  const deltaClass = delta >= 0 ? 'num-positive' : 'num-negative';
+  return `
+    <div class="trend-wrap">${miniLineChart(labels, [{ name: 'Deal Score', values, color: 'var(--accent)' }], { yFmt: v => v.toFixed(0) })}</div>
+    <div class="backtest-caveat">Cambio desde el primer registro: <span class="${deltaClass}">${delta >= 0 ? '+' : ''}${delta.toFixed(1)} pts</span> (${scoreHistory.length} actualizaciones registradas)</div>
+  `;
+}
+
+function historicalSection(hist) {
+  if (!hist || (!hist.years?.length && !hist.price_history?.length)) {
+    return `<div class="section-label">Tendencia Histórica</div><div class="trend-empty">No disponible para esta empresa (dato de ejemplo, o no reportado por la fuente).</div>`;
+  }
+
+  let html = '<div class="section-label">Tendencia Histórica — Revenue &amp; EBITDA</div>';
+  if (hist.years?.length) {
+    html += `<div class="trend-wrap">${miniLineChart(hist.years, [
+      { name: 'Revenue', values: hist.revenue, color: 'var(--accent)' },
+      { name: 'EBITDA', values: hist.ebitda, color: 'var(--positive)' },
+    ], { yFmt: v => v >= 1e6 ? (v/1e6).toFixed(0)+'M' : v.toFixed(0) })}</div>
+    <div class="trend-legend">
+      <div class="trend-legend-item"><span class="trend-legend-dot" style="background:var(--accent)"></span>Revenue</div>
+      <div class="trend-legend-item"><span class="trend-legend-dot" style="background:var(--positive)"></span>EBITDA</div>
+    </div>`;
+  } else {
+    html += '<div class="trend-empty">Solo se reportan los años más recientes disponibles en la fuente (típicamente ~4).</div>';
+  }
+
+  if (hist.price_history?.length) {
+    html += '<div class="section-label">Tendencia de Precio (5 años)</div>';
+    html += `<div class="trend-wrap">${miniLineChart(
+      hist.price_history.map(p => p.year),
+      [{ name: 'Precio', values: hist.price_history.map(p => p.close), color: 'var(--tier-priority)' }],
+      { yFmt: v => '$' + v.toFixed(0) }
+    )}</div>`;
+  }
+
+  return html;
+}
+
+function pillarRow(name, value, max) {
+  const pct = Math.max(2, (value / max) * 100);
+  return `
+    <div class="pillar-row">
+      <div class="pillar-name">${name}</div>
+      <div class="pillar-track"><div class="pillar-fill" style="width:${pct}%"></div></div>
+      <div class="pillar-val">${value.toFixed(1)}/${max}</div>
+    </div>`;
+}
+
+function monteCarloSection(mc) {
+  if (!mc) {
+    return '<div class="trend-empty">Sin datos suficientes para simular (fuera del top 10, o EBITDA no positivo).</div>';
+  }
+
+  const hist = mc.histogram;
+  const W = 560, H = 130, M = { top: 10, right: 10, bottom: 22, left: 30 };
+  const plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+  const maxCount = Math.max(...hist.counts);
+  const barW = plotW / hist.counts.length;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%">`;
+  hist.counts.forEach((count, i) => {
+    const h = (count / maxCount) * plotH;
+    const x = M.left + i * barW;
+    const y = M.top + plotH - h;
+    const binMid = (hist.bin_edges[i] + hist.bin_edges[i+1]) / 2;
+    const color = binMid < 0 ? 'var(--negative)' : 'var(--accent)';
+    svg += `<rect x="${x+1}" y="${y}" width="${barW-2}" height="${h}" fill="${color}" fill-opacity="0.75"/>`;
+  });
+  // etiquetas de los extremos del eje X
+  svg += `<text x="${M.left}" y="${H-6}" text-anchor="start" class="chart-tick-label">${(hist.bin_edges[0]*100).toFixed(0)}%</text>`;
+  svg += `<text x="${M.left+plotW}" y="${H-6}" text-anchor="end" class="chart-tick-label">${(hist.bin_edges[hist.bin_edges.length-1]*100).toFixed(0)}%</text>`;
+  svg += `<line x1="${M.left}" y1="${M.top+plotH}" x2="${M.left+plotW}" y2="${M.top+plotH}" stroke="var(--border)" stroke-width="1"/>`;
+  svg += '</svg>';
+
+  const benchmarkBox = mc.prob_beat_benchmark !== null && mc.prob_beat_benchmark !== undefined ? `
+      <div class="metric-box"><div class="v ${mc.prob_beat_benchmark >= 0.5 ? 'num-positive' : 'num-negative'}">${(mc.prob_beat_benchmark*100).toFixed(0)}%</div><div class="l">Prob. de superar al mercado</div></div>
+  ` : '';
+
+  const benchmarkNote = mc.benchmark_cagr !== null && mc.benchmark_cagr !== undefined ? `
+    <div class="backtest-interpretation" style="margin-top:10px;">
+      El mercado (S&amp;P SmallCap 600) rindió <strong>${fmtPct(mc.benchmark_cagr,1)} anual</strong> en el período de referencia.
+      En <strong>${(mc.prob_beat_benchmark*100).toFixed(0)}% de los ${mc.n_sims.toLocaleString()} escenarios simulados</strong>, esta empresa lo superó —
+      ${mc.prob_beat_benchmark >= 0.5
+        ? 'porque su crecimiento y perfil de riesgo, incluso en escenarios conservadores del modelo, siguen implicando un IRR mayor al retorno histórico del mercado.'
+        : 'porque incluso en escenarios favorables, el retorno proyectado de este LBO no alcanza consistentemente lo que el mercado ya rindió por sí solo — sugiere que el riesgo adicional del apalancamiento no se ve compensado.'}
+    </div>
+  ` : '';
+
+  return `
+    <div class="trend-wrap">${svg}</div>
+    <div class="metric-grid" style="margin-top:10px">
+      <div class="metric-box"><div class="v">${fmtPct(mc.irr_p10,0)}</div><div class="l">IRR percentil 10</div></div>
+      <div class="metric-box"><div class="v" style="color:var(--accent)">${fmtPct(mc.irr_p50,0)}</div><div class="l">IRR mediana</div></div>
+      <div class="metric-box"><div class="v">${fmtPct(mc.irr_p90,0)}</div><div class="l">IRR percentil 90</div></div>
+      <div class="metric-box"><div class="v num-positive">${(mc.prob_irr_above_15pct*100).toFixed(0)}%</div><div class="l">Prob. IRR &gt; 15%</div></div>
+      <div class="metric-box"><div class="v num-positive">${(mc.prob_irr_above_20pct*100).toFixed(0)}%</div><div class="l">Prob. IRR &gt; 20%</div></div>
+      <div class="metric-box"><div class="v ${mc.prob_loss > 0.1 ? 'num-negative' : ''}">${(mc.prob_loss*100).toFixed(1)}%</div><div class="l">Prob. de pérdida</div></div>
+      ${benchmarkBox}
+    </div>
+    ${benchmarkNote}
+    <div class="backtest-caveat" style="margin-top:8px;">Simulación de ${mc.n_sims.toLocaleString()} escenarios variando growth rate (distribución triangular) y exit multiple (distribución normal ±15%) alrededor de las asunciones base.</div>
+  `;
+}
+
+function sensitivityTable(sens, metric) {
+  if (!sens) return '<p style="color:var(--text-tertiary); font-size:12px;">Sin datos de sensibilidad (fuera del top 10 del ranking).</p>';
+  const matrix = metric === 'irr' ? sens.irr_matrix : sens.moic_matrix;
+  const fmt = metric === 'irr' ? (v)=>fmtPct(v,0) : (v)=>fmtX(v,1);
+  let html = '<table class="heatmap"><tr><th class="corner">Exit \\ Growth</th>';
+  sens.growth_rates.forEach(g => html += `<th>${(g*100).toFixed(0)}%</th>`);
+  html += '</tr>';
+  sens.exit_multiples.forEach((ex, ri) => {
+    html += `<tr><th>${ex.toFixed(1)}x</th>`;
+    sens.growth_rates.forEach((g, ci) => {
+      const v = matrix[ri][ci];
+      let bg = 'transparent';
+      if (v !== null) {
+        const t = metric === 'irr' ? Math.max(0, Math.min(1, (v + 0.1) / 0.5)) : Math.max(0, Math.min(1, v / 5));
+        bg = `rgba(227,178,94,${(t*0.5).toFixed(2)})`;
+      }
+      html += `<td style="background:${bg}">${v === null ? '—' : fmt(v)}</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</table>';
+  return html;
+}
+
+function openDrawer(d) {
+  const memo = d.ai_memo || {};
+  const isFallback = memo._note ? true : false;
+
+  const content = `
+    <div class="drawer-close" id="drawerClose">&times;</div>
+    <button class="toolbar-btn" id="downloadMemoBtn" style="position:absolute; top:26px; right:70px;">Descargar Memo (PDF)</button>
+    <div class="eyebrow">${d.industry}</div>
+    <h2>${d.company}</h2>
+    <div class="sub">DEAL SCORE ${d.deal_score.toFixed(1)}/100 · <span style="color:${tierColor[d.priority_tier]}">${d.priority_tier}</span></div>
+
+    <div class="section-label">Score Breakdown</div>
+    ${pillarRow('Financial Quality', d.score_breakdown.financial_quality, 25)}
+    ${pillarRow('Growth', d.score_breakdown.growth, 20)}
+    ${pillarRow('Risk', d.score_breakdown.risk, 20)}
+    ${pillarRow('Valuation', d.score_breakdown.valuation, 20)}
+    ${pillarRow('Strategic Fit', d.score_breakdown.strategic_fit, 15)}
+
+    <div class="section-label">Historial del Deal Score</div>
+    ${scoreHistorySection(d.score_history)}
+
+    <div class="section-label">Próximo reporte trimestral</div>
+    ${(() => {
+      if (!d.next_earnings_date) {
+        return `<div class="earnings-countdown"><div class="ec-label">Fecha no disponible para esta empresa (dato de ejemplo o no reportado por la fuente).</div></div>`;
+      }
+      const dateLabel = new Date(d.next_earnings_date).toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+      return `<div class="earnings-countdown"><div class="ec-num mono" id="earningsCountdown" data-date="${d.next_earnings_date}">—</div><div class="ec-label" id="earningsCountdownLabel">Calculando...<br>Fecha estimada: ${dateLabel}${d.ticker ? ' · ' + d.ticker : ''}</div></div>`;
+    })()}
+
+    <div class="section-label">Financial Snapshot</div>
+    <div class="metric-grid">
+      <div class="metric-box"><div class="v">${fmtPct(d.revenue_growth)}</div><div class="l">Revenue Growth</div></div>
+      <div class="metric-box"><div class="v">${fmtPct(d.ebitda_margin)}</div><div class="l">EBITDA Margin</div></div>
+      <div class="metric-box"><div class="v">${fmtPct(d.fcf_margin)}</div><div class="l">FCF Margin</div></div>
+      <div class="metric-box"><div class="v">${fmtX(d.debt_ebitda)}</div><div class="l">Debt / EBITDA</div></div>
+      <div class="metric-box"><div class="v">${fmtX(d.interest_coverage)}</div><div class="l">Interest Coverage</div></div>
+      <div class="metric-box"><div class="v">${fmtPct(d.largest_customer_pct)}</div><div class="l">Top Customer Conc.</div></div>
+    </div>
+
+    <div class="section-label">Valuation vs. Peers</div>
+    <div class="metric-grid">
+      <div class="metric-box"><div class="v">${fmtX(d.ev_ebitda)}</div><div class="l">Target EV/EBITDA</div></div>
+      <div class="metric-box"><div class="v">${fmtX(d.peer_median_ev_ebitda)}</div><div class="l">Peer Median EV/EBITDA</div></div>
+      <div class="metric-box"><div class="v ${d.ev_ebitda_discount<0?'num-positive':'num-negative'}">${fmtPct(d.ev_ebitda_discount)}</div><div class="l">Discount / Premium</div></div>
+    </div>
+
+    ${historicalSection(d.historical)}
+
+    <div class="section-label">LBO Summary (5-Year Hold)</div>
+    <div class="lbo-callouts">
+      <div class="lbo-callout"><div class="v">${fmtPct(d.irr)}</div><div class="l">IRR</div></div>
+      <div class="lbo-callout"><div class="v">${fmtX(d.moic)}</div><div class="l">MOIC</div></div>
+      <div class="lbo-callout"><div class="v" style="font-size:16px">${fmtMoney(d.sponsor_equity)}</div><div class="l">Sponsor Equity</div></div>
+      <div class="lbo-callout"><div class="v" style="font-size:16px">${fmtMoney(d.exit_equity)}</div><div class="l">Exit Equity</div></div>
+    </div>
+
+    <div class="section-label">Sensitivity — IRR (Exit Multiple × Growth Rate)</div>
+    ${sensitivityTable(d.sensitivity, 'irr')}
+
+    <div class="section-label">Sensitivity — MOIC</div>
+    ${sensitivityTable(d.sensitivity, 'moic')}
+
+    <div class="section-label">Simulación Monte Carlo (${d.monte_carlo ? d.monte_carlo.n_sims.toLocaleString() : '0'} escenarios)</div>
+    ${monteCarloSection(d.monte_carlo)}
+
+    ${d.risk_flags && d.risk_flags.length ? `
+      <div class="section-label">Risk Flags</div>
+      <div class="risk-flags">${d.risk_flags.map(f => `<span class="risk-tag">${f}</span>`).join('')}</div>
+    ` : ''}
+
+    ${memo.investment_thesis ? `
+      <div class="section-label">Investment Thesis</div>
+      <div class="memo-block"><p>${memo.investment_thesis}</p></div>
+
+      <div class="section-label">Strengths</div>
+      <div class="memo-block"><ul>${(memo.strengths||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+
+      <div class="section-label">Risks</div>
+      <div class="memo-block"><ul>${(memo.risks||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+
+      <div class="section-label">Catalysts</div>
+      <div class="memo-block"><ul>${(memo.catalysts||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+
+      <div class="section-label">Due Diligence Questions</div>
+      <div class="memo-block"><ul>${(memo.due_diligence_questions||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+
+      <div class="section-label">Recommendation</div>
+      <div class="rec-badge">${memo.recommendation || '—'}</div>
+
+      ${isFallback ? `<div class="memo-note">${memo._note}</div>` : ''}
+    ` : ''}
+  `;
+
+  document.getElementById('drawerContent').innerHTML = content;
+  document.getElementById('drawerContent').style.position = 'relative';
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  document.getElementById('downloadMemoBtn').addEventListener('click', () => downloadMemo(d, memo));
+
+  // Countdown en vivo del reporte trimestral de esta empresa específica
+  if (earningsInterval) clearInterval(earningsInterval);
+  tickEarningsCountdown();
+  earningsInterval = setInterval(tickEarningsCountdown, 1000);
+}
+
+let earningsInterval = null;
+
+function tickEarningsCountdown() {
+  const numEl = document.getElementById('earningsCountdown');
+  const labelEl = document.getElementById('earningsCountdownLabel');
+  if (!numEl || !labelEl) { if (earningsInterval) clearInterval(earningsInterval); return; }
+  const c = liveCountdown(numEl.dataset.date);
+  if (!c) { numEl.textContent = '—'; return; }
+  if (c.isPast) {
+    numEl.textContent = '—';
+    labelEl.innerHTML = labelEl.innerHTML.replace('Calculando...', 'Ya publicado — corre refresh_all.sh para actualizar');
+  } else {
+    numEl.textContent = c.days > 0 ? c.days : formatCountdown(c);
+    const sub = c.days > 0 ? `en ${c.days} día${c.days === 1 ? '' : 's'} (${formatCountdown(c)})` : `en ${formatCountdown(c)}`;
+    labelEl.innerHTML = labelEl.innerHTML.replace(/^[^<]*/, sub);
+  }
+}
+
+function downloadMemo(d, memo) {
+  const genLabel = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+  const listHtml = (arr) => (arr && arr.length) ? `<ul>${arr.map(x => `<li>${x}</li>`).join('')}</ul>` : '<p class="muted">No disponible.</p>';
+
+  const html = `<!doctype html><html lang="es"><head><meta charset="UTF-8">
+    <title>Investment Memo — ${d.company}</title>
+    <style>
+      body { font-family: Georgia, 'Times New Roman', serif; color: #1a1a1a; max-width: 720px; margin: 40px auto; padding: 0 24px; }
+      h1 { font-size: 26px; margin-bottom: 2px; }
+      .eyebrow { font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8a6d1f; text-transform: uppercase; }
+      .sub { font-family: 'Courier New', monospace; font-size: 12px; color: #555; margin-bottom: 24px; }
+      h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; color: #8a6d1f; border-bottom: 1px solid #ddd; padding-bottom: 4px; margin-top: 28px; }
+      table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; }
+      td { padding: 6px 8px; border-bottom: 1px solid #eee; }
+      td.label { color: #666; font-family: 'Courier New', monospace; font-size: 11px; text-transform: uppercase; }
+      td.value { text-align: right; font-family: 'Courier New', monospace; font-weight: bold; }
+      ul { margin: 6px 0; padding-left: 20px; font-size: 13px; line-height: 1.6; }
+      p { font-size: 13.5px; line-height: 1.6; }
+      .muted { color: #999; font-style: italic; }
+      .footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid #ddd; font-family: 'Courier New', monospace; font-size: 10px; color: #999; }
+      .rec { display: inline-block; margin-top: 4px; padding: 6px 12px; border: 1px solid #8a6d1f; color: #8a6d1f; font-family: 'Courier New', monospace; font-size: 12px; }
+      @media print { body { margin: 0; padding: 24px; } }
+    </style></head>
+  <body>
+    <div class="eyebrow">DealScope — Private Market Screening</div>
+    <h1>${d.company}</h1>
+    <div class="sub">${d.industry} · Deal Score ${d.deal_score.toFixed(1)}/100 · ${d.priority_tier} · Generado el ${genLabel}</div>
+
+    <h2>Métricas Clave</h2>
+    <table>
+      <tr><td class="label">Revenue Growth</td><td class="value">${fmtPct(d.revenue_growth)}</td></tr>
+      <tr><td class="label">EBITDA Margin</td><td class="value">${fmtPct(d.ebitda_margin)}</td></tr>
+      <tr><td class="label">Debt / EBITDA</td><td class="value">${fmtX(d.debt_ebitda)}</td></tr>
+      <tr><td class="label">EV / EBITDA (vs. Peer Median)</td><td class="value">${fmtX(d.ev_ebitda)} vs. ${fmtX(d.peer_median_ev_ebitda)}</td></tr>
+      <tr><td class="label">LBO IRR / MOIC (5yr)</td><td class="value">${fmtPct(d.irr)} / ${fmtX(d.moic)}</td></tr>
+    </table>
+
+    <h2>Investment Thesis</h2>
+    <p>${memo.investment_thesis || '<span class="muted">No disponible.</span>'}</p>
+
+    <h2>Strengths</h2>
+    ${listHtml(memo.strengths)}
+
+    <h2>Risks</h2>
+    ${listHtml(memo.risks)}
+
+    <h2>Catalysts</h2>
+    ${listHtml(memo.catalysts)}
+
+    <h2>Due Diligence Questions</h2>
+    ${listHtml(memo.due_diligence_questions)}
+
+    <h2>Recommendation</h2>
+    <div class="rec">${memo.recommendation || 'N/D'}</div>
+
+    <div class="footer">DealScope — Score determinístico calculado en Python; texto interpretativo generado por LLM a partir de esos números. ${memo._note ? 'Nota: memo generado localmente (sin conexión a IA activa).' : ''}</div>
+  </body></html>`;
+
+  const w = window.open('', '_blank');
+  w.document.write(html);
+  w.document.close();
+  setTimeout(() => w.print(), 300);
+}
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  if (earningsInterval) { clearInterval(earningsInterval); earningsInterval = null; }
+}
+
+document.getElementById('overlay').addEventListener('click', closeDrawer);
+
+// ---------- Init ----------
+// ---------- Comparación ----------
+const selectedCompanies = new Set();
+
+function updateCompareButton() {
+  const btn = document.getElementById('compareBtn');
+  btn.textContent = `Comparar (${selectedCompanies.size})`;
+  btn.disabled = selectedCompanies.size < 2;
+}
+
+function openCompare() {
+  const companies = DEAL_DATA.filter(d => selectedCompanies.has(d.company));
+  const rows = [
+    ['Industria', d => d.industry],
+    ['Deal Score', d => d.deal_score.toFixed(1)],
+    ['Tier', d => d.priority_tier],
+    ['Revenue Growth', d => fmtPct(d.revenue_growth)],
+    ['EBITDA Margin', d => fmtPct(d.ebitda_margin)],
+    ['Debt/EBITDA', d => fmtX(d.debt_ebitda)],
+    ['Interest Coverage', d => fmtX(d.interest_coverage)],
+    ['EV/EBITDA', d => fmtX(d.ev_ebitda)],
+    ['Peer Median EV/EBITDA', d => fmtX(d.peer_median_ev_ebitda)],
+    ['IRR', d => fmtPct(d.irr)],
+    ['MOIC', d => fmtX(d.moic)],
+  ];
+  let html = '<table class="compare-table"><tr><td></td>' +
+    companies.map(d => `<th class="company-col">${d.company}</th>`).join('') + '</tr>';
+  rows.forEach(([label, fn]) => {
+    html += `<tr><td class="metric-label">${label}</td>` +
+      companies.map(d => `<td>${fn(d)}</td>`).join('') + '</tr>';
+  });
+  html += '</table>';
+  document.getElementById('compareGrid').innerHTML = html;
+  document.getElementById('compareOverlay').classList.add('open');
+}
+
+document.getElementById('compareBtn').addEventListener('click', openCompare);
+document.getElementById('compareClose').addEventListener('click', () => {
+  document.getElementById('compareOverlay').classList.remove('open');
+});
+document.getElementById('compareOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'compareOverlay') document.getElementById('compareOverlay').classList.remove('open');
+});
+
+// ---------- Exportar ----------
+function getVisibleData() {
+  return DEAL_DATA.filter(d => {
+    const tierOk = currentTierFilter === 'all' || d.priority_tier === currentTierFilter;
+    const indOk = currentIndustryFilter === 'all' || d.industry === currentIndustryFilter;
+    const searchOk = !currentSearch || d.company.toLowerCase().includes(currentSearch) || d.industry.toLowerCase().includes(currentSearch);
+    return tierOk && indOk && searchOk;
+  });
+}
+
+function exportCsv() {
+  const rows = getVisibleData();
+  const headers = ['Rank', 'Company', 'Industry', 'Deal Score', 'Tier', 'Revenue Growth', 'EBITDA Margin', 'EV/EBITDA', 'IRR', 'MOIC'];
+  const lines = [headers.join(',')];
+  rows.forEach((d, i) => {
+    const line = [
+      i + 1,
+      `"${d.company.replace(/"/g, '""')}"`,
+      `"${d.industry}"`,
+      d.deal_score.toFixed(1),
+      d.priority_tier,
+      d.revenue_growth ?? '',
+      d.ebitda_margin ?? '',
+      d.ev_ebitda ?? '',
+      d.irr ?? '',
+      d.moic ?? '',
+    ].join(',');
+    lines.push(line);
+  });
+  const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `dealscope_ranking_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+document.getElementById('exportCsvBtn').addEventListener('click', exportCsv);
+document.getElementById('exportPdfBtn').addEventListener('click', () => window.print());
+
+// ---------- Scatter chart: Growth vs Valuation ----------
+function renderChart() {
+  const data = DEAL_DATA.filter(d => d.revenue_growth !== null && d.ev_ebitda_discount !== null && d.ev_ebitda_discount !== undefined);
+  const W = 860, H = 320, M = { top: 20, right: 20, bottom: 40, left: 50 };
+  const plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+
+  const xs = data.map(d => d.revenue_growth);
+  const ys = data.map(d => d.ev_ebitda_discount);
+  const xMin = Math.min(0, ...xs), xMax = Math.max(...xs) * 1.1 || 1;
+  const yMin = Math.min(...ys) * 1.1, yMax = Math.max(...ys) * 1.1;
+
+  const xScale = v => M.left + ((v - xMin) / (xMax - xMin)) * plotW;
+  const yScale = v => M.top + plotH - ((v - yMin) / (yMax - yMin)) * plotH;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="overflow:visible">`;
+
+  // ejes
+  const xTicks = 5, yTicks = 4;
+  for (let i = 0; i <= xTicks; i++) {
+    const v = xMin + (xMax - xMin) * (i / xTicks);
+    const x = xScale(v);
+    svg += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${M.top+plotH}" stroke="var(--border-soft)" stroke-width="1"/>`;
+    svg += `<text x="${x}" y="${M.top+plotH+16}" text-anchor="middle" class="chart-tick-label">${(v*100).toFixed(0)}%</text>`;
+  }
+  for (let i = 0; i <= yTicks; i++) {
+    const v = yMin + (yMax - yMin) * (i / yTicks);
+    const y = yScale(v);
+    svg += `<line x1="${M.left}" y1="${y}" x2="${M.left+plotW}" y2="${y}" stroke="var(--border-soft)" stroke-width="1"/>`;
+    svg += `<text x="${M.left-8}" y="${y+3}" text-anchor="end" class="chart-tick-label">${(v*100).toFixed(0)}%</text>`;
+  }
+  // línea cero en valuación
+  const zeroY = yScale(0);
+  svg += `<line x1="${M.left}" y1="${zeroY}" x2="${M.left+plotW}" y2="${zeroY}" stroke="var(--text-tertiary)" stroke-width="1" stroke-dasharray="3,3"/>`;
+
+  svg += `<text x="${M.left+plotW/2}" y="${H-4}" text-anchor="middle" class="chart-axis-label">Revenue Growth →</text>`;
+  svg += `<text x="14" y="${M.top+plotH/2}" text-anchor="middle" class="chart-axis-label" transform="rotate(-90, 14, ${M.top+plotH/2})">Premium / Descuento vs Peers →</text>`;
+
+  data.forEach(d => {
+    const x = xScale(d.revenue_growth);
+    const y = yScale(d.ev_ebitda_discount);
+    const color = tierColor[d.priority_tier] || 'var(--text-tertiary)';
+    svg += `<circle class="chart-dot" cx="${x}" cy="${y}" r="5" fill="${color}" fill-opacity="0.75" stroke="${color}" stroke-width="1" data-company="${d.company}"/>`;
+  });
+
+  svg += '</svg>';
+  document.getElementById('chartContainer').innerHTML = svg;
+
+  const legendHtml = Object.entries(tierColor).map(([tier, color]) =>
+    `<div class="chart-legend-item"><span class="chart-legend-dot" style="background:${color}"></span>${tier}</div>`
+  ).join('');
+  document.getElementById('chartContainer').insertAdjacentHTML('afterend', `<div class="chart-legend">${legendHtml}</div>`);
+
+  const tooltip = document.getElementById('chartTooltip');
+  document.querySelectorAll('.chart-dot').forEach(dot => {
+    dot.addEventListener('mousemove', (e) => {
+      const d = DEAL_DATA.find(x => x.company === dot.dataset.company);
+      if (!d) return;
+      tooltip.innerHTML = `<strong>${d.company}</strong><br>Growth: ${fmtPct(d.revenue_growth)} · Val: ${fmtPct(d.ev_ebitda_discount)}`;
+      tooltip.style.left = (e.offsetX + 12) + 'px';
+      tooltip.style.top = (e.offsetY - 10) + 'px';
+      tooltip.style.opacity = '1';
+    });
+    dot.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
+    dot.addEventListener('click', () => {
+      const d = DEAL_DATA.find(x => x.company === dot.dataset.company);
+      if (d) openDrawer(d);
+    });
+  });
+}
+
+function renderBacktest() {
+  const el = document.getElementById('backtestSection');
+  if (!BACKTEST_DATA) {
+    el.innerHTML = '';
+    return;
+  }
+  if (BACKTEST_DATA.warning) {
+    el.innerHTML = `
+      <div class="featured-label">Validación del modelo (Backtest)</div>
+      <div class="backtest-card">
+        <div class="backtest-interpretation">${BACKTEST_DATA.warning} (n=${BACKTEST_DATA.n})</div>
+      </div>`;
+    return;
+  }
+  const d = BACKTEST_DATA;
+  const benchmarkRow = d.benchmark_return !== null && d.benchmark_return !== undefined ? `
+    <div class="backtest-stat"><div class="v">${fmtPct(d.benchmark_return)}</div><div class="l">${d.benchmark_ticker || 'Benchmark'}</div></div>
+    <div class="backtest-stat"><div class="v ${d.beat_benchmark ? 'num-positive' : 'num-negative'}">${d.beat_benchmark ? 'SÍ' : 'NO'}</div><div class="l">¿Top third le ganó al mercado?</div></div>
+  ` : '';
+  el.innerHTML = `
+    <div class="featured-label">Validación del modelo (Backtest) — Score histórico vs. retorno real</div>
+    <div class="backtest-card">
+      <div class="backtest-stats">
+        <div class="backtest-stat"><div class="v">${d.n}</div><div class="l">Empresas evaluadas</div></div>
+        <div class="backtest-stat"><div class="v">${d.spearman_correlation}</div><div class="l">Correlación (Spearman)</div></div>
+        <div class="backtest-stat"><div class="v ${d.avg_return_top_third >= 0 ? 'num-positive' : 'num-negative'}">${fmtPct(d.avg_return_top_third)}</div><div class="l">Retorno tercio TOP</div></div>
+        <div class="backtest-stat"><div class="v ${d.avg_return_bottom_third >= 0 ? 'num-positive' : 'num-negative'}">${fmtPct(d.avg_return_bottom_third)}</div><div class="l">Retorno tercio BOTTOM</div></div>
+        ${benchmarkRow}
+      </div>
+      <div class="backtest-interpretation">${d.interpretation}</div>
+      <div class="backtest-caveat">
+        Metodología: score histórico simplificado (Growth + EBITDA margin + Debt/EBITDA) calculado con datos del año más antiguo disponible por empresa (~3-4 años atrás, límite real de la fuente gratuita), comparado contra el retorno de precio real hasta hoy. Valuation y Strategic Fit no se recrean retroactivamente por falta de datos históricos de múltiplos de peers. Muestra pequeña — resultado orientativo, no institucional.
+      </div>
+    </div>`;
+}
+
+// ---------- Vista: pestañas Ranking / Gráficas ----------
+document.getElementById('tabRanking').addEventListener('click', () => switchView('ranking'));
+document.getElementById('tabCharts').addEventListener('click', () => switchView('charts'));
+
+function switchView(view) {
+  document.getElementById('tabRanking').classList.toggle('active', view === 'ranking');
+  document.getElementById('tabCharts').classList.toggle('active', view === 'charts');
+  document.getElementById('rankingView').classList.toggle('active', view === 'ranking');
+  document.getElementById('chartsView').classList.toggle('active', view === 'charts');
+  if (view === 'charts' && !galleryRendered) renderGallery();
+}
+
+let galleryRendered = false;
+let gallerySearch = '';
+
+document.getElementById('gallerySearchInput').addEventListener('input', (e) => {
+  gallerySearch = e.target.value.trim().toLowerCase();
+  renderGallery();
+});
+
+function renderGallery() {
+  galleryRendered = true;
+  const grid = document.getElementById('galleryGrid');
+  const filtered = DEAL_DATA
+    .filter(d => !gallerySearch || d.company.toLowerCase().includes(gallerySearch) || d.industry.toLowerCase().includes(gallerySearch))
+    .sort((a, b) => b.deal_score - a.deal_score);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="trend-empty">Sin resultados para esa búsqueda.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(d => `
+    <div class="gallery-card">
+      <div class="gallery-card-header">
+        <div><span class="name">${d.company}</span><span class="industry">${d.industry} · ${d.priority_tier}</span></div>
+        <div class="score">${d.deal_score.toFixed(0)}</div>
+      </div>
+      <div class="gallery-charts">
+        <div class="gallery-chart-block">
+          <div class="gc-label">Revenue &amp; EBITDA</div>
+          ${d.historical && d.historical.years?.length ? miniLineChart(d.historical.years, [
+            { name: 'Revenue', values: d.historical.revenue, color: 'var(--accent)' },
+            { name: 'EBITDA', values: d.historical.ebitda, color: 'var(--positive)' },
+          ], { yFmt: v => v >= 1e6 ? (v/1e6).toFixed(0)+'M' : v.toFixed(0) }) : '<div class="trend-empty">Sin historial disponible.</div>'}
+        </div>
+        <div class="gallery-chart-block">
+          <div class="gc-label">Historial del Deal Score</div>
+          ${d.score_history && d.score_history.length >= 2 ? miniLineChart(
+            d.score_history.map(h => h.date.slice(5)),
+            [{ name: 'Score', values: d.score_history.map(h => h.score), color: 'var(--tier-priority)' }],
+            { yFmt: v => v.toFixed(0) }
+          ) : '<div class="trend-empty">Aún sin suficiente historial.</div>'}
+        </div>
+        <div class="gallery-chart-block">
+          <div class="gc-label">Distribución Monte Carlo (IRR)</div>
+          ${d.monte_carlo ? monteCarloHistogramOnly(d.monte_carlo) : '<div class="trend-empty">No aplica (EBITDA no positivo).</div>'}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function monteCarloHistogramOnly(mc) {
+  const hist = mc.histogram;
+  const W = 300, H = 110, M = { top: 6, right: 6, bottom: 18, left: 6 };
+  const plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+  const maxCount = Math.max(...hist.counts);
+  const barW = plotW / hist.counts.length;
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%">`;
+  hist.counts.forEach((count, i) => {
+    const h = (count / maxCount) * plotH;
+    const x = M.left + i * barW;
+    const y = M.top + plotH - h;
+    const binMid = (hist.bin_edges[i] + hist.bin_edges[i+1]) / 2;
+    const color = binMid < 0 ? 'var(--negative)' : 'var(--accent)';
+    svg += `<rect x="${x+1}" y="${y}" width="${barW-2}" height="${h}" fill="${color}" fill-opacity="0.75"/>`;
+  });
+  svg += `<text x="${M.left}" y="${H-4}" class="chart-tick-label">${(hist.bin_edges[0]*100).toFixed(0)}%</text>`;
+  svg += `<text x="${W-M.right}" y="${H-4}" text-anchor="end" class="chart-tick-label">${(hist.bin_edges[hist.bin_edges.length-1]*100).toFixed(0)}%</text>`;
+  svg += '</svg>';
+  return svg;
+}
+
+populateIndustryFilter();
+renderStats();
+renderRefreshStrip();
+renderWeights();
+renderFeatured();
+renderBacktest();
+renderChart();
+renderTable();
+updateCompareButton();
+</script>
+</body>
+</html>

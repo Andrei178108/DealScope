@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.dealscope.refresh</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>REPLACE_WITH_FULL_PATH/refresh_all.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>REPLACE_WITH_FULL_PATH</string>
+
+    <!-- Corre cada 3 días (259200 segundos) -->
+    <key>StartInterval</key>
+    <integer>259200</integer>
+
+    <!-- También corre una vez apenas se instala/carga, para no esperar 3 días la primera vez -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>REPLACE_WITH_FULL_PATH/refresh_log.txt</string>
+
+    <key>StandardErrorPath</key>
+    <string>REPLACE_WITH_FULL_PATH/refresh_log.txt</string>
+</dict>
+</plist>

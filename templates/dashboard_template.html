@@ -1,0 +1,1749 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DealScope — Private Market Deal Screener</title>
+<meta name="description" content="Motor cuantitativo de screening para oportunidades de inversión en empresas privadas — scoring determinístico de 5 pilares, comparables por machine learning, modelo LBO, simulación Monte Carlo, y backtest contra el mercado.">
+<meta property="og:title" content="DealScope — Private Market Deal Screener">
+<meta property="og:description" content="Motor de screening de inversión con datos financieros reales, Deal Score determinístico, modelo LBO, Monte Carlo de 10,000 escenarios, y backtest contra el S&P SmallCap 600.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DealScope — Private Market Deal Screener">
+<meta name="twitter:description" content="Motor cuantitativo de screening de inversión en empresas — scoring determinístico, LBO, Monte Carlo y backtest real.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2245%22 cy=%2245%22 r=%2230%22 fill=%22none%22 stroke=%22%23E3B25E%22 stroke-width=%228%22/><line x1=%2266%22 y1=%2266%22 x2=%2290%22 y2=%2290%22 stroke=%22%23E3B25E%22 stroke-width=%228%22/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0E12;
+    --surface: #12171D;
+    --surface-2: #1A2129;
+    --surface-3: #212B35;
+    --border: #262E38;
+    --border-soft: #1D242D;
+    --text-primary: #E7EBEF;
+    --text-secondary: #8C99A8;
+    --text-tertiary: #5D6A78;
+    --accent: #E3B25E;
+    --accent-dim: #7A6538;
+    --positive: #5FBF8B;
+    --negative: #E2636B;
+    --tier-high: #E3B25E;
+    --tier-priority: #5AACC6;
+    --tier-watchlist: #8C99A8;
+    --tier-rejected: #5D6A78;
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+    --font-ui: 'Inter', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* Signature background: faint scope reticle */
+  .scope-bg {
+    position: fixed;
+    top: -10%; right: -8%;
+    width: 640px; height: 640px;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 48px 32px 96px;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+
+  h1 .dot { color: var(--accent); }
+
+  .tagline {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    max-width: 480px;
+    line-height: 1.5;
+  }
+
+  .stat-strip {
+    display: flex;
+    gap: 32px;
+  }
+
+  .stat {
+    text-align: right;
+  }
+
+  .stat-value {
+    font-family: var(--font-mono);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-top: 6px;
+  }
+
+  .stat.high .stat-value { color: var(--tier-high); }
+  .stat.watch .stat-value { color: var(--tier-watchlist); }
+  .stat.rejected .stat-value { color: var(--tier-rejected); }
+
+  /* ---------- Controls ---------- */
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    padding: 7px 14px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .chip:hover { border-color: var(--accent-dim); color: var(--text-primary); }
+  .chip.active { background: var(--surface-3); border-color: var(--accent); color: var(--accent); }
+
+  select {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    background: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 8px 12px;
+    outline: none;
+  }
+
+  /* ---------- Table ---------- */
+  .table-wrap {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border-soft);
+    cursor: pointer;
+    transition: background 0.12s ease;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface-2); }
+
+  td { padding: 14px 16px; font-size: 13px; vertical-align: middle; }
+
+  .rank-cell {
+    font-family: var(--font-mono);
+    color: var(--text-tertiary);
+    font-size: 12px;
+    width: 36px;
+  }
+
+  .company-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+
+  .company-industry {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+  }
+
+  .score-cell { display: flex; align-items: center; gap: 10px; }
+
+  .score-num {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 16px;
+    width: 34px;
+  }
+
+  .score-bar-track {
+    width: 90px;
+    height: 4px;
+    background: var(--surface-3);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .score-bar-fill { height: 100%; border-radius: 2px; }
+
+  .fingerprint { display: flex; gap: 2px; align-items: flex-end; height: 20px; }
+  .fingerprint .seg { width: 4px; border-radius: 1px; background: var(--surface-3); }
+
+  .tier-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 3px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .tier-badge.High-Priority { background: rgba(227,178,94,0.12); color: var(--tier-high); border: 1px solid rgba(227,178,94,0.3); }
+  .tier-badge.Priority { background: rgba(90,172,198,0.12); color: var(--tier-priority); border: 1px solid rgba(90,172,198,0.3); }
+  .tier-badge.Watchlist { background: rgba(140,153,168,0.1); color: var(--tier-watchlist); border: 1px solid rgba(140,153,168,0.25); }
+  .tier-badge.Rejected { background: rgba(93,106,120,0.08); color: var(--tier-rejected); border: 1px solid rgba(93,106,120,0.2); }
+
+  .mono { font-family: var(--font-mono); }
+  .num-positive { color: var(--positive); }
+  .num-negative { color: var(--negative); }
+  .text-right { text-align: right; }
+
+
+  /* ---------- Hero / Landing ---------- */
+  .hero { padding: 8px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+  .hero-desc { font-size: 16px; line-height: 1.65; color: var(--text-secondary); max-width: 640px; margin-bottom: 28px; }
+  .hero-desc strong { color: var(--text-primary); font-weight: 600; }
+  .search-bar { position: relative; max-width: 480px; margin-bottom: 32px; }
+  .search-bar input { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px 14px 42px; font-family: var(--font-ui); font-size: 14px; color: var(--text-primary); outline: none; transition: border-color 0.15s ease; }
+  .search-bar input:focus { border-color: var(--accent-dim); }
+  .search-bar input::placeholder { color: var(--text-tertiary); }
+  .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--text-tertiary); pointer-events: none; }
+  .featured-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 14px; }
+  .featured-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .featured-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; cursor: pointer; transition: border-color 0.15s ease, transform 0.15s ease; }
+  .featured-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+  .featured-card .fc-score { font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--accent); }
+  .featured-card .fc-name { font-size: 13px; font-weight: 600; margin-top: 6px; }
+  .featured-card .fc-industry { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+  .refresh-strip { display: flex; gap: 24px; align-items: center; margin-bottom: 28px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; flex-wrap: wrap; }
+  .refresh-item { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); }
+  .refresh-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--positive); flex-shrink: 0; }
+  .refresh-item .highlight { color: var(--accent); font-weight: 600; }
+  .earnings-countdown { display: flex; align-items: center; gap: 10px; background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: 5px; padding: 12px 16px; margin-top: 4px; }
+  .earnings-countdown .ec-num { font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--accent); }
+  .earnings-countdown .ec-label { font-size: 11px; color: var(--text-tertiary); line-height: 1.4; }
+
+  /* ---------- Toolbar (export + compare) ---------- */
+  .toolbar { display: flex; gap: 10px; align-items: center; }
+  .toolbar-btn {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+    padding: 8px 14px; border-radius: 4px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text-secondary); cursor: pointer;
+    transition: all 0.15s ease; display: flex; align-items: center; gap: 6px;
+  }
+  .toolbar-btn:hover { border-color: var(--accent-dim); color: var(--text-primary); }
+  .toolbar-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .toolbar-btn.primary { background: rgba(227,178,94,0.1); border-color: var(--accent-dim); color: var(--accent); }
+
+  .row-check { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+  .check-cell { width: 28px; }
+
+  /* ---------- Scatter chart ---------- */
+  .chart-section { margin-bottom: 32px; }
+  .chart-wrap {
+    border: 1px solid var(--border); border-radius: 6px; background: var(--surface);
+    padding: 20px; position: relative;
+  }
+  .chart-dot { cursor: pointer; transition: r 0.12s ease; }
+  .chart-dot:hover { stroke: var(--text-primary); stroke-width: 1.5; }
+  .chart-axis-label { font-family: var(--font-mono); font-size: 10px; fill: var(--text-tertiary); }
+  .chart-tick-label { font-family: var(--font-mono); font-size: 9px; fill: var(--text-tertiary); }
+  .chart-legend { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+  .chart-legend-item { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); }
+  .chart-legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .chart-tooltip {
+    position: absolute; background: var(--surface-3); border: 1px solid var(--border);
+    border-radius: 4px; padding: 8px 10px; font-family: var(--font-mono); font-size: 11px;
+    pointer-events: none; opacity: 0; transition: opacity 0.1s ease; z-index: 5; white-space: nowrap;
+  }
+
+  /* ---------- Compare modal ---------- */
+  .compare-overlay {
+    position: fixed; inset: 0; background: rgba(6,8,10,0.75); backdrop-filter: blur(2px);
+    z-index: 20; display: none; align-items: flex-start; justify-content: center;
+    overflow-y: auto; padding: 60px 20px;
+  }
+  .compare-overlay.open { display: flex; }
+  .compare-modal {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    max-width: 1100px; width: 100%; padding: 32px; position: relative;
+  }
+  .compare-close {
+    position: absolute; top: 20px; right: 20px; width: 32px; height: 32px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--surface-2); color: var(--text-secondary);
+    display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px;
+  }
+  .compare-close:hover { color: var(--text-primary); }
+  .compare-grid { display: grid; gap: 16px; margin-top: 24px; overflow-x: auto; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .compare-table th, .compare-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border-soft); white-space: nowrap; }
+  .compare-table th { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; }
+  .compare-table td.metric-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; }
+  .compare-table td.company-col { font-weight: 600; }
+
+  /* ---------- Historical trend (drawer) ---------- */
+  .trend-wrap { margin-bottom: 8px; }
+  .trend-empty { font-size: 12px; color: var(--text-tertiary); background: var(--surface-2); border-radius: 5px; padding: 12px; }
+  .trend-legend { display: flex; gap: 14px; margin-top: 6px; }
+  .trend-legend-item { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); }
+  .trend-legend-dot { width: 7px; height: 7px; border-radius: 50%; }
+
+  /* ---------- Backtest section ---------- */
+  .backtest-section { margin-bottom: 32px; }
+  .backtest-card {
+    border: 1px solid var(--border); border-radius: 6px; background: var(--surface);
+    padding: 20px;
+  }
+  .backtest-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px; }
+  .backtest-stat { background: var(--surface-2); border-radius: 5px; padding: 12px 14px; }
+  .backtest-stat .v { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: var(--accent); }
+  .backtest-stat .l { font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+  .backtest-interpretation { font-size: 13px; color: var(--text-secondary); line-height: 1.6; padding: 12px 14px; background: var(--surface-2); border-left: 2px solid var(--accent-dim); border-radius: 3px; margin-bottom: 12px; }
+  .backtest-caveat { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-tertiary); line-height: 1.6; }
+
+  /* ---------- Weight sliders ---------- */
+  .weights-section { margin-bottom: 28px; }
+  .weights-card { border: 1px solid var(--border); border-radius: 6px; background: var(--surface); padding: 20px; }
+  .weights-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .weight-item { display: flex; flex-direction: column; gap: 8px; }
+  .weight-item label { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-secondary); display: flex; justify-content: space-between; }
+  .weight-item label .wv { color: var(--accent); font-weight: 600; }
+  .weight-item input[type="range"] { accent-color: var(--accent); width: 100%; }
+  .weights-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); }
+  .weights-reset { background: none; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 4px; padding: 6px 12px; cursor: pointer; font-family: var(--font-mono); font-size: 10.5px; }
+  .weights-reset:hover { border-color: var(--accent-dim); color: var(--text-primary); }
+  .weights-warn { color: var(--negative); }
+  @media (max-width: 720px) { .weights-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- Vista: pestañas Ranking / Gráficas ---------- */
+  .view-tabs { display: flex; gap: 8px; margin-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .view-tab {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 12px 4px; margin-right: 24px; background: none; border: none; cursor: pointer;
+    color: var(--text-tertiary); border-bottom: 2px solid transparent; transition: all 0.15s ease;
+  }
+  .view-tab:hover { color: var(--text-secondary); }
+  .view-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .view-panel { display: none; }
+  .view-panel.active { display: block; }
+
+  /* ---------- Galería de gráficas ---------- */
+  .gallery-search { max-width: 480px; margin-bottom: 24px; }
+  .gallery-grid { display: flex; flex-direction: column; gap: 16px; }
+  .gallery-card { border: 1px solid var(--border); border-radius: 6px; background: var(--surface); padding: 20px; }
+  .gallery-card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+  .gallery-card-header .name { font-size: 16px; font-weight: 600; }
+  .gallery-card-header .industry { font-size: 11px; color: var(--text-tertiary); margin-left: 8px; }
+  .gallery-card-header .score { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: var(--accent); }
+  .gallery-charts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .gallery-chart-block .gc-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 8px; }
+  @media (max-width: 900px) { .gallery-charts { grid-template-columns: 1fr; } }
+
+  /* ---------- Glosario ---------- */
+  .glossary-section { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .glossary-intro { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; max-width: 640px; line-height: 1.6; }
+  .glossary-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .glossary-group h3 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .glossary-term { margin-bottom: 12px; }
+  .glossary-term dt { font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; color: var(--text-primary); }
+  .glossary-term dd { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; margin-top: 2px; }
+  @media (max-width: 720px) { .glossary-groups { grid-template-columns: 1fr; } }
+  .back-to-top { font-family: var(--font-mono); font-size: 11px; color: var(--accent); text-decoration: none; display: inline-block; margin-top: 20px; }
+
+  @media print {
+    .hero, .search-bar, .refresh-strip, .featured-row, .featured-label,
+    .controls, .drawer, .overlay, .compare-overlay, .scope-bg, .check-cell { display: none !important; }
+    body { background: white; color: black; }
+    table, th, td { border-color: #ccc !important; color: black !important; }
+    .table-wrap { border-color: #ccc !important; }
+  }
+  @media (max-width: 720px) { .featured-row { grid-template-columns: repeat(2, 1fr); } }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ---------- Detail Drawer ---------- */
+  .overlay {
+    position: fixed; inset: 0;
+    background: rgba(6,8,10,0.7);
+    backdrop-filter: blur(2px);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .overlay.open { opacity: 1; pointer-events: auto; }
+
+  .drawer {
+    position: fixed;
+    top: 0; right: 0;
+    width: min(680px, 100%);
+    height: 100vh;
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+    z-index: 11;
+    transform: translateX(100%);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    overflow-y: auto;
+  }
+  .drawer.open { transform: translateX(0); }
+
+  .drawer-inner { padding: 32px; }
+
+  .drawer-close {
+    position: absolute;
+    top: 28px; right: 28px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text-secondary);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .drawer-close:hover { color: var(--text-primary); border-color: var(--accent-dim); }
+
+  .drawer h2 {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 600;
+    max-width: 480px;
+    line-height: 1.15;
+  }
+
+  .drawer .sub {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin-top: 6px;
+    font-family: var(--font-mono);
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 32px 0 14px;
+  }
+
+  .pillar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .pillar-name { width: 130px; color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
+  .pillar-track { flex: 1; height: 6px; background: var(--surface-3); border-radius: 3px; overflow: hidden; }
+  .pillar-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+  .pillar-val { width: 54px; text-align: right; font-family: var(--font-mono); color: var(--text-primary); }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .metric-box {
+    background: var(--surface-2);
+    border: 1px solid var(--border-soft);
+    border-radius: 5px;
+    padding: 14px;
+  }
+  .metric-box .v { font-family: var(--font-mono); font-size: 19px; font-weight: 600; }
+  .metric-box .l { font-size: 10px; color: var(--text-tertiary); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .lbo-callouts { display: flex; gap: 16px; }
+  .lbo-callout {
+    flex: 1;
+    background: var(--surface-2);
+    border: 1px solid var(--accent-dim);
+    border-radius: 5px;
+    padding: 16px;
+    text-align: center;
+  }
+  .lbo-callout .v { font-family: var(--font-mono); font-size: 26px; font-weight: 700; color: var(--accent); }
+  .lbo-callout .l { font-size: 10px; color: var(--text-tertiary); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .heatmap { border-collapse: collapse; width: 100%; font-family: var(--font-mono); font-size: 11px; }
+  .heatmap th, .heatmap td { padding: 8px; text-align: center; border: 1px solid var(--border-soft); }
+  .heatmap th { color: var(--text-tertiary); font-weight: 500; font-size: 10px; }
+  .heatmap .corner { background: var(--surface-2); }
+
+  .memo-block { margin-bottom: 18px; }
+  .memo-block p { font-size: 13.5px; line-height: 1.6; color: var(--text-primary); }
+  .memo-block ul { padding-left: 18px; margin-top: 6px; }
+  .memo-block li { font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 4px; }
+  .memo-note {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--text-tertiary);
+    background: var(--surface-2);
+    border-left: 2px solid var(--accent-dim);
+    padding: 8px 12px;
+    margin-top: 8px;
+  }
+  .rec-badge {
+    display: inline-block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    background: rgba(227,178,94,0.1);
+    border: 1px solid var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .risk-flags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .risk-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    padding: 4px 9px;
+    border-radius: 3px;
+    background: rgba(226,99,107,0.1);
+    color: var(--negative);
+    border: 1px solid rgba(226,99,107,0.25);
+  }
+
+  @media (max-width: 720px) {
+    h1 { font-size: 32px; }
+    .stat-strip { gap: 18px; }
+    .stat-value { font-size: 20px; }
+    thead th:nth-child(4), td:nth-child(4) { display: none; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<svg class="scope-bg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#E3B25E" stroke-width="0.5"/>
+  <circle cx="100" cy="100" r="60" fill="none" stroke="#E3B25E" stroke-width="0.5"/>
+  <line x1="100" y1="0" x2="100" y2="200" stroke="#E3B25E" stroke-width="0.5"/>
+  <line x1="0" y1="100" x2="200" y2="100" stroke="#E3B25E" stroke-width="0.5"/>
+</svg>
+
+<div class="wrap" id="top">
+  <header>
+    <div>
+      <div class="eyebrow">Private Market Screening</div>
+      <h1>DealScope<span class="dot">.</span></h1>
+      <div class="tagline">Motor cuantitativo de screening para oportunidades de inversión en empresas privadas — scoring determinístico, comparables, LBO y análisis de sensibilidad.</div>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><div class="stat-value" id="statTotal">—</div><div class="stat-label">Analizadas</div></div>
+      <div class="stat high"><div class="stat-value" id="statHigh">—</div><div class="stat-label">High Priority</div></div>
+      <div class="stat watch"><div class="stat-value" id="statWatch">—</div><div class="stat-label">Watchlist</div></div>
+      <div class="stat rejected"><div class="stat-value" id="statRejected">—</div><div class="stat-label">Rejected</div></div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <p class="hero-desc">
+      <strong>DealScope</strong> es un motor de screening de inversión en empresas privadas. Analiza estados financieros, los compara contra empresas similares (comparables), calcula un <strong>Deal Score de 0 a 100</strong> con una metodología transparente de 5 factores, y simula una compra apalancada (LBO) a 5 años para estimar el retorno esperado (IRR y MOIC) de cada oportunidad.
+    </p>
+    <div class="search-bar">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar empresa por nombre o industria...">
+    </div>
+    <div class="featured-label">Empresas destacadas</div>
+    <div class="featured-row" id="featuredRow"></div>
+    <div class="refresh-strip" id="refreshStrip"></div>
+  </div>
+
+  <div class="view-tabs">
+    <button class="view-tab active" id="tabRanking">Ranking</button>
+    <button class="view-tab" id="tabCharts">Gráficas</button>
+    <button class="view-tab" onclick="document.getElementById('glossary').scrollIntoView({behavior:'smooth'})">Glosario ↓</button>
+  </div>
+
+  <div class="view-panel active" id="rankingView">
+  <div class="backtest-section" id="backtestSection"></div>
+
+  <div class="chart-section">
+    <div class="featured-label">Growth vs. Valuation</div>
+    <div class="chart-wrap">
+      <div id="chartContainer"></div>
+      <div class="chart-tooltip" id="chartTooltip"></div>
+    </div>
+  </div>
+
+  <div class="weights-section">
+    <div class="featured-label">Pesos del Deal Score (ajustables)</div>
+    <div class="weights-card">
+      <div class="weights-grid" id="weightsGrid"></div>
+      <div class="weights-footer">
+        <span id="weightsTotalLabel">Total: 100 / 100</span>
+        <button class="weights-reset" id="weightsReset">Restablecer default</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="chip-row" id="tierChips">
+      <div class="chip active" data-tier="all">Todas</div>
+      <div class="chip" data-tier="High Priority">High Priority</div>
+      <div class="chip" data-tier="Priority">Priority</div>
+      <div class="chip" data-tier="Watchlist">Watchlist</div>
+      <div class="chip" data-tier="Rejected">Rejected</div>
+    </div>
+    <div class="toolbar">
+      <select id="industryFilter"><option value="all">Todas las industrias</option></select>
+      <button class="toolbar-btn" id="exportCsvBtn">Exportar CSV</button>
+      <button class="toolbar-btn" id="exportPdfBtn">Exportar PDF</button>
+      <button class="toolbar-btn primary" id="compareBtn" disabled>Comparar (0)</button>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="check-cell"></th>
+          <th>#</th>
+          <th>Empresa</th>
+          <th>Deal Score</th>
+          <th>Perfil</th>
+          <th>Tier</th>
+          <th class="text-right">Growth</th>
+          <th class="text-right">IRR</th>
+          <th class="text-right">MOIC</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+  </div>
+
+  <div class="view-panel" id="chartsView">
+    <div class="gallery-search">
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="gallerySearchInput" placeholder="Buscar empresa en la galería de gráficas...">
+      </div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+
+  <div class="glossary-section" id="glossary">
+    <div class="featured-label">Glosario — Todos los términos del modelo</div>
+    <div class="glossary-intro">Referencia completa de cada término financiero y técnico usado en DealScope, organizada por categoría. Si algo del ranking o del panel de detalle no te queda claro, aquí está explicado.</div>
+    <div class="glossary-groups">
+
+      <div class="glossary-group">
+        <h3>Los 5 Pilares del Deal Score</h3>
+        <dl>
+          <div class="glossary-term"><dt>Financial Quality (25 pts)</dt><dd>Qué tan rentable es el negocio. Se calcula con EBITDA margin, FCF margin y ROIC proxy.</dd></div>
+          <div class="glossary-term"><dt>Growth (20 pts)</dt><dd>Qué tan rápido creció el revenue el último año, comparado con una banda de referencia de 0%-40%.</dd></div>
+          <div class="glossary-term"><dt>Risk (20 pts)</dt><dd>Qué tan peligrosa es financieramente la empresa: apalancamiento (Debt/EBITDA), cobertura de intereses, y concentración de clientes.</dd></div>
+          <div class="glossary-term"><dt>Valuation (20 pts)</dt><dd>Si la empresa está cara o barata comparada con su peer group (grupo de empresas similares).</dd></div>
+          <div class="glossary-term"><dt>Strategic Fit (15 pts)</dt><dd>Qué tan predecible es su ingreso, medido por el % de revenue recurrente.</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>Métricas Financieras</h3>
+        <dl>
+          <div class="glossary-term"><dt>Revenue</dt><dd>Los ingresos totales de la empresa en el año.</dd></div>
+          <div class="glossary-term"><dt>EBITDA</dt><dd>Ganancia operativa antes de intereses, impuestos, depreciación y amortización — mide cuánto gana el negocio antes de ajustes contables.</dd></div>
+          <div class="glossary-term"><dt>EBITDA Margin</dt><dd>EBITDA ÷ Revenue. Si es 20%, de cada $100 de venta, $20 quedan como ganancia operativa.</dd></div>
+          <div class="glossary-term"><dt>FCF (Free Cash Flow)</dt><dd>El efectivo que le queda a la empresa después de todos sus gastos operativos y de inversión — el dinero real disponible.</dd></div>
+          <div class="glossary-term"><dt>Debt/EBITDA</dt><dd>Cuántos años de EBITDA le tomaría a la empresa pagar toda su deuda. Más bajo = menos riesgoso.</dd></div>
+          <div class="glossary-term"><dt>Interest Coverage</dt><dd>EBITDA ÷ gastos de interés. Qué tan fácil le es a la empresa pagar los intereses de su deuda.</dd></div>
+          <div class="glossary-term"><dt>ROIC (proxy)</dt><dd>Aproximación de qué tan eficiente es la empresa generando ganancias con el capital que tiene invertido.</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>Valuación</h3>
+        <dl>
+          <div class="glossary-term"><dt>EV (Enterprise Value)</dt><dd>El valor total de la empresa — lo que costaría comprarla completa, incluyendo su deuda.</dd></div>
+          <div class="glossary-term"><dt>EV/EBITDA</dt><dd>El múltiplo más usado en M&amp;A y Private Equity: cuántas veces el EBITDA anual vale la empresa.</dd></div>
+          <div class="glossary-term"><dt>EV/Revenue</dt><dd>Lo mismo que EV/EBITDA pero contra ingresos en vez de ganancia — útil para empresas con EBITDA bajo o negativo.</dd></div>
+          <div class="glossary-term"><dt>Peer Median EV/EBITDA</dt><dd>La mediana de ese múltiplo entre las empresas de su mismo peer group (grupo de comparables).</dd></div>
+          <div class="glossary-term"><dt>Discount / Premium</dt><dd>Si la empresa está más barata (descuento) o más cara (premium) que sus comparables.</dd></div>
+          <div class="glossary-term"><dt>Peer Cluster</dt><dd>El grupo de empresas parecidas, calculado con machine learning (k-means) sobre métricas financieras reales — no solo por el nombre de industria.</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>LBO (Compra Apalancada)</h3>
+        <dl>
+          <div class="glossary-term"><dt>LBO (Leveraged Buyout)</dt><dd>Comprar una empresa usando una mezcla de dinero propio y deuda prestada.</dd></div>
+          <div class="glossary-term"><dt>Sponsor Equity</dt><dd>El dinero propio que pone el fondo comprador (el "sponsor") en la transacción.</dd></div>
+          <div class="glossary-term"><dt>Entry / Exit Multiple</dt><dd>El múltiplo EV/EBITDA al comprar la empresa (entry) y al venderla 5 años después (exit).</dd></div>
+          <div class="glossary-term"><dt>Cash Sweep</dt><dd>Usar el flujo de caja libre de cada año para pagar deuda más rápido de lo mínimo requerido.</dd></div>
+          <div class="glossary-term"><dt>IRR (Internal Rate of Return)</dt><dd>El % de ganancia anual promedio de la inversión a lo largo de los 5 años.</dd></div>
+          <div class="glossary-term"><dt>MOIC (Multiple on Invested Capital)</dt><dd>Por cuánto se multiplicó el dinero invertido. Ej: 3.0x significa que se triplicó.</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>Riesgo y Probabilidad</h3>
+        <dl>
+          <div class="glossary-term"><dt>Sensitivity Analysis</dt><dd>Tabla que muestra el IRR/MOIC bajo distintas combinaciones fijas de exit multiple y growth rate.</dd></div>
+          <div class="glossary-term"><dt>Monte Carlo</dt><dd>Simular miles de escenarios aleatorios (no solo una tabla fija) para dar un rango de resultados con probabilidades.</dd></div>
+          <div class="glossary-term"><dt>Percentil (p10 / p50 / p90)</dt><dd>p10 = el peor 10% de los escenarios salió así o peor. p50 = la mediana, el escenario "típico". p90 = el mejor 10% salió así o mejor.</dd></div>
+          <div class="glossary-term"><dt>Prob. IRR &gt; 15% / 20%</dt><dd>De todos los escenarios simulados, qué porcentaje tuvo un IRR mayor a ese umbral.</dd></div>
+          <div class="glossary-term"><dt>Risk Flags</dt><dd>Banderas automáticas de alerta detectadas por reglas (ej. "alta concentración de cliente", "deuda elevada").</dd></div>
+        </dl>
+      </div>
+
+      <div class="glossary-group">
+        <h3>Backtest y Otros</h3>
+        <dl>
+          <div class="glossary-term"><dt>Backtest</dt><dd>Probar si el modelo hubiera funcionado en el pasado, usando datos históricos reales en vez de datos de hoy.</dd></div>
+          <div class="glossary-term"><dt>Correlación (Spearman)</dt><dd>Número entre -1 y 1 que mide si dos cosas se mueven juntas (score alto → retorno alto). Cerca de 0 = sin relación.</dd></div>
+          <div class="glossary-term"><dt>p-value</dt><dd>Qué tan confiable es esa correlación estadísticamente. Menor a 0.10 se considera significativo en este proyecto.</dd></div>
+          <div class="glossary-term"><dt>Benchmark</dt><dd>El índice de mercado (S&amp;P SmallCap 600) contra el que se compara si el modelo "le ganó al mercado".</dd></div>
+          <div class="glossary-term"><dt>Tier</dt><dd>La clasificación de una empresa según su score: High Priority (80-100), Priority (65-79), Watchlist (40-64), Rejected (0-39).</dd></div>
+          <div class="glossary-term"><dt>Ticker</dt><dd>El símbolo bursátil de la empresa (ej. AMSWA, NRC, BBW).</dd></div>
+          <div class="glossary-term"><dt>Next Earnings Date</dt><dd>La fecha estimada del próximo reporte financiero trimestral de esa empresa.</dd></div>
+        </dl>
+      </div>
+
+    </div>
+    <a class="back-to-top" href="#top">↑ Volver arriba</a>
+  </div>
+
+  <footer>
+    <span>DealScope — Motor determinístico en Python + interpretación por LLM · Datos reales vía Yahoo Finance</span>
+    <span id="footerCount">28 empresas</span>
+  </footer>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="compare-overlay" id="compareOverlay">
+  <div class="compare-modal">
+    <div class="compare-close" id="compareClose">&times;</div>
+    <div class="eyebrow">Comparación</div>
+    <h2 style="font-family: var(--font-display); font-size: 26px;">Empresas seleccionadas</h2>
+    <div class="compare-grid" id="compareGrid"></div>
+  </div>
+</div>
+<div class="drawer" id="drawer">
+  <div class="drawer-inner" id="drawerContent"></div>
+</div>
+
+<script>
+const SCREEN_DATA = __DEAL_DATA_PLACEHOLDER__;
+const DEAL_DATA = SCREEN_DATA.companies;
+const GENERATED_AT = SCREEN_DATA.generated_at;
+const NEXT_REFRESH_DUE = SCREEN_DATA.next_refresh_due;
+const BACKTEST_DATA = __BACKTEST_DATA_PLACEHOLDER__;
+const RUN_STATUS = __RUN_STATUS_PLACEHOLDER__;
+
+// ---------- Helpers ----------
+const fmtPct = (v, digits=1) => (v === null || v === undefined) ? '—' : (v*100).toFixed(digits) + '%';
+const fmtX = (v, digits=2) => (v === null || v === undefined) ? '—' : v.toFixed(digits) + 'x';
+const fmtNum = (v) => (v === null || v === undefined) ? '—' : v.toLocaleString('en-US');
+const fmtMoney = (v) => {
+  if (v === null || v === undefined) return '—';
+  if (Math.abs(v) >= 1e6) return '$' + (v/1e6).toFixed(1) + 'M';
+  return '$' + fmtNum(Math.round(v));
+};
+
+const tierColor = {
+  'High Priority': 'var(--tier-high)',
+  'Priority': 'var(--tier-priority)',
+  'Watchlist': 'var(--tier-watchlist)',
+  'Rejected': 'var(--tier-rejected)',
+};
+
+let currentTierFilter = 'all';
+let currentIndustryFilter = 'all';
+let currentSearch = '';
+
+function daysUntil(isoDateStr) {
+  if (!isoDateStr) return null;
+  const target = new Date(isoDateStr);
+  if (isNaN(target.getTime())) return null;
+  const now = new Date();
+  return Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+}
+
+/** Devuelve {days, hours, minutes, seconds, totalMs, isPast} contando en vivo
+ * hasta isoDateStr. Se usa para los countdowns que corren segundo a segundo. */
+function liveCountdown(isoDateStr) {
+  if (!isoDateStr) return null;
+  const target = new Date(isoDateStr);
+  if (isNaN(target.getTime())) return null;
+  const totalMs = target - new Date();
+  const isPast = totalMs <= 0;
+  const abs = Math.abs(totalMs);
+  const days = Math.floor(abs / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((abs / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((abs / (1000 * 60)) % 60);
+  const seconds = Math.floor((abs / 1000) % 60);
+  return { days, hours, minutes, seconds, totalMs, isPast };
+}
+
+function formatCountdown(c) {
+  if (!c) return 'N/D';
+  const pad = n => String(n).padStart(2, '0');
+  if (c.days > 0) return `${c.days}d ${pad(c.hours)}h ${pad(c.minutes)}m ${pad(c.seconds)}s`;
+  return `${pad(c.hours)}h ${pad(c.minutes)}m ${pad(c.seconds)}s`;
+}
+
+function renderRefreshStrip() {
+  const strip = document.getElementById('refreshStrip');
+  const genDate = GENERATED_AT ? new Date(GENERATED_AT) : null;
+  const genLabel = genDate ? genDate.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : 'N/D';
+
+  let healthHtml = '';
+  if (RUN_STATUS) {
+    const isOk = RUN_STATUS.status === 'success';
+    const finishedLabel = RUN_STATUS.finished_at
+      ? new Date(RUN_STATUS.finished_at).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
+      : 'N/D';
+    const dotColor = isOk ? 'var(--positive)' : 'var(--negative)';
+    const label = isOk ? 'Automatización activa' : 'Última corrida automática falló';
+    healthHtml = `
+      <div class="refresh-item" title="${RUN_STATUS.message || ''}">
+        <span class="refresh-dot" style="background:${dotColor}"></span>${label} · ${finishedLabel}
+      </div>`;
+  }
+
+  strip.innerHTML = `
+    <div class="refresh-item"><span class="refresh-dot"></span>Última actualización: <span class="highlight">${genLabel}</span></div>
+    <div class="refresh-item">Próxima actualización de precios/valuación en: <span class="highlight mono" id="liveRefreshCountdown">—</span></div>
+    ${healthHtml}
+  `;
+  tickRefreshCountdown();
+}
+
+function tickRefreshCountdown() {
+  const el = document.getElementById('liveRefreshCountdown');
+  if (!el) return;
+  const c = liveCountdown(NEXT_REFRESH_DUE);
+  if (!c) { el.textContent = 'N/D'; return; }
+  el.textContent = c.isPast ? 'Pendiente de correr refresh_all.sh' : formatCountdown(c);
+}
+
+// Actualiza el countdown global cada segundo, en vivo
+setInterval(tickRefreshCountdown, 1000);
+
+function renderFeatured() {
+  const top = [...DEAL_DATA].sort((a,b) => b.deal_score - a.deal_score).slice(0, 4);
+  const row = document.getElementById('featuredRow');
+  row.innerHTML = top.map(d => `
+    <div class="featured-card" data-company="${d.company}">
+      <div class="fc-score">${d.deal_score.toFixed(0)}</div>
+      <div class="fc-name">${d.company}</div>
+      <div class="fc-industry">${d.industry}</div>
+    </div>
+  `).join('');
+  row.querySelectorAll('.featured-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const d = DEAL_DATA.find(x => x.company === card.dataset.company);
+      if (d) openDrawer(d);
+    });
+  });
+}
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  currentSearch = e.target.value.trim().toLowerCase();
+  renderTable();
+});
+
+function populateIndustryFilter() {
+  const industries = [...new Set(DEAL_DATA.map(d => d.industry))].sort();
+  const sel = document.getElementById('industryFilter');
+  industries.forEach(ind => {
+    const opt = document.createElement('option');
+    opt.value = ind; opt.textContent = ind;
+    sel.appendChild(opt);
+  });
+  sel.addEventListener('change', (e) => {
+    currentIndustryFilter = e.target.value;
+    renderTable();
+  });
+}
+
+function renderStats() {
+  const total = DEAL_DATA.length;
+  const high = DEAL_DATA.filter(d => d.priority_tier === 'High Priority').length;
+  const watch = DEAL_DATA.filter(d => d.priority_tier === 'Watchlist').length;
+  const rejected = DEAL_DATA.filter(d => d.priority_tier === 'Rejected').length;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statHigh').textContent = high;
+  document.getElementById('statWatch').textContent = watch;
+  document.getElementById('statRejected').textContent = rejected;
+  document.getElementById('footerCount').textContent = total + ' empresas';
+}
+
+function fingerprint(breakdown) {
+  const maxes = { financial_quality: 25, growth: 20, risk: 20, valuation: 20, strategic_fit: 15 };
+  const keys = ['financial_quality','growth','risk','valuation','strategic_fit'];
+  return `<div class="fingerprint">` + keys.map(k => {
+    const pct = Math.max(0.08, (breakdown[k] / maxes[k]));
+    const h = Math.round(pct * 20);
+    return `<div class="seg" style="height:${h}px; background: var(--accent); opacity:${0.4 + pct*0.6}"></div>`;
+  }).join('') + `</div>`;
+}
+
+// ---------- Pesos ajustables del score ----------
+const WEIGHT_DEFAULTS = { financial_quality: 25, growth: 20, risk: 20, valuation: 20, strategic_fit: 15 };
+const WEIGHT_LABELS = { financial_quality: 'Financial Quality', growth: 'Growth', risk: 'Risk', valuation: 'Valuation', strategic_fit: 'Strategic Fit' };
+const WEIGHT_MAXES = { financial_quality: 25, growth: 20, risk: 20, valuation: 20, strategic_fit: 15 };
+let currentWeights = { ...WEIGHT_DEFAULTS };
+
+function isDefaultWeights() {
+  return Object.keys(WEIGHT_DEFAULTS).every(k => currentWeights[k] === WEIGHT_DEFAULTS[k]);
+}
+
+function adjustedScore(d) {
+  const totalWeight = Object.values(currentWeights).reduce((a, b) => a + b, 0);
+  if (totalWeight === 0) return 0;
+  let sum = 0;
+  for (const key of Object.keys(WEIGHT_DEFAULTS)) {
+    const frac = (d.score_breakdown[key] || 0) / WEIGHT_MAXES[key];
+    sum += frac * currentWeights[key];
+  }
+  return (sum / totalWeight) * 100;
+}
+
+function getDisplayScore(d) {
+  return isDefaultWeights() ? d.deal_score : adjustedScore(d);
+}
+
+function renderWeights() {
+  const grid = document.getElementById('weightsGrid');
+  grid.innerHTML = Object.keys(WEIGHT_DEFAULTS).map(key => `
+    <div class="weight-item">
+      <label>${WEIGHT_LABELS[key]} <span class="wv" id="wv_${key}">${currentWeights[key]}</span></label>
+      <input type="range" min="0" max="40" value="${currentWeights[key]}" id="slider_${key}" data-key="${key}">
+    </div>
+  `).join('');
+
+  Object.keys(WEIGHT_DEFAULTS).forEach(key => {
+    document.getElementById(`slider_${key}`).addEventListener('input', (e) => {
+      currentWeights[key] = Number(e.target.value);
+      document.getElementById(`wv_${key}`).textContent = currentWeights[key];
+      updateWeightsTotal();
+      renderTable();
+      renderFeatured();
+    });
+  });
+
+  updateWeightsTotal();
+}
+
+function updateWeightsTotal() {
+  const total = Object.values(currentWeights).reduce((a, b) => a + b, 0);
+  const label = document.getElementById('weightsTotalLabel');
+  const suffix = isDefaultWeights() ? ' (default)' : ' — ranking recalculado en vivo';
+  label.innerHTML = `Total: <span class="${total === 0 ? 'weights-warn' : ''}">${total}</span> pts${suffix}`;
+}
+
+document.getElementById('weightsReset').addEventListener('click', () => {
+  currentWeights = { ...WEIGHT_DEFAULTS };
+  renderWeights();
+  renderTable();
+  renderFeatured();
+});
+
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+  let filtered = DEAL_DATA.filter(d => {
+    const tierOk = currentTierFilter === 'all' || d.priority_tier === currentTierFilter;
+    const indOk = currentIndustryFilter === 'all' || d.industry === currentIndustryFilter;
+    const searchOk = !currentSearch || d.company.toLowerCase().includes(currentSearch) || d.industry.toLowerCase().includes(currentSearch);
+    return tierOk && indOk && searchOk;
+  });
+
+  if (!isDefaultWeights()) {
+    filtered = [...filtered].sort((a, b) => adjustedScore(b) - adjustedScore(a));
+  }
+
+  filtered.forEach((d, i) => {
+    const tr = document.createElement('tr');
+    tr.addEventListener('click', (e) => {
+      if (e.target.classList.contains('row-check')) return;
+      openDrawer(d);
+    });
+    const growthClass = d.revenue_growth >= 0 ? 'num-positive' : 'num-negative';
+    const irrClass = (d.irr !== null && d.irr >= 0) ? 'num-positive' : 'num-negative';
+    const isChecked = selectedCompanies.has(d.company);
+    const displayScore = getDisplayScore(d);
+    tr.innerHTML = `
+      <td class="check-cell"><input type="checkbox" class="row-check" data-company="${d.company}" ${isChecked ? 'checked' : ''}></td>
+      <td class="rank-cell mono">${i+1}</td>
+      <td>
+        <div class="company-name">${d.company}</div>
+        <div class="company-industry">${d.industry}</div>
+      </td>
+      <td>
+        <div class="score-cell">
+          <div class="score-num mono">${displayScore.toFixed(0)}</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width:${displayScore}%; background:${tierColor[d.priority_tier]}"></div></div>
+        </div>
+      </td>
+      <td>${fingerprint(d.score_breakdown)}</td>
+      <td><span class="tier-badge ${d.priority_tier.replace(' ','-')}">${d.priority_tier}</span></td>
+      <td class="text-right mono ${growthClass}">${fmtPct(d.revenue_growth)}</td>
+      <td class="text-right mono ${irrClass}">${fmtPct(d.irr)}</td>
+      <td class="text-right mono">${fmtX(d.moic)}</td>
+    `;
+    tr.querySelector('.row-check').addEventListener('click', (e) => e.stopPropagation());
+    tr.querySelector('.row-check').addEventListener('change', (e) => {
+      const company = e.target.dataset.company;
+      if (e.target.checked) selectedCompanies.add(company);
+      else selectedCompanies.delete(company);
+      updateCompareButton();
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+document.getElementById('tierChips').addEventListener('click', (e) => {
+  const chip = e.target.closest('.chip');
+  if (!chip) return;
+  document.querySelectorAll('#tierChips .chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  currentTierFilter = chip.dataset.tier;
+  renderTable();
+});
+
+// ---------- Drawer / detail ----------
+function miniLineChart(labels, series, opts = {}) {
+  // series: [{name, values, color}], values puede tener null (huecos se saltan)
+  const W = 560, H = 140, M = { top: 10, right: 10, bottom: 22, left: 44 };
+  const plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+  const allVals = series.flatMap(s => s.values).filter(v => v !== null && v !== undefined);
+  if (allVals.length === 0) return '<div class="trend-empty">Sin datos suficientes.</div>';
+  const yMin = Math.min(0, ...allVals), yMax = Math.max(...allVals) * 1.15;
+  const xStep = labels.length > 1 ? plotW / (labels.length - 1) : 0;
+  const xPos = i => M.left + i * xStep;
+  const yPos = v => M.top + plotH - ((v - yMin) / (yMax - yMin || 1)) * plotH;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%">`;
+  const yTicks = 3;
+  for (let i = 0; i <= yTicks; i++) {
+    const v = yMin + (yMax - yMin) * (i / yTicks);
+    const y = yPos(v);
+    svg += `<line x1="${M.left}" y1="${y}" x2="${M.left+plotW}" y2="${y}" stroke="var(--border-soft)" stroke-width="1"/>`;
+    svg += `<text x="${M.left-6}" y="${y+3}" text-anchor="end" class="chart-tick-label">${opts.yFmt ? opts.yFmt(v) : v.toFixed(0)}</text>`;
+  }
+  labels.forEach((lab, i) => {
+    svg += `<text x="${xPos(i)}" y="${H-6}" text-anchor="middle" class="chart-tick-label">${lab}</text>`;
+  });
+
+  series.forEach(s => {
+    const pts = s.values.map((v, i) => v === null || v === undefined ? null : `${xPos(i)},${yPos(v)}`).filter(Boolean);
+    if (pts.length > 1) {
+      svg += `<polyline points="${pts.join(' ')}" fill="none" stroke="${s.color}" stroke-width="2"/>`;
+    }
+    s.values.forEach((v, i) => {
+      if (v === null || v === undefined) return;
+      svg += `<circle cx="${xPos(i)}" cy="${yPos(v)}" r="3" fill="${s.color}"/>`;
+    });
+  });
+  svg += '</svg>';
+  return svg;
+}
+
+function scoreHistorySection(scoreHistory) {
+  if (!scoreHistory || scoreHistory.length < 2) {
+    return `<div class="trend-empty">Todavía no hay suficiente historial (se necesita más de una actualización). Cada vez que corras refresh_all.sh se agrega un punto nuevo aquí — con el tiempo se arma la línea de tiempo completa.</div>`;
+  }
+  const labels = scoreHistory.map(h => h.date.slice(5)); // MM-DD
+  const values = scoreHistory.map(h => h.score);
+  const first = values[0], last = values[values.length - 1];
+  const delta = last - first;
+  const deltaClass = delta >= 0 ? 'num-positive' : 'num-negative';
+  return `
+    <div class="trend-wrap">${miniLineChart(labels, [{ name: 'Deal Score', values, color: 'var(--accent)' }], { yFmt: v => v.toFixed(0) })}</div>
+    <div class="backtest-caveat">Cambio desde el primer registro: <span class="${deltaClass}">${delta >= 0 ? '+' : ''}${delta.toFixed(1)} pts</span> (${scoreHistory.length} actualizaciones registradas)</div>
+  `;
+}
+
+function historicalSection(hist) {
+  if (!hist || (!hist.years?.length && !hist.price_history?.length)) {
+    return `<div class="section-label">Tendencia Histórica</div><div class="trend-empty">No disponible para esta empresa (dato de ejemplo, o no reportado por la fuente).</div>`;
+  }
+
+  let html = '<div class="section-label">Tendencia Histórica — Revenue &amp; EBITDA</div>';
+  if (hist.years?.length) {
+    html += `<div class="trend-wrap">${miniLineChart(hist.years, [
+      { name: 'Revenue', values: hist.revenue, color: 'var(--accent)' },
+      { name: 'EBITDA', values: hist.ebitda, color: 'var(--positive)' },
+    ], { yFmt: v => v >= 1e6 ? (v/1e6).toFixed(0)+'M' : v.toFixed(0) })}</div>
+    <div class="trend-legend">
+      <div class="trend-legend-item"><span class="trend-legend-dot" style="background:var(--accent)"></span>Revenue</div>
+      <div class="trend-legend-item"><span class="trend-legend-dot" style="background:var(--positive)"></span>EBITDA</div>
+    </div>`;
+  } else {
+    html += '<div class="trend-empty">Solo se reportan los años más recientes disponibles en la fuente (típicamente ~4).</div>';
+  }
+
+  if (hist.price_history?.length) {
+    html += '<div class="section-label">Tendencia de Precio (5 años)</div>';
+    html += `<div class="trend-wrap">${miniLineChart(
+      hist.price_history.map(p => p.year),
+      [{ name: 'Precio', values: hist.price_history.map(p => p.close), color: 'var(--tier-priority)' }],
+      { yFmt: v => '$' + v.toFixed(0) }
+    )}</div>`;
+  }
+
+  return html;
+}
+
+function pillarRow(name, value, max) {
+  const pct = Math.max(2, (value / max) * 100);
+  return `
+    <div class="pillar-row">
+      <div class="pillar-name">${name}</div>
+      <div class="pillar-track"><div class="pillar-fill" style="width:${pct}%"></div></div>
+      <div class="pillar-val">${value.toFixed(1)}/${max}</div>
+    </div>`;
+}
+
+function monteCarloSection(mc) {
+  if (!mc) {
+    return '<div class="trend-empty">Sin datos suficientes para simular (fuera del top 10, o EBITDA no positivo).</div>';
+  }
+
+  const hist = mc.histogram;
+  const W = 560, H = 130, M = { top: 10, right: 10, bottom: 22, left: 30 };
+  const plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+  const maxCount = Math.max(...hist.counts);
+  const barW = plotW / hist.counts.length;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%">`;
+  hist.counts.forEach((count, i) => {
+    const h = (count / maxCount) * plotH;
+    const x = M.left + i * barW;
+    const y = M.top + plotH - h;
+    const binMid = (hist.bin_edges[i] + hist.bin_edges[i+1]) / 2;
+    const color = binMid < 0 ? 'var(--negative)' : 'var(--accent)';
+    svg += `<rect x="${x+1}" y="${y}" width="${barW-2}" height="${h}" fill="${color}" fill-opacity="0.75"/>`;
+  });
+  // etiquetas de los extremos del eje X
+  svg += `<text x="${M.left}" y="${H-6}" text-anchor="start" class="chart-tick-label">${(hist.bin_edges[0]*100).toFixed(0)}%</text>`;
+  svg += `<text x="${M.left+plotW}" y="${H-6}" text-anchor="end" class="chart-tick-label">${(hist.bin_edges[hist.bin_edges.length-1]*100).toFixed(0)}%</text>`;
+  svg += `<line x1="${M.left}" y1="${M.top+plotH}" x2="${M.left+plotW}" y2="${M.top+plotH}" stroke="var(--border)" stroke-width="1"/>`;
+  svg += '</svg>';
+
+  const benchmarkBox = mc.prob_beat_benchmark !== null && mc.prob_beat_benchmark !== undefined ? `
+      <div class="metric-box"><div class="v ${mc.prob_beat_benchmark >= 0.5 ? 'num-positive' : 'num-negative'}">${(mc.prob_beat_benchmark*100).toFixed(0)}%</div><div class="l">Prob. de superar al mercado</div></div>
+  ` : '';
+
+  const benchmarkNote = mc.benchmark_cagr !== null && mc.benchmark_cagr !== undefined ? `
+    <div class="backtest-interpretation" style="margin-top:10px;">
+      El mercado (S&amp;P SmallCap 600) rindió <strong>${fmtPct(mc.benchmark_cagr,1)} anual</strong> en el período de referencia.
+      En <strong>${(mc.prob_beat_benchmark*100).toFixed(0)}% de los ${mc.n_sims.toLocaleString()} escenarios simulados</strong>, esta empresa lo superó —
+      ${mc.prob_beat_benchmark >= 0.5
+        ? 'porque su crecimiento y perfil de riesgo, incluso en escenarios conservadores del modelo, siguen implicando un IRR mayor al retorno histórico del mercado.'
+        : 'porque incluso en escenarios favorables, el retorno proyectado de este LBO no alcanza consistentemente lo que el mercado ya rindió por sí solo — sugiere que el riesgo adicional del apalancamiento no se ve compensado.'}
+    </div>
+  ` : '';
+
+  return `
+    <div class="trend-wrap">${svg}</div>
+    <div class="metric-grid" style="margin-top:10px">
+      <div class="metric-box"><div class="v">${fmtPct(mc.irr_p10,0)}</div><div class="l">IRR percentil 10</div></div>
+      <div class="metric-box"><div class="v" style="color:var(--accent)">${fmtPct(mc.irr_p50,0)}</div><div class="l">IRR mediana</div></div>
+      <div class="metric-box"><div class="v">${fmtPct(mc.irr_p90,0)}</div><div class="l">IRR percentil 90</div></div>
+      <div class="metric-box"><div class="v num-positive">${(mc.prob_irr_above_15pct*100).toFixed(0)}%</div><div class="l">Prob. IRR &gt; 15%</div></div>
+      <div class="metric-box"><div class="v num-positive">${(mc.prob_irr_above_20pct*100).toFixed(0)}%</div><div class="l">Prob. IRR &gt; 20%</div></div>
+      <div class="metric-box"><div class="v ${mc.prob_loss > 0.1 ? 'num-negative' : ''}">${(mc.prob_loss*100).toFixed(1)}%</div><div class="l">Prob. de pérdida</div></div>
+      ${benchmarkBox}
+    </div>
+    ${benchmarkNote}
+    <div class="backtest-caveat" style="margin-top:8px;">Simulación de ${mc.n_sims.toLocaleString()} escenarios variando growth rate (distribución triangular) y exit multiple (distribución normal ±15%) alrededor de las asunciones base.</div>
+  `;
+}
+
+function sensitivityTable(sens, metric) {
+  if (!sens) return '<p style="color:var(--text-tertiary); font-size:12px;">Sin datos de sensibilidad (fuera del top 10 del ranking).</p>';
+  const matrix = metric === 'irr' ? sens.irr_matrix : sens.moic_matrix;
+  const fmt = metric === 'irr' ? (v)=>fmtPct(v,0) : (v)=>fmtX(v,1);
+  let html = '<table class="heatmap"><tr><th class="corner">Exit \\ Growth</th>';
+  sens.growth_rates.forEach(g => html += `<th>${(g*100).toFixed(0)}%</th>`);
+  html += '</tr>';
+  sens.exit_multiples.forEach((ex, ri) => {
+    html += `<tr><th>${ex.toFixed(1)}x</th>`;
+    sens.growth_rates.forEach((g, ci) => {
+      const v = matrix[ri][ci];
+      let bg = 'transparent';
+      if (v !== null) {
+        const t = metric === 'irr' ? Math.max(0, Math.min(1, (v + 0.1) / 0.5)) : Math.max(0, Math.min(1, v / 5));
+        bg = `rgba(227,178,94,${(t*0.5).toFixed(2)})`;
+      }
+      html += `<td style="background:${bg}">${v === null ? '—' : fmt(v)}</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</table>';
+  return html;
+}
+
+function openDrawer(d) {
+  const memo = d.ai_memo || {};
+  const isFallback = memo._note ? true : false;
+
+  const content = `
+    <div class="drawer-close" id="drawerClose">&times;</div>
+    <button class="toolbar-btn" id="downloadMemoBtn" style="position:absolute; top:26px; right:70px;">Descargar Memo (PDF)</button>
+    <div class="eyebrow">${d.industry}</div>
+    <h2>${d.company}</h2>
+    <div class="sub">DEAL SCORE ${d.deal_score.toFixed(1)}/100 · <span style="color:${tierColor[d.priority_tier]}">${d.priority_tier}</span></div>
+
+    <div class="section-label">Score Breakdown</div>
+    ${pillarRow('Financial Quality', d.score_breakdown.financial_quality, 25)}
+    ${pillarRow('Growth', d.score_breakdown.growth, 20)}
+    ${pillarRow('Risk', d.score_breakdown.risk, 20)}
+    ${pillarRow('Valuation', d.score_breakdown.valuation, 20)}
+    ${pillarRow('Strategic Fit', d.score_breakdown.strategic_fit, 15)}
+
+    <div class="section-label">Historial del Deal Score</div>
+    ${scoreHistorySection(d.score_history)}
+
+    <div class="section-label">Próximo reporte trimestral</div>
+    ${(() => {
+      if (!d.next_earnings_date) {
+        return `<div class="earnings-countdown"><div class="ec-label">Fecha no disponible para esta empresa (dato de ejemplo o no reportado por la fuente).</div></div>`;
+      }
+      const dateLabel = new Date(d.next_earnings_date).toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+      return `<div class="earnings-countdown"><div class="ec-num mono" id="earningsCountdown" data-date="${d.next_earnings_date}">—</div><div class="ec-label" id="earningsCountdownLabel">Calculando...<br>Fecha estimada: ${dateLabel}${d.ticker ? ' · ' + d.ticker : ''}</div></div>`;
+    })()}
+
+    <div class="section-label">Financial Snapshot</div>
+    <div class="metric-grid">
+      <div class="metric-box"><div class="v">${fmtPct(d.revenue_growth)}</div><div class="l">Revenue Growth</div></div>
+      <div class="metric-box"><div class="v">${fmtPct(d.ebitda_margin)}</div><div class="l">EBITDA Margin</div></div>
+      <div class="metric-box"><div class="v">${fmtPct(d.fcf_margin)}</div><div class="l">FCF Margin</div></div>
+      <div class="metric-box"><div class="v">${fmtX(d.debt_ebitda)}</div><div class="l">Debt / EBITDA</div></div>
+      <div class="metric-box"><div class="v">${fmtX(d.interest_coverage)}</div><div class="l">Interest Coverage</div></div>
+      <div class="metric-box"><div class="v">${fmtPct(d.largest_customer_pct)}</div><div class="l">Top Customer Conc.</div></div>
+    </div>
+
+    <div class="section-label">Valuation vs. Peers</div>
+    <div class="metric-grid">
+      <div class="metric-box"><div class="v">${fmtX(d.ev_ebitda)}</div><div class="l">Target EV/EBITDA</div></div>
+      <div class="metric-box"><div class="v">${fmtX(d.peer_median_ev_ebitda)}</div><div class="l">Peer Median EV/EBITDA</div></div>
+      <div class="metric-box"><div class="v ${d.ev_ebitda_discount<0?'num-positive':'num-negative'}">${fmtPct(d.ev_ebitda_discount)}</div><div class="l">Discount / Premium</div></div>
+    </div>
+
+    ${historicalSection(d.historical)}
+
+    <div class="section-label">LBO Summary (5-Year Hold)</div>
+    <div class="lbo-callouts">
+      <div class="lbo-callout"><div class="v">${fmtPct(d.irr)}</div><div class="l">IRR</div></div>
+      <div class="lbo-callout"><div class="v">${fmtX(d.moic)}</div><div class="l">MOIC</div></div>
+      <div class="lbo-callout"><div class="v" style="font-size:16px">${fmtMoney(d.sponsor_equity)}</div><div class="l">Sponsor Equity</div></div>
+      <div class="lbo-callout"><div class="v" style="font-size:16px">${fmtMoney(d.exit_equity)}</div><div class="l">Exit Equity</div></div>
+    </div>
+
+    <div class="section-label">Sensitivity — IRR (Exit Multiple × Growth Rate)</div>
+    ${sensitivityTable(d.sensitivity, 'irr')}
+
+    <div class="section-label">Sensitivity — MOIC</div>
+    ${sensitivityTable(d.sensitivity, 'moic')}
+
+    <div class="section-label">Simulación Monte Carlo (${d.monte_carlo ? d.monte_carlo.n_sims.toLocaleString() : '0'} escenarios)</div>
+    ${monteCarloSection(d.monte_carlo)}
+
+    ${d.risk_flags && d.risk_flags.length ? `
+      <div class="section-label">Risk Flags</div>
+      <div class="risk-flags">${d.risk_flags.map(f => `<span class="risk-tag">${f}</span>`).join('')}</div>
+    ` : ''}
+
+    ${memo.investment_thesis ? `
+      <div class="section-label">Investment Thesis</div>
+      <div class="memo-block"><p>${memo.investment_thesis}</p></div>
+
+      <div class="section-label">Strengths</div>
+      <div class="memo-block"><ul>${(memo.strengths||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+
+      <div class="section-label">Risks</div>
+      <div class="memo-block"><ul>${(memo.risks||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+
+      <div class="section-label">Catalysts</div>
+      <div class="memo-block"><ul>${(memo.catalysts||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+
+      <div class="section-label">Due Diligence Questions</div>
+      <div class="memo-block"><ul>${(memo.due_diligence_questions||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+
+      <div class="section-label">Recommendation</div>
+      <div class="rec-badge">${memo.recommendation || '—'}</div>
+
+      ${isFallback ? `<div class="memo-note">${memo._note}</div>` : ''}
+    ` : ''}
+  `;
+
+  document.getElementById('drawerContent').innerHTML = content;
+  document.getElementById('drawerContent').style.position = 'relative';
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  document.getElementById('downloadMemoBtn').addEventListener('click', () => downloadMemo(d, memo));
+
+  // Countdown en vivo del reporte trimestral de esta empresa específica
+  if (earningsInterval) clearInterval(earningsInterval);
+  tickEarningsCountdown();
+  earningsInterval = setInterval(tickEarningsCountdown, 1000);
+}
+
+let earningsInterval = null;
+
+function tickEarningsCountdown() {
+  const numEl = document.getElementById('earningsCountdown');
+  const labelEl = document.getElementById('earningsCountdownLabel');
+  if (!numEl || !labelEl) { if (earningsInterval) clearInterval(earningsInterval); return; }
+  const c = liveCountdown(numEl.dataset.date);
+  if (!c) { numEl.textContent = '—'; return; }
+  if (c.isPast) {
+    numEl.textContent = '—';
+    labelEl.innerHTML = labelEl.innerHTML.replace('Calculando...', 'Ya publicado — corre refresh_all.sh para actualizar');
+  } else {
+    numEl.textContent = c.days > 0 ? c.days : formatCountdown(c);
+    const sub = c.days > 0 ? `en ${c.days} día${c.days === 1 ? '' : 's'} (${formatCountdown(c)})` : `en ${formatCountdown(c)}`;
+    labelEl.innerHTML = labelEl.innerHTML.replace(/^[^<]*/, sub);
+  }
+}
+
+function downloadMemo(d, memo) {
+  const genLabel = new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+  const listHtml = (arr) => (arr && arr.length) ? `<ul>${arr.map(x => `<li>${x}</li>`).join('')}</ul>` : '<p class="muted">No disponible.</p>';
+
+  const html = `<!doctype html><html lang="es"><head><meta charset="UTF-8">
+    <title>Investment Memo — ${d.company}</title>
+    <style>
+      body { font-family: Georgia, 'Times New Roman', serif; color: #1a1a1a; max-width: 720px; margin: 40px auto; padding: 0 24px; }
+      h1 { font-size: 26px; margin-bottom: 2px; }
+      .eyebrow { font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8a6d1f; text-transform: uppercase; }
+      .sub { font-family: 'Courier New', monospace; font-size: 12px; color: #555; margin-bottom: 24px; }
+      h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; color: #8a6d1f; border-bottom: 1px solid #ddd; padding-bottom: 4px; margin-top: 28px; }
+      table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; }
+      td { padding: 6px 8px; border-bottom: 1px solid #eee; }
+      td.label { color: #666; font-family: 'Courier New', monospace; font-size: 11px; text-transform: uppercase; }
+      td.value { text-align: right; font-family: 'Courier New', monospace; font-weight: bold; }
+      ul { margin: 6px 0; padding-left: 20px; font-size: 13px; line-height: 1.6; }
+      p { font-size: 13.5px; line-height: 1.6; }
+      .muted { color: #999; font-style: italic; }
+      .footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid #ddd; font-family: 'Courier New', monospace; font-size: 10px; color: #999; }
+      .rec { display: inline-block; margin-top: 4px; padding: 6px 12px; border: 1px solid #8a6d1f; color: #8a6d1f; font-family: 'Courier New', monospace; font-size: 12px; }
+      @media print { body { margin: 0; padding: 24px; } }
+    </style></head>
+  <body>
+    <div class="eyebrow">DealScope — Private Market Screening</div>
+    <h1>${d.company}</h1>
+    <div class="sub">${d.industry} · Deal Score ${d.deal_score.toFixed(1)}/100 · ${d.priority_tier} · Generado el ${genLabel}</div>
+
+    <h2>Métricas Clave</h2>
+    <table>
+      <tr><td class="label">Revenue Growth</td><td class="value">${fmtPct(d.revenue_growth)}</td></tr>
+      <tr><td class="label">EBITDA Margin</td><td class="value">${fmtPct(d.ebitda_margin)}</td></tr>
+      <tr><td class="label">Debt / EBITDA</td><td class="value">${fmtX(d.debt_ebitda)}</td></tr>
+      <tr><td class="label">EV / EBITDA (vs. Peer Median)</td><td class="value">${fmtX(d.ev_ebitda)} vs. ${fmtX(d.peer_median_ev_ebitda)}</td></tr>
+      <tr><td class="label">LBO IRR / MOIC (5yr)</td><td class="value">${fmtPct(d.irr)} / ${fmtX(d.moic)}</td></tr>
+    </table>
+
+    <h2>Investment Thesis</h2>
+    <p>${memo.investment_thesis || '<span class="muted">No disponible.</span>'}</p>
+
+    <h2>Strengths</h2>
+    ${listHtml(memo.strengths)}
+
+    <h2>Risks</h2>
+    ${listHtml(memo.risks)}
+
+    <h2>Catalysts</h2>
+    ${listHtml(memo.catalysts)}
+
+    <h2>Due Diligence Questions</h2>
+    ${listHtml(memo.due_diligence_questions)}
+
+    <h2>Recommendation</h2>
+    <div class="rec">${memo.recommendation || 'N/D'}</div>
+
+    <div class="footer">DealScope — Score determinístico calculado en Python; texto interpretativo generado por LLM a partir de esos números. ${memo._note ? 'Nota: memo generado localmente (sin conexión a IA activa).' : ''}</div>
+  </body></html>`;
+
+  const w = window.open('', '_blank');
+  w.document.write(html);
+  w.document.close();
+  setTimeout(() => w.print(), 300);
+}
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  if (earningsInterval) { clearInterval(earningsInterval); earningsInterval = null; }
+}
+
+document.getElementById('overlay').addEventListener('click', closeDrawer);
+
+// ---------- Init ----------
+// ---------- Comparación ----------
+const selectedCompanies = new Set();
+
+function updateCompareButton() {
+  const btn = document.getElementById('compareBtn');
+  btn.textContent = `Comparar (${selectedCompanies.size})`;
+  btn.disabled = selectedCompanies.size < 2;
+}
+
+function openCompare() {
+  const companies = DEAL_DATA.filter(d => selectedCompanies.has(d.company));
+  const rows = [
+    ['Industria', d => d.industry],
+    ['Deal Score', d => d.deal_score.toFixed(1)],
+    ['Tier', d => d.priority_tier],
+    ['Revenue Growth', d => fmtPct(d.revenue_growth)],
+    ['EBITDA Margin', d => fmtPct(d.ebitda_margin)],
+    ['Debt/EBITDA', d => fmtX(d.debt_ebitda)],
+    ['Interest Coverage', d => fmtX(d.interest_coverage)],
+    ['EV/EBITDA', d => fmtX(d.ev_ebitda)],
+    ['Peer Median EV/EBITDA', d => fmtX(d.peer_median_ev_ebitda)],
+    ['IRR', d => fmtPct(d.irr)],
+    ['MOIC', d => fmtX(d.moic)],
+  ];
+  let html = '<table class="compare-table"><tr><td></td>' +
+    companies.map(d => `<th class="company-col">${d.company}</th>`).join('') + '</tr>';
+  rows.forEach(([label, fn]) => {
+    html += `<tr><td class="metric-label">${label}</td>` +
+      companies.map(d => `<td>${fn(d)}</td>`).join('') + '</tr>';
+  });
+  html += '</table>';
+  document.getElementById('compareGrid').innerHTML = html;
+  document.getElementById('compareOverlay').classList.add('open');
+}
+
+document.getElementById('compareBtn').addEventListener('click', openCompare);
+document.getElementById('compareClose').addEventListener('click', () => {
+  document.getElementById('compareOverlay').classList.remove('open');
+});
+document.getElementById('compareOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'compareOverlay') document.getElementById('compareOverlay').classList.remove('open');
+});
+
+// ---------- Exportar ----------
+function getVisibleData() {
+  return DEAL_DATA.filter(d => {
+    const tierOk = currentTierFilter === 'all' || d.priority_tier === currentTierFilter;
+    const indOk = currentIndustryFilter === 'all' || d.industry === currentIndustryFilter;
+    const searchOk = !currentSearch || d.company.toLowerCase().includes(currentSearch) || d.industry.toLowerCase().includes(currentSearch);
+    return tierOk && indOk && searchOk;
+  });
+}
+
+function exportCsv() {
+  const rows = getVisibleData();
+  const headers = ['Rank', 'Company', 'Industry', 'Deal Score', 'Tier', 'Revenue Growth', 'EBITDA Margin', 'EV/EBITDA', 'IRR', 'MOIC'];
+  const lines = [headers.join(',')];
+  rows.forEach((d, i) => {
+    const line = [
+      i + 1,
+      `"${d.company.replace(/"/g, '""')}"`,
+      `"${d.industry}"`,
+      d.deal_score.toFixed(1),
+      d.priority_tier,
+      d.revenue_growth ?? '',
+      d.ebitda_margin ?? '',
+      d.ev_ebitda ?? '',
+      d.irr ?? '',
+      d.moic ?? '',
+    ].join(',');
+    lines.push(line);
+  });
+  const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `dealscope_ranking_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+document.getElementById('exportCsvBtn').addEventListener('click', exportCsv);
+document.getElementById('exportPdfBtn').addEventListener('click', () => window.print());
+
+// ---------- Scatter chart: Growth vs Valuation ----------
+function renderChart() {
+  const data = DEAL_DATA.filter(d => d.revenue_growth !== null && d.ev_ebitda_discount !== null && d.ev_ebitda_discount !== undefined);
+  const W = 860, H = 320, M = { top: 20, right: 20, bottom: 40, left: 50 };
+  const plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+
+  const xs = data.map(d => d.revenue_growth);
+  const ys = data.map(d => d.ev_ebitda_discount);
+  const xMin = Math.min(0, ...xs), xMax = Math.max(...xs) * 1.1 || 1;
+  const yMin = Math.min(...ys) * 1.1, yMax = Math.max(...ys) * 1.1;
+
+  const xScale = v => M.left + ((v - xMin) / (xMax - xMin)) * plotW;
+  const yScale = v => M.top + plotH - ((v - yMin) / (yMax - yMin)) * plotH;
+
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="overflow:visible">`;
+
+  // ejes
+  const xTicks = 5, yTicks = 4;
+  for (let i = 0; i <= xTicks; i++) {
+    const v = xMin + (xMax - xMin) * (i / xTicks);
+    const x = xScale(v);
+    svg += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${M.top+plotH}" stroke="var(--border-soft)" stroke-width="1"/>`;
+    svg += `<text x="${x}" y="${M.top+plotH+16}" text-anchor="middle" class="chart-tick-label">${(v*100).toFixed(0)}%</text>`;
+  }
+  for (let i = 0; i <= yTicks; i++) {
+    const v = yMin + (yMax - yMin) * (i / yTicks);
+    const y = yScale(v);
+    svg += `<line x1="${M.left}" y1="${y}" x2="${M.left+plotW}" y2="${y}" stroke="var(--border-soft)" stroke-width="1"/>`;
+    svg += `<text x="${M.left-8}" y="${y+3}" text-anchor="end" class="chart-tick-label">${(v*100).toFixed(0)}%</text>`;
+  }
+  // línea cero en valuación
+  const zeroY = yScale(0);
+  svg += `<line x1="${M.left}" y1="${zeroY}" x2="${M.left+plotW}" y2="${zeroY}" stroke="var(--text-tertiary)" stroke-width="1" stroke-dasharray="3,3"/>`;
+
+  svg += `<text x="${M.left+plotW/2}" y="${H-4}" text-anchor="middle" class="chart-axis-label">Revenue Growth →</text>`;
+  svg += `<text x="14" y="${M.top+plotH/2}" text-anchor="middle" class="chart-axis-label" transform="rotate(-90, 14, ${M.top+plotH/2})">Premium / Descuento vs Peers →</text>`;
+
+  data.forEach(d => {
+    const x = xScale(d.revenue_growth);
+    const y = yScale(d.ev_ebitda_discount);
+    const color = tierColor[d.priority_tier] || 'var(--text-tertiary)';
+    svg += `<circle class="chart-dot" cx="${x}" cy="${y}" r="5" fill="${color}" fill-opacity="0.75" stroke="${color}" stroke-width="1" data-company="${d.company}"/>`;
+  });
+
+  svg += '</svg>';
+  document.getElementById('chartContainer').innerHTML = svg;
+
+  const legendHtml = Object.entries(tierColor).map(([tier, color]) =>
+    `<div class="chart-legend-item"><span class="chart-legend-dot" style="background:${color}"></span>${tier}</div>`
+  ).join('');
+  document.getElementById('chartContainer').insertAdjacentHTML('afterend', `<div class="chart-legend">${legendHtml}</div>`);
+
+  const tooltip = document.getElementById('chartTooltip');
+  document.querySelectorAll('.chart-dot').forEach(dot => {
+    dot.addEventListener('mousemove', (e) => {
+      const d = DEAL_DATA.find(x => x.company === dot.dataset.company);
+      if (!d) return;
+      tooltip.innerHTML = `<strong>${d.company}</strong><br>Growth: ${fmtPct(d.revenue_growth)} · Val: ${fmtPct(d.ev_ebitda_discount)}`;
+      tooltip.style.left = (e.offsetX + 12) + 'px';
+      tooltip.style.top = (e.offsetY - 10) + 'px';
+      tooltip.style.opacity = '1';
+    });
+    dot.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
+    dot.addEventListener('click', () => {
+      const d = DEAL_DATA.find(x => x.company === dot.dataset.company);
+      if (d) openDrawer(d);
+    });
+  });
+}
+
+function renderBacktest() {
+  const el = document.getElementById('backtestSection');
+  if (!BACKTEST_DATA) {
+    el.innerHTML = '';
+    return;
+  }
+  if (BACKTEST_DATA.warning) {
+    el.innerHTML = `
+      <div class="featured-label">Validación del modelo (Backtest)</div>
+      <div class="backtest-card">
+        <div class="backtest-interpretation">${BACKTEST_DATA.warning} (n=${BACKTEST_DATA.n})</div>
+      </div>`;
+    return;
+  }
+  const d = BACKTEST_DATA;
+  const benchmarkRow = d.benchmark_return !== null && d.benchmark_return !== undefined ? `
+    <div class="backtest-stat"><div class="v">${fmtPct(d.benchmark_return)}</div><div class="l">${d.benchmark_ticker || 'Benchmark'}</div></div>
+    <div class="backtest-stat"><div class="v ${d.beat_benchmark ? 'num-positive' : 'num-negative'}">${d.beat_benchmark ? 'SÍ' : 'NO'}</div><div class="l">¿Top third le ganó al mercado?</div></div>
+  ` : '';
+  el.innerHTML = `
+    <div class="featured-label">Validación del modelo (Backtest) — Score histórico vs. retorno real</div>
+    <div class="backtest-card">
+      <div class="backtest-stats">
+        <div class="backtest-stat"><div class="v">${d.n}</div><div class="l">Empresas evaluadas</div></div>
+        <div class="backtest-stat"><div class="v">${d.spearman_correlation}</div><div class="l">Correlación (Spearman)</div></div>
+        <div class="backtest-stat"><div class="v ${d.avg_return_top_third >= 0 ? 'num-positive' : 'num-negative'}">${fmtPct(d.avg_return_top_third)}</div><div class="l">Retorno tercio TOP</div></div>
+        <div class="backtest-stat"><div class="v ${d.avg_return_bottom_third >= 0 ? 'num-positive' : 'num-negative'}">${fmtPct(d.avg_return_bottom_third)}</div><div class="l">Retorno tercio BOTTOM</div></div>
+        ${benchmarkRow}
+      </div>
+      <div class="backtest-interpretation">${d.interpretation}</div>
+      <div class="backtest-caveat">
+        Metodología: score histórico simplificado (Growth + EBITDA margin + Debt/EBITDA) calculado con datos del año más antiguo disponible por empresa (~3-4 años atrás, límite real de la fuente gratuita), comparado contra el retorno de precio real hasta hoy. Valuation y Strategic Fit no se recrean retroactivamente por falta de datos históricos de múltiplos de peers. Muestra pequeña — resultado orientativo, no institucional.
+      </div>
+    </div>`;
+}
+
+// ---------- Vista: pestañas Ranking / Gráficas ----------
+document.getElementById('tabRanking').addEventListener('click', () => switchView('ranking'));
+document.getElementById('tabCharts').addEventListener('click', () => switchView('charts'));
+
+function switchView(view) {
+  document.getElementById('tabRanking').classList.toggle('active', view === 'ranking');
+  document.getElementById('tabCharts').classList.toggle('active', view === 'charts');
+  document.getElementById('rankingView').classList.toggle('active', view === 'ranking');
+  document.getElementById('chartsView').classList.toggle('active', view === 'charts');
+  if (view === 'charts' && !galleryRendered) renderGallery();
+}
+
+let galleryRendered = false;
+let gallerySearch = '';
+
+document.getElementById('gallerySearchInput').addEventListener('input', (e) => {
+  gallerySearch = e.target.value.trim().toLowerCase();
+  renderGallery();
+});
+
+function renderGallery() {
+  galleryRendered = true;
+  const grid = document.getElementById('galleryGrid');
+  const filtered = DEAL_DATA
+    .filter(d => !gallerySearch || d.company.toLowerCase().includes(gallerySearch) || d.industry.toLowerCase().includes(gallerySearch))
+    .sort((a, b) => b.deal_score - a.deal_score);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="trend-empty">Sin resultados para esa búsqueda.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(d => `
+    <div class="gallery-card">
+      <div class="gallery-card-header">
+        <div><span class="name">${d.company}</span><span class="industry">${d.industry} · ${d.priority_tier}</span></div>
+        <div class="score">${d.deal_score.toFixed(0)}</div>
+      </div>
+      <div class="gallery-charts">
+        <div class="gallery-chart-block">
+          <div class="gc-label">Revenue &amp; EBITDA</div>
+          ${d.historical && d.historical.years?.length ? miniLineChart(d.historical.years, [
+            { name: 'Revenue', values: d.historical.revenue, color: 'var(--accent)' },
+            { name: 'EBITDA', values: d.historical.ebitda, color: 'var(--positive)' },
+          ], { yFmt: v => v >= 1e6 ? (v/1e6).toFixed(0)+'M' : v.toFixed(0) }) : '<div class="trend-empty">Sin historial disponible.</div>'}
+        </div>
+        <div class="gallery-chart-block">
+          <div class="gc-label">Historial del Deal Score</div>
+          ${d.score_history && d.score_history.length >= 2 ? miniLineChart(
+            d.score_history.map(h => h.date.slice(5)),
+            [{ name: 'Score', values: d.score_history.map(h => h.score), color: 'var(--tier-priority)' }],
+            { yFmt: v => v.toFixed(0) }
+          ) : '<div class="trend-empty">Aún sin suficiente historial.</div>'}
+        </div>
+        <div class="gallery-chart-block">
+          <div class="gc-label">Distribución Monte Carlo (IRR)</div>
+          ${d.monte_carlo ? monteCarloHistogramOnly(d.monte_carlo) : '<div class="trend-empty">No aplica (EBITDA no positivo).</div>'}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function monteCarloHistogramOnly(mc) {
+  const hist = mc.histogram;
+  const W = 300, H = 110, M = { top: 6, right: 6, bottom: 18, left: 6 };
+  const plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+  const maxCount = Math.max(...hist.counts);
+  const barW = plotW / hist.counts.length;
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%">`;
+  hist.counts.forEach((count, i) => {
+    const h = (count / maxCount) * plotH;
+    const x = M.left + i * barW;
+    const y = M.top + plotH - h;
+    const binMid = (hist.bin_edges[i] + hist.bin_edges[i+1]) / 2;
+    const color = binMid < 0 ? 'var(--negative)' : 'var(--accent)';
+    svg += `<rect x="${x+1}" y="${y}" width="${barW-2}" height="${h}" fill="${color}" fill-opacity="0.75"/>`;
+  });
+  svg += `<text x="${M.left}" y="${H-4}" class="chart-tick-label">${(hist.bin_edges[0]*100).toFixed(0)}%</text>`;
+  svg += `<text x="${W-M.right}" y="${H-4}" text-anchor="end" class="chart-tick-label">${(hist.bin_edges[hist.bin_edges.length-1]*100).toFixed(0)}%</text>`;
+  svg += '</svg>';
+  return svg;
+}
+
+populateIndustryFilter();
+renderStats();
+renderRefreshStrip();
+renderWeights();
+renderFeatured();
+renderBacktest();
+renderChart();
+renderTable();
+updateCompareButton();
+</script>
+</body>
+</html>

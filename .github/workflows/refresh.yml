@@ -1,0 +1,65 @@
+name: Actualizar DealScope
+
+# Corre automáticamente todos los días a las 8:00 UTC, en los servidores
+# de GitHub — NO depende de que tu computadora esté prendida.
+# También se puede correr manualmente desde la pestaña "Actions" en GitHub.
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+          pip install yfinance
+
+      - name: Descargar datos financieros reales
+        working-directory: src
+        run: python3 live_data_fetch.py
+
+      - name: Calcular Deal Score, LBO y sensitivity
+        working-directory: src
+        env:
+          # Si agregas ANTHROPIC_API_KEY en los "Secrets" del repo, se activa
+          # la IA real automáticamente. Si no, usa el fallback local (gratis).
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "$ANTHROPIC_API_KEY" ]; then
+            python3 pipeline.py
+          else
+            python3 pipeline.py --no-ai
+          fi
+
+      - name: Correr backtest
+        working-directory: src
+        run: python3 backtest.py
+
+      - name: Regenerar dashboard
+        working-directory: src
+        run: python3 build_dashboard.py
+
+      - name: Preparar archivo para publicar (index.html)
+        run: cp dashboard.html index.html
+
+      - name: Publicar los cambios de vuelta al repositorio
+        run: |
+          git config user.name "DealScope Bot"
+          git config user.email "actions@github.com"
+          git add dashboard.html index.html data/ outputs/
+          git diff --quiet --cached || git commit -m "Actualización automática de datos y dashboard"
+          git push
