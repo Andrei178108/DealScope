@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-09-24T19:17:43.304010+00:00",
-  "next_refresh_due": "2026-09-27T19:17:43.304010+00:00",
+  "generated_at": "2026-09-25T08:03:58.153986+00:00",
+  "next_refresh_due": "2026-09-28T08:03:58.153986+00:00",
   "companies": [
     {
       "company": "Perdoceo Education Corporation",
       "industry": "Education Technology",
-      "deal_score": 77.9,
+      "deal_score": 77.8,
       "priority_tier": "Priority",
       "score_breakdown": {
-        "financial_quality": 19.5,
+        "financial_quality": 19.4,
         "growth": 12.1,
         "risk": 19.2,
         "valuation": 20.0,
@@ -19,9 +19,9 @@
       "fcf_margin": 0.2182,
       "debt_ebitda": 0.43,
       "interest_coverage": 40.98,
-      "ev_ebitda": 5.09,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": -0.6531,
+      "ev_ebitda": 5.14,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": -0.6478,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -29,8 +29,8 @@
       "risk_flags": [],
       "irr": 0.3491,
       "moic": 4.47,
-      "sponsor_equity": 606236198.0,
-      "exit_equity": 2709683411.0,
+      "sponsor_equity": 612994522.0,
+      "exit_equity": 2739890971.0,
       "next_earnings_date": "2026-11-09",
       "ticker": "PRDO",
       "historical": {
@@ -92,7 +92,7 @@
           },
           {
             "year": "2026",
-            "close": 31.53
+            "close": 31.68
           }
         ]
       },
@@ -104,6 +104,10 @@
         {
           "date": "2026-09-24",
           "score": 77.9
+        },
+        {
+          "date": "2026-09-25",
+          "score": 77.8
         }
       ],
       "sensitivity": {
@@ -122,110 +126,110 @@
         ],
         "irr_matrix": [
           [
-            0.2998,
-            0.3757,
-            0.4382,
-            0.5007
+            0.2957,
+            0.3724,
+            0.435,
+            0.4974
           ],
           [
-            0.3367,
-            0.4129,
-            0.4771,
-            0.5413
+            0.3326,
+            0.4096,
+            0.4738,
+            0.5379
           ],
           [
-            0.3699,
-            0.4466,
-            0.5123,
-            0.5781
+            0.3659,
+            0.4432,
+            0.509,
+            0.5746
           ],
           [
-            0.4002,
-            0.4774,
-            0.5445,
-            0.6117
+            0.3962,
+            0.4739,
+            0.5411,
+            0.6081
           ],
           [
-            0.4281,
-            0.5058,
-            0.5742,
-            0.6427
+            0.4241,
+            0.5023,
+            0.5708,
+            0.6391
           ]
         ],
         "moic_matrix": [
           [
-            3.71,
-            4.93,
-            6.15,
-            7.61
+            3.65,
+            4.87,
+            6.08,
+            7.53
           ],
           [
-            4.27,
-            5.63,
-            7.03,
-            8.7
+            4.2,
+            5.56,
+            6.95,
+            8.6
           ],
           [
-            4.83,
-            6.33,
-            7.91,
-            9.79
+            4.75,
+            6.26,
+            7.82,
+            9.68
           ],
           [
-            5.38,
-            7.04,
-            8.79,
-            10.87
+            5.31,
+            6.96,
+            8.69,
+            10.75
           ],
           [
-            5.94,
-            7.74,
-            9.67,
-            11.96
+            5.86,
+            7.65,
+            9.56,
+            11.83
           ]
         ]
       },
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.2203,
-        "irr_p50": 0.3299,
+        "irr_p10": 0.2191,
+        "irr_p50": 0.3298,
         "irr_p90": 0.4213,
-        "moic_p10": 2.71,
+        "moic_p10": 2.69,
         "moic_p50": 4.16,
         "moic_p90": 5.8,
-        "prob_irr_above_15pct": 0.983,
-        "prob_irr_above_20pct": 0.936,
+        "prob_irr_above_15pct": 0.982,
+        "prob_irr_above_20pct": 0.933,
         "prob_loss": 0.0,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 1.0,
         "histogram": {
           "bin_edges": [
-            0.0224,
-            0.0681,
-            0.1138,
-            0.1595,
-            0.2052,
-            0.2509,
-            0.2965,
-            0.3422,
-            0.3879,
-            0.4336,
-            0.4793,
-            0.525,
+            0.0199,
+            0.0658,
+            0.1117,
+            0.1576,
+            0.2035,
+            0.2494,
+            0.2953,
+            0.3412,
+            0.3871,
+            0.433,
+            0.4789,
+            0.5248,
             0.5707
           ],
           "counts": [
             10,
             45,
-            164,
-            506,
-            1004,
-            1672,
-            2275,
-            2215,
-            1367,
-            613,
-            118,
+            162,
+            503,
+            993,
+            1644,
+            2272,
+            2218,
+            1391,
+            627,
+            124,
             11
           ]
         }
@@ -235,10 +239,10 @@
     {
       "company": "Insteel Industries, Inc.",
       "industry": "Industrial Tech",
-      "deal_score": 65.0,
-      "priority_tier": "Watchlist",
+      "deal_score": 65.1,
+      "priority_tier": "Priority",
       "score_breakdown": {
-        "financial_quality": 7.5,
+        "financial_quality": 7.6,
         "growth": 11.2,
         "risk": 19.2,
         "valuation": 20.0,
@@ -249,9 +253,9 @@
       "fcf_margin": -0.027,
       "debt_ebitda": 0.04,
       "interest_coverage": 1389.37,
-      "ev_ebitda": 7.63,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": -0.4794,
+      "ev_ebitda": 7.52,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": -0.4847,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -259,10 +263,10 @@
       "risk_flags": [
         "Negative Free Cash Flow"
       ],
-      "irr": 0.3056,
-      "moic": 3.79,
-      "sponsor_equity": 248076461.0,
-      "exit_equity": 941275995.0,
+      "irr": 0.3065,
+      "moic": 3.81,
+      "sponsor_equity": 244591978.0,
+      "exit_equity": 931153102.0,
       "next_earnings_date": "2026-10-22",
       "ticker": "IIIN",
       "historical": {
@@ -321,7 +325,7 @@
           },
           {
             "year": "2026",
-            "close": 29.04
+            "close": 29.13
           }
         ]
       },
@@ -333,6 +337,10 @@
         {
           "date": "2026-09-24",
           "score": 65.0
+        },
+        {
+          "date": "2026-09-25",
+          "score": 65.1
         }
       ],
       "sensitivity": {
@@ -351,111 +359,111 @@
         ],
         "irr_matrix": [
           [
-            0.1131,
-            0.2004,
-            0.2792,
-            0.3526
+            0.1191,
+            0.2059,
+            0.2844,
+            0.3578
           ],
           [
-            0.1578,
-            0.2425,
-            0.3202,
-            0.3934
+            0.1635,
+            0.2479,
+            0.3254,
+            0.3985
           ],
           [
-            0.1965,
-            0.2796,
-            0.3567,
-            0.4299
+            0.202,
+            0.2848,
+            0.3618,
+            0.435
           ],
           [
-            0.2307,
-            0.3128,
-            0.3896,
-            0.463
+            0.2361,
+            0.318,
+            0.3948,
+            0.4681
           ],
           [
-            0.2615,
-            0.343,
-            0.4197,
-            0.4933
+            0.2669,
+            0.3481,
+            0.4248,
+            0.4985
           ]
         ],
         "moic_matrix": [
           [
-            1.71,
-            2.49,
-            3.42,
-            4.53
+            1.76,
+            2.55,
+            3.5,
+            4.61
           ],
           [
-            2.08,
-            2.96,
-            4.01,
-            5.25
+            2.13,
+            3.03,
+            4.09,
+            5.35
           ],
           [
-            2.45,
-            3.43,
-            4.6,
-            5.98
+            2.51,
+            3.5,
+            4.68,
+            6.08
           ],
           [
-            2.82,
-            3.9,
-            5.18,
-            6.7
+            2.89,
+            3.98,
+            5.28,
+            6.82
           ],
           [
-            3.2,
-            4.37,
-            5.77,
-            7.43
+            3.26,
+            4.45,
+            5.87,
+            7.55
           ]
         ]
       },
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.1461,
-        "irr_p50": 0.2815,
-        "irr_p90": 0.3924,
-        "moic_p10": 1.98,
-        "moic_p50": 3.46,
-        "moic_p90": 5.23,
-        "prob_irr_above_15pct": 0.894,
-        "prob_irr_above_20pct": 0.785,
+        "irr_p10": 0.1474,
+        "irr_p50": 0.2824,
+        "irr_p90": 0.3932,
+        "moic_p10": 1.99,
+        "moic_p50": 3.47,
+        "moic_p90": 5.25,
+        "prob_irr_above_15pct": 0.895,
+        "prob_irr_above_20pct": 0.787,
         "prob_loss": 0.004,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.989,
         "histogram": {
           "bin_edges": [
-            -0.1311,
-            -0.074,
-            -0.0169,
-            0.0401,
-            0.0972,
-            0.1543,
-            0.2114,
-            0.2685,
-            0.3256,
-            0.3826,
-            0.4397,
-            0.4968,
-            0.5539
+            -0.1281,
+            -0.0712,
+            -0.0143,
+            0.0425,
+            0.0994,
+            0.1563,
+            0.2132,
+            0.27,
+            0.3269,
+            0.3838,
+            0.4406,
+            0.4975,
+            0.5544
           ],
           "counts": [
             6,
-            18,
+            19,
             99,
-            298,
-            713,
-            1330,
-            2013,
+            299,
+            727,
+            1344,
+            2014,
             2401,
-            1894,
-            963,
-            240,
-            25
+            1873,
+            953,
+            241,
+            24
           ]
         }
       },
@@ -464,13 +472,13 @@
     {
       "company": "United States Lime & Minerals, ",
       "industry": "Industrials",
-      "deal_score": 63.1,
+      "deal_score": 62.8,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 16.2,
         "growth": 8.7,
         "risk": 19.2,
-        "valuation": 11.9,
+        "valuation": 11.6,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.1731,
@@ -479,8 +487,8 @@
       "debt_ebitda": 0.02,
       "interest_coverage": 940.02,
       "ev_ebitda": 14.92,
-      "peer_median_ev_ebitda": 15.8,
-      "ev_ebitda_discount": -0.0557,
+      "peer_median_ev_ebitda": 15.69,
+      "ev_ebitda_discount": -0.049,
       "peer_cluster": 4,
       "peer_cluster_size": 3,
       "largest_customer_pct": 0.15,
@@ -488,8 +496,8 @@
       "risk_flags": [],
       "irr": 0.2888,
       "moic": 3.56,
-      "sponsor_equity": 1229463821.0,
-      "exit_equity": 4372271021.0,
+      "sponsor_equity": 1229592730.0,
+      "exit_equity": 4372645518.0,
       "next_earnings_date": "2026-10-28",
       "ticker": "USLM",
       "historical": {
@@ -551,7 +559,7 @@
           },
           {
             "year": "2026",
-            "close": 108.81
+            "close": 109.42
           }
         ]
       },
@@ -563,6 +571,10 @@
         {
           "date": "2026-09-24",
           "score": 63.1
+        },
+        {
+          "date": "2026-09-25",
+          "score": 62.8
         }
       ],
       "sensitivity": {
@@ -581,34 +593,34 @@
         ],
         "irr_matrix": [
           [
-            -0.2377,
+            -0.2378,
             -0.0741,
             0.0342,
             0.1217
           ],
           [
-            -0.1486,
+            -0.1487,
             -0.0165,
             0.0819,
-            0.1651
+            0.165
           ],
           [
-            -0.0861,
-            0.0302,
+            -0.0862,
+            0.0301,
             0.1225,
-            0.2028
+            0.2027
           ],
           [
             -0.0372,
             0.0696,
             0.1579,
-            0.2363
+            0.2362
           ],
           [
-            0.0035,
-            0.104,
-            0.1895,
-            0.2665
+            0.0034,
+            0.1039,
+            0.1894,
+            0.2664
           ]
         ],
         "moic_matrix": [
@@ -647,7 +659,7 @@
       "monte_carlo": {
         "n_sims": 10000,
         "irr_p10": 0.1233,
-        "irr_p50": 0.264,
+        "irr_p50": 0.2639,
         "irr_p90": 0.3783,
         "moic_p10": 1.79,
         "moic_p50": 3.23,
@@ -655,7 +667,7 @@
         "prob_irr_above_15pct": 0.853,
         "prob_irr_above_20pct": 0.727,
         "prob_loss": 0.01,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.981,
         "histogram": {
           "bin_edges": [
@@ -708,9 +720,9 @@
       "fcf_margin": 0.0359,
       "debt_ebitda": -10.11,
       "interest_coverage": -1.49,
-      "ev_ebitda": -20.16,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": -2.3757,
+      "ev_ebitda": -19.86,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": -2.3605,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -795,6 +807,10 @@
         {
           "date": "2026-09-24",
           "score": 62.5
+        },
+        {
+          "date": "2026-09-25",
+          "score": 62.5
         }
       ],
       "sensitivity": null,
@@ -802,474 +818,15 @@
       "ai_memo": null
     },
     {
-      "company": "Strategic Education, Inc.",
-      "industry": "Education Technology",
-      "deal_score": 60.8,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 13.8,
-        "growth": 2.0,
-        "risk": 19.2,
-        "valuation": 18.7,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": 0.0396,
-      "ebitda_margin": 0.1928,
-      "fcf_margin": 0.1221,
-      "debt_ebitda": 0.44,
-      "interest_coverage": 38.19,
-      "ev_ebitda": 6.94,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": -0.2599,
-      "peer_cluster": 3,
-      "peer_cluster_size": 18,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [
-        "Decelerating / Weak Growth"
-      ],
-      "irr": 0.1509,
-      "moic": 2.02,
-      "sponsor_equity": 763341293.0,
-      "exit_equity": 1541528549.0,
-      "next_earnings_date": "2026-11-05",
-      "ticker": "STRA",
-      "historical": {
-        "years": [
-          "2022",
-          "2023",
-          "2024",
-          "2025"
-        ],
-        "revenue": [
-          1065480000.0,
-          1132924000.0,
-          1219930000.0,
-          1268220000.0
-        ],
-        "ebitda": [
-          137116000.0,
-          170434000.0,
-          201654000.0,
-          244550000.0
-        ],
-        "debt": [
-          null,
-          259281000.0,
-          213325000.0,
-          125226000.0,
-          109121000.0
-        ],
-        "cash": [
-          null,
-          213667000.0,
-          168481000.0,
-          137074000.0,
-          140757000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 50.28
-          },
-          {
-            "year": "2022",
-            "close": 70.59
-          },
-          {
-            "year": "2023",
-            "close": 85.72
-          },
-          {
-            "year": "2024",
-            "close": 88.74
-          },
-          {
-            "year": "2025",
-            "close": 78.43
-          },
-          {
-            "year": "2026",
-            "close": 79.1
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-23",
-          "score": 61.4
-        },
-        {
-          "date": "2026-09-24",
-          "score": 60.8
-        }
-      ],
-      "sensitivity": {
-        "exit_multiples": [
-          7,
-          8,
-          9,
-          10,
-          11
-        ],
-        "growth_rates": [
-          0.05,
-          0.1,
-          0.15,
-          0.2
-        ],
-        "irr_matrix": [
-          [
-            0.1719,
-            0.2538,
-            0.3296,
-            0.4012
-          ],
-          [
-            0.2123,
-            0.293,
-            0.3685,
-            0.4403
-          ],
-          [
-            0.248,
-            0.328,
-            0.4034,
-            0.4756
-          ],
-          [
-            0.2801,
-            0.3596,
-            0.4351,
-            0.5078
-          ],
-          [
-            0.3092,
-            0.3886,
-            0.4643,
-            0.5375
-          ]
-        ],
-        "moic_matrix": [
-          [
-            2.21,
-            3.1,
-            4.15,
-            5.4
-          ],
-          [
-            2.62,
-            3.61,
-            4.8,
-            6.2
-          ],
-          [
-            3.03,
-            4.13,
-            5.44,
-            7.0
-          ],
-          [
-            3.44,
-            4.65,
-            6.09,
-            7.79
-          ],
-          [
-            3.85,
-            5.16,
-            6.73,
-            8.59
-          ]
-        ]
-      },
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.0933,
-        "irr_p50": 0.1814,
-        "irr_p90": 0.27,
-        "moic_p10": 1.56,
-        "moic_p50": 2.3,
-        "moic_p90": 3.3,
-        "prob_irr_above_15pct": 0.68,
-        "prob_irr_above_20pct": 0.392,
-        "prob_loss": 0.006,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.981,
-        "histogram": {
-          "bin_edges": [
-            -0.1163,
-            -0.0719,
-            -0.0275,
-            0.0169,
-            0.0613,
-            0.1057,
-            0.1502,
-            0.1946,
-            0.239,
-            0.2834,
-            0.3278,
-            0.3722,
-            0.4166
-          ],
-          "counts": [
-            7,
-            20,
-            78,
-            332,
-            904,
-            1863,
-            2569,
-            2204,
-            1305,
-            597,
-            112,
-            9
-          ]
-        }
-      },
-      "ai_memo": null
-    },
-    {
-      "company": "Build-A-Bear Workshop, Inc.",
-      "industry": "Consumer Products",
-      "deal_score": 60.4,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 11.5,
-        "growth": 3.4,
-        "risk": 18.4,
-        "valuation": 20.0,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": 0.0673,
-      "ebitda_margin": 0.1536,
-      "fcf_margin": 0.0134,
-      "debt_ebitda": 1.54,
-      "interest_coverage": 10.81,
-      "ev_ebitda": 5.23,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": -0.4422,
-      "peer_cluster": 3,
-      "peer_cluster_size": 18,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [],
-      "irr": 0.2198,
-      "moic": 2.7,
-      "sponsor_equity": 191442614.0,
-      "exit_equity": 517027959.0,
-      "next_earnings_date": "2026-08-27",
-      "ticker": "BBW",
-      "historical": {
-        "years": [
-          "2022",
-          "2023",
-          "2024",
-          "2025",
-          "2026"
-        ],
-        "revenue": [
-          null,
-          467937000.0,
-          486114000.0,
-          496404000.0,
-          529832000.0
-        ],
-        "ebitda": [
-          null,
-          74425000.0,
-          79057000.0,
-          81052000.0,
-          81378000.0
-        ],
-        "debt": [
-          null,
-          86516000.0,
-          83570000.0,
-          96996000.0,
-          127298000.0
-        ],
-        "cash": [
-          null,
-          42198000.0,
-          44327000.0,
-          27758000.0,
-          26755000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 17.31
-          },
-          {
-            "year": "2022",
-            "close": 21.14
-          },
-          {
-            "year": "2023",
-            "close": 21.73
-          },
-          {
-            "year": "2024",
-            "close": 44.67
-          },
-          {
-            "year": "2025",
-            "close": 60.48
-          },
-          {
-            "year": "2026",
-            "close": 24.91
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-23",
-          "score": 60.4
-        },
-        {
-          "date": "2026-09-24",
-          "score": 60.4
-        }
-      ],
-      "sensitivity": {
-        "exit_multiples": [
-          7,
-          8,
-          9,
-          10,
-          11
-        ],
-        "growth_rates": [
-          0.05,
-          0.1,
-          0.15,
-          0.2
-        ],
-        "irr_matrix": [
-          [
-            0.2745,
-            0.3527,
-            0.427,
-            0.4924
-          ],
-          [
-            0.3132,
-            0.3913,
-            0.466,
-            0.5328
-          ],
-          [
-            0.3478,
-            0.4261,
-            0.5013,
-            0.5694
-          ],
-          [
-            0.3792,
-            0.4578,
-            0.5335,
-            0.6028
-          ],
-          [
-            0.408,
-            0.4869,
-            0.5633,
-            0.6336
-          ]
-        ],
-        "moic_matrix": [
-          [
-            3.36,
-            4.53,
-            5.92,
-            7.4
-          ],
-          [
-            3.91,
-            5.21,
-            6.77,
-            8.46
-          ],
-          [
-            4.45,
-            5.9,
-            7.63,
-            9.52
-          ],
-          [
-            4.99,
-            6.58,
-            8.48,
-            10.58
-          ],
-          [
-            5.53,
-            7.27,
-            9.34,
-            11.64
-          ]
-        ]
-      },
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.1436,
-        "irr_p50": 0.2341,
-        "irr_p90": 0.3239,
-        "moic_p10": 1.96,
-        "moic_p50": 2.86,
-        "moic_p90": 4.07,
-        "prob_irr_above_15pct": 0.883,
-        "prob_irr_above_20pct": 0.685,
-        "prob_loss": 0.001,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.997,
-        "histogram": {
-          "bin_edges": [
-            -0.0375,
-            0.0046,
-            0.0466,
-            0.0887,
-            0.1307,
-            0.1728,
-            0.2149,
-            0.2569,
-            0.299,
-            0.341,
-            0.3831,
-            0.4251,
-            0.4672
-          ],
-          "counts": [
-            9,
-            37,
-            151,
-            553,
-            1156,
-            2022,
-            2387,
-            1895,
-            1162,
-            518,
-            101,
-            9
-          ]
-        }
-      },
-      "ai_memo": null
-    },
-    {
       "company": "Photronics, Inc.",
       "industry": "Industrial Tech",
-      "deal_score": 60.1,
+      "deal_score": 61.6,
       "priority_tier": "Watchlist",
       "score_breakdown": {
-        "financial_quality": 16.1,
+        "financial_quality": 16.2,
         "growth": 0.0,
         "risk": 19.2,
-        "valuation": 17.7,
+        "valuation": 19.1,
         "strategic_fit": 7.1
       },
       "revenue_growth": -0.0204,
@@ -1277,9 +834,9 @@
       "fcf_margin": 0.0347,
       "debt_ebitda": 0.01,
       "interest_coverage": 5444.44,
-      "ev_ebitda": 5.29,
-      "peer_median_ev_ebitda": 6.88,
-      "ev_ebitda_discount": -0.2304,
+      "ev_ebitda": 5.19,
+      "peer_median_ev_ebitda": 7.14,
+      "ev_ebitda_discount": -0.2736,
       "peer_cluster": 6,
       "peer_cluster_size": 3,
       "largest_customer_pct": 0.15,
@@ -1287,10 +844,10 @@
       "risk_flags": [
         "Decelerating / Weak Growth"
       ],
-      "irr": 0.1268,
-      "moic": 1.82,
-      "sponsor_equity": 713094336.0,
-      "exit_equity": 1295146937.0,
+      "irr": 0.1297,
+      "moic": 1.84,
+      "sponsor_equity": 698757984.0,
+      "exit_equity": 1285718285.0,
       "next_earnings_date": "2026-08-26",
       "ticker": "PLAB",
       "historical": {
@@ -1352,7 +909,7 @@
           },
           {
             "year": "2026",
-            "close": 29.77
+            "close": 29.81
           }
         ]
       },
@@ -1364,6 +921,10 @@
         {
           "date": "2026-09-24",
           "score": 60.1
+        },
+        {
+          "date": "2026-09-25",
+          "score": 61.6
         }
       ],
       "sensitivity": {
@@ -1382,111 +943,578 @@
         ],
         "irr_matrix": [
           [
-            0.2866,
-            0.3634,
-            0.4268,
-            0.4888
+            0.2941,
+            0.3703,
+            0.4326,
+            0.4949
           ],
           [
-            0.3235,
-            0.4005,
-            0.4654,
-            0.5291
+            0.3309,
+            0.4074,
+            0.4713,
+            0.5353
           ],
           [
-            0.3567,
-            0.434,
-            0.5003,
-            0.5655
+            0.3641,
+            0.4409,
+            0.5064,
+            0.5719
           ],
           [
-            0.387,
-            0.4646,
-            0.5323,
-            0.5989
+            0.3943,
+            0.4716,
+            0.5385,
+            0.6054
           ],
           [
-            0.4148,
-            0.4929,
-            0.5617,
-            0.6296
+            0.4221,
+            0.4999,
+            0.5681,
+            0.6363
           ]
         ],
         "moic_matrix": [
           [
-            3.52,
-            4.71,
-            5.91,
-            7.31
+            3.63,
+            4.83,
+            6.03,
+            7.46
           ],
           [
-            4.06,
-            5.39,
-            6.76,
-            8.36
+            4.18,
+            5.52,
+            6.9,
+            8.53
           ],
           [
-            4.6,
-            6.06,
-            7.6,
-            9.4
+            4.72,
+            6.21,
+            7.76,
+            9.6
           ],
           [
-            5.13,
-            6.74,
-            8.45,
-            10.45
+            5.27,
+            6.9,
+            8.62,
+            10.66
           ],
           [
-            5.67,
-            7.42,
-            9.29,
-            11.49
+            5.82,
+            7.59,
+            9.48,
+            11.73
           ]
         ]
       },
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.1086,
-        "irr_p50": 0.1804,
-        "irr_p90": 0.2556,
-        "moic_p10": 1.67,
-        "moic_p50": 2.29,
-        "moic_p90": 3.12,
-        "prob_irr_above_15pct": 0.711,
-        "prob_irr_above_20pct": 0.363,
+        "irr_p10": 0.1119,
+        "irr_p50": 0.1831,
+        "irr_p90": 0.2579,
+        "moic_p10": 1.7,
+        "moic_p50": 2.32,
+        "moic_p90": 3.15,
+        "prob_irr_above_15pct": 0.728,
+        "prob_irr_above_20pct": 0.379,
         "prob_loss": 0.001,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.994,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.995,
         "histogram": {
           "bin_edges": [
-            -0.0272,
-            0.0073,
-            0.0418,
-            0.0764,
-            0.1109,
-            0.1454,
-            0.1799,
-            0.2145,
-            0.249,
-            0.2835,
-            0.318,
-            0.3526,
-            0.3871
+            -0.0163,
+            0.0174,
+            0.0512,
+            0.0849,
+            0.1187,
+            0.1524,
+            0.1862,
+            0.2199,
+            0.2537,
+            0.2874,
+            0.3212,
+            0.3549,
+            0.3887
           ],
           "counts": [
-            15,
-            60,
-            249,
-            744,
-            1542,
-            2346,
-            2291,
-            1546,
-            828,
-            316,
-            59,
+            20,
+            72,
+            302,
+            821,
+            1651,
+            2371,
+            2182,
+            1463,
+            769,
+            293,
+            52,
             4
+          ]
+        }
+      },
+      "ai_memo": null
+    },
+    {
+      "company": "Build-A-Bear Workshop, Inc.",
+      "industry": "Consumer Products",
+      "deal_score": 60.6,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 11.7,
+        "growth": 3.4,
+        "risk": 18.4,
+        "valuation": 20.0,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": 0.0673,
+      "ebitda_margin": 0.1536,
+      "fcf_margin": 0.0134,
+      "debt_ebitda": 1.54,
+      "interest_coverage": 10.81,
+      "ev_ebitda": 5.1,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": -0.4486,
+      "peer_cluster": 3,
+      "peer_cluster_size": 18,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [],
+      "irr": 0.2225,
+      "moic": 2.73,
+      "sponsor_equity": 186768835.0,
+      "exit_equity": 509953310.0,
+      "next_earnings_date": "2026-08-27",
+      "ticker": "BBW",
+      "historical": {
+        "years": [
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
+        "revenue": [
+          null,
+          467937000.0,
+          486114000.0,
+          496404000.0,
+          529832000.0
+        ],
+        "ebitda": [
+          null,
+          74425000.0,
+          79057000.0,
+          81052000.0,
+          81378000.0
+        ],
+        "debt": [
+          null,
+          86516000.0,
+          83570000.0,
+          96996000.0,
+          127298000.0
+        ],
+        "cash": [
+          null,
+          42198000.0,
+          44327000.0,
+          27758000.0,
+          26755000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 17.15
+          },
+          {
+            "year": "2022",
+            "close": 20.95
+          },
+          {
+            "year": "2023",
+            "close": 21.53
+          },
+          {
+            "year": "2024",
+            "close": 44.28
+          },
+          {
+            "year": "2025",
+            "close": 59.95
+          },
+          {
+            "year": "2026",
+            "close": 25.1
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-23",
+          "score": 60.4
+        },
+        {
+          "date": "2026-09-24",
+          "score": 60.4
+        },
+        {
+          "date": "2026-09-25",
+          "score": 60.6
+        }
+      ],
+      "sensitivity": {
+        "exit_multiples": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "growth_rates": [
+          0.05,
+          0.1,
+          0.15,
+          0.2
+        ],
+        "irr_matrix": [
+          [
+            0.2837,
+            0.3617,
+            0.4359,
+            0.4998
+          ],
+          [
+            0.3223,
+            0.4003,
+            0.4749,
+            0.5404
+          ],
+          [
+            0.3568,
+            0.435,
+            0.5103,
+            0.5771
+          ],
+          [
+            0.3882,
+            0.4667,
+            0.5425,
+            0.6107
+          ],
+          [
+            0.4169,
+            0.4958,
+            0.5723,
+            0.6417
+          ]
+        ],
+        "moic_matrix": [
+          [
+            3.49,
+            4.68,
+            6.1,
+            7.59
+          ],
+          [
+            4.04,
+            5.38,
+            6.98,
+            8.67
+          ],
+          [
+            4.6,
+            6.09,
+            7.86,
+            9.76
+          ],
+          [
+            5.15,
+            6.79,
+            8.73,
+            10.84
+          ],
+          [
+            5.71,
+            7.49,
+            9.61,
+            11.93
+          ]
+        ]
+      },
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.1467,
+        "irr_p50": 0.2368,
+        "irr_p90": 0.3262,
+        "moic_p10": 1.98,
+        "moic_p50": 2.89,
+        "moic_p90": 4.1,
+        "prob_irr_above_15pct": 0.891,
+        "prob_irr_above_20pct": 0.701,
+        "prob_loss": 0.001,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.997,
+        "histogram": {
+          "bin_edges": [
+            -0.0316,
+            0.0101,
+            0.0518,
+            0.0935,
+            0.1352,
+            0.1769,
+            0.2185,
+            0.2602,
+            0.3019,
+            0.3436,
+            0.3853,
+            0.427,
+            0.4687
+          ],
+          "counts": [
+            9,
+            37,
+            158,
+            566,
+            1170,
+            2057,
+            2361,
+            1876,
+            1147,
+            509,
+            101,
+            9
+          ]
+        }
+      },
+      "ai_memo": null
+    },
+    {
+      "company": "Strategic Education, Inc.",
+      "industry": "Education Technology",
+      "deal_score": 59.9,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 13.8,
+        "growth": 2.0,
+        "risk": 19.2,
+        "valuation": 17.8,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": 0.0396,
+      "ebitda_margin": 0.1928,
+      "fcf_margin": 0.1221,
+      "debt_ebitda": 0.44,
+      "interest_coverage": 38.19,
+      "ev_ebitda": 7.08,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": -0.2347,
+      "peer_cluster": 3,
+      "peer_cluster_size": 18,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [
+        "Decelerating / Weak Growth"
+      ],
+      "irr": 0.1489,
+      "moic": 2.0,
+      "sponsor_equity": 778956710.0,
+      "exit_equity": 1559232145.0,
+      "next_earnings_date": "2026-11-05",
+      "ticker": "STRA",
+      "historical": {
+        "years": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "revenue": [
+          1065480000.0,
+          1132924000.0,
+          1219930000.0,
+          1268220000.0
+        ],
+        "ebitda": [
+          137116000.0,
+          170434000.0,
+          201654000.0,
+          244550000.0
+        ],
+        "debt": [
+          null,
+          259281000.0,
+          213325000.0,
+          125226000.0,
+          109121000.0
+        ],
+        "cash": [
+          null,
+          213667000.0,
+          168481000.0,
+          137074000.0,
+          140757000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 50.28
+          },
+          {
+            "year": "2022",
+            "close": 70.59
+          },
+          {
+            "year": "2023",
+            "close": 85.72
+          },
+          {
+            "year": "2024",
+            "close": 88.74
+          },
+          {
+            "year": "2025",
+            "close": 78.43
+          },
+          {
+            "year": "2026",
+            "close": 79.82
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-23",
+          "score": 61.4
+        },
+        {
+          "date": "2026-09-24",
+          "score": 60.8
+        },
+        {
+          "date": "2026-09-25",
+          "score": 59.9
+        }
+      ],
+      "sensitivity": {
+        "exit_multiples": [
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "growth_rates": [
+          0.05,
+          0.1,
+          0.15,
+          0.2
+        ],
+        "irr_matrix": [
+          [
+            0.1637,
+            0.2462,
+            0.3221,
+            0.3939
+          ],
+          [
+            0.2045,
+            0.2855,
+            0.3611,
+            0.433
+          ],
+          [
+            0.2404,
+            0.3206,
+            0.3961,
+            0.4683
+          ],
+          [
+            0.2725,
+            0.3523,
+            0.4278,
+            0.5005
+          ],
+          [
+            0.3017,
+            0.3812,
+            0.457,
+            0.5301
+          ]
+        ],
+        "moic_matrix": [
+          [
+            2.13,
+            3.01,
+            4.04,
+            5.26
+          ],
+          [
+            2.54,
+            3.51,
+            4.67,
+            6.04
+          ],
+          [
+            2.94,
+            4.02,
+            5.3,
+            6.82
+          ],
+          [
+            3.34,
+            4.52,
+            5.93,
+            7.61
+          ],
+          [
+            3.74,
+            5.03,
+            6.57,
+            8.39
+          ]
+        ]
+      },
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.0908,
+        "irr_p50": 0.1795,
+        "irr_p90": 0.2684,
+        "moic_p10": 1.54,
+        "moic_p50": 2.28,
+        "moic_p90": 3.28,
+        "prob_irr_above_15pct": 0.669,
+        "prob_irr_above_20pct": 0.38,
+        "prob_loss": 0.007,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.98,
+        "histogram": {
+          "bin_edges": [
+            -0.1218,
+            -0.077,
+            -0.0323,
+            0.0125,
+            0.0573,
+            0.1021,
+            0.1468,
+            0.1916,
+            0.2364,
+            0.2812,
+            0.326,
+            0.3707,
+            0.4155
+          ],
+          "counts": [
+            6,
+            20,
+            75,
+            325,
+            874,
+            1831,
+            2582,
+            2238,
+            1321,
+            604,
+            115,
+            9
           ]
         }
       },
@@ -1495,10 +1523,10 @@
     {
       "company": "The Simply Good Foods Company",
       "industry": "Consumer Products",
-      "deal_score": 59.7,
+      "deal_score": 59.8,
       "priority_tier": "Watchlist",
       "score_breakdown": {
-        "financial_quality": 11.1,
+        "financial_quality": 11.2,
         "growth": 4.5,
         "risk": 17.0,
         "valuation": 20.0,
@@ -1509,18 +1537,18 @@
       "fcf_margin": 0.0739,
       "debt_ebitda": 2.39,
       "interest_coverage": 8.06,
-      "ev_ebitda": 6.26,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": -0.3323,
+      "ev_ebitda": 6.18,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": -0.3316,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
       "recurring_revenue_pct": 0.5,
       "risk_flags": [],
-      "irr": 0.232,
-      "moic": 2.84,
-      "sponsor_equity": 527812474.0,
-      "exit_equity": 1498259457.0,
+      "irr": 0.2331,
+      "moic": 2.85,
+      "sponsor_equity": 521443296.0,
+      "exit_equity": 1486463569.0,
       "next_earnings_date": "2026-10-22",
       "ticker": "SMPL",
       "historical": {
@@ -1577,7 +1605,7 @@
           },
           {
             "year": "2026",
-            "close": 9.45
+            "close": 9.43
           }
         ]
       },
@@ -1589,6 +1617,10 @@
         {
           "date": "2026-09-24",
           "score": 59.7
+        },
+        {
+          "date": "2026-09-25",
+          "score": 59.8
         }
       ],
       "sensitivity": {
@@ -1607,110 +1639,110 @@
         ],
         "irr_matrix": [
           [
-            0.2001,
-            0.2814,
-            0.3571,
-            0.4291
+            0.2048,
+            0.2859,
+            0.3615,
+            0.4334
           ],
           [
-            0.2409,
-            0.3212,
-            0.3968,
-            0.4691
+            0.2455,
+            0.3257,
+            0.4012,
+            0.4735
           ],
           [
-            0.277,
-            0.3568,
-            0.4325,
-            0.5052
+            0.2815,
+            0.3612,
+            0.4368,
+            0.5096
           ],
           [
-            0.3094,
-            0.389,
-            0.4649,
-            0.5382
+            0.3139,
+            0.3934,
+            0.4693,
+            0.5426
           ],
           [
-            0.3389,
-            0.4185,
-            0.4947,
-            0.5685
+            0.3433,
+            0.4228,
+            0.4991,
+            0.573
           ]
         ],
         "moic_matrix": [
           [
-            2.49,
-            3.45,
-            4.6,
-            5.96
+            2.54,
+            3.52,
+            4.68,
+            6.05
           ],
           [
-            2.94,
-            4.03,
-            5.32,
-            6.84
+            3.0,
+            4.09,
+            5.4,
+            6.95
           ],
           [
-            3.4,
-            4.6,
-            6.03,
-            7.73
+            3.46,
+            4.67,
+            6.12,
+            7.84
           ],
           [
-            3.85,
-            5.17,
-            6.75,
-            8.61
+            3.92,
+            5.25,
+            6.85,
+            8.74
           ],
           [
-            4.3,
-            5.74,
-            7.46,
-            9.49
+            4.37,
+            5.83,
+            7.57,
+            9.63
           ]
         ]
       },
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.1305,
-        "irr_p50": 0.2354,
-        "irr_p90": 0.3327,
-        "moic_p10": 1.85,
-        "moic_p50": 2.88,
-        "moic_p90": 4.2,
-        "prob_irr_above_15pct": 0.854,
-        "prob_irr_above_20pct": 0.667,
-        "prob_loss": 0.003,
-        "benchmark_cagr": 0.0363,
+        "irr_p10": 0.1319,
+        "irr_p50": 0.2365,
+        "irr_p90": 0.3335,
+        "moic_p10": 1.86,
+        "moic_p50": 2.89,
+        "moic_p90": 4.22,
+        "prob_irr_above_15pct": 0.857,
+        "prob_irr_above_20pct": 0.674,
+        "prob_loss": 0.002,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.992,
         "histogram": {
           "bin_edges": [
-            -0.0961,
-            -0.0478,
-            0.0006,
-            0.0489,
-            0.0972,
-            0.1456,
-            0.1939,
-            0.2422,
-            0.2906,
-            0.3389,
-            0.3872,
-            0.4356,
-            0.4839
+            -0.0931,
+            -0.045,
+            0.0032,
+            0.0513,
+            0.0994,
+            0.1476,
+            0.1957,
+            0.2438,
+            0.292,
+            0.3401,
+            0.3882,
+            0.4364,
+            0.4845
           ],
           "counts": [
             6,
-            23,
-            88,
-            349,
-            882,
-            1666,
-            2331,
-            2310,
-            1475,
+            24,
+            87,
+            359,
+            890,
+            1677,
+            2340,
+            2282,
+            1466,
             701,
-            158,
+            157,
             11
           ]
         }
@@ -1720,10 +1752,10 @@
     {
       "company": "Gencor Industries, Inc.",
       "industry": "Industrials",
-      "deal_score": 59.2,
+      "deal_score": 59.3,
       "priority_tier": "Watchlist",
       "score_breakdown": {
-        "financial_quality": 11.9,
+        "financial_quality": 12.0,
         "growth": 1.0,
         "risk": 19.2,
         "valuation": 20.0,
@@ -1734,9 +1766,9 @@
       "fcf_margin": 0.1886,
       "debt_ebitda": 0.0,
       "interest_coverage": 4331.75,
-      "ev_ebitda": 5.53,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": -0.4103,
+      "ev_ebitda": 5.38,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": -0.4179,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -1744,10 +1776,10 @@
       "risk_flags": [
         "Decelerating / Weak Growth"
       ],
-      "irr": 0.1299,
-      "moic": 1.84,
-      "sponsor_equity": 40724226.0,
-      "exit_equity": 75008916.0,
+      "irr": 0.133,
+      "moic": 1.87,
+      "sponsor_equity": 39668872.0,
+      "exit_equity": 74069881.0,
       "next_earnings_date": "2026-08-10",
       "ticker": "GENC",
       "historical": {
@@ -1806,7 +1838,7 @@
           },
           {
             "year": "2026",
-            "close": 17.25
+            "close": 17.21
           }
         ]
       },
@@ -1818,6 +1850,10 @@
         {
           "date": "2026-09-24",
           "score": 59.2
+        },
+        {
+          "date": "2026-09-25",
+          "score": 59.3
         }
       ],
       "sensitivity": {
@@ -1836,110 +1872,110 @@
         ],
         "irr_matrix": [
           [
-            0.2511,
-            0.3301,
-            0.4048,
-            0.4759
+            0.261,
+            0.3397,
+            0.4143,
+            0.4837
           ],
           [
-            0.2904,
-            0.3691,
-            0.4441,
-            0.5159
+            0.3001,
+            0.3787,
+            0.4535,
+            0.5238
           ],
           [
-            0.3255,
-            0.4042,
-            0.4795,
-            0.552
+            0.3351,
+            0.4136,
+            0.489,
+            0.5602
           ],
           [
-            0.3572,
-            0.436,
-            0.5118,
-            0.585
+            0.3667,
+            0.4455,
+            0.5213,
+            0.5934
           ],
           [
-            0.3862,
-            0.4652,
-            0.5416,
-            0.6155
+            0.3957,
+            0.4747,
+            0.5511,
+            0.6241
           ]
         ],
         "moic_matrix": [
           [
-            3.07,
-            4.16,
-            5.47,
-            7.0
+            3.19,
+            4.32,
+            5.66,
+            7.19
           ],
           [
-            3.58,
-            4.81,
-            6.28,
-            8.0
+            3.71,
+            4.98,
+            6.49,
+            8.22
           ],
           [
-            4.09,
-            5.46,
-            7.09,
-            9.0
+            4.24,
+            5.65,
+            7.32,
+            9.24
           ],
           [
-            4.6,
-            6.11,
-            7.9,
-            10.0
+            4.77,
+            6.31,
+            8.15,
+            10.27
           ],
           [
-            5.12,
-            6.75,
-            8.71,
-            11.01
+            5.3,
+            6.98,
+            8.98,
+            11.3
           ]
         ]
       },
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0912,
-        "irr_p50": 0.1723,
-        "irr_p90": 0.2555,
-        "moic_p10": 1.55,
-        "moic_p50": 2.21,
-        "moic_p90": 3.12,
-        "prob_irr_above_15pct": 0.639,
-        "prob_irr_above_20pct": 0.328,
+        "irr_p10": 0.0948,
+        "irr_p50": 0.1751,
+        "irr_p90": 0.2579,
+        "moic_p10": 1.57,
+        "moic_p50": 2.24,
+        "moic_p90": 3.15,
+        "prob_irr_above_15pct": 0.66,
+        "prob_irr_above_20pct": 0.342,
         "prob_loss": 0.005,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.983,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.985,
         "histogram": {
           "bin_edges": [
-            -0.0908,
-            -0.0502,
-            -0.0095,
-            0.0311,
-            0.0718,
-            0.1124,
-            0.1531,
-            0.1937,
-            0.2344,
-            0.2751,
-            0.3157,
-            0.3564,
-            0.397
+            -0.0744,
+            -0.035,
+            0.0044,
+            0.0439,
+            0.0833,
+            0.1227,
+            0.1621,
+            0.2015,
+            0.2409,
+            0.2803,
+            0.3198,
+            0.3592,
+            0.3986
           ],
           "counts": [
-            6,
-            30,
-            108,
-            444,
-            1122,
-            2068,
-            2565,
-            1971,
-            1128,
-            460,
-            93,
+            8,
+            44,
+            148,
+            551,
+            1208,
+            2203,
+            2486,
+            1844,
+            1004,
+            416,
+            83,
             5
           ]
         }
@@ -1949,13 +1985,13 @@
     {
       "company": "Ennis, Inc.",
       "industry": "Financial Services",
-      "deal_score": 57.1,
+      "deal_score": 56.5,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 13.4,
         "growth": 0.0,
         "risk": 19.2,
-        "valuation": 17.4,
+        "valuation": 16.8,
         "strategic_fit": 7.1
       },
       "revenue_growth": -0.0056,
@@ -1963,9 +1999,9 @@
       "fcf_margin": 0.1337,
       "debt_ebitda": 0.05,
       "interest_coverage": 356.65,
-      "ev_ebitda": 7.28,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": -0.2234,
+      "ev_ebitda": 7.35,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": -0.2052,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -1973,10 +2009,10 @@
       "risk_flags": [
         "Decelerating / Weak Growth"
       ],
-      "irr": 0.0687,
+      "irr": 0.0676,
       "moic": 1.39,
-      "sponsor_equity": 228628627.0,
-      "exit_equity": 318746548.0,
+      "sponsor_equity": 230903309.0,
+      "exit_equity": 320242548.0,
       "next_earnings_date": "2026-12-21",
       "ticker": "EBF",
       "historical": {
@@ -2038,7 +2074,7 @@
           },
           {
             "year": "2026",
-            "close": 22.06
+            "close": 22.31
           }
         ]
       },
@@ -2050,6 +2086,10 @@
         {
           "date": "2026-09-24",
           "score": 57.1
+        },
+        {
+          "date": "2026-09-25",
+          "score": 56.5
         }
       ],
       "sensitivity": {
@@ -2068,110 +2108,110 @@
         ],
         "irr_matrix": [
           [
-            0.1503,
-            0.2337,
-            0.3102,
-            0.3822
+            0.1462,
+            0.2299,
+            0.3065,
+            0.3786
           ],
           [
-            0.1917,
-            0.2735,
-            0.3494,
-            0.4216
+            0.1878,
+            0.2698,
+            0.3458,
+            0.418
           ],
           [
-            0.228,
-            0.3088,
-            0.3846,
-            0.457
+            0.2242,
+            0.3052,
+            0.381,
+            0.4534
           ],
           [
-            0.2605,
-            0.3407,
-            0.4165,
-            0.4892
+            0.2568,
+            0.3371,
+            0.4129,
+            0.4856
           ],
           [
-            0.29,
-            0.3699,
-            0.4458,
-            0.5189
+            0.2863,
+            0.3663,
+            0.4422,
+            0.5153
           ]
         ],
         "moic_matrix": [
           [
-            2.01,
-            2.86,
-            3.86,
-            5.05
+            1.98,
+            2.81,
+            3.81,
+            4.98
           ],
           [
-            2.4,
-            3.35,
-            4.47,
-            5.81
+            2.36,
+            3.3,
+            4.42,
+            5.73
           ],
           [
-            2.79,
-            3.84,
-            5.09,
-            6.56
+            2.75,
+            3.79,
+            5.02,
+            6.48
           ],
           [
-            3.18,
-            4.33,
-            5.7,
-            7.32
+            3.14,
+            4.27,
+            5.63,
+            7.24
           ],
           [
-            3.57,
-            4.82,
-            6.32,
-            8.08
+            3.52,
+            4.76,
+            6.24,
+            7.99
           ]
         ]
       },
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0427,
-        "irr_p50": 0.129,
-        "irr_p90": 0.2122,
-        "moic_p10": 1.23,
+        "irr_p10": 0.0414,
+        "irr_p50": 0.128,
+        "irr_p90": 0.2113,
+        "moic_p10": 1.22,
         "moic_p50": 1.83,
-        "moic_p90": 2.62,
-        "prob_irr_above_15pct": 0.368,
-        "prob_irr_above_20pct": 0.136,
-        "prob_loss": 0.031,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.914,
+        "moic_p90": 2.61,
+        "prob_irr_above_15pct": 0.362,
+        "prob_irr_above_20pct": 0.134,
+        "prob_loss": 0.032,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.911,
         "histogram": {
           "bin_edges": [
-            -0.1891,
-            -0.1436,
-            -0.098,
-            -0.0525,
-            -0.0069,
-            0.0386,
-            0.0842,
-            0.1297,
-            0.1752,
-            0.2208,
-            0.2663,
-            0.3119,
-            0.3574
+            -0.1928,
+            -0.147,
+            -0.1012,
+            -0.0554,
+            -0.0096,
+            0.0362,
+            0.082,
+            0.1278,
+            0.1736,
+            0.2194,
+            0.2652,
+            0.311,
+            0.3568
           ],
           "counts": [
             6,
-            7,
-            50,
-            191,
-            655,
-            1544,
-            2597,
-            2592,
-            1554,
-            674,
-            122,
+            6,
+            49,
+            183,
+            641,
+            1514,
+            2587,
+            2606,
+            1591,
+            683,
+            126,
             8
           ]
         }
@@ -2181,10 +2221,10 @@
     {
       "company": "Amphastar Pharmaceuticals, Inc.",
       "industry": "Healthcare Services",
-      "deal_score": 52.4,
+      "deal_score": 52.3,
       "priority_tier": "Watchlist",
       "score_breakdown": {
-        "financial_quality": 19.6,
+        "financial_quality": 19.5,
         "growth": 0.0,
         "risk": 15.7,
         "valuation": 10.0,
@@ -2195,8 +2235,8 @@
       "fcf_margin": 0.3196,
       "debt_ebitda": 3.24,
       "interest_coverage": 8.33,
-      "ev_ebitda": 6.88,
-      "peer_median_ev_ebitda": 6.88,
+      "ev_ebitda": 7.14,
+      "peer_median_ev_ebitda": 7.14,
       "ev_ebitda_discount": 0.0,
       "peer_cluster": 6,
       "peer_cluster_size": 3,
@@ -2205,10 +2245,10 @@
       "risk_flags": [
         "Decelerating / Weak Growth"
       ],
-      "irr": 0.0883,
-      "moic": 1.53,
-      "sponsor_equity": 656975750.0,
-      "exit_equity": 1003170167.0,
+      "irr": 0.0837,
+      "moic": 1.49,
+      "sponsor_equity": 682051853.0,
+      "exit_equity": 1019662078.0,
       "next_earnings_date": "2026-11-05",
       "ticker": "AMPH",
       "historical": {
@@ -2270,7 +2310,7 @@
           },
           {
             "year": "2026",
-            "close": 25.83
+            "close": 26.27
           }
         ]
       },
@@ -2282,205 +2322,55 @@
         {
           "date": "2026-09-24",
           "score": 52.4
+        },
+        {
+          "date": "2026-09-25",
+          "score": 52.3
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0652,
-        "irr_p50": 0.1462,
-        "irr_p90": 0.2266,
-        "moic_p10": 1.37,
-        "moic_p50": 1.98,
-        "moic_p90": 2.78,
-        "prob_irr_above_15pct": 0.472,
-        "prob_irr_above_20pct": 0.191,
-        "prob_loss": 0.012,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.957,
+        "irr_p10": 0.06,
+        "irr_p50": 0.1422,
+        "irr_p90": 0.2233,
+        "moic_p10": 1.34,
+        "moic_p50": 1.94,
+        "moic_p90": 2.74,
+        "prob_irr_above_15pct": 0.445,
+        "prob_irr_above_20pct": 0.176,
+        "prob_loss": 0.016,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.947,
         "histogram": {
           "bin_edges": [
-            -0.1317,
-            -0.0901,
-            -0.0486,
-            -0.007,
-            0.0345,
-            0.0761,
-            0.1177,
-            0.1592,
-            0.2008,
-            0.2423,
-            0.2839,
-            0.3254,
-            0.367
+            -0.1442,
+            -0.1018,
+            -0.0594,
+            -0.017,
+            0.0254,
+            0.0678,
+            0.1103,
+            0.1527,
+            0.1951,
+            0.2375,
+            0.2799,
+            0.3223,
+            0.3647
           ],
           "counts": [
             7,
-            18,
-            73,
-            316,
-            891,
-            1884,
-            2686,
-            2244,
-            1255,
-            518,
-            103,
+            14,
+            67,
+            280,
+            849,
+            1801,
+            2697,
+            2315,
+            1298,
+            559,
+            108,
             5
-          ]
-        }
-      },
-      "ai_memo": null
-    },
-    {
-      "company": "Spok Holdings, Inc.",
-      "industry": "B2B SaaS",
-      "deal_score": 52.2,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 13.0,
-        "growth": 0.7,
-        "risk": 19.2,
-        "valuation": 12.2,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": 0.0149,
-      "ebitda_margin": 0.1689,
-      "fcf_margin": 0.149,
-      "debt_ebitda": 0.24,
-      "interest_coverage": 68.44,
-      "ev_ebitda": 8.76,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": -0.0653,
-      "peer_cluster": 3,
-      "peer_cluster_size": 18,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [
-        "Decelerating / Weak Growth"
-      ],
-      "irr": 0.0783,
-      "moic": 1.46,
-      "sponsor_equity": 93016181.0,
-      "exit_equity": 135589932.0,
-      "next_earnings_date": "2026-10-28",
-      "ticker": "SPOK",
-      "historical": {
-        "years": [
-          "2021",
-          "2022",
-          "2023",
-          "2024",
-          "2025"
-        ],
-        "revenue": [
-          null,
-          134534000.0,
-          139025000.0,
-          137653000.0,
-          139708000.0
-        ],
-        "ebitda": [
-          null,
-          11138000.0,
-          26297000.0,
-          24217000.0,
-          23597000.0
-        ],
-        "debt": [
-          null,
-          15700000.0,
-          11086000.0,
-          8773000.0,
-          6939000.0
-        ],
-        "cash": [
-          null,
-          35754000.0,
-          31989000.0,
-          29145000.0,
-          25280000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 5.67
-          },
-          {
-            "year": "2022",
-            "close": 5.84
-          },
-          {
-            "year": "2023",
-            "close": 12.14
-          },
-          {
-            "year": "2024",
-            "close": 13.61
-          },
-          {
-            "year": "2025",
-            "close": 12.12
-          },
-          {
-            "year": "2026",
-            "close": 10.37
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-23",
-          "score": 51.6
-        },
-        {
-          "date": "2026-09-24",
-          "score": 52.2
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.0355,
-        "irr_p50": 0.1286,
-        "irr_p90": 0.2176,
-        "moic_p10": 1.19,
-        "moic_p50": 1.83,
-        "moic_p90": 2.68,
-        "prob_irr_above_15pct": 0.374,
-        "prob_irr_above_20pct": 0.149,
-        "prob_loss": 0.042,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.899,
-        "histogram": {
-          "bin_edges": [
-            -0.226,
-            -0.1764,
-            -0.1269,
-            -0.0774,
-            -0.0278,
-            0.0218,
-            0.0713,
-            0.1209,
-            0.1704,
-            0.22,
-            0.2695,
-            0.3191,
-            0.3686
-          ],
-          "counts": [
-            3,
-            8,
-            41,
-            147,
-            532,
-            1332,
-            2493,
-            2748,
-            1747,
-            781,
-            157,
-            11
           ]
         }
       },
@@ -2503,9 +2393,9 @@
       "fcf_margin": 0.1657,
       "debt_ebitda": 4.27,
       "interest_coverage": 3.3,
-      "ev_ebitda": 6.38,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": -0.3192,
+      "ev_ebitda": 6.39,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": -0.3096,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -2514,10 +2404,10 @@
         "High Leverage",
         "Decelerating / Weak Growth"
       ],
-      "irr": 0.0904,
+      "irr": 0.0903,
       "moic": 1.54,
-      "sponsor_equity": 453484426.0,
-      "exit_equity": 699183031.0,
+      "sponsor_equity": 453887136.0,
+      "exit_equity": 699447884.0,
       "next_earnings_date": "2026-11-09",
       "ticker": "ATNI",
       "historical": {
@@ -2579,7 +2469,7 @@
           },
           {
             "year": "2026",
-            "close": 29.15
+            "close": 29.14
           }
         ]
       },
@@ -2591,49 +2481,53 @@
         {
           "date": "2026-09-24",
           "score": 52.0
+        },
+        {
+          "date": "2026-09-25",
+          "score": 52.0
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0676,
-        "irr_p50": 0.1481,
-        "irr_p90": 0.2282,
+        "irr_p10": 0.0674,
+        "irr_p50": 0.148,
+        "irr_p90": 0.2281,
         "moic_p10": 1.39,
         "moic_p50": 1.99,
         "moic_p90": 2.79,
-        "prob_irr_above_15pct": 0.485,
+        "prob_irr_above_15pct": 0.484,
         "prob_irr_above_20pct": 0.198,
         "prob_loss": 0.011,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.96,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.959,
         "histogram": {
           "bin_edges": [
-            -0.1194,
-            -0.0788,
-            -0.0382,
-            0.0025,
-            0.0431,
-            0.0837,
-            0.1244,
-            0.165,
-            0.2056,
-            0.2462,
-            0.2868,
-            0.3275,
-            0.3681
+            -0.1197,
+            -0.0791,
+            -0.0384,
+            0.0022,
+            0.0429,
+            0.0835,
+            0.1242,
+            0.1648,
+            0.2054,
+            0.2461,
+            0.2867,
+            0.3274,
+            0.368
           ],
           "counts": [
             7,
             30,
-            85,
-            387,
-            998,
-            1974,
-            2638,
-            2121,
-            1186,
-            477,
+            84,
+            385,
+            1001,
+            1965,
+            2643,
+            2125,
+            1184,
+            479,
             92,
             5
           ]
@@ -2642,152 +2536,158 @@
       "ai_memo": null
     },
     {
-      "company": "Standex International Corporati",
-      "industry": "Industrials",
-      "deal_score": 51.8,
+      "company": "Spok Holdings, Inc.",
+      "industry": "B2B SaaS",
+      "deal_score": 51.9,
       "priority_tier": "Watchlist",
       "score_breakdown": {
-        "financial_quality": 15.1,
-        "growth": 6.4,
-        "risk": 16.5,
-        "valuation": 6.7,
+        "financial_quality": 13.0,
+        "growth": 0.7,
+        "risk": 19.2,
+        "valuation": 11.9,
         "strategic_fit": 7.1
       },
-      "revenue_growth": 0.1285,
-      "ebitda_margin": 0.2605,
-      "fcf_margin": 0.1854,
-      "debt_ebitda": 2.44,
-      "interest_coverage": 7.56,
-      "ev_ebitda": 16.1,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": 0.0988,
-      "peer_cluster": 2,
-      "peer_cluster_size": 14,
+      "revenue_growth": 0.0149,
+      "ebitda_margin": 0.1689,
+      "fcf_margin": 0.149,
+      "debt_ebitda": 0.24,
+      "interest_coverage": 68.44,
+      "ev_ebitda": 8.72,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": -0.0577,
+      "peer_cluster": 3,
+      "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
       "recurring_revenue_pct": 0.5,
-      "risk_flags": [],
-      "irr": 0.2478,
-      "moic": 3.03,
-      "sponsor_equity": 1683562982.0,
-      "exit_equity": 5093591238.0,
-      "next_earnings_date": "2026-10-29",
-      "ticker": "SXI",
+      "risk_flags": [
+        "Decelerating / Weak Growth"
+      ],
+      "irr": 0.0788,
+      "moic": 1.46,
+      "sponsor_equity": 92545524.0,
+      "exit_equity": 135199956.0,
+      "next_earnings_date": "2026-10-28",
+      "ticker": "SPOK",
       "historical": {
         "years": [
+          "2021",
           "2022",
           "2023",
           "2024",
-          "2025",
-          "2026"
+          "2025"
         ],
         "revenue": [
           null,
-          741048000.0,
-          720635000.0,
-          790107000.0,
-          891597000.0
+          134534000.0,
+          139025000.0,
+          137653000.0,
+          139708000.0
         ],
         "ebitda": [
           null,
-          197828000.0,
-          127807000.0,
-          128179000.0,
-          232305000.0
+          11138000.0,
+          26297000.0,
+          24217000.0,
+          23597000.0
         ],
         "debt": [
           null,
-          207251000.0,
-          187890000.0,
-          603701000.0,
-          566294000.0
+          15700000.0,
+          11086000.0,
+          8773000.0,
+          6939000.0
         ],
         "cash": [
           null,
-          195706000.0,
-          154203000.0,
-          104542000.0,
-          178734000.0
+          35754000.0,
+          31989000.0,
+          29145000.0,
+          25280000.0
         ],
         "price_history": [
           {
             "year": "2021",
-            "close": 106.69
+            "close": 5.67
           },
           {
             "year": "2022",
-            "close": 99.8
+            "close": 5.84
           },
           {
             "year": "2023",
-            "close": 155.64
+            "close": 12.14
           },
           {
             "year": "2024",
-            "close": 185.04
+            "close": 13.61
           },
           {
             "year": "2025",
-            "close": 216.5
+            "close": 12.12
           },
           {
             "year": "2026",
-            "close": 278.76
+            "close": 10.35
           }
         ]
       },
       "score_history": [
         {
           "date": "2026-09-23",
-          "score": 52.4
+          "score": 51.6
         },
         {
           "date": "2026-09-24",
-          "score": 51.8
+          "score": 52.2
+        },
+        {
+          "date": "2026-09-25",
+          "score": 51.9
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0974,
-        "irr_p50": 0.2323,
-        "irr_p90": 0.3443,
-        "moic_p10": 1.59,
-        "moic_p50": 2.84,
-        "moic_p90": 4.39,
-        "prob_irr_above_15pct": 0.791,
-        "prob_irr_above_20pct": 0.625,
-        "prob_loss": 0.017,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.967,
+        "irr_p10": 0.0361,
+        "irr_p50": 0.1291,
+        "irr_p90": 0.2179,
+        "moic_p10": 1.19,
+        "moic_p50": 1.83,
+        "moic_p90": 2.68,
+        "prob_irr_above_15pct": 0.377,
+        "prob_irr_above_20pct": 0.151,
+        "prob_loss": 0.041,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.899,
         "histogram": {
           "bin_edges": [
-            -0.2518,
-            -0.1883,
-            -0.1248,
-            -0.0612,
-            0.0023,
-            0.0658,
-            0.1293,
-            0.1929,
-            0.2564,
-            0.3199,
-            0.3834,
-            0.447,
-            0.5105
+            -0.2242,
+            -0.1748,
+            -0.1254,
+            -0.0759,
+            -0.0265,
+            0.0229,
+            0.0723,
+            0.1218,
+            0.1712,
+            0.2206,
+            0.27,
+            0.3195,
+            0.3689
           ],
           "counts": [
             3,
-            11,
-            33,
-            123,
-            428,
-            1000,
-            1887,
-            2579,
-            2333,
-            1246,
-            328,
-            29
+            8,
+            41,
+            149,
+            538,
+            1342,
+            2513,
+            2723,
+            1743,
+            775,
+            154,
+            11
           ]
         }
       },
@@ -2810,9 +2710,9 @@
       "fcf_margin": 0.0913,
       "debt_ebitda": -3.71,
       "interest_coverage": -4.89,
-      "ev_ebitda": -11.66,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": -1.7957,
+      "ev_ebitda": -11.94,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": -1.8176,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -2882,7 +2782,7 @@
           },
           {
             "year": "2026",
-            "close": 10.45
+            "close": 10.49
           }
         ]
       },
@@ -2894,6 +2794,10 @@
         {
           "date": "2026-09-24",
           "score": 51.5
+        },
+        {
+          "date": "2026-09-25",
+          "score": 51.5
         }
       ],
       "sensitivity": null,
@@ -2901,15 +2805,171 @@
       "ai_memo": null
     },
     {
+      "company": "Standex International Corporati",
+      "industry": "Industrials",
+      "deal_score": 51.3,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 15.1,
+        "growth": 6.4,
+        "risk": 16.5,
+        "valuation": 6.2,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": 0.1285,
+      "ebitda_margin": 0.2605,
+      "fcf_margin": 0.1854,
+      "debt_ebitda": 2.44,
+      "interest_coverage": 7.56,
+      "ev_ebitda": 16.25,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": 0.1126,
+      "peer_cluster": 2,
+      "peer_cluster_size": 14,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [],
+      "irr": 0.2475,
+      "moic": 3.02,
+      "sponsor_equity": 1698233587.0,
+      "exit_equity": 5130293664.0,
+      "next_earnings_date": "2026-10-29",
+      "ticker": "SXI",
+      "historical": {
+        "years": [
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
+        "revenue": [
+          null,
+          741048000.0,
+          720635000.0,
+          790107000.0,
+          891597000.0
+        ],
+        "ebitda": [
+          null,
+          197828000.0,
+          127807000.0,
+          128179000.0,
+          232305000.0
+        ],
+        "debt": [
+          null,
+          207251000.0,
+          187890000.0,
+          603701000.0,
+          566294000.0
+        ],
+        "cash": [
+          null,
+          195706000.0,
+          154203000.0,
+          104542000.0,
+          178734000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 106.69
+          },
+          {
+            "year": "2022",
+            "close": 99.8
+          },
+          {
+            "year": "2023",
+            "close": 155.64
+          },
+          {
+            "year": "2024",
+            "close": 185.04
+          },
+          {
+            "year": "2025",
+            "close": 216.5
+          },
+          {
+            "year": "2026",
+            "close": 279.6
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-23",
+          "score": 52.4
+        },
+        {
+          "date": "2026-09-24",
+          "score": 51.8
+        },
+        {
+          "date": "2026-09-25",
+          "score": 51.3
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.0968,
+        "irr_p50": 0.232,
+        "irr_p90": 0.344,
+        "moic_p10": 1.59,
+        "moic_p50": 2.84,
+        "moic_p90": 4.38,
+        "prob_irr_above_15pct": 0.789,
+        "prob_irr_above_20pct": 0.624,
+        "prob_loss": 0.017,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.966,
+        "histogram": {
+          "bin_edges": [
+            -0.254,
+            -0.1903,
+            -0.1266,
+            -0.0629,
+            0.0008,
+            0.0645,
+            0.1281,
+            0.1918,
+            0.2555,
+            0.3192,
+            0.3829,
+            0.4466,
+            0.5103
+          ],
+          "counts": [
+            3,
+            10,
+            34,
+            122,
+            424,
+            980,
+            1879,
+            2599,
+            2336,
+            1254,
+            330,
+            29
+          ]
+        }
+      },
+      "ai_memo": null
+    },
+    {
       "company": "National HealthCare Corporation",
       "industry": "Healthcare Services",
-      "deal_score": 50.6,
+      "deal_score": 51.0,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 8.1,
         "growth": 8.5,
         "risk": 19.2,
-        "valuation": 7.7,
+        "valuation": 8.1,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.1694,
@@ -2917,18 +2977,18 @@
       "fcf_margin": 0.0416,
       "debt_ebitda": 0.15,
       "interest_coverage": 33.55,
-      "ev_ebitda": 15.67,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": 0.069,
+      "ev_ebitda": 15.43,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": 0.0567,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
       "recurring_revenue_pct": 0.5,
       "risk_flags": [],
-      "irr": 0.2764,
-      "moic": 3.39,
-      "sponsor_equity": 1506937882.0,
-      "exit_equity": 5106219915.0,
+      "irr": 0.277,
+      "moic": 3.4,
+      "sponsor_equity": 1483892122.0,
+      "exit_equity": 5039268874.0,
       "next_earnings_date": "2026-11-06",
       "ticker": "NHC",
       "historical": {
@@ -2990,7 +3050,7 @@
           },
           {
             "year": "2026",
-            "close": 220.36
+            "close": 221.6
           }
         ]
       },
@@ -3002,50 +3062,54 @@
         {
           "date": "2026-09-24",
           "score": 50.6
+        },
+        {
+          "date": "2026-09-25",
+          "score": 51.0
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.1061,
-        "irr_p50": 0.2511,
-        "irr_p90": 0.3677,
+        "irr_p10": 0.1068,
+        "irr_p50": 0.2517,
+        "irr_p90": 0.3681,
         "moic_p10": 1.66,
         "moic_p50": 3.07,
         "moic_p90": 4.79,
-        "prob_irr_above_15pct": 0.82,
-        "prob_irr_above_20pct": 0.682,
+        "prob_irr_above_15pct": 0.821,
+        "prob_irr_above_20pct": 0.684,
         "prob_loss": 0.016,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.969,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.97,
         "histogram": {
           "bin_edges": [
-            -0.2618,
-            -0.1952,
-            -0.1287,
-            -0.0621,
-            0.0044,
-            0.071,
-            0.1375,
-            0.2041,
-            0.2706,
-            0.3372,
-            0.4037,
-            0.4703,
-            0.5368
+            -0.2593,
+            -0.1929,
+            -0.1265,
+            -0.0602,
+            0.0062,
+            0.0726,
+            0.139,
+            0.2053,
+            0.2717,
+            0.3381,
+            0.4045,
+            0.4708,
+            0.5372
           ],
           "counts": [
-            3,
-            9,
-            35,
-            122,
-            416,
-            957,
-            1767,
-            2504,
-            2391,
-            1390,
-            375,
+            4,
+            8,
+            36,
+            125,
+            417,
+            967,
+            1778,
+            2502,
+            2379,
+            1382,
+            371,
             31
           ]
         }
@@ -3055,13 +3119,13 @@
     {
       "company": "Cavco Industries, Inc.",
       "industry": "Industrials",
-      "deal_score": 50.3,
+      "deal_score": 50.1,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 8.4,
         "growth": 5.7,
         "risk": 19.2,
-        "valuation": 9.9,
+        "valuation": 9.7,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.1136,
@@ -3069,18 +3133,18 @@
       "fcf_margin": 0.073,
       "debt_ebitda": 0.15,
       "interest_coverage": 495.9,
-      "ev_ebitda": 14.71,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": 0.0035,
+      "ev_ebitda": 14.75,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": 0.0101,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
       "recurring_revenue_pct": 0.5,
       "risk_flags": [],
-      "irr": 0.2174,
+      "irr": 0.2173,
       "moic": 2.67,
-      "sponsor_equity": 1775728627.0,
-      "exit_equity": 4749010704.0,
+      "sponsor_equity": 1780469107.0,
+      "exit_equity": 4759638459.0,
       "next_earnings_date": "2026-10-29",
       "ticker": "CVCO",
       "historical": {
@@ -3139,7 +3203,7 @@
           },
           {
             "year": "2026",
-            "close": 539.4
+            "close": 543.21
           }
         ]
       },
@@ -3151,37 +3215,41 @@
         {
           "date": "2026-09-24",
           "score": 50.3
+        },
+        {
+          "date": "2026-09-25",
+          "score": 50.1
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0784,
-        "irr_p50": 0.2089,
-        "irr_p90": 0.3193,
+        "irr_p10": 0.0782,
+        "irr_p50": 0.2088,
+        "irr_p90": 0.3192,
         "moic_p10": 1.46,
         "moic_p50": 2.58,
         "moic_p90": 4.0,
-        "prob_irr_above_15pct": 0.726,
+        "prob_irr_above_15pct": 0.725,
         "prob_irr_above_20pct": 0.536,
         "prob_loss": 0.023,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.951,
         "histogram": {
           "bin_edges": [
-            -0.304,
-            -0.2381,
-            -0.1722,
-            -0.1063,
-            -0.0404,
-            0.0255,
-            0.0913,
-            0.1572,
-            0.2231,
-            0.289,
-            0.3549,
-            0.4208,
-            0.4867
+            -0.3043,
+            -0.2384,
+            -0.1725,
+            -0.1066,
+            -0.0407,
+            0.0252,
+            0.0911,
+            0.1571,
+            0.223,
+            0.2889,
+            0.3548,
+            0.4207,
+            0.4866
           ],
           "counts": [
             3,
@@ -3189,12 +3257,12 @@
             22,
             72,
             281,
-            842,
-            1745,
-            2681,
-            2537,
-            1406,
-            375,
+            839,
+            1746,
+            2676,
+            2540,
+            1408,
+            377,
             31
           ]
         }
@@ -3218,9 +3286,9 @@
       "fcf_margin": 0.0158,
       "debt_ebitda": 2.65,
       "interest_coverage": 6.05,
-      "ev_ebitda": 13.03,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": -0.111,
+      "ev_ebitda": 12.97,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": -0.1116,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -3228,8 +3296,8 @@
       "risk_flags": [],
       "irr": 0.2589,
       "moic": 3.16,
-      "sponsor_equity": 139683802.0,
-      "exit_equity": 441632746.0,
+      "sponsor_equity": 139046314.0,
+      "exit_equity": 439617225.0,
       "next_earnings_date": "2026-11-09",
       "ticker": "EVI",
       "historical": {
@@ -3291,7 +3359,7 @@
           },
           {
             "year": "2026",
-            "close": 19.58
+            "close": 19.62
           }
         ]
       },
@@ -3303,6 +3371,10 @@
         {
           "date": "2026-09-24",
           "score": 48.3
+        },
+        {
+          "date": "2026-09-25",
+          "score": 48.3
         }
       ],
       "sensitivity": null,
@@ -3310,14 +3382,14 @@
         "n_sims": 10000,
         "irr_p10": 0.0956,
         "irr_p50": 0.2359,
-        "irr_p90": 0.3499,
+        "irr_p90": 0.35,
         "moic_p10": 1.58,
         "moic_p50": 2.88,
         "moic_p90": 4.48,
         "prob_irr_above_15pct": 0.791,
         "prob_irr_above_20pct": 0.633,
         "prob_loss": 0.018,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.964,
         "histogram": {
           "bin_edges": [
@@ -3370,8 +3442,8 @@
       "fcf_margin": -0.0388,
       "debt_ebitda": 3.46,
       "interest_coverage": 5.67,
-      "ev_ebitda": 15.8,
-      "peer_median_ev_ebitda": 15.8,
+      "ev_ebitda": 15.69,
+      "peer_median_ev_ebitda": 15.69,
       "ev_ebitda_discount": 0.0,
       "peer_cluster": 4,
       "peer_cluster_size": 3,
@@ -3380,10 +3452,10 @@
       "risk_flags": [
         "Negative Free Cash Flow"
       ],
-      "irr": 0.2135,
+      "irr": 0.2138,
       "moic": 2.63,
-      "sponsor_equity": 1887797952.0,
-      "exit_equity": 4967025650.0,
+      "sponsor_equity": 1874599258.0,
+      "exit_equity": 4939321961.0,
       "next_earnings_date": "2026-11-04",
       "ticker": "AWR",
       "historical": {
@@ -3442,7 +3514,7 @@
           },
           {
             "year": "2026",
-            "close": 82.92
+            "close": 82.5
           }
         ]
       },
@@ -3454,51 +3526,55 @@
         {
           "date": "2026-09-24",
           "score": 47.8
+        },
+        {
+          "date": "2026-09-25",
+          "score": 47.8
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0849,
-        "irr_p50": 0.2092,
-        "irr_p90": 0.3163,
-        "moic_p10": 1.5,
+        "irr_p10": 0.0853,
+        "irr_p50": 0.2096,
+        "irr_p90": 0.3165,
+        "moic_p10": 1.51,
         "moic_p50": 2.59,
-        "moic_p90": 3.95,
-        "prob_irr_above_15pct": 0.737,
-        "prob_irr_above_20pct": 0.539,
-        "prob_loss": 0.019,
-        "benchmark_cagr": 0.0363,
+        "moic_p90": 3.96,
+        "prob_irr_above_15pct": 0.738,
+        "prob_irr_above_20pct": 0.541,
+        "prob_loss": 0.018,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
-            -0.2536,
-            -0.1924,
-            -0.1312,
-            -0.0701,
-            -0.0089,
-            0.0523,
-            0.1134,
-            0.1746,
-            0.2358,
-            0.297,
-            0.3582,
-            0.4193,
-            0.4805
+            -0.2517,
+            -0.1907,
+            -0.1296,
+            -0.0686,
+            -0.0076,
+            0.0534,
+            0.1144,
+            0.1755,
+            0.2365,
+            0.2975,
+            0.3585,
+            0.4196,
+            0.4806
           ],
           "counts": [
             3,
             10,
             29,
-            115,
-            409,
-            1005,
-            2009,
-            2666,
-            2277,
-            1158,
-            293,
-            26
+            118,
+            415,
+            1010,
+            2002,
+            2674,
+            2268,
+            1153,
+            291,
+            27
           ]
         }
       },
@@ -3507,13 +3583,13 @@
     {
       "company": "Asure Software Inc",
       "industry": "B2B SaaS",
-      "deal_score": 47.6,
+      "deal_score": 47.5,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 8.4,
         "growth": 8.7,
         "risk": 11.4,
-        "valuation": 12.0,
+        "valuation": 11.9,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.1732,
@@ -3521,18 +3597,18 @@
       "fcf_margin": 0.039,
       "debt_ebitda": 3.64,
       "interest_coverage": 4.07,
-      "ev_ebitda": 13.77,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": -0.0607,
+      "ev_ebitda": 13.78,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": -0.0561,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
       "recurring_revenue_pct": 0.5,
       "risk_flags": [],
-      "irr": 0.2821,
+      "irr": 0.282,
       "moic": 3.46,
-      "sponsor_equity": 127505563.0,
-      "exit_equity": 441629968.0,
+      "sponsor_equity": 127635523.0,
+      "exit_equity": 442007520.0,
       "next_earnings_date": "2026-10-29",
       "ticker": "ASUR",
       "historical": {
@@ -3594,7 +3670,7 @@
           },
           {
             "year": "2026",
-            "close": 7.96
+            "close": 7.91
           }
         ]
       },
@@ -3606,12 +3682,16 @@
         {
           "date": "2026-09-24",
           "score": 47.6
+        },
+        {
+          "date": "2026-09-25",
+          "score": 47.5
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.1137,
+        "irr_p10": 0.1136,
         "irr_p50": 0.2569,
         "irr_p90": 0.3725,
         "moic_p10": 1.71,
@@ -3620,17 +3700,17 @@
         "prob_irr_above_15pct": 0.834,
         "prob_irr_above_20pct": 0.705,
         "prob_loss": 0.013,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.975,
         "histogram": {
           "bin_edges": [
-            -0.2327,
-            -0.1683,
-            -0.1039,
-            -0.0395,
-            0.0249,
-            0.0893,
-            0.1536,
+            -0.2329,
+            -0.1685,
+            -0.1041,
+            -0.0397,
+            0.0247,
+            0.0891,
+            0.1535,
             0.218,
             0.2824,
             0.3468,
@@ -3644,12 +3724,12 @@
             43,
             136,
             488,
-            1047,
+            1046,
             1841,
-            2505,
-            2289,
-            1270,
-            337,
+            2501,
+            2291,
+            1272,
+            338,
             31
           ]
         }
@@ -3659,13 +3739,13 @@
     {
       "company": "ScanSource, Inc.",
       "industry": "Industrial Tech",
-      "deal_score": 47.1,
+      "deal_score": 46.9,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 6.3,
         "growth": 3.0,
         "risk": 19.2,
-        "valuation": 11.5,
+        "valuation": 11.3,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.0609,
@@ -3673,9 +3753,9 @@
       "fcf_margin": 0.0295,
       "debt_ebitda": 0.83,
       "interest_coverage": 20.32,
-      "ev_ebitda": 8.96,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": -0.0438,
+      "ev_ebitda": 8.9,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": -0.0378,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -3683,8 +3763,8 @@
       "risk_flags": [],
       "irr": 0.1203,
       "moic": 1.76,
-      "sponsor_equity": 540258912.0,
-      "exit_equity": 953323176.0,
+      "sponsor_equity": 536497229.0,
+      "exit_equity": 946685434.0,
       "next_earnings_date": "2026-11-05",
       "ticker": "SCSC",
       "historical": {
@@ -3746,7 +3826,7 @@
           },
           {
             "year": "2026",
-            "close": 58.13
+            "close": 58.07
           }
         ]
       },
@@ -3758,6 +3838,10 @@
         {
           "date": "2026-09-24",
           "score": 47.1
+        },
+        {
+          "date": "2026-09-25",
+          "score": 46.9
         }
       ],
       "sensitivity": null,
@@ -3772,7 +3856,7 @@
         "prob_irr_above_15pct": 0.444,
         "prob_irr_above_20pct": 0.221,
         "prob_loss": 0.062,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.882,
         "histogram": {
           "bin_edges": [
@@ -3825,8 +3909,8 @@
       "fcf_margin": 0.019,
       "debt_ebitda": 5.64,
       "interest_coverage": 17.96,
-      "ev_ebitda": 45.73,
-      "peer_median_ev_ebitda": 45.73,
+      "ev_ebitda": 45.5,
+      "peer_median_ev_ebitda": 45.5,
       "ev_ebitda_discount": 0.0,
       "peer_cluster": 1,
       "peer_cluster_size": 1,
@@ -3837,8 +3921,8 @@
       ],
       "irr": 0.2656,
       "moic": 3.25,
-      "sponsor_equity": 5027217869.0,
-      "exit_equity": 16325691035.0,
+      "sponsor_equity": 5001985843.0,
+      "exit_equity": 16243751031.0,
       "next_earnings_date": "2026-11-03",
       "ticker": "AEIS",
       "historical": {
@@ -3900,7 +3984,7 @@
           },
           {
             "year": "2026",
-            "close": 275.99
+            "close": 278.03
           }
         ]
       },
@@ -3911,6 +3995,10 @@
         },
         {
           "date": "2026-09-24",
+          "score": 45.8
+        },
+        {
+          "date": "2026-09-25",
           "score": 45.8
         }
       ],
@@ -3926,7 +4014,7 @@
         "prob_irr_above_15pct": 0.8,
         "prob_irr_above_20pct": 0.65,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.966,
         "histogram": {
           "bin_edges": [
@@ -3965,10 +4053,10 @@
     {
       "company": "NVE Corporation",
       "industry": "Industrial Tech",
-      "deal_score": 45.6,
+      "deal_score": 45.7,
       "priority_tier": "Watchlist",
       "score_breakdown": {
-        "financial_quality": 18.4,
+        "financial_quality": 18.5,
         "growth": 0.9,
         "risk": 19.2,
         "valuation": 0.0,
@@ -3979,9 +4067,9 @@
       "fcf_margin": 0.2967,
       "debt_ebitda": 0.06,
       "interest_coverage": 301.39,
-      "ev_ebitda": 30.86,
-      "peer_median_ev_ebitda": 15.8,
-      "ev_ebitda_discount": 0.9527,
+      "ev_ebitda": 30.22,
+      "peer_median_ev_ebitda": 15.69,
+      "ev_ebitda_discount": 0.9256,
       "peer_cluster": 4,
       "peer_cluster_size": 3,
       "largest_customer_pct": 0.15,
@@ -3992,8 +4080,8 @@
       ],
       "irr": 0.0377,
       "moic": 1.2,
-      "sponsor_equity": 227481782.0,
-      "exit_equity": 273679104.0,
+      "sponsor_equity": 222758294.0,
+      "exit_equity": 267996363.0,
       "next_earnings_date": "2026-10-21",
       "ticker": "NVEC",
       "historical": {
@@ -4052,7 +4140,7 @@
           },
           {
             "year": "2026",
-            "close": 106.32
+            "close": 106.65
           }
         ]
       },
@@ -4064,6 +4152,10 @@
         {
           "date": "2026-09-24",
           "score": 45.6
+        },
+        {
+          "date": "2026-09-25",
+          "score": 45.7
         }
       ],
       "sensitivity": null,
@@ -4078,8 +4170,8 @@
         "prob_irr_above_15pct": 0.198,
         "prob_irr_above_20pct": 0.065,
         "prob_loss": 0.141,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.744,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.743,
         "histogram": {
           "bin_edges": [
             -0.5237,
@@ -4117,10 +4209,10 @@
     {
       "company": "UFP Technologies, Inc.",
       "industry": "Industrials",
-      "deal_score": 45.2,
+      "deal_score": 45.1,
       "priority_tier": "Watchlist",
       "score_breakdown": {
-        "financial_quality": 9.4,
+        "financial_quality": 9.3,
         "growth": 9.8,
         "risk": 18.9,
         "valuation": 0.0,
@@ -4131,9 +4223,9 @@
       "fcf_margin": 0.0579,
       "debt_ebitda": 1.22,
       "interest_coverage": 11.37,
-      "ev_ebitda": 21.11,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": 0.4404,
+      "ev_ebitda": 21.88,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": 0.4988,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -4141,10 +4233,10 @@
       "risk_flags": [
         "Valuation Premium to Peers"
       ],
-      "irr": 0.2704,
-      "moic": 3.31,
-      "sponsor_equity": 1058974272.0,
-      "exit_equity": 3503899985.0,
+      "irr": 0.2697,
+      "moic": 3.3,
+      "sponsor_equity": 1097664422.0,
+      "exit_equity": 3621993141.0,
       "next_earnings_date": "2026-11-02",
       "ticker": "UFPT",
       "historical": {
@@ -4206,7 +4298,7 @@
           },
           {
             "year": "2026",
-            "close": 296.01
+            "close": 298.48
           }
         ]
       },
@@ -4218,50 +4310,54 @@
         {
           "date": "2026-09-24",
           "score": 45.2
+        },
+        {
+          "date": "2026-09-25",
+          "score": 45.1
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.1006,
-        "irr_p50": 0.2451,
-        "irr_p90": 0.3624,
-        "moic_p10": 1.62,
-        "moic_p50": 2.99,
-        "moic_p90": 4.69,
-        "prob_irr_above_15pct": 0.807,
-        "prob_irr_above_20pct": 0.662,
+        "irr_p10": 0.1004,
+        "irr_p50": 0.2444,
+        "irr_p90": 0.3616,
+        "moic_p10": 1.61,
+        "moic_p50": 2.98,
+        "moic_p90": 4.68,
+        "prob_irr_above_15pct": 0.805,
+        "prob_irr_above_20pct": 0.66,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.966,
         "histogram": {
           "bin_edges": [
             -0.2705,
-            -0.2035,
+            -0.2036,
             -0.1366,
-            -0.0696,
-            -0.0026,
-            0.0644,
-            0.1314,
-            0.1983,
-            0.2653,
-            0.3323,
-            0.3993,
-            0.4662,
-            0.5332
+            -0.0697,
+            -0.0028,
+            0.0642,
+            0.1311,
+            0.198,
+            0.265,
+            0.3319,
+            0.3988,
+            0.4658,
+            0.5327
           ],
           "counts": [
             3,
             9,
             34,
-            119,
-            408,
-            956,
-            1793,
-            2517,
-            2388,
-            1375,
-            367,
+            116,
+            415,
+            954,
+            1797,
+            2525,
+            2385,
+            1371,
+            360,
             31
           ]
         }
@@ -4271,13 +4367,13 @@
     {
       "company": "Central Garden & Pet Company",
       "industry": "Consumer Products",
-      "deal_score": 44.8,
+      "deal_score": 44.4,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 10.0,
         "growth": 0.0,
         "risk": 12.9,
-        "valuation": 14.8,
+        "valuation": 14.4,
         "strategic_fit": 7.1
       },
       "revenue_growth": -0.0223,
@@ -4286,8 +4382,8 @@
       "debt_ebitda": 3.92,
       "interest_coverage": 6.23,
       "ev_ebitda": 8.03,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": -0.1434,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": -0.1316,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -4297,8 +4393,8 @@
       ],
       "irr": 0.0404,
       "moic": 1.22,
-      "sponsor_equity": 1298203085.0,
-      "exit_equity": 1582570124.0,
+      "sponsor_equity": 1298766413.0,
+      "exit_equity": 1582940610.0,
       "next_earnings_date": "2026-11-25",
       "ticker": "CENT",
       "historical": {
@@ -4357,7 +4453,7 @@
           },
           {
             "year": "2026",
-            "close": 39.49
+            "close": 39.51
           }
         ]
       },
@@ -4369,13 +4465,17 @@
         {
           "date": "2026-09-24",
           "score": 44.8
+        },
+        {
+          "date": "2026-09-25",
+          "score": 44.4
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0092,
-        "irr_p50": 0.1044,
+        "irr_p10": 0.0091,
+        "irr_p50": 0.1043,
         "irr_p90": 0.1924,
         "moic_p10": 1.05,
         "moic_p50": 1.64,
@@ -4383,21 +4483,21 @@
         "prob_irr_above_15pct": 0.251,
         "prob_irr_above_20pct": 0.083,
         "prob_loss": 0.081,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.827,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.826,
         "histogram": {
           "bin_edges": [
-            -0.3051,
-            -0.251,
-            -0.1969,
-            -0.1428,
-            -0.0887,
-            -0.0346,
-            0.0196,
-            0.0737,
-            0.1278,
-            0.1819,
-            0.236,
+            -0.3054,
+            -0.2513,
+            -0.1971,
+            -0.143,
+            -0.0889,
+            -0.0347,
+            0.0194,
+            0.0735,
+            0.1277,
+            0.1818,
+            0.2359,
             0.2901,
             0.3442
           ],
@@ -4407,12 +4507,12 @@
             17,
             59,
             274,
-            882,
-            2037,
-            3099,
-            2328,
-            1053,
-            230,
+            879,
+            2038,
+            3100,
+            2325,
+            1058,
+            229,
             14
           ]
         }
@@ -4422,10 +4522,10 @@
     {
       "company": "Matthews International Corporat",
       "industry": "Industrials",
-      "deal_score": 44.3,
+      "deal_score": 44.4,
       "priority_tier": "Watchlist",
       "score_breakdown": {
-        "financial_quality": 8.2,
+        "financial_quality": 8.3,
         "growth": 0.0,
         "risk": 9.0,
         "valuation": 20.0,
@@ -4436,9 +4536,9 @@
       "fcf_margin": 0.0177,
       "debt_ebitda": 4.17,
       "interest_coverage": 2.4,
-      "ev_ebitda": 7.99,
-      "peer_median_ev_ebitda": -1.81,
-      "ev_ebitda_discount": -5.4202,
+      "ev_ebitda": 7.89,
+      "peer_median_ev_ebitda": -1.78,
+      "ev_ebitda_discount": -5.4225,
       "peer_cluster": 5,
       "peer_cluster_size": 4,
       "largest_customer_pct": 0.15,
@@ -4448,10 +4548,10 @@
         "Weak Interest Coverage",
         "Decelerating / Weak Growth"
       ],
-      "irr": 0.0336,
-      "moic": 1.18,
-      "sponsor_equity": 542454163.0,
-      "exit_equity": 639775706.0,
+      "irr": 0.0347,
+      "moic": 1.19,
+      "sponsor_equity": 535571654.0,
+      "exit_equity": 635249256.0,
       "next_earnings_date": "2026-11-19",
       "ticker": "MATW",
       "historical": {
@@ -4513,7 +4613,7 @@
           },
           {
             "year": "2026",
-            "close": 19.27
+            "close": 19.22
           }
         ]
       },
@@ -4525,51 +4625,55 @@
         {
           "date": "2026-09-24",
           "score": 44.3
+        },
+        {
+          "date": "2026-09-25",
+          "score": 44.4
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.001,
-        "irr_p50": 0.0984,
-        "irr_p90": 0.1878,
-        "moic_p10": 1.0,
-        "moic_p50": 1.6,
-        "moic_p90": 2.36,
-        "prob_irr_above_15pct": 0.229,
-        "prob_irr_above_20pct": 0.073,
-        "prob_loss": 0.097,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.804,
+        "irr_p10": 0.0024,
+        "irr_p50": 0.0994,
+        "irr_p90": 0.1885,
+        "moic_p10": 1.01,
+        "moic_p50": 1.61,
+        "moic_p90": 2.37,
+        "prob_irr_above_15pct": 0.232,
+        "prob_irr_above_20pct": 0.075,
+        "prob_loss": 0.094,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.807,
         "histogram": {
           "bin_edges": [
-            -0.3464,
-            -0.2891,
-            -0.2318,
-            -0.1745,
-            -0.1172,
-            -0.0599,
-            -0.0026,
-            0.0546,
-            0.1119,
-            0.1692,
-            0.2265,
-            0.2838,
-            0.3411
+            -0.3386,
+            -0.2819,
+            -0.2252,
+            -0.1685,
+            -0.1118,
+            -0.0551,
+            0.0015,
+            0.0582,
+            0.1149,
+            0.1716,
+            0.2283,
+            0.285,
+            0.3417
           ],
           "counts": [
             2,
-            4,
-            7,
-            49,
-            182,
-            670,
-            1753,
-            3147,
-            2646,
-            1247,
-            277,
-            16
+            5,
+            10,
+            48,
+            195,
+            715,
+            1802,
+            3146,
+            2590,
+            1208,
+            264,
+            15
           ]
         }
       },
@@ -4578,13 +4682,13 @@
     {
       "company": "Huron Consulting Group Inc.",
       "industry": "Financial Services",
-      "deal_score": 43.3,
+      "deal_score": 43.5,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 9.2,
         "growth": 5.8,
         "risk": 11.1,
-        "valuation": 10.1,
+        "valuation": 10.3,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.1165,
@@ -4592,18 +4696,18 @@
       "fcf_margin": 0.0889,
       "debt_ebitda": 3.93,
       "interest_coverage": 4.24,
-      "ev_ebitda": 14.61,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": -0.0035,
+      "ev_ebitda": 14.45,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": -0.0101,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
       "recurring_revenue_pct": 0.5,
       "risk_flags": [],
-      "irr": 0.224,
+      "irr": 0.2245,
       "moic": 2.75,
-      "sponsor_equity": 1446898867.0,
-      "exit_equity": 3975549944.0,
+      "sponsor_equity": 1431815616.0,
+      "exit_equity": 3940986714.0,
       "next_earnings_date": "2026-11-03",
       "ticker": "HURN",
       "historical": {
@@ -4665,7 +4769,7 @@
           },
           {
             "year": "2026",
-            "close": 156.71
+            "close": 157.66
           }
         ]
       },
@@ -4677,51 +4781,55 @@
         {
           "date": "2026-09-24",
           "score": 43.3
+        },
+        {
+          "date": "2026-09-25",
+          "score": 43.5
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0823,
-        "irr_p50": 0.2142,
-        "irr_p90": 0.3244,
-        "moic_p10": 1.48,
+        "irr_p10": 0.0829,
+        "irr_p50": 0.2147,
+        "irr_p90": 0.3248,
+        "moic_p10": 1.49,
         "moic_p50": 2.64,
-        "moic_p90": 4.07,
-        "prob_irr_above_15pct": 0.739,
-        "prob_irr_above_20pct": 0.557,
+        "moic_p90": 4.08,
+        "prob_irr_above_15pct": 0.741,
+        "prob_irr_above_20pct": 0.559,
         "prob_loss": 0.021,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.956,
         "histogram": {
           "bin_edges": [
-            -0.2922,
-            -0.2269,
-            -0.1616,
-            -0.0963,
-            -0.0309,
-            0.0344,
-            0.0997,
-            0.165,
-            0.2303,
-            0.2957,
-            0.361,
-            0.4263,
-            0.4916
+            -0.2898,
+            -0.2247,
+            -0.1595,
+            -0.0944,
+            -0.0292,
+            0.0359,
+            0.1011,
+            0.1662,
+            0.2313,
+            0.2965,
+            0.3616,
+            0.4268,
+            0.4919
           ],
           "counts": [
             3,
             6,
             24,
-            76,
-            321,
-            864,
-            1785,
-            2659,
-            2482,
-            1382,
-            367,
-            31
+            78,
+            329,
+            875,
+            1791,
+            2653,
+            2476,
+            1373,
+            362,
+            30
           ]
         }
       },
@@ -4744,9 +4852,9 @@
       "fcf_margin": 0.0723,
       "debt_ebitda": 1.68,
       "interest_coverage": 11.45,
-      "ev_ebitda": 9.55,
-      "peer_median_ev_ebitda": 6.88,
-      "ev_ebitda_discount": 0.3894,
+      "ev_ebitda": 9.47,
+      "peer_median_ev_ebitda": 7.14,
+      "ev_ebitda_discount": 0.3259,
       "peer_cluster": 6,
       "peer_cluster_size": 3,
       "largest_customer_pct": 0.15,
@@ -4755,10 +4863,10 @@
         "Decelerating / Weak Growth",
         "Valuation Premium to Peers"
       ],
-      "irr": 0.1263,
-      "moic": 1.81,
-      "sponsor_equity": 1508165107.0,
-      "exit_equity": 2733150548.0,
+      "irr": 0.1271,
+      "moic": 1.82,
+      "sponsor_equity": 1494095962.0,
+      "exit_equity": 2717751163.0,
       "next_earnings_date": "2026-10-22",
       "ticker": "MGRC",
       "historical": {
@@ -4817,7 +4925,7 @@
           },
           {
             "year": "2026",
-            "close": 112.15
+            "close": 111.96
           }
         ]
       },
@@ -4829,50 +4937,54 @@
         {
           "date": "2026-09-24",
           "score": 43.3
+        },
+        {
+          "date": "2026-09-25",
+          "score": 43.3
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.067,
-        "irr_p50": 0.1598,
-        "irr_p90": 0.2512,
-        "moic_p10": 1.38,
-        "moic_p50": 2.1,
+        "irr_p10": 0.0681,
+        "irr_p50": 0.1606,
+        "irr_p90": 0.2519,
+        "moic_p10": 1.39,
+        "moic_p50": 2.11,
         "moic_p90": 3.07,
-        "prob_irr_above_15pct": 0.558,
-        "prob_irr_above_20pct": 0.286,
-        "prob_loss": 0.017,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.951,
+        "prob_irr_above_15pct": 0.563,
+        "prob_irr_above_20pct": 0.289,
+        "prob_loss": 0.016,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.952,
         "histogram": {
           "bin_edges": [
-            -0.1747,
-            -0.1266,
-            -0.0785,
-            -0.0305,
-            0.0176,
-            0.0657,
-            0.1138,
-            0.1619,
-            0.21,
-            0.2581,
-            0.3061,
-            0.3542,
-            0.4023
+            -0.172,
+            -0.1241,
+            -0.0762,
+            -0.0283,
+            0.0196,
+            0.0675,
+            0.1154,
+            0.1632,
+            0.2111,
+            0.259,
+            0.3069,
+            0.3548,
+            0.4027
           ],
           "counts": [
             5,
-            15,
-            51,
-            212,
-            688,
-            1566,
-            2589,
-            2474,
-            1545,
-            701,
-            143,
+            16,
+            50,
+            217,
+            696,
+            1594,
+            2579,
+            2460,
+            1539,
+            694,
+            139,
             11
           ]
         }
@@ -4896,9 +5008,9 @@
       "fcf_margin": 0.1332,
       "debt_ebitda": 0.73,
       "interest_coverage": 28.46,
-      "ev_ebitda": 13.65,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": 0.4563,
+      "ev_ebitda": 13.73,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": 0.4842,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -4906,10 +5018,10 @@
       "risk_flags": [
         "Valuation Premium to Peers"
       ],
-      "irr": 0.1219,
-      "moic": 1.78,
-      "sponsor_equity": 753084461.0,
-      "exit_equity": 1338495683.0,
+      "irr": 0.1215,
+      "moic": 1.77,
+      "sponsor_equity": 757453536.0,
+      "exit_equity": 1344146313.0,
       "next_earnings_date": "2026-10-27",
       "ticker": "CTS",
       "historical": {
@@ -4971,7 +5083,7 @@
           },
           {
             "year": "2026",
-            "close": 59.33
+            "close": 59.58
           }
         ]
       },
@@ -4983,50 +5095,54 @@
         {
           "date": "2026-09-24",
           "score": 42.0
+        },
+        {
+          "date": "2026-09-25",
+          "score": 42.0
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0406,
-        "irr_p50": 0.1475,
-        "irr_p90": 0.2468,
+        "irr_p10": 0.0402,
+        "irr_p50": 0.1472,
+        "irr_p90": 0.2465,
         "moic_p10": 1.22,
         "moic_p50": 1.99,
         "moic_p90": 3.01,
-        "prob_irr_above_15pct": 0.486,
-        "prob_irr_above_20pct": 0.248,
-        "prob_loss": 0.043,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.907,
+        "prob_irr_above_15pct": 0.484,
+        "prob_irr_above_20pct": 0.247,
+        "prob_loss": 0.044,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.906,
         "histogram": {
           "bin_edges": [
-            -0.2978,
-            -0.2391,
-            -0.1803,
-            -0.1216,
-            -0.0628,
-            -0.0041,
-            0.0547,
-            0.1134,
-            0.1721,
-            0.2309,
-            0.2896,
-            0.3484,
-            0.4071
+            -0.2999,
+            -0.241,
+            -0.1821,
+            -0.1232,
+            -0.0643,
+            -0.0054,
+            0.0535,
+            0.1124,
+            0.1713,
+            0.2302,
+            0.2891,
+            0.348,
+            0.4069
           ],
           "counts": [
             3,
             5,
             20,
-            72,
-            301,
-            896,
-            2028,
-            2925,
-            2336,
-            1134,
-            257,
+            69,
+            291,
+            890,
+            2017,
+            2930,
+            2354,
+            1140,
+            258,
             23
           ]
         }
@@ -5050,9 +5166,9 @@
       "fcf_margin": 0.0957,
       "debt_ebitda": 0.16,
       "interest_coverage": 102.66,
-      "ev_ebitda": 19.87,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": 1.1203,
+      "ev_ebitda": 20.0,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": 1.1619,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -5060,10 +5176,10 @@
       "risk_flags": [
         "Valuation Premium to Peers"
       ],
-      "irr": 0.138,
+      "irr": 0.1379,
       "moic": 1.91,
-      "sponsor_equity": 1563919027.0,
-      "exit_equity": 2984544462.0,
+      "sponsor_equity": 1573693978.0,
+      "exit_equity": 3001862664.0,
       "next_earnings_date": "2026-11-03",
       "ticker": "CRVL",
       "historical": {
@@ -5122,7 +5238,7 @@
           },
           {
             "year": "2026",
-            "close": 73.49
+            "close": 73.73
           }
         ]
       },
@@ -5134,21 +5250,25 @@
         {
           "date": "2026-09-24",
           "score": 40.1
+        },
+        {
+          "date": "2026-09-25",
+          "score": 40.1
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
         "irr_p10": 0.0359,
-        "irr_p50": 0.1523,
-        "irr_p90": 0.257,
+        "irr_p50": 0.1521,
+        "irr_p90": 0.2569,
         "moic_p10": 1.19,
         "moic_p50": 2.03,
         "moic_p90": 3.14,
-        "prob_irr_above_15pct": 0.511,
-        "prob_irr_above_20pct": 0.281,
+        "prob_irr_above_15pct": 0.51,
+        "prob_irr_above_20pct": 0.28,
         "prob_loss": 0.051,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.899,
         "histogram": {
           "bin_edges": [
@@ -5156,28 +5276,28 @@
             -0.3023,
             -0.2364,
             -0.1704,
-            -0.1044,
+            -0.1045,
             -0.0385,
             0.0275,
-            0.0935,
+            0.0934,
             0.1594,
-            0.2254,
-            0.2914,
-            0.3573,
-            0.4233
+            0.2253,
+            0.2913,
+            0.3572,
+            0.4232
           ],
           "counts": [
             2,
             4,
             12,
             42,
-            150,
-            667,
-            1587,
-            2892,
-            2781,
-            1452,
-            383,
+            149,
+            668,
+            1589,
+            2889,
+            2782,
+            1453,
+            382,
             28
           ]
         }
@@ -5187,13 +5307,13 @@
     {
       "company": "Werner Enterprises, Inc.",
       "industry": "Logistics",
-      "deal_score": 39.1,
+      "deal_score": 39.3,
       "priority_tier": "Rejected",
       "score_breakdown": {
         "financial_quality": 7.8,
         "growth": 0.0,
         "risk": 15.7,
-        "valuation": 8.5,
+        "valuation": 8.7,
         "strategic_fit": 7.1
       },
       "revenue_growth": -0.0184,
@@ -5201,9 +5321,9 @@
       "fcf_margin": 0.0234,
       "debt_ebitda": 3.11,
       "interest_coverage": 7.8,
-      "ev_ebitda": 9.78,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": 0.0438,
+      "ev_ebitda": 9.6,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": 0.0378,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -5211,11 +5331,11 @@
       "risk_flags": [
         "Decelerating / Weak Growth"
       ],
-      "irr": 0.0171,
-      "moic": 1.09,
-      "sponsor_equity": 1340766835.0,
-      "exit_equity": 1459413163.0,
-      "next_earnings_date": "2026-10-29",
+      "irr": 0.0186,
+      "moic": 1.1,
+      "sponsor_equity": 1315666483.0,
+      "exit_equity": 1442905303.0,
+      "next_earnings_date": "2026-10-27",
       "ticker": "WERN",
       "historical": {
         "years": [
@@ -5273,7 +5393,7 @@
           },
           {
             "year": "2026",
-            "close": 33.46
+            "close": 33.48
           }
         ]
       },
@@ -5285,51 +5405,55 @@
         {
           "date": "2026-09-24",
           "score": 39.1
+        },
+        {
+          "date": "2026-09-25",
+          "score": 39.3
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": -0.0186,
-        "irr_p50": 0.0843,
-        "irr_p90": 0.1769,
-        "moic_p10": 0.91,
-        "moic_p50": 1.5,
-        "moic_p90": 2.26,
-        "prob_irr_above_15pct": 0.179,
-        "prob_irr_above_20pct": 0.053,
-        "prob_loss": 0.14,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.741,
+        "irr_p10": -0.0168,
+        "irr_p50": 0.0856,
+        "irr_p90": 0.1779,
+        "moic_p10": 0.92,
+        "moic_p50": 1.51,
+        "moic_p90": 2.27,
+        "prob_irr_above_15pct": 0.183,
+        "prob_irr_above_20pct": 0.054,
+        "prob_loss": 0.136,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.746,
         "histogram": {
           "bin_edges": [
-            -0.5364,
-            -0.4639,
-            -0.3913,
-            -0.3188,
-            -0.2463,
-            -0.1737,
-            -0.1012,
-            -0.0287,
-            0.0439,
-            0.1164,
-            0.1889,
-            0.2615,
-            0.334
+            -0.5032,
+            -0.4334,
+            -0.3635,
+            -0.2937,
+            -0.2239,
+            -0.1541,
+            -0.0842,
+            -0.0144,
+            0.0554,
+            0.1252,
+            0.1951,
+            0.2649,
+            0.3347
           ],
           "counts": [
             1,
             1,
-            3,
             4,
-            36,
-            130,
-            636,
-            2097,
-            3825,
-            2529,
-            704,
-            34
+            6,
+            44,
+            184,
+            794,
+            2362,
+            3709,
+            2257,
+            607,
+            31
           ]
         }
       },
@@ -5352,9 +5476,9 @@
       "fcf_margin": 0.0291,
       "debt_ebitda": 0.74,
       "interest_coverage": 53.69,
-      "ev_ebitda": 29.52,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": 1.0141,
+      "ev_ebitda": 29.7,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": 1.034,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -5364,8 +5488,8 @@
       ],
       "irr": 0.2308,
       "moic": 2.82,
-      "sponsor_equity": 929276640.0,
-      "exit_equity": 2624958791.0,
+      "sponsor_equity": 934864416.0,
+      "exit_equity": 2640742769.0,
       "next_earnings_date": "2026-10-28",
       "ticker": "PLPC",
       "historical": {
@@ -5427,7 +5551,7 @@
           },
           {
             "year": "2026",
-            "close": 428.75
+            "close": 429.82
           }
         ]
       },
@@ -5438,6 +5562,10 @@
         },
         {
           "date": "2026-09-24",
+          "score": 38.6
+        },
+        {
+          "date": "2026-09-25",
           "score": 38.6
         }
       ],
@@ -5453,7 +5581,7 @@
         "prob_irr_above_15pct": 0.744,
         "prob_irr_above_20pct": 0.565,
         "prob_loss": 0.021,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.955,
         "histogram": {
           "bin_edges": [
@@ -5506,8 +5634,8 @@
       "fcf_margin": 0.1231,
       "debt_ebitda": 2.74,
       "interest_coverage": 8.67,
-      "ev_ebitda": 221.99,
-      "peer_median_ev_ebitda": 221.99,
+      "ev_ebitda": 216.42,
+      "peer_median_ev_ebitda": 216.42,
       "ev_ebitda_discount": 0.0,
       "peer_cluster": 0,
       "peer_cluster_size": 1,
@@ -5516,10 +5644,10 @@
       "risk_flags": [
         "Decelerating / Weak Growth"
       ],
-      "irr": -0.0,
+      "irr": 0.0,
       "moic": 1.0,
-      "sponsor_equity": 1038897331.0,
-      "exit_equity": 1038897331.0,
+      "sponsor_equity": 1012845197.0,
+      "exit_equity": 1012845197.0,
       "next_earnings_date": "2026-10-29",
       "ticker": "ROG",
       "historical": {
@@ -5581,7 +5709,7 @@
           },
           {
             "year": "2026",
-            "close": 136.31
+            "close": 136.2
           }
         ]
       },
@@ -5592,6 +5720,10 @@
         },
         {
           "date": "2026-09-24",
+          "score": 38.4
+        },
+        {
+          "date": "2026-09-25",
           "score": 38.4
         }
       ],
@@ -5607,7 +5739,7 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.649,
         "histogram": {
           "bin_edges": [
@@ -5660,9 +5792,9 @@
       "fcf_margin": 0.0555,
       "debt_ebitda": 3.96,
       "interest_coverage": 71.1,
-      "ev_ebitda": 21.26,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": 0.4504,
+      "ev_ebitda": 21.04,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": 0.4408,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -5670,10 +5802,10 @@
       "risk_flags": [
         "Valuation Premium to Peers"
       ],
-      "irr": 0.2671,
+      "irr": 0.2672,
       "moic": 3.27,
-      "sponsor_equity": 5433022771.0,
-      "exit_equity": 17745749579.0,
+      "sponsor_equity": 5376328243.0,
+      "exit_equity": 17568829883.0,
       "next_earnings_date": "2026-11-03",
       "ticker": "ENSG",
       "historical": {
@@ -5735,7 +5867,7 @@
           },
           {
             "year": "2026",
-            "close": 173.62
+            "close": 173.28
           }
         ]
       },
@@ -5747,37 +5879,41 @@
         {
           "date": "2026-09-24",
           "score": 38.2
+        },
+        {
+          "date": "2026-09-25",
+          "score": 38.2
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
         "irr_p10": 0.0996,
-        "irr_p50": 0.242,
-        "irr_p90": 0.3589,
+        "irr_p50": 0.2421,
+        "irr_p90": 0.359,
         "moic_p10": 1.61,
         "moic_p50": 2.96,
-        "moic_p90": 4.63,
+        "moic_p90": 4.64,
         "prob_irr_above_15pct": 0.801,
         "prob_irr_above_20pct": 0.653,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.966,
         "histogram": {
           "bin_edges": [
             -0.2705,
             -0.2037,
-            -0.137,
+            -0.1369,
             -0.0702,
             -0.0034,
-            0.0633,
-            0.1301,
+            0.0634,
+            0.1302,
             0.1969,
-            0.2636,
-            0.3304,
-            0.3972,
-            0.4639,
-            0.5307
+            0.2637,
+            0.3305,
+            0.3973,
+            0.464,
+            0.5308
           ],
           "counts": [
             3,
@@ -5787,9 +5923,9 @@
             411,
             967,
             1819,
-            2547,
-            2369,
-            1341,
+            2546,
+            2367,
+            1344,
             353,
             31
           ]
@@ -5798,165 +5934,15 @@
       "ai_memo": null
     },
     {
-      "company": "Franklin Covey Company",
-      "industry": "Consumer Products",
-      "deal_score": 36.0,
-      "priority_tier": "Rejected",
-      "score_breakdown": {
-        "financial_quality": 7.7,
-        "growth": 0.0,
-        "risk": 19.2,
-        "valuation": 2.0,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": -0.0702,
-      "ebitda_margin": 0.0588,
-      "fcf_margin": 0.0922,
-      "debt_ebitda": 0.0,
-      "interest_coverage": 27.79,
-      "ev_ebitda": 11.61,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": 0.2389,
-      "peer_cluster": 3,
-      "peer_cluster_size": 18,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [
-        "Decelerating / Weak Growth",
-        "Valuation Premium to Peers"
-      ],
-      "irr": 0.0,
-      "moic": 1.0,
-      "sponsor_equity": 82027174.0,
-      "exit_equity": 82027174.0,
-      "next_earnings_date": "2026-11-04",
-      "ticker": "FC",
-      "historical": {
-        "years": [
-          "2022",
-          "2023",
-          "2024",
-          "2025"
-        ],
-        "revenue": [
-          262841000.0,
-          280521000.0,
-          287233000.0,
-          267067000.0
-        ],
-        "ebitda": [
-          34821000.0,
-          36899000.0,
-          43078000.0,
-          15700000.0
-        ],
-        "debt": [
-          24264000.0,
-          15332000.0,
-          6034000.0,
-          823000.0
-        ],
-        "cash": [
-          60517000.0,
-          38230000.0,
-          48663000.0,
-          31698000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 46.36
-          },
-          {
-            "year": "2022",
-            "close": 46.77
-          },
-          {
-            "year": "2023",
-            "close": 43.53
-          },
-          {
-            "year": "2024",
-            "close": 37.58
-          },
-          {
-            "year": "2025",
-            "close": 16.78
-          },
-          {
-            "year": "2026",
-            "close": 17.15
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-23",
-          "score": 35.0
-        },
-        {
-          "date": "2026-09-24",
-          "score": 36.0
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 9998,
-        "irr_p10": -0.0433,
-        "irr_p50": 0.065,
-        "irr_p90": 0.1592,
-        "moic_p10": 0.8,
-        "moic_p50": 1.37,
-        "moic_p90": 2.09,
-        "prob_irr_above_15pct": 0.123,
-        "prob_irr_above_20pct": 0.03,
-        "prob_loss": 0.208,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.649,
-        "histogram": {
-          "bin_edges": [
-            -0.5402,
-            -0.4684,
-            -0.3966,
-            -0.3248,
-            -0.253,
-            -0.1812,
-            -0.1094,
-            -0.0376,
-            0.0342,
-            0.106,
-            0.1778,
-            0.2496,
-            0.3214
-          ],
-          "counts": [
-            2,
-            2,
-            3,
-            18,
-            48,
-            217,
-            821,
-            2294,
-            3706,
-            2271,
-            590,
-            26
-          ]
-        }
-      },
-      "ai_memo": null
-    },
-    {
       "company": "Forrester Research, Inc.",
       "industry": "B2B SaaS",
-      "deal_score": 35.4,
+      "deal_score": 35.8,
       "priority_tier": "Rejected",
       "score_breakdown": {
         "financial_quality": 2.0,
         "growth": 0.0,
         "risk": 13.3,
-        "valuation": 13.0,
+        "valuation": 13.4,
         "strategic_fit": 7.1
       },
       "revenue_growth": -0.0823,
@@ -5964,9 +5950,9 @@
       "fcf_margin": 0.0291,
       "debt_ebitda": -0.67,
       "interest_coverage": -35.55,
-      "ev_ebitda": -1.65,
-      "peer_median_ev_ebitda": -1.81,
-      "ev_ebitda_discount": -0.0895,
+      "ev_ebitda": -1.6,
+      "peer_median_ev_ebitda": -1.78,
+      "ev_ebitda_discount": -0.1008,
       "peer_cluster": 5,
       "peer_cluster_size": 4,
       "largest_customer_pct": 0.15,
@@ -6040,7 +6026,7 @@
           },
           {
             "year": "2026",
-            "close": 11.55
+            "close": 11.57
           }
         ]
       },
@@ -6052,6 +6038,10 @@
         {
           "date": "2026-09-24",
           "score": 35.4
+        },
+        {
+          "date": "2026-09-25",
+          "score": 35.8
         }
       ],
       "sensitivity": null,
@@ -6059,12 +6049,166 @@
       "ai_memo": null
     },
     {
-      "company": "NRC Health",
-      "industry": "Healthcare Services",
-      "deal_score": 34.4,
+      "company": "Franklin Covey Company",
+      "industry": "Consumer Products",
+      "deal_score": 35.2,
       "priority_tier": "Rejected",
       "score_breakdown": {
-        "financial_quality": 12.8,
+        "financial_quality": 7.6,
+        "growth": 0.0,
+        "risk": 19.2,
+        "valuation": 1.3,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": -0.0702,
+      "ebitda_margin": 0.0588,
+      "fcf_margin": 0.0922,
+      "debt_ebitda": 0.0,
+      "interest_coverage": 27.79,
+      "ev_ebitda": 11.66,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": 0.2607,
+      "peer_cluster": 3,
+      "peer_cluster_size": 18,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [
+        "Decelerating / Weak Growth",
+        "Valuation Premium to Peers"
+      ],
+      "irr": -0.0,
+      "moic": 1.0,
+      "sponsor_equity": 82382933.0,
+      "exit_equity": 82382933.0,
+      "next_earnings_date": "2026-11-04",
+      "ticker": "FC",
+      "historical": {
+        "years": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "revenue": [
+          262841000.0,
+          280521000.0,
+          287233000.0,
+          267067000.0
+        ],
+        "ebitda": [
+          34821000.0,
+          36899000.0,
+          43078000.0,
+          15700000.0
+        ],
+        "debt": [
+          24264000.0,
+          15332000.0,
+          6034000.0,
+          823000.0
+        ],
+        "cash": [
+          60517000.0,
+          38230000.0,
+          48663000.0,
+          31698000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 46.36
+          },
+          {
+            "year": "2022",
+            "close": 46.77
+          },
+          {
+            "year": "2023",
+            "close": 43.53
+          },
+          {
+            "year": "2024",
+            "close": 37.58
+          },
+          {
+            "year": "2025",
+            "close": 16.78
+          },
+          {
+            "year": "2026",
+            "close": 17.27
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-23",
+          "score": 35.0
+        },
+        {
+          "date": "2026-09-24",
+          "score": 36.0
+        },
+        {
+          "date": "2026-09-25",
+          "score": 35.2
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 9998,
+        "irr_p10": -0.0433,
+        "irr_p50": 0.065,
+        "irr_p90": 0.1592,
+        "moic_p10": 0.8,
+        "moic_p50": 1.37,
+        "moic_p90": 2.09,
+        "prob_irr_above_15pct": 0.123,
+        "prob_irr_above_20pct": 0.03,
+        "prob_loss": 0.208,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.649,
+        "histogram": {
+          "bin_edges": [
+            -0.5402,
+            -0.4684,
+            -0.3966,
+            -0.3248,
+            -0.253,
+            -0.1812,
+            -0.1094,
+            -0.0376,
+            0.0342,
+            0.106,
+            0.1778,
+            0.2496,
+            0.3214
+          ],
+          "counts": [
+            2,
+            2,
+            3,
+            18,
+            48,
+            217,
+            821,
+            2294,
+            3706,
+            2271,
+            590,
+            26
+          ]
+        }
+      },
+      "ai_memo": null
+    },
+    {
+      "company": "NRC Health",
+      "industry": "Healthcare Services",
+      "deal_score": 34.5,
+      "priority_tier": "Rejected",
+      "score_breakdown": {
+        "financial_quality": 12.9,
         "growth": 0.0,
         "risk": 14.5,
         "valuation": 0.0,
@@ -6075,9 +6219,9 @@
       "fcf_margin": 0.1476,
       "debt_ebitda": 2.99,
       "interest_coverage": 6.35,
-      "ev_ebitda": 18.66,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": 0.9916,
+      "ev_ebitda": 17.77,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": 0.9215,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -6088,8 +6232,8 @@
       ],
       "irr": 0.0,
       "moic": 1.0,
-      "sponsor_equity": 253907107.0,
-      "exit_equity": 253907107.0,
+      "sponsor_equity": 241763472.0,
+      "exit_equity": 241763472.0,
       "next_earnings_date": "2026-10-26",
       "ticker": "NRC",
       "historical": {
@@ -6151,7 +6295,7 @@
           },
           {
             "year": "2026",
-            "close": 20.37
+            "close": 20.35
           }
         ]
       },
@@ -6163,51 +6307,55 @@
         {
           "date": "2026-09-24",
           "score": 34.4
+        },
+        {
+          "date": "2026-09-25",
+          "score": 34.5
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 9998,
-        "irr_p10": -0.0427,
-        "irr_p50": 0.0661,
-        "irr_p90": 0.1615,
-        "moic_p10": 0.8,
+        "irr_p10": -0.0416,
+        "irr_p50": 0.067,
+        "irr_p90": 0.1629,
+        "moic_p10": 0.81,
         "moic_p50": 1.38,
-        "moic_p90": 2.11,
-        "prob_irr_above_15pct": 0.13,
-        "prob_irr_above_20pct": 0.033,
-        "prob_loss": 0.207,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.653,
+        "moic_p90": 2.13,
+        "prob_irr_above_15pct": 0.133,
+        "prob_irr_above_20pct": 0.035,
+        "prob_loss": 0.204,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.655,
         "histogram": {
           "bin_edges": [
             -0.5402,
-            -0.4682,
-            -0.3962,
-            -0.3241,
-            -0.2521,
-            -0.1801,
-            -0.1081,
-            -0.0361,
-            0.0359,
-            0.1079,
-            0.18,
-            0.252,
-            0.324
+            -0.4681,
+            -0.396,
+            -0.3239,
+            -0.2518,
+            -0.1797,
+            -0.1076,
+            -0.0355,
+            0.0366,
+            0.1087,
+            0.1808,
+            0.2529,
+            0.325
           ],
           "counts": [
             2,
             2,
             3,
             17,
-            48,
-            224,
-            840,
-            2322,
-            3675,
+            49,
+            219,
+            837,
+            2318,
+            3673,
             2243,
-            592,
-            30
+            604,
+            31
           ]
         }
       },
@@ -6230,9 +6378,9 @@
       "fcf_margin": 0.0864,
       "debt_ebitda": 3.05,
       "interest_coverage": 10.0,
-      "ev_ebitda": 28.27,
-      "peer_median_ev_ebitda": 14.66,
-      "ev_ebitda_discount": 0.929,
+      "ev_ebitda": 28.77,
+      "peer_median_ev_ebitda": 14.6,
+      "ev_ebitda_discount": 0.9702,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -6242,8 +6390,8 @@
       ],
       "irr": 0.2033,
       "moic": 2.52,
-      "sponsor_equity": 1570855450.0,
-      "exit_equity": 3962946289.0,
+      "sponsor_equity": 1598187110.0,
+      "exit_equity": 4031898466.0,
       "next_earnings_date": "2026-11-04",
       "ticker": "SHOO",
       "historical": {
@@ -6305,7 +6453,7 @@
           },
           {
             "year": "2026",
-            "close": 44.19
+            "close": 44.23
           }
         ]
       },
@@ -6316,6 +6464,10 @@
         },
         {
           "date": "2026-09-24",
+          "score": 34.4
+        },
+        {
+          "date": "2026-09-25",
           "score": 34.4
         }
       ],
@@ -6331,8 +6483,8 @@
         "prob_irr_above_15pct": 0.69,
         "prob_irr_above_20pct": 0.482,
         "prob_loss": 0.026,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.943,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.942,
         "histogram": {
           "bin_edges": [
             -0.3127,
@@ -6384,9 +6536,9 @@
       "fcf_margin": 0.2143,
       "debt_ebitda": 3.51,
       "interest_coverage": 4.3,
-      "ev_ebitda": 19.0,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": 1.027,
+      "ev_ebitda": 19.54,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": 1.113,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -6397,8 +6549,8 @@
       ],
       "irr": 0.0699,
       "moic": 1.4,
-      "sponsor_equity": 393039245.0,
-      "exit_equity": 551112365.0,
+      "sponsor_equity": 404345693.0,
+      "exit_equity": 566966058.0,
       "next_earnings_date": "2026-11-05",
       "ticker": "MLAB",
       "historical": {
@@ -6455,7 +6607,7 @@
           },
           {
             "year": "2026",
-            "close": 137.07
+            "close": 137.5
           }
         ]
       },
@@ -6467,51 +6619,55 @@
         {
           "date": "2026-09-24",
           "score": 34.0
+        },
+        {
+          "date": "2026-09-25",
+          "score": 34.0
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
         "irr_p10": -0.0006,
-        "irr_p50": 0.1084,
-        "irr_p90": 0.2079,
+        "irr_p50": 0.108,
+        "irr_p90": 0.2073,
         "moic_p10": 1.0,
         "moic_p50": 1.67,
-        "moic_p90": 2.57,
-        "prob_irr_above_15pct": 0.295,
-        "prob_irr_above_20pct": 0.118,
+        "moic_p90": 2.56,
+        "prob_irr_above_15pct": 0.293,
+        "prob_irr_above_20pct": 0.117,
         "prob_loss": 0.101,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.813,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.811,
         "histogram": {
           "bin_edges": [
-            -0.5045,
-            -0.4314,
-            -0.3584,
-            -0.2853,
-            -0.2123,
-            -0.1392,
-            -0.0662,
-            0.0069,
-            0.0799,
-            0.1529,
-            0.226,
-            0.299,
-            0.3721
+            -0.5115,
+            -0.4379,
+            -0.3643,
+            -0.2907,
+            -0.2171,
+            -0.1435,
+            -0.0699,
+            0.0036,
+            0.0772,
+            0.1508,
+            0.2244,
+            0.298,
+            0.3716
           ],
           "counts": [
             2,
             0,
             5,
-            9,
+            7,
             44,
-            204,
-            856,
-            2464,
-            3582,
-            2189,
-            612,
-            33
+            187,
+            839,
+            2385,
+            3639,
+            2224,
+            634,
+            34
           ]
         }
       },
@@ -6534,9 +6690,9 @@
       "fcf_margin": 0.1172,
       "debt_ebitda": 4.01,
       "interest_coverage": 9.98,
-      "ev_ebitda": 15.01,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": 0.6013,
+      "ev_ebitda": 14.9,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": 0.6114,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -6546,10 +6702,10 @@
         "Decelerating / Weak Growth",
         "Valuation Premium to Peers"
       ],
-      "irr": 0.0917,
+      "irr": 0.092,
       "moic": 1.55,
-      "sponsor_equity": 1766803277.0,
-      "exit_equity": 2739398100.0,
+      "sponsor_equity": 1754607629.0,
+      "exit_equity": 2725106718.0,
       "next_earnings_date": "2026-10-29",
       "ticker": "OSIS",
       "historical": {
@@ -6611,7 +6767,7 @@
           },
           {
             "year": "2026",
-            "close": 202.35
+            "close": 201.3
           }
         ]
       },
@@ -6623,50 +6779,54 @@
         {
           "date": "2026-09-24",
           "score": 33.8
+        },
+        {
+          "date": "2026-09-25",
+          "score": 33.8
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0148,
-        "irr_p50": 0.1242,
-        "irr_p90": 0.225,
+        "irr_p10": 0.0153,
+        "irr_p50": 0.1245,
+        "irr_p90": 0.2253,
         "moic_p10": 1.08,
         "moic_p50": 1.8,
         "moic_p90": 2.76,
-        "prob_irr_above_15pct": 0.37,
-        "prob_irr_above_20pct": 0.168,
-        "prob_loss": 0.079,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.852,
+        "prob_irr_above_15pct": 0.371,
+        "prob_irr_above_20pct": 0.169,
+        "prob_loss": 0.078,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.853,
         "histogram": {
           "bin_edges": [
-            -0.4121,
-            -0.3454,
-            -0.2787,
-            -0.2121,
-            -0.1454,
-            -0.0787,
-            -0.012,
-            0.0547,
-            0.1214,
-            0.188,
-            0.2547,
-            0.3214,
-            0.3881
+            -0.4089,
+            -0.3425,
+            -0.2761,
+            -0.2096,
+            -0.1432,
+            -0.0768,
+            -0.0104,
+            0.0561,
+            0.1225,
+            0.1889,
+            0.2554,
+            0.3218,
+            0.3882
           ],
           "counts": [
             2,
             3,
             5,
-            32,
-            100,
-            470,
-            1346,
-            2906,
-            3062,
-            1615,
-            430,
+            33,
+            102,
+            486,
+            1358,
+            2915,
+            3041,
+            1598,
+            428,
             29
           ]
         }
@@ -6676,13 +6836,13 @@
     {
       "company": "ArcBest Corporation",
       "industry": "Logistics",
-      "deal_score": 31.8,
+      "deal_score": 32.5,
       "priority_tier": "Rejected",
       "score_breakdown": {
-        "financial_quality": 6.4,
+        "financial_quality": 6.5,
         "growth": 0.0,
         "risk": 18.1,
-        "valuation": 0.2,
+        "valuation": 0.8,
         "strategic_fit": 7.1
       },
       "revenue_growth": -0.0404,
@@ -6690,9 +6850,9 @@
       "fcf_margin": 0.037,
       "debt_ebitda": 1.73,
       "interest_coverage": 21.5,
-      "ev_ebitda": 12.12,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": 0.2931,
+      "ev_ebitda": 11.81,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": 0.2764,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -6703,8 +6863,8 @@
       ],
       "irr": 0.0,
       "moic": 1.0,
-      "sponsor_equity": 1449514598.0,
-      "exit_equity": 1449514598.0,
+      "sponsor_equity": 1411997875.0,
+      "exit_equity": 1411997875.0,
       "next_earnings_date": "2026-11-04",
       "ticker": "ARCB",
       "historical": {
@@ -6766,7 +6926,7 @@
           },
           {
             "year": "2026",
-            "close": 127.7
+            "close": 127.35
           }
         ]
       },
@@ -6778,6 +6938,10 @@
         {
           "date": "2026-09-24",
           "score": 31.8
+        },
+        {
+          "date": "2026-09-25",
+          "score": 32.5
         }
       ],
       "sensitivity": null,
@@ -6792,7 +6956,7 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0363,
+        "benchmark_cagr": 0.0366,
         "prob_beat_benchmark": 0.649,
         "histogram": {
           "bin_edges": [
@@ -6845,9 +7009,9 @@
       "fcf_margin": 0.2709,
       "debt_ebitda": 8.97,
       "interest_coverage": 1.86,
-      "ev_ebitda": 16.7,
-      "peer_median_ev_ebitda": 9.37,
-      "ev_ebitda_discount": 0.7821,
+      "ev_ebitda": 16.6,
+      "peer_median_ev_ebitda": 9.25,
+      "ev_ebitda_discount": 0.7944,
       "peer_cluster": 3,
       "peer_cluster_size": 18,
       "largest_customer_pct": 0.15,
@@ -6857,10 +7021,10 @@
         "Weak Interest Coverage",
         "Valuation Premium to Peers"
       ],
-      "irr": 0.2082,
-      "moic": 2.57,
-      "sponsor_equity": 1146874867.0,
-      "exit_equity": 2953002497.0,
+      "irr": 0.2084,
+      "moic": 2.58,
+      "sponsor_equity": 1139661619.0,
+      "exit_equity": 2936784419.0,
       "next_earnings_date": "2026-10-29",
       "ticker": "ROCK",
       "historical": {
@@ -6922,7 +7086,7 @@
           },
           {
             "year": "2026",
-            "close": 39.51
+            "close": 39.7
           }
         ]
       },
@@ -6934,50 +7098,54 @@
         {
           "date": "2026-09-24",
           "score": 31.3
+        },
+        {
+          "date": "2026-09-25",
+          "score": 31.3
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0725,
-        "irr_p50": 0.2017,
-        "irr_p90": 0.3114,
+        "irr_p10": 0.0727,
+        "irr_p50": 0.2019,
+        "irr_p90": 0.3115,
         "moic_p10": 1.42,
         "moic_p50": 2.51,
         "moic_p90": 3.88,
-        "prob_irr_above_15pct": 0.704,
-        "prob_irr_above_20pct": 0.507,
+        "prob_irr_above_15pct": 0.705,
+        "prob_irr_above_20pct": 0.508,
         "prob_loss": 0.025,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.946,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.945,
         "histogram": {
           "bin_edges": [
             -0.3132,
             -0.2471,
             -0.1811,
             -0.115,
-            -0.049,
+            -0.0489,
             0.0171,
             0.0832,
-            0.1492,
+            0.1493,
             0.2153,
-            0.2813,
-            0.3474,
-            0.4134,
-            0.4795
+            0.2814,
+            0.3475,
+            0.4135,
+            0.4796
           ],
           "counts": [
             3,
             3,
-            22,
-            66,
-            258,
-            836,
-            1745,
-            2685,
-            2561,
-            1413,
-            378,
+            21,
+            67,
+            259,
+            832,
+            1739,
+            2691,
+            2563,
+            1411,
+            381,
             30
           ]
         }
@@ -7001,8 +7169,8 @@
       "fcf_margin": 0.0045,
       "debt_ebitda": 53.3,
       "interest_coverage": 22.62,
-      "ev_ebitda": 35.21,
-      "peer_median_ev_ebitda": 35.21,
+      "ev_ebitda": 34.99,
+      "peer_median_ev_ebitda": 34.99,
       "ev_ebitda_discount": 0.0,
       "peer_cluster": 7,
       "peer_cluster_size": 1,
@@ -7014,8 +7182,8 @@
       ],
       "irr": 0.0135,
       "moic": 1.07,
-      "sponsor_equity": 41210590.0,
-      "exit_equity": 44068498.0,
+      "sponsor_equity": 40954226.0,
+      "exit_equity": 43794356.0,
       "next_earnings_date": "2026-11-19",
       "ticker": "CATO",
       "historical": {
@@ -7077,7 +7245,7 @@
           },
           {
             "year": "2026",
-            "close": 2.45
+            "close": 2.43
           }
         ]
       },
@@ -7088,6 +7256,10 @@
         },
         {
           "date": "2026-09-24",
+          "score": 30.5
+        },
+        {
+          "date": "2026-09-25",
           "score": 30.5
         }
       ],
@@ -7103,8 +7275,8 @@
         "prob_irr_above_15pct": 0.147,
         "prob_irr_above_20pct": 0.04,
         "prob_loss": 0.183,
-        "benchmark_cagr": 0.0363,
-        "prob_beat_benchmark": 0.687,
+        "benchmark_cagr": 0.0366,
+        "prob_beat_benchmark": 0.686,
         "histogram": {
           "bin_edges": [
             -0.7295,
@@ -7142,13 +7314,13 @@
     {
       "company": "Helen of Troy Limited",
       "industry": "Consumer Products",
-      "deal_score": 29.8,
+      "deal_score": 29.4,
       "priority_tier": "Rejected",
       "score_breakdown": {
         "financial_quality": 2.4,
         "growth": 0.0,
         "risk": 13.3,
-        "valuation": 7.0,
+        "valuation": 6.6,
         "strategic_fit": 7.1
       },
       "revenue_growth": -0.0636,
@@ -7156,9 +7328,9 @@
       "fcf_margin": 0.0476,
       "debt_ebitda": -1.06,
       "interest_coverage": -12.61,
-      "ev_ebitda": -1.97,
-      "peer_median_ev_ebitda": -1.81,
-      "ev_ebitda_discount": 0.0895,
+      "ev_ebitda": -1.96,
+      "peer_median_ev_ebitda": -1.78,
+      "ev_ebitda_discount": 0.1008,
       "peer_cluster": 5,
       "peer_cluster_size": 4,
       "largest_customer_pct": 0.15,
@@ -7229,7 +7401,7 @@
           },
           {
             "year": "2026",
-            "close": 29.46
+            "close": 29.35
           }
         ]
       },
@@ -7241,6 +7413,10 @@
         {
           "date": "2026-09-24",
           "score": 29.8
+        },
+        {
+          "date": "2026-09-25",
+          "score": 29.4
         }
       ],
       "sensitivity": null,
@@ -7264,9 +7440,9 @@
       "fcf_margin": 0.0832,
       "debt_ebitda": -1.15,
       "interest_coverage": -14.45,
-      "ev_ebitda": -3.8,
-      "peer_median_ev_ebitda": -1.81,
-      "ev_ebitda_discount": 1.0994,
+      "ev_ebitda": -3.55,
+      "peer_median_ev_ebitda": -1.78,
+      "ev_ebitda_discount": 0.9891,
       "peer_cluster": 5,
       "peer_cluster_size": 4,
       "largest_customer_pct": 0.15,
@@ -7341,7 +7517,7 @@
           },
           {
             "year": "2026",
-            "close": 3.73
+            "close": 3.75
           }
         ]
       },
@@ -7352,6 +7528,10 @@
         },
         {
           "date": "2026-09-24",
+          "score": 23.7
+        },
+        {
+          "date": "2026-09-25",
           "score": 23.7
         }
       ],
