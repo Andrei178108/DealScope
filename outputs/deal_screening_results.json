@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-25T08:03:58.153986+00:00",
-  "next_refresh_due": "2026-09-28T08:03:58.153986+00:00",
+  "generated_at": "2026-09-25T21:07:38.308672+00:00",
+  "next_refresh_due": "2026-09-28T21:07:38.308672+00:00",
   "companies": [
     {
       "company": "Perdoceo Education Corporation",
@@ -92,7 +92,7 @@
           },
           {
             "year": "2026",
-            "close": 31.68
+            "close": 30.49
           }
         ]
       },
@@ -200,7 +200,7 @@
         "prob_irr_above_15pct": 0.982,
         "prob_irr_above_20pct": 0.933,
         "prob_loss": 0.0,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 1.0,
         "histogram": {
           "bin_edges": [
@@ -234,7 +234,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Insteel Industries, Inc.",
@@ -325,7 +327,7 @@
           },
           {
             "year": "2026",
-            "close": 29.13
+            "close": 29.48
           }
         ]
       },
@@ -433,7 +435,7 @@
         "prob_irr_above_15pct": 0.895,
         "prob_irr_above_20pct": 0.787,
         "prob_loss": 0.004,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.989,
         "histogram": {
           "bin_edges": [
@@ -467,7 +469,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "United States Lime & Minerals, ",
@@ -559,7 +563,7 @@
           },
           {
             "year": "2026",
-            "close": 109.42
+            "close": 111.4
           }
         ]
       },
@@ -667,7 +671,7 @@
         "prob_irr_above_15pct": 0.853,
         "prob_irr_above_20pct": 0.727,
         "prob_loss": 0.01,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.981,
         "histogram": {
           "bin_edges": [
@@ -701,7 +705,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Quanex Building Products Corpor",
@@ -795,7 +801,7 @@
           },
           {
             "year": "2026",
-            "close": 19.28
+            "close": 19.74
           }
         ]
       },
@@ -815,7 +821,9 @@
       ],
       "sensitivity": null,
       "monte_carlo": null,
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Photronics, Inc.",
@@ -909,7 +917,7 @@
           },
           {
             "year": "2026",
-            "close": 29.81
+            "close": 30.4
           }
         ]
       },
@@ -1017,7 +1025,7 @@
         "prob_irr_above_15pct": 0.728,
         "prob_irr_above_20pct": 0.379,
         "prob_loss": 0.001,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.995,
         "histogram": {
           "bin_edges": [
@@ -1051,7 +1059,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Build-A-Bear Workshop, Inc.",
@@ -1143,7 +1153,7 @@
           },
           {
             "year": "2026",
-            "close": 25.1
+            "close": 25.77
           }
         ]
       },
@@ -1251,7 +1261,7 @@
         "prob_irr_above_15pct": 0.891,
         "prob_irr_above_20pct": 0.701,
         "prob_loss": 0.001,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.997,
         "histogram": {
           "bin_edges": [
@@ -1285,7 +1295,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Strategic Education, Inc.",
@@ -1376,7 +1388,7 @@
           },
           {
             "year": "2026",
-            "close": 79.82
+            "close": 76.83
           }
         ]
       },
@@ -1484,8 +1496,8 @@
         "prob_irr_above_15pct": 0.669,
         "prob_irr_above_20pct": 0.38,
         "prob_loss": 0.007,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.98,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.979,
         "histogram": {
           "bin_edges": [
             -0.1218,
@@ -1518,7 +1530,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "The Simply Good Foods Company",
@@ -1605,7 +1619,7 @@
           },
           {
             "year": "2026",
-            "close": 9.43
+            "close": 9.6
           }
         ]
       },
@@ -1713,7 +1727,7 @@
         "prob_irr_above_15pct": 0.857,
         "prob_irr_above_20pct": 0.674,
         "prob_loss": 0.002,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.992,
         "histogram": {
           "bin_edges": [
@@ -1747,7 +1761,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Gencor Industries, Inc.",
@@ -1838,7 +1854,7 @@
           },
           {
             "year": "2026",
-            "close": 17.21
+            "close": 17.46
           }
         ]
       },
@@ -1946,8 +1962,8 @@
         "prob_irr_above_15pct": 0.66,
         "prob_irr_above_20pct": 0.342,
         "prob_loss": 0.005,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.985,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.984,
         "histogram": {
           "bin_edges": [
             -0.0744,
@@ -1980,7 +1996,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Ennis, Inc.",
@@ -2074,7 +2092,7 @@
           },
           {
             "year": "2026",
-            "close": 22.31
+            "close": 22.13
           }
         ]
       },
@@ -2182,8 +2200,8 @@
         "prob_irr_above_15pct": 0.362,
         "prob_irr_above_20pct": 0.134,
         "prob_loss": 0.032,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.911,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.909,
         "histogram": {
           "bin_edges": [
             -0.1928,
@@ -2216,7 +2234,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Amphastar Pharmaceuticals, Inc.",
@@ -2310,7 +2330,7 @@
           },
           {
             "year": "2026",
-            "close": 26.27
+            "close": 26.13
           }
         ]
       },
@@ -2340,8 +2360,8 @@
         "prob_irr_above_15pct": 0.445,
         "prob_irr_above_20pct": 0.176,
         "prob_loss": 0.016,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.947,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.946,
         "histogram": {
           "bin_edges": [
             -0.1442,
@@ -2374,7 +2394,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "ATN International, Inc.",
@@ -2469,7 +2491,7 @@
           },
           {
             "year": "2026",
-            "close": 29.14
+            "close": 28.62
           }
         ]
       },
@@ -2499,7 +2521,7 @@
         "prob_irr_above_15pct": 0.484,
         "prob_irr_above_20pct": 0.198,
         "prob_loss": 0.011,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.959,
         "histogram": {
           "bin_edges": [
@@ -2533,7 +2555,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Spok Holdings, Inc.",
@@ -2627,7 +2651,7 @@
           },
           {
             "year": "2026",
-            "close": 10.35
+            "close": 10.46
           }
         ]
       },
@@ -2657,8 +2681,8 @@
         "prob_irr_above_15pct": 0.377,
         "prob_irr_above_20pct": 0.151,
         "prob_loss": 0.041,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.899,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.898,
         "histogram": {
           "bin_edges": [
             -0.2242,
@@ -2691,7 +2715,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Lakeland Industries, Inc.",
@@ -2802,7 +2828,9 @@
       ],
       "sensitivity": null,
       "monte_carlo": null,
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Standex International Corporati",
@@ -2894,7 +2922,7 @@
           },
           {
             "year": "2026",
-            "close": 279.6
+            "close": 280.17
           }
         ]
       },
@@ -2924,7 +2952,7 @@
         "prob_irr_above_15pct": 0.789,
         "prob_irr_above_20pct": 0.624,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.966,
         "histogram": {
           "bin_edges": [
@@ -2958,7 +2986,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "National HealthCare Corporation",
@@ -3050,7 +3080,7 @@
           },
           {
             "year": "2026",
-            "close": 221.6
+            "close": 227.36
           }
         ]
       },
@@ -3080,8 +3110,8 @@
         "prob_irr_above_15pct": 0.821,
         "prob_irr_above_20pct": 0.684,
         "prob_loss": 0.016,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.97,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.969,
         "histogram": {
           "bin_edges": [
             -0.2593,
@@ -3114,7 +3144,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Cavco Industries, Inc.",
@@ -3203,7 +3235,7 @@
           },
           {
             "year": "2026",
-            "close": 543.21
+            "close": 557.28
           }
         ]
       },
@@ -3233,8 +3265,8 @@
         "prob_irr_above_15pct": 0.725,
         "prob_irr_above_20pct": 0.536,
         "prob_loss": 0.023,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.951,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.95,
         "histogram": {
           "bin_edges": [
             -0.3043,
@@ -3267,7 +3299,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "EVI Industries, Inc.",
@@ -3359,7 +3393,7 @@
           },
           {
             "year": "2026",
-            "close": 19.62
+            "close": 20.33
           }
         ]
       },
@@ -3389,8 +3423,8 @@
         "prob_irr_above_15pct": 0.791,
         "prob_irr_above_20pct": 0.633,
         "prob_loss": 0.018,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.964,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.963,
         "histogram": {
           "bin_edges": [
             -0.2747,
@@ -3423,7 +3457,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "American States Water Company",
@@ -3514,7 +3550,7 @@
           },
           {
             "year": "2026",
-            "close": 82.5
+            "close": 82.8
           }
         ]
       },
@@ -3544,8 +3580,8 @@
         "prob_irr_above_15pct": 0.738,
         "prob_irr_above_20pct": 0.541,
         "prob_loss": 0.018,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.961,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.96,
         "histogram": {
           "bin_edges": [
             -0.2517,
@@ -3578,7 +3614,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Asure Software Inc",
@@ -3670,7 +3708,7 @@
           },
           {
             "year": "2026",
-            "close": 7.91
+            "close": 7.89
           }
         ]
       },
@@ -3700,8 +3738,8 @@
         "prob_irr_above_15pct": 0.834,
         "prob_irr_above_20pct": 0.705,
         "prob_loss": 0.013,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.975,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.974,
         "histogram": {
           "bin_edges": [
             -0.2329,
@@ -3734,7 +3772,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "ScanSource, Inc.",
@@ -3826,7 +3866,7 @@
           },
           {
             "year": "2026",
-            "close": 58.07
+            "close": 58.3
           }
         ]
       },
@@ -3856,8 +3896,8 @@
         "prob_irr_above_15pct": 0.444,
         "prob_irr_above_20pct": 0.221,
         "prob_loss": 0.062,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.882,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.881,
         "histogram": {
           "bin_edges": [
             -0.385,
@@ -3890,7 +3930,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Advanced Energy Industries, Inc",
@@ -3984,7 +4026,7 @@
           },
           {
             "year": "2026",
-            "close": 278.03
+            "close": 279.68
           }
         ]
       },
@@ -4014,8 +4056,8 @@
         "prob_irr_above_15pct": 0.8,
         "prob_irr_above_20pct": 0.65,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.966,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.965,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -4048,7 +4090,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "NVE Corporation",
@@ -4140,7 +4184,7 @@
           },
           {
             "year": "2026",
-            "close": 106.65
+            "close": 109.13
           }
         ]
       },
@@ -4170,8 +4214,8 @@
         "prob_irr_above_15pct": 0.198,
         "prob_irr_above_20pct": 0.065,
         "prob_loss": 0.141,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.743,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.74,
         "histogram": {
           "bin_edges": [
             -0.5237,
@@ -4204,7 +4248,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "UFP Technologies, Inc.",
@@ -4298,7 +4344,7 @@
           },
           {
             "year": "2026",
-            "close": 298.48
+            "close": 295.65
           }
         ]
       },
@@ -4328,7 +4374,7 @@
         "prob_irr_above_15pct": 0.805,
         "prob_irr_above_20pct": 0.66,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.966,
         "histogram": {
           "bin_edges": [
@@ -4362,7 +4408,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Central Garden & Pet Company",
@@ -4483,8 +4531,8 @@
         "prob_irr_above_15pct": 0.251,
         "prob_irr_above_20pct": 0.083,
         "prob_loss": 0.081,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.826,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.825,
         "histogram": {
           "bin_edges": [
             -0.3054,
@@ -4517,7 +4565,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Matthews International Corporat",
@@ -4613,7 +4663,7 @@
           },
           {
             "year": "2026",
-            "close": 19.22
+            "close": 18.95
           }
         ]
       },
@@ -4643,8 +4693,8 @@
         "prob_irr_above_15pct": 0.232,
         "prob_irr_above_20pct": 0.075,
         "prob_loss": 0.094,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.807,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.805,
         "histogram": {
           "bin_edges": [
             -0.3386,
@@ -4677,7 +4727,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Huron Consulting Group Inc.",
@@ -4769,7 +4821,7 @@
           },
           {
             "year": "2026",
-            "close": 157.66
+            "close": 157.98
           }
         ]
       },
@@ -4799,8 +4851,8 @@
         "prob_irr_above_15pct": 0.741,
         "prob_irr_above_20pct": 0.559,
         "prob_loss": 0.021,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.956,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.955,
         "histogram": {
           "bin_edges": [
             -0.2898,
@@ -4833,7 +4885,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "McGrath RentCorp",
@@ -4925,7 +4979,7 @@
           },
           {
             "year": "2026",
-            "close": 111.96
+            "close": 113.23
           }
         ]
       },
@@ -4955,7 +5009,7 @@
         "prob_irr_above_15pct": 0.563,
         "prob_irr_above_20pct": 0.289,
         "prob_loss": 0.016,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.952,
         "histogram": {
           "bin_edges": [
@@ -4989,7 +5043,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "CTS Corporation",
@@ -5083,7 +5139,7 @@
           },
           {
             "year": "2026",
-            "close": 59.58
+            "close": 59.6
           }
         ]
       },
@@ -5113,8 +5169,8 @@
         "prob_irr_above_15pct": 0.484,
         "prob_irr_above_20pct": 0.247,
         "prob_loss": 0.044,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.906,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.905,
         "histogram": {
           "bin_edges": [
             -0.2999,
@@ -5147,7 +5203,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "CorVel Corp.",
@@ -5238,7 +5296,7 @@
           },
           {
             "year": "2026",
-            "close": 73.73
+            "close": 74.33
           }
         ]
       },
@@ -5268,8 +5326,8 @@
         "prob_irr_above_15pct": 0.51,
         "prob_irr_above_20pct": 0.28,
         "prob_loss": 0.051,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.899,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.898,
         "histogram": {
           "bin_edges": [
             -0.3683,
@@ -5302,7 +5360,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Werner Enterprises, Inc.",
@@ -5393,7 +5453,7 @@
           },
           {
             "year": "2026",
-            "close": 33.48
+            "close": 32.89
           }
         ]
       },
@@ -5423,8 +5483,8 @@
         "prob_irr_above_15pct": 0.183,
         "prob_irr_above_20pct": 0.054,
         "prob_loss": 0.136,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.746,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.743,
         "histogram": {
           "bin_edges": [
             -0.5032,
@@ -5457,7 +5517,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Preformed Line Products Company",
@@ -5551,7 +5613,7 @@
           },
           {
             "year": "2026",
-            "close": 429.82
+            "close": 423.33
           }
         ]
       },
@@ -5581,7 +5643,7 @@
         "prob_irr_above_15pct": 0.744,
         "prob_irr_above_20pct": 0.565,
         "prob_loss": 0.021,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.955,
         "histogram": {
           "bin_edges": [
@@ -5615,7 +5677,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Rogers Corporation",
@@ -5709,7 +5773,7 @@
           },
           {
             "year": "2026",
-            "close": 136.2
+            "close": 137.76
           }
         ]
       },
@@ -5739,8 +5803,8 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.649,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.645,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -5773,7 +5837,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "The Ensign Group, Inc.",
@@ -5867,7 +5933,7 @@
           },
           {
             "year": "2026",
-            "close": 173.28
+            "close": 175.18
           }
         ]
       },
@@ -5897,7 +5963,7 @@
         "prob_irr_above_15pct": 0.801,
         "prob_irr_above_20pct": 0.653,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.966,
         "histogram": {
           "bin_edges": [
@@ -5931,7 +5997,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Forrester Research, Inc.",
@@ -6026,7 +6094,7 @@
           },
           {
             "year": "2026",
-            "close": 11.57
+            "close": 11.4
           }
         ]
       },
@@ -6046,7 +6114,9 @@
       ],
       "sensitivity": null,
       "monte_carlo": null,
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Franklin Covey Company",
@@ -6136,7 +6206,7 @@
           },
           {
             "year": "2026",
-            "close": 17.27
+            "close": 17.31
           }
         ]
       },
@@ -6166,8 +6236,8 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.649,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.645,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -6200,7 +6270,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "NRC Health",
@@ -6295,7 +6367,7 @@
           },
           {
             "year": "2026",
-            "close": 20.35
+            "close": 19.57
           }
         ]
       },
@@ -6325,8 +6397,8 @@
         "prob_irr_above_15pct": 0.133,
         "prob_irr_above_20pct": 0.035,
         "prob_loss": 0.204,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.655,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.652,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -6359,7 +6431,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Steven Madden, Ltd.",
@@ -6453,7 +6527,7 @@
           },
           {
             "year": "2026",
-            "close": 44.23
+            "close": 45.06
           }
         ]
       },
@@ -6483,7 +6557,7 @@
         "prob_irr_above_15pct": 0.69,
         "prob_irr_above_20pct": 0.482,
         "prob_loss": 0.026,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.942,
         "histogram": {
           "bin_edges": [
@@ -6517,7 +6591,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Mesa Laboratories, Inc.",
@@ -6607,7 +6683,7 @@
           },
           {
             "year": "2026",
-            "close": 137.5
+            "close": 134.04
           }
         ]
       },
@@ -6637,8 +6713,8 @@
         "prob_irr_above_15pct": 0.293,
         "prob_irr_above_20pct": 0.117,
         "prob_loss": 0.101,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.811,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.809,
         "histogram": {
           "bin_edges": [
             -0.5115,
@@ -6671,7 +6747,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "OSI Systems, Inc.",
@@ -6767,7 +6845,7 @@
           },
           {
             "year": "2026",
-            "close": 201.3
+            "close": 197.24
           }
         ]
       },
@@ -6797,8 +6875,8 @@
         "prob_irr_above_15pct": 0.371,
         "prob_irr_above_20pct": 0.169,
         "prob_loss": 0.078,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.853,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.851,
         "histogram": {
           "bin_edges": [
             -0.4089,
@@ -6831,7 +6909,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "ArcBest Corporation",
@@ -6926,7 +7006,7 @@
           },
           {
             "year": "2026",
-            "close": 127.35
+            "close": 125.16
           }
         ]
       },
@@ -6956,8 +7036,8 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.649,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.645,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -6990,7 +7070,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Gibraltar Industries, Inc.",
@@ -7086,7 +7168,7 @@
           },
           {
             "year": "2026",
-            "close": 39.7
+            "close": 40.56
           }
         ]
       },
@@ -7116,7 +7198,7 @@
         "prob_irr_above_15pct": 0.705,
         "prob_irr_above_20pct": 0.508,
         "prob_loss": 0.025,
-        "benchmark_cagr": 0.0366,
+        "benchmark_cagr": 0.0373,
         "prob_beat_benchmark": 0.945,
         "histogram": {
           "bin_edges": [
@@ -7150,7 +7232,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Cato Corporation (The)",
@@ -7245,7 +7329,7 @@
           },
           {
             "year": "2026",
-            "close": 2.43
+            "close": 2.45
           }
         ]
       },
@@ -7275,8 +7359,8 @@
         "prob_irr_above_15pct": 0.147,
         "prob_irr_above_20pct": 0.04,
         "prob_loss": 0.183,
-        "benchmark_cagr": 0.0366,
-        "prob_beat_benchmark": 0.686,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.683,
         "histogram": {
           "bin_edges": [
             -0.7295,
@@ -7309,7 +7393,9 @@
           ]
         }
       },
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Helen of Troy Limited",
@@ -7401,7 +7487,7 @@
           },
           {
             "year": "2026",
-            "close": 29.35
+            "close": 28.63
           }
         ]
       },
@@ -7421,7 +7507,9 @@
       ],
       "sensitivity": null,
       "monte_carlo": null,
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     },
     {
       "company": "Resources Connection, Inc.",
@@ -7517,7 +7605,7 @@
           },
           {
             "year": "2026",
-            "close": 3.75
+            "close": 3.79
           }
         ]
       },
@@ -7537,7 +7625,9 @@
       ],
       "sensitivity": null,
       "monte_carlo": null,
-      "ai_memo": null
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
     }
   ]
 }
