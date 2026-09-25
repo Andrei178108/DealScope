@@ -1,12 +1,12 @@
 {
   "n": 15,
-  "spearman_correlation": 0.104,
-  "p_value": 0.7134,
+  "spearman_correlation": 0.132,
+  "p_value": 0.6387,
   "interpretation": "Sin relación estadísticamente significativa en esta muestra (muestra pequeña / período único).",
-  "avg_return_top_third": 0.0105,
-  "avg_return_bottom_third": -0.3009,
+  "avg_return_top_third": 0.0251,
+  "avg_return_bottom_third": -0.2994,
   "benchmark_ticker": "^SP600 (S&P SmallCap 600)",
-  "benchmark_return": 0.1969,
+  "benchmark_return": 0.2009,
   "beat_benchmark": false,
   "results": [
     {
@@ -14,70 +14,70 @@
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 77.0,
-      "forward_return": 0.5237
+      "forward_return": 0.541
     },
     {
       "ticker": "AWR",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 68.5,
-      "forward_return": -0.1144
+      "forward_return": -0.1112
     },
     {
       "ticker": "FC",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 51.3,
-      "forward_return": -0.6275
+      "forward_return": -0.6266
     },
     {
       "ticker": "NVEC",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 50.0,
-      "forward_return": 1.0439
+      "forward_return": 1.0914
     },
     {
       "ticker": "SMPL",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 49.0,
-      "forward_return": -0.7732
+      "forward_return": -0.7691
     },
     {
       "ticker": "CRVL",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 42.2,
-      "forward_return": 0.0635
+      "forward_return": 0.0721
     },
     {
       "ticker": "IIIN",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 39.9,
-      "forward_return": -0.0843
+      "forward_return": -0.0732
     },
     {
       "ticker": "WERN",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 36.9,
-      "forward_return": -0.2478
+      "forward_return": -0.2611
     },
     {
       "ticker": "STRA",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 35.6,
-      "forward_return": 0.5875
+      "forward_return": 0.528
     },
     {
       "ticker": "CVCO",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 32.7,
-      "forward_return": 0.7101
+      "forward_return": 0.7544
     },
     {
       "ticker": "LAKE",
@@ -91,7 +91,7 @@
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 29.5,
-      "forward_return": -0.8799
+      "forward_return": -0.8829
     },
     {
       "ticker": "CENT",
@@ -105,14 +105,14 @@
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 26.2,
-      "forward_return": -0.5702
+      "forward_return": -0.581
     },
     {
       "ticker": "GENC",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 24.2,
-      "forward_return": 0.4926
+      "forward_return": 0.5143
     }
   ]
 }
