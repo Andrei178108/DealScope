@@ -1,6 +1,7 @@
 {
   "version": 2,
   "builds": [
-    { "src": "index.html", "use": "@vercel/static" }
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "api/analyze.py", "use": "@vercel/python" }
   ]
 }
