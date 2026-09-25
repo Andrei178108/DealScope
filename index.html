@@ -279,6 +279,40 @@
   .search-bar input:focus { border-color: var(--accent-dim); }
   .search-bar input::placeholder { color: var(--text-tertiary); }
   .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--text-tertiary); pointer-events: none; }
+
+  /* ---------- On-demand analysis (analiza cualquier empresa) ---------- */
+  .ondemand-section {
+    margin-bottom: 32px; padding: 20px; border-radius: 8px;
+    background: linear-gradient(135deg, rgba(227,178,94,0.08), rgba(227,178,94,0.02));
+    border: 1px solid var(--accent-dim);
+  }
+  .ondemand-label { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 12px; letter-spacing: 0.02em; }
+  .ondemand-bar { display: flex; gap: 10px; max-width: 480px; }
+  .ondemand-bar input {
+    flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    padding: 12px 14px; font-family: var(--font-mono); font-size: 14px; color: var(--text-primary); outline: none;
+  }
+  .ondemand-bar input:focus { border-color: var(--accent); }
+  .ondemand-btn {
+    font-family: var(--font-mono); font-size: 13px; font-weight: 600; padding: 12px 22px;
+    border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--bg);
+    cursor: pointer; transition: opacity 0.15s ease; white-space: nowrap;
+  }
+  .ondemand-btn:hover { opacity: 0.85; }
+  .ondemand-btn:disabled { opacity: 0.5; cursor: wait; }
+  .ondemand-loading { font-family: var(--font-mono); font-size: 12px; color: var(--text-tertiary); margin-top: 14px; }
+  .ondemand-error { font-family: var(--font-mono); font-size: 12px; color: var(--negative); margin-top: 14px; background: rgba(226,99,107,0.08); padding: 10px 14px; border-radius: 5px; }
+  .ondemand-card {
+    margin-top: 18px; padding: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  }
+  .ondemand-card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+  .ondemand-card-header .name { font-family: var(--font-display); font-size: 22px; font-weight: 600; }
+  .ondemand-card-header .industry { font-size: 12px; color: var(--text-tertiary); margin-left: 8px; }
+  .ondemand-card-header .score { font-family: var(--font-mono); font-size: 28px; font-weight: 700; color: var(--accent); }
+  .ondemand-note {
+    font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); background: var(--surface-2);
+    border-left: 2px solid var(--accent-dim); padding: 8px 12px; border-radius: 3px; margin-top: 12px;
+  }
   .featured-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 14px; }
   .featured-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .featured-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; cursor: pointer; transition: border-color 0.15s ease, transform 0.15s ease; }
@@ -629,6 +663,16 @@
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <input type="text" id="searchInput" placeholder="Buscar empresa por nombre o industria...">
     </div>
+
+    <div class="ondemand-section">
+      <div class="ondemand-label">🎯 Analiza cualquier empresa pública del mundo, en vivo</div>
+      <div class="ondemand-bar">
+        <input type="text" id="ondemandInput" placeholder="Escribe un ticker (ej. AAPL, TSLA, MSFT)..." autocomplete="off">
+        <button id="ondemandBtn" class="ondemand-btn">Analizar</button>
+      </div>
+      <div id="ondemandResult"></div>
+    </div>
+
     <div class="featured-label">Empresas destacadas</div>
     <div class="featured-row" id="featuredRow"></div>
     <div class="refresh-strip" id="refreshStrip"></div>
@@ -1733,6 +1777,80 @@ function monteCarloHistogramOnly(mc) {
   svg += `<text x="${W-M.right}" y="${H-4}" text-anchor="end" class="chart-tick-label">${(hist.bin_edges[hist.bin_edges.length-1]*100).toFixed(0)}%</text>`;
   svg += '</svg>';
   return svg;
+}
+
+// ---------- Analiza cualquier empresa (bajo demanda) ----------
+document.getElementById('ondemandBtn').addEventListener('click', runOndemandAnalysis);
+document.getElementById('ondemandInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') runOndemandAnalysis();
+});
+
+async function runOndemandAnalysis() {
+  const input = document.getElementById('ondemandInput');
+  const btn = document.getElementById('ondemandBtn');
+  const resultEl = document.getElementById('ondemandResult');
+  const ticker = input.value.trim().toUpperCase();
+
+  if (!ticker) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Analizando...';
+  resultEl.innerHTML = '<div class="ondemand-loading">Descargando datos reales y calculando Deal Score en vivo...</div>';
+
+  try {
+    const resp = await fetch(`/api/analyze?ticker=${encodeURIComponent(ticker)}`);
+    const data = await resp.json();
+
+    if (data.error) {
+      resultEl.innerHTML = `<div class="ondemand-error">${data.error}</div>`;
+      return;
+    }
+
+    renderOndemandResult(data);
+  } catch (err) {
+    resultEl.innerHTML = `<div class="ondemand-error">Error al conectar con el analizador: ${err.message}</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Analizar';
+  }
+}
+
+function renderOndemandResult(d) {
+  const resultEl = document.getElementById('ondemandResult');
+  const tierColorMap = tierColor[d.priority_tier] || 'var(--text-tertiary)';
+
+  const valuationNote = d.valuation_note
+    ? `<div class="ondemand-note">${d.valuation_note}</div>` : '';
+
+  const lboBlock = d.lbo && d.lbo.irr !== null ? `
+    <div class="lbo-callouts" style="margin-top:14px;">
+      <div class="lbo-callout"><div class="v">${fmtPct(d.lbo.irr)}</div><div class="l">IRR estimado (5yr)</div></div>
+      <div class="lbo-callout"><div class="v">${fmtX(d.lbo.moic)}</div><div class="l">MOIC estimado</div></div>
+    </div>` : `<div class="ondemand-note">${d.lbo?.note || 'LBO no aplicable.'}</div>`;
+
+  resultEl.innerHTML = `
+    <div class="ondemand-card">
+      <div class="ondemand-card-header">
+        <div><span class="name">${d.company}</span><span class="industry">${d.ticker} · ${d.industry}</span></div>
+        <div class="score" style="color:${tierColorMap}">${d.deal_score.toFixed(0)}</div>
+      </div>
+      <span class="tier-badge ${d.priority_tier.replace(' ','-')}">${d.priority_tier}</span>
+      ${pillarRow('Financial Quality', d.score_breakdown.financial_quality, 25)}
+      ${pillarRow('Growth', d.score_breakdown.growth, 20)}
+      ${pillarRow('Risk', d.score_breakdown.risk, 20)}
+      ${pillarRow('Valuation', d.score_breakdown.valuation, 20)}
+      ${pillarRow('Strategic Fit', d.score_breakdown.strategic_fit, 15)}
+      ${valuationNote}
+      <div class="metric-grid" style="margin-top:14px;">
+        <div class="metric-box"><div class="v">${fmtPct(d.revenue_growth)}</div><div class="l">Revenue Growth</div></div>
+        <div class="metric-box"><div class="v">${fmtPct(d.ebitda_margin)}</div><div class="l">EBITDA Margin</div></div>
+        <div class="metric-box"><div class="v">${fmtX(d.debt_ebitda)}</div><div class="l">Debt/EBITDA</div></div>
+        <div class="metric-box"><div class="v">${fmtX(d.ev_ebitda)}</div><div class="l">EV/EBITDA</div></div>
+      </div>
+      ${lboBlock}
+      <div class="ondemand-note" style="margin-top:14px;">Análisis en vivo, generado en el momento — no forma parte del ranking precargado ni de su historial.</div>
+    </div>
+  `;
 }
 
 populateIndustryFilter();
