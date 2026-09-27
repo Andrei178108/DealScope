@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-26T08:07:02.036358+00:00",
-  "next_refresh_due": "2026-09-29T08:07:02.036358+00:00",
+  "generated_at": "2026-09-27T08:05:02.419109+00:00",
+  "next_refresh_due": "2026-09-30T08:05:02.419109+00:00",
   "companies": [
     {
       "company": "Perdoceo Education Corporation",
@@ -111,6 +111,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 78.0
+        },
+        {
+          "date": "2026-09-27",
           "score": 78.0
         }
       ],
@@ -351,6 +355,10 @@
         {
           "date": "2026-09-26",
           "score": 65.0
+        },
+        {
+          "date": "2026-09-27",
+          "score": 65.0
         }
       ],
       "sensitivity": {
@@ -579,6 +587,10 @@
         {
           "date": "2026-09-26",
           "score": 63.5
+        },
+        {
+          "date": "2026-09-27",
+          "score": 63.5
         }
       ],
       "sensitivity": {
@@ -805,6 +817,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 63.4
+        },
+        {
+          "date": "2026-09-27",
           "score": 63.4
         }
       ],
@@ -1048,6 +1064,10 @@
         {
           "date": "2026-09-26",
           "score": 62.5
+        },
+        {
+          "date": "2026-09-27",
+          "score": 62.5
         }
       ],
       "sensitivity": null,
@@ -1165,6 +1185,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 62.2
+        },
+        {
+          "date": "2026-09-27",
           "score": 62.2
         }
       ],
@@ -1405,6 +1429,10 @@
         {
           "date": "2026-09-26",
           "score": 62.2
+        },
+        {
+          "date": "2026-09-27",
+          "score": 62.2
         }
       ],
       "sensitivity": {
@@ -1629,6 +1657,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 61.6
+        },
+        {
+          "date": "2026-09-27",
           "score": 61.6
         }
       ],
@@ -1872,6 +1904,10 @@
         {
           "date": "2026-09-26",
           "score": 60.9
+        },
+        {
+          "date": "2026-09-27",
+          "score": 60.9
         }
       ],
       "sensitivity": {
@@ -2112,6 +2148,10 @@
         {
           "date": "2026-09-26",
           "score": 60.5
+        },
+        {
+          "date": "2026-09-27",
+          "score": 60.5
         }
       ],
       "sensitivity": {
@@ -2243,158 +2283,6 @@
       }
     },
     {
-      "company": "Scholastic Corporation",
-      "industry": "Media & Entertainment",
-      "deal_score": 60.1,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 13.8,
-        "growth": 0.0,
-        "risk": 19.2,
-        "valuation": 20.0,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": -0.0268,
-      "ebitda_margin": 0.1157,
-      "fcf_margin": 0.0694,
-      "debt_ebitda": 0.0,
-      "interest_coverage": 12.98,
-      "ev_ebitda": 3.25,
-      "peer_median_ev_ebitda": 11.09,
-      "ev_ebitda_discount": -0.7065,
-      "peer_cluster": 5,
-      "peer_cluster_size": 13,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [
-        "Decelerating / Weak Growth"
-      ],
-      "irr": 0.1542,
-      "moic": 2.05,
-      "sponsor_equity": 267995462.0,
-      "exit_equity": 548840900.0,
-      "next_earnings_date": "2026-12-17",
-      "ticker": "SCHL",
-      "historical": {
-        "years": [
-          "2022",
-          "2023",
-          "2024",
-          "2025",
-          "2026"
-        ],
-        "revenue": [
-          null,
-          1704000000.0,
-          1589700000.0,
-          1625500000.0,
-          1581900000.0
-        ],
-        "ebitda": [
-          null,
-          178400000.0,
-          85100000.0,
-          105300000.0,
-          183000000.0
-        ],
-        "debt": [
-          null,
-          101000000.0,
-          117600000.0,
-          374500000.0,
-          387500000.0
-        ],
-        "cash": [
-          null,
-          224500000.0,
-          113700000.0,
-          124000000.0,
-          134900000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 35.62
-          },
-          {
-            "year": "2022",
-            "close": 35.79
-          },
-          {
-            "year": "2023",
-            "close": 34.89
-          },
-          {
-            "year": "2024",
-            "close": 20.23
-          },
-          {
-            "year": "2025",
-            "close": 29.13
-          },
-          {
-            "year": "2026",
-            "close": 32.35
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-26",
-          "score": 60.1
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.1555,
-        "irr_p50": 0.2094,
-        "irr_p90": 0.2703,
-        "moic_p10": 2.06,
-        "moic_p50": 2.59,
-        "moic_p90": 3.31,
-        "prob_irr_above_15pct": 0.929,
-        "prob_irr_above_20pct": 0.589,
-        "prob_loss": 0.0,
-        "benchmark_cagr": 0.0373,
-        "prob_beat_benchmark": 1.0,
-        "histogram": {
-          "bin_edges": [
-            0.1339,
-            0.1555,
-            0.1771,
-            0.1987,
-            0.2204,
-            0.242,
-            0.2636,
-            0.2852,
-            0.3068,
-            0.3284,
-            0.3501,
-            0.3717,
-            0.3933
-          ],
-          "counts": [
-            1004,
-            1324,
-            1691,
-            1905,
-            1648,
-            1172,
-            678,
-            379,
-            145,
-            44,
-            8,
-            2
-          ]
-        }
-      },
-      "ai_memo": {
-        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
-      }
-    },
-    {
       "company": "Spok Holdings, Inc.",
       "industry": "B2B SaaS",
       "deal_score": 60.0,
@@ -2506,6 +2394,10 @@
         {
           "date": "2026-09-26",
           "score": 60.0
+        },
+        {
+          "date": "2026-09-27",
+          "score": 60.0
         }
       ],
       "sensitivity": null,
@@ -2550,163 +2442,6 @@
             1768,
             790,
             158,
-            11
-          ]
-        }
-      },
-      "ai_memo": {
-        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
-      }
-    },
-    {
-      "company": "The Simply Good Foods Company",
-      "industry": "Consumer Products",
-      "deal_score": 59.7,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 11.1,
-        "growth": 4.5,
-        "risk": 17.0,
-        "valuation": 20.0,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": 0.0898,
-      "ebitda_margin": 0.1292,
-      "fcf_margin": 0.0739,
-      "debt_ebitda": 2.39,
-      "interest_coverage": 8.06,
-      "ev_ebitda": 6.26,
-      "peer_median_ev_ebitda": 12.54,
-      "ev_ebitda_discount": -0.5007,
-      "peer_cluster": 9,
-      "peer_cluster_size": 10,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [],
-      "irr": 0.232,
-      "moic": 2.84,
-      "sponsor_equity": 528210547.0,
-      "exit_equity": 1498996700.0,
-      "next_earnings_date": "2026-10-22",
-      "ticker": "SMPL",
-      "historical": {
-        "years": [
-          "2022",
-          "2023",
-          "2024",
-          "2025"
-        ],
-        "revenue": [
-          1168678000.0,
-          1242672000.0,
-          1331321000.0,
-          1450920000.0
-        ],
-        "ebitda": [
-          198369000.0,
-          232742000.0,
-          240063000.0,
-          187446000.0
-        ],
-        "debt": [
-          409535000.0,
-          289358000.0,
-          402979000.0,
-          304427000.0
-        ],
-        "cash": [
-          67494000.0,
-          87715000.0,
-          132530000.0,
-          98468000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 41.57
-          },
-          {
-            "year": "2022",
-            "close": 38.03
-          },
-          {
-            "year": "2023",
-            "close": 39.6
-          },
-          {
-            "year": "2024",
-            "close": 38.98
-          },
-          {
-            "year": "2025",
-            "close": 20.08
-          },
-          {
-            "year": "2026",
-            "close": 9.6
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-23",
-          "score": 59.6
-        },
-        {
-          "date": "2026-09-24",
-          "score": 59.7
-        },
-        {
-          "date": "2026-09-25",
-          "score": 59.8
-        },
-        {
-          "date": "2026-09-26",
-          "score": 59.7
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.1304,
-        "irr_p50": 0.2354,
-        "irr_p90": 0.3326,
-        "moic_p10": 1.85,
-        "moic_p50": 2.88,
-        "moic_p90": 4.2,
-        "prob_irr_above_15pct": 0.854,
-        "prob_irr_above_20pct": 0.666,
-        "prob_loss": 0.003,
-        "benchmark_cagr": 0.0373,
-        "prob_beat_benchmark": 0.991,
-        "histogram": {
-          "bin_edges": [
-            -0.0962,
-            -0.0479,
-            0.0005,
-            0.0488,
-            0.0972,
-            0.1455,
-            0.1938,
-            0.2422,
-            0.2905,
-            0.3389,
-            0.3872,
-            0.4356,
-            0.4839
-          ],
-          "counts": [
-            6,
-            23,
-            88,
-            349,
-            882,
-            1670,
-            2324,
-            2314,
-            1474,
-            702,
-            157,
             11
           ]
         }
@@ -2827,6 +2562,10 @@
         {
           "date": "2026-09-26",
           "score": 59.7
+        },
+        {
+          "date": "2026-09-27",
+          "score": 59.7
         }
       ],
       "sensitivity": null,
@@ -2872,6 +2611,167 @@
             674,
             123,
             8
+          ]
+        }
+      },
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
+    },
+    {
+      "company": "The Simply Good Foods Company",
+      "industry": "Consumer Products",
+      "deal_score": 59.7,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 11.1,
+        "growth": 4.5,
+        "risk": 17.0,
+        "valuation": 20.0,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": 0.0898,
+      "ebitda_margin": 0.1292,
+      "fcf_margin": 0.0739,
+      "debt_ebitda": 2.39,
+      "interest_coverage": 8.06,
+      "ev_ebitda": 6.26,
+      "peer_median_ev_ebitda": 12.54,
+      "ev_ebitda_discount": -0.5007,
+      "peer_cluster": 9,
+      "peer_cluster_size": 10,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [],
+      "irr": 0.232,
+      "moic": 2.84,
+      "sponsor_equity": 528210547.0,
+      "exit_equity": 1498996700.0,
+      "next_earnings_date": "2026-10-22",
+      "ticker": "SMPL",
+      "historical": {
+        "years": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "revenue": [
+          1168678000.0,
+          1242672000.0,
+          1331321000.0,
+          1450920000.0
+        ],
+        "ebitda": [
+          198369000.0,
+          232742000.0,
+          240063000.0,
+          187446000.0
+        ],
+        "debt": [
+          409535000.0,
+          289358000.0,
+          402979000.0,
+          304427000.0
+        ],
+        "cash": [
+          67494000.0,
+          87715000.0,
+          132530000.0,
+          98468000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 41.57
+          },
+          {
+            "year": "2022",
+            "close": 38.03
+          },
+          {
+            "year": "2023",
+            "close": 39.6
+          },
+          {
+            "year": "2024",
+            "close": 38.98
+          },
+          {
+            "year": "2025",
+            "close": 20.08
+          },
+          {
+            "year": "2026",
+            "close": 9.6
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-23",
+          "score": 59.6
+        },
+        {
+          "date": "2026-09-24",
+          "score": 59.7
+        },
+        {
+          "date": "2026-09-25",
+          "score": 59.8
+        },
+        {
+          "date": "2026-09-26",
+          "score": 59.7
+        },
+        {
+          "date": "2026-09-27",
+          "score": 59.7
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.1304,
+        "irr_p50": 0.2354,
+        "irr_p90": 0.3326,
+        "moic_p10": 1.85,
+        "moic_p50": 2.88,
+        "moic_p90": 4.2,
+        "prob_irr_above_15pct": 0.854,
+        "prob_irr_above_20pct": 0.666,
+        "prob_loss": 0.003,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.991,
+        "histogram": {
+          "bin_edges": [
+            -0.0962,
+            -0.0479,
+            0.0005,
+            0.0488,
+            0.0972,
+            0.1455,
+            0.1938,
+            0.2422,
+            0.2905,
+            0.3389,
+            0.3872,
+            0.4356,
+            0.4839
+          ],
+          "counts": [
+            6,
+            23,
+            88,
+            349,
+            882,
+            1670,
+            2324,
+            2314,
+            1474,
+            702,
+            157,
+            11
           ]
         }
       },
@@ -2987,6 +2887,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 59.2
+        },
+        {
+          "date": "2026-09-27",
           "score": 59.2
         }
       ],
@@ -3138,6 +3042,10 @@
         {
           "date": "2026-09-26",
           "score": 57.3
+        },
+        {
+          "date": "2026-09-27",
+          "score": 57.3
         }
       ],
       "sensitivity": null,
@@ -3284,6 +3192,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 57.1
+        },
+        {
+          "date": "2026-09-27",
           "score": 57.1
         }
       ],
@@ -3437,6 +3349,10 @@
         {
           "date": "2026-09-26",
           "score": 56.8
+        },
+        {
+          "date": "2026-09-27",
+          "score": 56.8
         }
       ],
       "sensitivity": null,
@@ -3482,6 +3398,162 @@
             967,
             228,
             21
+          ]
+        }
+      },
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
+    },
+    {
+      "company": "Scholastic Corporation",
+      "industry": "Media & Entertainment",
+      "deal_score": 55.9,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 11.6,
+        "growth": 0.0,
+        "risk": 17.2,
+        "valuation": 20.0,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": -0.0268,
+      "ebitda_margin": 0.1157,
+      "fcf_margin": 0.0694,
+      "debt_ebitda": 2.29,
+      "interest_coverage": 12.98,
+      "ev_ebitda": 4.89,
+      "peer_median_ev_ebitda": 11.09,
+      "ev_ebitda_discount": -0.559,
+      "peer_cluster": 5,
+      "peer_cluster_size": 13,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [
+        "Decelerating / Weak Growth"
+      ],
+      "irr": 0.0962,
+      "moic": 1.58,
+      "sponsor_equity": 402661930.0,
+      "exit_equity": 637407594.0,
+      "next_earnings_date": "2026-12-17",
+      "ticker": "SCHL",
+      "historical": {
+        "years": [
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
+        "revenue": [
+          null,
+          1704000000.0,
+          1589700000.0,
+          1625500000.0,
+          1581900000.0
+        ],
+        "ebitda": [
+          null,
+          178400000.0,
+          85100000.0,
+          105300000.0,
+          183000000.0
+        ],
+        "debt": [
+          null,
+          101000000.0,
+          117600000.0,
+          374500000.0,
+          387500000.0
+        ],
+        "cash": [
+          null,
+          224500000.0,
+          113700000.0,
+          124000000.0,
+          134900000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 35.62
+          },
+          {
+            "year": "2022",
+            "close": 35.79
+          },
+          {
+            "year": "2023",
+            "close": 34.89
+          },
+          {
+            "year": "2024",
+            "close": 20.23
+          },
+          {
+            "year": "2025",
+            "close": 29.13
+          },
+          {
+            "year": "2026",
+            "close": 32.35
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-26",
+          "score": 60.1
+        },
+        {
+          "date": "2026-09-27",
+          "score": 55.9
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.0744,
+        "irr_p50": 0.1532,
+        "irr_p90": 0.2324,
+        "moic_p10": 1.43,
+        "moic_p50": 2.04,
+        "moic_p90": 2.84,
+        "prob_irr_above_15pct": 0.52,
+        "prob_irr_above_20pct": 0.219,
+        "prob_loss": 0.007,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.968,
+        "histogram": {
+          "bin_edges": [
+            -0.0612,
+            -0.0252,
+            0.0108,
+            0.0468,
+            0.0829,
+            0.1189,
+            0.1549,
+            0.1909,
+            0.2269,
+            0.2629,
+            0.299,
+            0.335,
+            0.371
+          ],
+          "counts": [
+            34,
+            83,
+            318,
+            820,
+            1559,
+            2305,
+            2236,
+            1492,
+            790,
+            305,
+            54,
+            4
           ]
         }
       },
@@ -3598,6 +3670,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 55.6
+        },
+        {
+          "date": "2026-09-27",
           "score": 55.6
         }
       ],
@@ -3749,6 +3825,10 @@
         {
           "date": "2026-09-26",
           "score": 55.4
+        },
+        {
+          "date": "2026-09-27",
+          "score": 55.4
         }
       ],
       "sensitivity": null,
@@ -3895,6 +3975,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 55.3
+        },
+        {
+          "date": "2026-09-27",
           "score": 55.3
         }
       ],
@@ -4058,6 +4142,10 @@
         {
           "date": "2026-09-26",
           "score": 54.7
+        },
+        {
+          "date": "2026-09-27",
+          "score": 54.7
         }
       ],
       "sensitivity": null,
@@ -4206,6 +4294,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 54.6
+        },
+        {
+          "date": "2026-09-27",
           "score": 54.6
         }
       ],
@@ -4356,6 +4448,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 54.5
+        },
+        {
+          "date": "2026-09-27",
           "score": 54.5
         }
       ],
@@ -4508,6 +4604,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 53.4
+        },
+        {
+          "date": "2026-09-27",
           "score": 53.4
         }
       ],
@@ -4671,6 +4771,10 @@
         {
           "date": "2026-09-26",
           "score": 53.3
+        },
+        {
+          "date": "2026-09-27",
+          "score": 53.3
         }
       ],
       "sensitivity": null,
@@ -4823,6 +4927,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 53.3
+        },
+        {
+          "date": "2026-09-27",
           "score": 53.3
         }
       ],
@@ -4987,6 +5095,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 52.3
+        },
+        {
+          "date": "2026-09-27",
           "score": 52.3
         }
       ],
@@ -5153,6 +5265,10 @@
         {
           "date": "2026-09-26",
           "score": 52.0
+        },
+        {
+          "date": "2026-09-27",
+          "score": 52.0
         }
       ],
       "sensitivity": null,
@@ -5314,6 +5430,10 @@
         {
           "date": "2026-09-26",
           "score": 51.5
+        },
+        {
+          "date": "2026-09-27",
+          "score": 51.5
         }
       ],
       "sensitivity": null,
@@ -5421,6 +5541,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 51.4
+        },
+        {
+          "date": "2026-09-27",
           "score": 51.4
         }
       ],
@@ -5584,6 +5708,10 @@
         {
           "date": "2026-09-26",
           "score": 50.4
+        },
+        {
+          "date": "2026-09-27",
+          "score": 50.4
         }
       ],
       "sensitivity": null,
@@ -5735,6 +5863,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 49.9
+        },
+        {
+          "date": "2026-09-27",
           "score": 49.9
         }
       ],
@@ -5898,6 +6030,10 @@
         {
           "date": "2026-09-26",
           "score": 49.8
+        },
+        {
+          "date": "2026-09-27",
+          "score": 49.8
         }
       ],
       "sensitivity": null,
@@ -6046,6 +6182,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 49.3
+        },
+        {
+          "date": "2026-09-27",
           "score": 49.3
         }
       ],
@@ -6208,6 +6348,10 @@
         {
           "date": "2026-09-26",
           "score": 49.2
+        },
+        {
+          "date": "2026-09-27",
+          "score": 49.2
         }
       ],
       "sensitivity": null,
@@ -6359,6 +6503,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 48.2
+        },
+        {
+          "date": "2026-09-27",
           "score": 48.2
         }
       ],
@@ -6520,6 +6668,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 47.8
+        },
+        {
+          "date": "2026-09-27",
           "score": 47.8
         }
       ],
@@ -6683,6 +6835,10 @@
         {
           "date": "2026-09-26",
           "score": 45.6
+        },
+        {
+          "date": "2026-09-27",
+          "score": 45.6
         }
       ],
       "sensitivity": null,
@@ -6843,6 +6999,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 45.5
+        },
+        {
+          "date": "2026-09-27",
           "score": 45.5
         }
       ],
@@ -7008,6 +7168,10 @@
         {
           "date": "2026-09-26",
           "score": 45.2
+        },
+        {
+          "date": "2026-09-27",
+          "score": 45.2
         }
       ],
       "sensitivity": null,
@@ -7053,158 +7217,6 @@
             1371,
             362,
             31
-          ]
-        }
-      },
-      "ai_memo": {
-        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
-      }
-    },
-    {
-      "company": "H. B. Fuller Company",
-      "industry": "Industrials",
-      "deal_score": 44.7,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 9.9,
-        "growth": 0.0,
-        "risk": 10.9,
-        "valuation": 16.8,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": -0.0267,
-      "ebitda_margin": 0.1517,
-      "fcf_margin": 0.0379,
-      "debt_ebitda": 3.9,
-      "interest_coverage": 3.95,
-      "ev_ebitda": 8.82,
-      "peer_median_ev_ebitda": 11.09,
-      "ev_ebitda_discount": -0.2041,
-      "peer_cluster": 5,
-      "peer_cluster_size": 13,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [
-        "Decelerating / Weak Growth"
-      ],
-      "irr": 0.0431,
-      "moic": 1.23,
-      "sponsor_equity": 2093151053.0,
-      "exit_equity": 2584524606.0,
-      "next_earnings_date": "2026-09-23",
-      "ticker": "FUL",
-      "historical": {
-        "years": [
-          "2021",
-          "2022",
-          "2023",
-          "2024",
-          "2025"
-        ],
-        "revenue": [
-          null,
-          3749183000.0,
-          3510934000.0,
-          3568736000.0,
-          3473589000.0
-        ],
-        "ebitda": [
-          null,
-          490425000.0,
-          528603000.0,
-          490497000.0,
-          527084000.0
-        ],
-        "debt": [
-          null,
-          1799872000.0,
-          1902771000.0,
-          2074648000.0,
-          2076029000.0
-        ],
-        "cash": [
-          null,
-          79910000.0,
-          179453000.0,
-          169352000.0,
-          107213000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 76.16
-          },
-          {
-            "year": "2022",
-            "close": 68.09
-          },
-          {
-            "year": "2023",
-            "close": 78.28
-          },
-          {
-            "year": "2024",
-            "close": 65.61
-          },
-          {
-            "year": "2025",
-            "close": 58.75
-          },
-          {
-            "year": "2026",
-            "close": 50.06
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-26",
-          "score": 44.7
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.0124,
-        "irr_p50": 0.1067,
-        "irr_p90": 0.1941,
-        "moic_p10": 1.06,
-        "moic_p50": 1.66,
-        "moic_p90": 2.43,
-        "prob_irr_above_15pct": 0.262,
-        "prob_irr_above_20pct": 0.087,
-        "prob_loss": 0.074,
-        "benchmark_cagr": 0.0373,
-        "prob_beat_benchmark": 0.833,
-        "histogram": {
-          "bin_edges": [
-            -0.2912,
-            -0.2382,
-            -0.1851,
-            -0.1321,
-            -0.079,
-            -0.0259,
-            0.0271,
-            0.0802,
-            0.1332,
-            0.1863,
-            0.2393,
-            0.2924,
-            0.3454
-          ],
-          "counts": [
-            2,
-            6,
-            23,
-            64,
-            307,
-            945,
-            2152,
-            3051,
-            2228,
-            993,
-            218,
-            11
           ]
         }
       },
@@ -7308,6 +7320,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 44.1
+        },
+        {
+          "date": "2026-09-27",
           "score": 44.1
         }
       ],
@@ -7462,6 +7478,10 @@
         {
           "date": "2026-09-26",
           "score": 43.9
+        },
+        {
+          "date": "2026-09-27",
+          "score": 43.9
         }
       ],
       "sensitivity": null,
@@ -7583,10 +7603,171 @@
         {
           "date": "2026-09-26",
           "score": 43.7
+        },
+        {
+          "date": "2026-09-27",
+          "score": 43.7
         }
       ],
       "sensitivity": null,
       "monte_carlo": null,
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
+    },
+    {
+      "company": "H. B. Fuller Company",
+      "industry": "Industrials",
+      "deal_score": 43.5,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 9.9,
+        "growth": 0.0,
+        "risk": 10.5,
+        "valuation": 16.0,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": -0.0267,
+      "ebitda_margin": 0.1517,
+      "fcf_margin": 0.0435,
+      "debt_ebitda": 4.15,
+      "interest_coverage": 3.95,
+      "ev_ebitda": 9.08,
+      "peer_median_ev_ebitda": 11.09,
+      "ev_ebitda_discount": -0.1813,
+      "peer_cluster": 5,
+      "peer_cluster_size": 13,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [
+        "High Leverage",
+        "Decelerating / Weak Growth"
+      ],
+      "irr": 0.0403,
+      "moic": 1.22,
+      "sponsor_equity": 2153301581.0,
+      "exit_equity": 2624084071.0,
+      "next_earnings_date": "2026-09-23",
+      "ticker": "FUL",
+      "historical": {
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "revenue": [
+          null,
+          3749183000.0,
+          3510934000.0,
+          3568736000.0,
+          3473589000.0
+        ],
+        "ebitda": [
+          null,
+          490425000.0,
+          528603000.0,
+          490497000.0,
+          527084000.0
+        ],
+        "debt": [
+          null,
+          1799872000.0,
+          1902771000.0,
+          2074648000.0,
+          2076029000.0
+        ],
+        "cash": [
+          null,
+          79910000.0,
+          179453000.0,
+          169352000.0,
+          107213000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 76.16
+          },
+          {
+            "year": "2022",
+            "close": 68.09
+          },
+          {
+            "year": "2023",
+            "close": 78.28
+          },
+          {
+            "year": "2024",
+            "close": 65.61
+          },
+          {
+            "year": "2025",
+            "close": 58.75
+          },
+          {
+            "year": "2026",
+            "close": 50.06
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-26",
+          "score": 44.7
+        },
+        {
+          "date": "2026-09-27",
+          "score": 43.5
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.0091,
+        "irr_p50": 0.1043,
+        "irr_p90": 0.1924,
+        "moic_p10": 1.05,
+        "moic_p50": 1.64,
+        "moic_p90": 2.41,
+        "prob_irr_above_15pct": 0.251,
+        "prob_irr_above_20pct": 0.083,
+        "prob_loss": 0.081,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.825,
+        "histogram": {
+          "bin_edges": [
+            -0.3055,
+            -0.2514,
+            -0.1972,
+            -0.1431,
+            -0.0889,
+            -0.0348,
+            0.0193,
+            0.0735,
+            0.1276,
+            0.1818,
+            0.2359,
+            0.2901,
+            0.3442
+          ],
+          "counts": [
+            2,
+            5,
+            17,
+            59,
+            274,
+            879,
+            2035,
+            3104,
+            2328,
+            1054,
+            229,
+            14
+          ]
+        }
+      },
       "ai_memo": {
         "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
       }
@@ -7699,6 +7880,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 43.5
+        },
+        {
+          "date": "2026-09-27",
           "score": 43.5
         }
       ],
@@ -7862,6 +8047,10 @@
         {
           "date": "2026-09-26",
           "score": 43.3
+        },
+        {
+          "date": "2026-09-27",
+          "score": 43.3
         }
       ],
       "sensitivity": null,
@@ -8014,6 +8203,10 @@
         {
           "date": "2026-09-26",
           "score": 43.2
+        },
+        {
+          "date": "2026-09-27",
+          "score": 43.2
         }
       ],
       "sensitivity": null,
@@ -8165,6 +8358,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 43.2
+        },
+        {
+          "date": "2026-09-27",
           "score": 43.2
         }
       ],
@@ -8330,6 +8527,10 @@
         {
           "date": "2026-09-26",
           "score": 42.4
+        },
+        {
+          "date": "2026-09-27",
+          "score": 42.4
         }
       ],
       "sensitivity": null,
@@ -8492,6 +8693,10 @@
         {
           "date": "2026-09-26",
           "score": 42.4
+        },
+        {
+          "date": "2026-09-27",
+          "score": 42.4
         }
       ],
       "sensitivity": null,
@@ -8644,6 +8849,10 @@
         {
           "date": "2026-09-26",
           "score": 42.3
+        },
+        {
+          "date": "2026-09-27",
+          "score": 42.3
         }
       ],
       "sensitivity": null,
@@ -8795,6 +9004,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 42.1
+        },
+        {
+          "date": "2026-09-27",
           "score": 42.1
         }
       ],
@@ -8958,6 +9171,10 @@
         {
           "date": "2026-09-26",
           "score": 41.9
+        },
+        {
+          "date": "2026-09-27",
+          "score": 41.9
         }
       ],
       "sensitivity": null,
@@ -9110,6 +9327,10 @@
         {
           "date": "2026-09-26",
           "score": 41.8
+        },
+        {
+          "date": "2026-09-27",
+          "score": 41.8
         }
       ],
       "sensitivity": null,
@@ -9261,6 +9482,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 41.3
+        },
+        {
+          "date": "2026-09-27",
           "score": 41.3
         }
       ],
@@ -9415,6 +9640,10 @@
         {
           "date": "2026-09-26",
           "score": 41.0
+        },
+        {
+          "date": "2026-09-27",
+          "score": 41.0
         }
       ],
       "sensitivity": null,
@@ -9567,6 +9796,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 40.1
+        },
+        {
+          "date": "2026-09-27",
           "score": 40.1
         }
       ],
@@ -9732,6 +9965,10 @@
         {
           "date": "2026-09-26",
           "score": 40.1
+        },
+        {
+          "date": "2026-09-27",
+          "score": 40.1
         }
       ],
       "sensitivity": null,
@@ -9892,6 +10129,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 40.0
+        },
+        {
+          "date": "2026-09-27",
           "score": 40.0
         }
       ],
@@ -10058,6 +10299,10 @@
         {
           "date": "2026-09-26",
           "score": 39.3
+        },
+        {
+          "date": "2026-09-27",
+          "score": 39.3
         }
       ],
       "sensitivity": null,
@@ -10209,6 +10454,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 38.8
+        },
+        {
+          "date": "2026-09-27",
           "score": 38.8
         }
       ],
@@ -10375,6 +10624,10 @@
         {
           "date": "2026-09-26",
           "score": 38.8
+        },
+        {
+          "date": "2026-09-27",
+          "score": 38.8
         }
       ],
       "sensitivity": null,
@@ -10494,6 +10747,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 38.7
+        },
+        {
+          "date": "2026-09-27",
           "score": 38.7
         }
       ],
@@ -10659,6 +10916,10 @@
         {
           "date": "2026-09-26",
           "score": 38.2
+        },
+        {
+          "date": "2026-09-27",
+          "score": 38.2
         }
       ],
       "sensitivity": null,
@@ -10823,6 +11084,10 @@
         {
           "date": "2026-09-26",
           "score": 38.1
+        },
+        {
+          "date": "2026-09-27",
+          "score": 38.1
         }
       ],
       "sensitivity": null,
@@ -10976,6 +11241,10 @@
         {
           "date": "2026-09-26",
           "score": 36.7
+        },
+        {
+          "date": "2026-09-27",
+          "score": 36.7
         }
       ],
       "sensitivity": null,
@@ -11127,6 +11396,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 35.7
+        },
+        {
+          "date": "2026-09-27",
           "score": 35.7
         }
       ],
@@ -11280,6 +11553,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 35.3
+        },
+        {
+          "date": "2026-09-27",
           "score": 35.3
         }
       ],
@@ -11444,6 +11721,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 34.9
+        },
+        {
+          "date": "2026-09-27",
           "score": 34.9
         }
       ],
@@ -11610,6 +11891,10 @@
         {
           "date": "2026-09-26",
           "score": 34.6
+        },
+        {
+          "date": "2026-09-27",
+          "score": 34.6
         }
       ],
       "sensitivity": null,
@@ -11770,6 +12055,10 @@
         {
           "date": "2026-09-26",
           "score": 34.0
+        },
+        {
+          "date": "2026-09-27",
+          "score": 34.0
         }
       ],
       "sensitivity": null,
@@ -11929,6 +12218,10 @@
         },
         {
           "date": "2026-09-26",
+          "score": 33.9
+        },
+        {
+          "date": "2026-09-27",
           "score": 33.9
         }
       ],
@@ -12092,6 +12385,10 @@
         {
           "date": "2026-09-26",
           "score": 32.8
+        },
+        {
+          "date": "2026-09-27",
+          "score": 32.8
         }
       ],
       "sensitivity": null,
@@ -12199,6 +12496,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 32.5
+        },
+        {
+          "date": "2026-09-27",
           "score": 32.5
         }
       ],
@@ -12354,6 +12655,10 @@
         {
           "date": "2026-09-26",
           "score": 32.4
+        },
+        {
+          "date": "2026-09-27",
+          "score": 32.4
         }
       ],
       "sensitivity": null,
@@ -12459,6 +12764,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 31.8
+        },
+        {
+          "date": "2026-09-27",
           "score": 31.8
         }
       ],
@@ -12626,6 +12935,10 @@
         {
           "date": "2026-09-26",
           "score": 31.3
+        },
+        {
+          "date": "2026-09-27",
+          "score": 31.3
         }
       ],
       "sensitivity": null,
@@ -12777,6 +13090,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 31.2
+        },
+        {
+          "date": "2026-09-27",
           "score": 31.2
         }
       ],
@@ -12944,6 +13261,10 @@
         {
           "date": "2026-09-26",
           "score": 30.9
+        },
+        {
+          "date": "2026-09-27",
+          "score": 30.9
         }
       ],
       "sensitivity": null,
@@ -13109,6 +13430,10 @@
         {
           "date": "2026-09-26",
           "score": 30.5
+        },
+        {
+          "date": "2026-09-27",
+          "score": 30.5
         }
       ],
       "sensitivity": null,
@@ -13261,6 +13586,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 28.9
+        },
+        {
+          "date": "2026-09-27",
           "score": 28.9
         }
       ],
@@ -13416,6 +13745,10 @@
         {
           "date": "2026-09-26",
           "score": 25.2
+        },
+        {
+          "date": "2026-09-27",
+          "score": 25.2
         }
       ],
       "sensitivity": null,
@@ -13570,6 +13903,10 @@
         {
           "date": "2026-09-26",
           "score": 23.9
+        },
+        {
+          "date": "2026-09-27",
+          "score": 23.9
         }
       ],
       "sensitivity": null,
@@ -13680,6 +14017,10 @@
       "score_history": [
         {
           "date": "2026-09-26",
+          "score": 16.1
+        },
+        {
+          "date": "2026-09-27",
           "score": 16.1
         }
       ],
