@@ -3,5 +3,9 @@
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "api/analyze.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/api/analyze", "dest": "/api/analyze.py" }
   ]
 }
