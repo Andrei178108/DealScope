@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T08:05:02.419109+00:00",
-  "next_refresh_due": "2026-09-30T08:05:02.419109+00:00",
+  "generated_at": "2026-09-28T08:07:41.334801+00:00",
+  "next_refresh_due": "2026-10-01T08:07:41.334801+00:00",
   "companies": [
     {
       "company": "Perdoceo Education Corporation",
@@ -115,6 +115,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 78.0
+        },
+        {
+          "date": "2026-09-28",
           "score": 78.0
         }
       ],
@@ -359,6 +363,10 @@
         {
           "date": "2026-09-27",
           "score": 65.0
+        },
+        {
+          "date": "2026-09-28",
+          "score": 65.0
         }
       ],
       "sensitivity": {
@@ -591,6 +599,10 @@
         {
           "date": "2026-09-27",
           "score": 63.5
+        },
+        {
+          "date": "2026-09-28",
+          "score": 63.5
         }
       ],
       "sensitivity": {
@@ -821,6 +833,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 63.4
+        },
+        {
+          "date": "2026-09-28",
           "score": 63.4
         }
       ],
@@ -1068,6 +1084,10 @@
         {
           "date": "2026-09-27",
           "score": 62.5
+        },
+        {
+          "date": "2026-09-28",
+          "score": 62.5
         }
       ],
       "sensitivity": null,
@@ -1189,6 +1209,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 62.2
+        },
+        {
+          "date": "2026-09-28",
           "score": 62.2
         }
       ],
@@ -1433,6 +1457,10 @@
         {
           "date": "2026-09-27",
           "score": 62.2
+        },
+        {
+          "date": "2026-09-28",
+          "score": 62.2
         }
       ],
       "sensitivity": {
@@ -1661,6 +1689,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 61.6
+        },
+        {
+          "date": "2026-09-28",
           "score": 61.6
         }
       ],
@@ -1908,6 +1940,10 @@
         {
           "date": "2026-09-27",
           "score": 60.9
+        },
+        {
+          "date": "2026-09-28",
+          "score": 60.9
         }
       ],
       "sensitivity": {
@@ -2151,6 +2187,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 60.5
+        },
+        {
+          "date": "2026-09-28",
           "score": 60.5
         }
       ],
@@ -2398,6 +2438,10 @@
         {
           "date": "2026-09-27",
           "score": 60.0
+        },
+        {
+          "date": "2026-09-28",
+          "score": 60.0
         }
       ],
       "sensitivity": null,
@@ -2566,6 +2610,10 @@
         {
           "date": "2026-09-27",
           "score": 59.7
+        },
+        {
+          "date": "2026-09-28",
+          "score": 59.7
         }
       ],
       "sensitivity": null,
@@ -2726,6 +2774,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 59.7
+        },
+        {
+          "date": "2026-09-28",
           "score": 59.7
         }
       ],
@@ -2892,6 +2944,10 @@
         {
           "date": "2026-09-27",
           "score": 59.2
+        },
+        {
+          "date": "2026-09-28",
+          "score": 59.2
         }
       ],
       "sensitivity": null,
@@ -3046,6 +3102,10 @@
         {
           "date": "2026-09-27",
           "score": 57.3
+        },
+        {
+          "date": "2026-09-28",
+          "score": 57.3
         }
       ],
       "sensitivity": null,
@@ -3196,6 +3256,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 57.1
+        },
+        {
+          "date": "2026-09-28",
           "score": 57.1
         }
       ],
@@ -3353,6 +3417,10 @@
         {
           "date": "2026-09-27",
           "score": 56.8
+        },
+        {
+          "date": "2026-09-28",
+          "score": 56.8
         }
       ],
       "sensitivity": null,
@@ -3398,162 +3466,6 @@
             967,
             228,
             21
-          ]
-        }
-      },
-      "ai_memo": {
-        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
-      }
-    },
-    {
-      "company": "Scholastic Corporation",
-      "industry": "Media & Entertainment",
-      "deal_score": 55.9,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 11.6,
-        "growth": 0.0,
-        "risk": 17.2,
-        "valuation": 20.0,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": -0.0268,
-      "ebitda_margin": 0.1157,
-      "fcf_margin": 0.0694,
-      "debt_ebitda": 2.29,
-      "interest_coverage": 12.98,
-      "ev_ebitda": 4.89,
-      "peer_median_ev_ebitda": 11.09,
-      "ev_ebitda_discount": -0.559,
-      "peer_cluster": 5,
-      "peer_cluster_size": 13,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [
-        "Decelerating / Weak Growth"
-      ],
-      "irr": 0.0962,
-      "moic": 1.58,
-      "sponsor_equity": 402661930.0,
-      "exit_equity": 637407594.0,
-      "next_earnings_date": "2026-12-17",
-      "ticker": "SCHL",
-      "historical": {
-        "years": [
-          "2022",
-          "2023",
-          "2024",
-          "2025",
-          "2026"
-        ],
-        "revenue": [
-          null,
-          1704000000.0,
-          1589700000.0,
-          1625500000.0,
-          1581900000.0
-        ],
-        "ebitda": [
-          null,
-          178400000.0,
-          85100000.0,
-          105300000.0,
-          183000000.0
-        ],
-        "debt": [
-          null,
-          101000000.0,
-          117600000.0,
-          374500000.0,
-          387500000.0
-        ],
-        "cash": [
-          null,
-          224500000.0,
-          113700000.0,
-          124000000.0,
-          134900000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 35.62
-          },
-          {
-            "year": "2022",
-            "close": 35.79
-          },
-          {
-            "year": "2023",
-            "close": 34.89
-          },
-          {
-            "year": "2024",
-            "close": 20.23
-          },
-          {
-            "year": "2025",
-            "close": 29.13
-          },
-          {
-            "year": "2026",
-            "close": 32.35
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-26",
-          "score": 60.1
-        },
-        {
-          "date": "2026-09-27",
-          "score": 55.9
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.0744,
-        "irr_p50": 0.1532,
-        "irr_p90": 0.2324,
-        "moic_p10": 1.43,
-        "moic_p50": 2.04,
-        "moic_p90": 2.84,
-        "prob_irr_above_15pct": 0.52,
-        "prob_irr_above_20pct": 0.219,
-        "prob_loss": 0.007,
-        "benchmark_cagr": 0.0373,
-        "prob_beat_benchmark": 0.968,
-        "histogram": {
-          "bin_edges": [
-            -0.0612,
-            -0.0252,
-            0.0108,
-            0.0468,
-            0.0829,
-            0.1189,
-            0.1549,
-            0.1909,
-            0.2269,
-            0.2629,
-            0.299,
-            0.335,
-            0.371
-          ],
-          "counts": [
-            34,
-            83,
-            318,
-            820,
-            1559,
-            2305,
-            2236,
-            1492,
-            790,
-            305,
-            54,
-            4
           ]
         }
       },
@@ -3674,6 +3586,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 55.6
+        },
+        {
+          "date": "2026-09-28",
           "score": 55.6
         }
       ],
@@ -3829,6 +3745,10 @@
         {
           "date": "2026-09-27",
           "score": 55.4
+        },
+        {
+          "date": "2026-09-28",
+          "score": 55.4
         }
       ],
       "sensitivity": null,
@@ -3979,6 +3899,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 55.3
+        },
+        {
+          "date": "2026-09-28",
           "score": 55.3
         }
       ],
@@ -4146,6 +4070,10 @@
         {
           "date": "2026-09-27",
           "score": 54.7
+        },
+        {
+          "date": "2026-09-28",
+          "score": 54.7
         }
       ],
       "sensitivity": null,
@@ -4298,6 +4226,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 54.6
+        },
+        {
+          "date": "2026-09-28",
           "score": 54.6
         }
       ],
@@ -4453,6 +4385,10 @@
         {
           "date": "2026-09-27",
           "score": 54.5
+        },
+        {
+          "date": "2026-09-28",
+          "score": 54.5
         }
       ],
       "sensitivity": null,
@@ -4498,6 +4434,166 @@
             1058,
             245,
             24
+          ]
+        }
+      },
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
+    },
+    {
+      "company": "Scholastic Corporation",
+      "industry": "Media & Entertainment",
+      "deal_score": 53.6,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 10.1,
+        "growth": 0.0,
+        "risk": 16.4,
+        "valuation": 20.0,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": -0.0268,
+      "ebitda_margin": 0.1157,
+      "fcf_margin": 0.0221,
+      "debt_ebitda": 2.79,
+      "interest_coverage": 12.98,
+      "ev_ebitda": 5.46,
+      "peer_median_ev_ebitda": 11.09,
+      "ev_ebitda_discount": -0.5079,
+      "peer_cluster": 5,
+      "peer_cluster_size": 13,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [
+        "Decelerating / Weak Growth"
+      ],
+      "irr": 0.0826,
+      "moic": 1.49,
+      "sponsor_equity": 449300477.0,
+      "exit_equity": 668080575.0,
+      "next_earnings_date": "2026-12-17",
+      "ticker": "SCHL",
+      "historical": {
+        "years": [
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
+        "revenue": [
+          null,
+          1704000000.0,
+          1589700000.0,
+          1625500000.0,
+          1581900000.0
+        ],
+        "ebitda": [
+          null,
+          178400000.0,
+          85100000.0,
+          105300000.0,
+          183000000.0
+        ],
+        "debt": [
+          null,
+          101000000.0,
+          117600000.0,
+          374500000.0,
+          387500000.0
+        ],
+        "cash": [
+          null,
+          224500000.0,
+          113700000.0,
+          124000000.0,
+          134900000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 35.62
+          },
+          {
+            "year": "2022",
+            "close": 35.79
+          },
+          {
+            "year": "2023",
+            "close": 34.89
+          },
+          {
+            "year": "2024",
+            "close": 20.23
+          },
+          {
+            "year": "2025",
+            "close": 29.13
+          },
+          {
+            "year": "2026",
+            "close": 32.35
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-26",
+          "score": 60.1
+        },
+        {
+          "date": "2026-09-27",
+          "score": 55.9
+        },
+        {
+          "date": "2026-09-28",
+          "score": 53.6
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.0587,
+        "irr_p50": 0.1411,
+        "irr_p90": 0.2224,
+        "moic_p10": 1.33,
+        "moic_p50": 1.94,
+        "moic_p90": 2.73,
+        "prob_irr_above_15pct": 0.438,
+        "prob_irr_above_20pct": 0.174,
+        "prob_loss": 0.017,
+        "benchmark_cagr": 0.0373,
+        "prob_beat_benchmark": 0.943,
+        "histogram": {
+          "bin_edges": [
+            -0.1288,
+            -0.0877,
+            -0.0466,
+            -0.0056,
+            0.0355,
+            0.0766,
+            0.1177,
+            0.1587,
+            0.1998,
+            0.2409,
+            0.282,
+            0.323,
+            0.3641
+          ],
+          "counts": [
+            7,
+            37,
+            94,
+            400,
+            1028,
+            1966,
+            2614,
+            2105,
+            1178,
+            474,
+            92,
+            5
           ]
         }
       },
@@ -4608,6 +4704,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 53.4
+        },
+        {
+          "date": "2026-09-28",
           "score": 53.4
         }
       ],
@@ -4775,6 +4875,10 @@
         {
           "date": "2026-09-27",
           "score": 53.3
+        },
+        {
+          "date": "2026-09-28",
+          "score": 53.3
         }
       ],
       "sensitivity": null,
@@ -4931,6 +5035,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 53.3
+        },
+        {
+          "date": "2026-09-28",
           "score": 53.3
         }
       ],
@@ -5099,6 +5207,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 52.3
+        },
+        {
+          "date": "2026-09-28",
           "score": 52.3
         }
       ],
@@ -5269,6 +5381,10 @@
         {
           "date": "2026-09-27",
           "score": 52.0
+        },
+        {
+          "date": "2026-09-28",
+          "score": 52.0
         }
       ],
       "sensitivity": null,
@@ -5434,6 +5550,10 @@
         {
           "date": "2026-09-27",
           "score": 51.5
+        },
+        {
+          "date": "2026-09-28",
+          "score": 51.5
         }
       ],
       "sensitivity": null,
@@ -5545,6 +5665,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 51.4
+        },
+        {
+          "date": "2026-09-28",
           "score": 51.4
         }
       ],
@@ -5712,6 +5836,10 @@
         {
           "date": "2026-09-27",
           "score": 50.4
+        },
+        {
+          "date": "2026-09-28",
+          "score": 50.4
         }
       ],
       "sensitivity": null,
@@ -5867,6 +5995,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 49.9
+        },
+        {
+          "date": "2026-09-28",
           "score": 49.9
         }
       ],
@@ -6034,6 +6166,10 @@
         {
           "date": "2026-09-27",
           "score": 49.8
+        },
+        {
+          "date": "2026-09-28",
+          "score": 49.8
         }
       ],
       "sensitivity": null,
@@ -6186,6 +6322,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 49.3
+        },
+        {
+          "date": "2026-09-28",
           "score": 49.3
         }
       ],
@@ -6352,6 +6492,10 @@
         {
           "date": "2026-09-27",
           "score": 49.2
+        },
+        {
+          "date": "2026-09-28",
+          "score": 49.2
         }
       ],
       "sensitivity": null,
@@ -6507,6 +6651,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 48.2
+        },
+        {
+          "date": "2026-09-28",
           "score": 48.2
         }
       ],
@@ -6672,6 +6820,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 47.8
+        },
+        {
+          "date": "2026-09-28",
           "score": 47.8
         }
       ],
@@ -6839,6 +6991,10 @@
         {
           "date": "2026-09-27",
           "score": 45.6
+        },
+        {
+          "date": "2026-09-28",
+          "score": 45.6
         }
       ],
       "sensitivity": null,
@@ -7003,6 +7159,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 45.5
+        },
+        {
+          "date": "2026-09-28",
           "score": 45.5
         }
       ],
@@ -7172,6 +7332,10 @@
         {
           "date": "2026-09-27",
           "score": 45.2
+        },
+        {
+          "date": "2026-09-28",
+          "score": 45.2
         }
       ],
       "sensitivity": null,
@@ -7324,6 +7488,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 44.1
+        },
+        {
+          "date": "2026-09-28",
           "score": 44.1
         }
       ],
@@ -7482,6 +7650,10 @@
         {
           "date": "2026-09-27",
           "score": 43.9
+        },
+        {
+          "date": "2026-09-28",
+          "score": 43.9
         }
       ],
       "sensitivity": null,
@@ -7607,6 +7779,10 @@
         {
           "date": "2026-09-27",
           "score": 43.7
+        },
+        {
+          "date": "2026-09-28",
+          "score": 43.7
         }
       ],
       "sensitivity": null,
@@ -7719,6 +7895,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 43.5
+        },
+        {
+          "date": "2026-09-28",
           "score": 43.5
         }
       ],
@@ -7884,6 +8064,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 43.5
+        },
+        {
+          "date": "2026-09-28",
           "score": 43.5
         }
       ],
@@ -8051,6 +8235,10 @@
         {
           "date": "2026-09-27",
           "score": 43.3
+        },
+        {
+          "date": "2026-09-28",
+          "score": 43.3
         }
       ],
       "sensitivity": null,
@@ -8207,6 +8395,10 @@
         {
           "date": "2026-09-27",
           "score": 43.2
+        },
+        {
+          "date": "2026-09-28",
+          "score": 43.2
         }
       ],
       "sensitivity": null,
@@ -8362,6 +8554,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 43.2
+        },
+        {
+          "date": "2026-09-28",
           "score": 43.2
         }
       ],
@@ -8531,6 +8727,10 @@
         {
           "date": "2026-09-27",
           "score": 42.4
+        },
+        {
+          "date": "2026-09-28",
+          "score": 42.4
         }
       ],
       "sensitivity": null,
@@ -8697,6 +8897,10 @@
         {
           "date": "2026-09-27",
           "score": 42.4
+        },
+        {
+          "date": "2026-09-28",
+          "score": 42.4
         }
       ],
       "sensitivity": null,
@@ -8853,6 +9057,10 @@
         {
           "date": "2026-09-27",
           "score": 42.3
+        },
+        {
+          "date": "2026-09-28",
+          "score": 42.3
         }
       ],
       "sensitivity": null,
@@ -9008,6 +9216,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 42.1
+        },
+        {
+          "date": "2026-09-28",
           "score": 42.1
         }
       ],
@@ -9175,6 +9387,10 @@
         {
           "date": "2026-09-27",
           "score": 41.9
+        },
+        {
+          "date": "2026-09-28",
+          "score": 41.9
         }
       ],
       "sensitivity": null,
@@ -9331,6 +9547,10 @@
         {
           "date": "2026-09-27",
           "score": 41.8
+        },
+        {
+          "date": "2026-09-28",
+          "score": 41.8
         }
       ],
       "sensitivity": null,
@@ -9486,6 +9706,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 41.3
+        },
+        {
+          "date": "2026-09-28",
           "score": 41.3
         }
       ],
@@ -9644,6 +9868,10 @@
         {
           "date": "2026-09-27",
           "score": 41.0
+        },
+        {
+          "date": "2026-09-28",
+          "score": 41.0
         }
       ],
       "sensitivity": null,
@@ -9800,6 +10028,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 40.1
+        },
+        {
+          "date": "2026-09-28",
           "score": 40.1
         }
       ],
@@ -9969,6 +10201,10 @@
         {
           "date": "2026-09-27",
           "score": 40.1
+        },
+        {
+          "date": "2026-09-28",
+          "score": 40.1
         }
       ],
       "sensitivity": null,
@@ -10133,6 +10369,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 40.0
+        },
+        {
+          "date": "2026-09-28",
           "score": 40.0
         }
       ],
@@ -10303,6 +10543,10 @@
         {
           "date": "2026-09-27",
           "score": 39.3
+        },
+        {
+          "date": "2026-09-28",
+          "score": 39.3
         }
       ],
       "sensitivity": null,
@@ -10458,6 +10702,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 38.8
+        },
+        {
+          "date": "2026-09-28",
           "score": 38.8
         }
       ],
@@ -10628,6 +10876,10 @@
         {
           "date": "2026-09-27",
           "score": 38.8
+        },
+        {
+          "date": "2026-09-28",
+          "score": 38.8
         }
       ],
       "sensitivity": null,
@@ -10751,6 +11003,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 38.7
+        },
+        {
+          "date": "2026-09-28",
           "score": 38.7
         }
       ],
@@ -10920,6 +11176,10 @@
         {
           "date": "2026-09-27",
           "score": 38.2
+        },
+        {
+          "date": "2026-09-28",
+          "score": 38.2
         }
       ],
       "sensitivity": null,
@@ -11088,6 +11348,10 @@
         {
           "date": "2026-09-27",
           "score": 38.1
+        },
+        {
+          "date": "2026-09-28",
+          "score": 38.1
         }
       ],
       "sensitivity": null,
@@ -11245,6 +11509,10 @@
         {
           "date": "2026-09-27",
           "score": 36.7
+        },
+        {
+          "date": "2026-09-28",
+          "score": 36.7
         }
       ],
       "sensitivity": null,
@@ -11400,6 +11668,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 35.7
+        },
+        {
+          "date": "2026-09-28",
           "score": 35.7
         }
       ],
@@ -11557,6 +11829,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 35.3
+        },
+        {
+          "date": "2026-09-28",
           "score": 35.3
         }
       ],
@@ -11725,6 +12001,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 34.9
+        },
+        {
+          "date": "2026-09-28",
           "score": 34.9
         }
       ],
@@ -11895,6 +12175,10 @@
         {
           "date": "2026-09-27",
           "score": 34.6
+        },
+        {
+          "date": "2026-09-28",
+          "score": 34.6
         }
       ],
       "sensitivity": null,
@@ -12059,6 +12343,10 @@
         {
           "date": "2026-09-27",
           "score": 34.0
+        },
+        {
+          "date": "2026-09-28",
+          "score": 34.0
         }
       ],
       "sensitivity": null,
@@ -12222,6 +12510,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 33.9
+        },
+        {
+          "date": "2026-09-28",
           "score": 33.9
         }
       ],
@@ -12389,6 +12681,10 @@
         {
           "date": "2026-09-27",
           "score": 32.8
+        },
+        {
+          "date": "2026-09-28",
+          "score": 32.8
         }
       ],
       "sensitivity": null,
@@ -12500,6 +12796,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 32.5
+        },
+        {
+          "date": "2026-09-28",
           "score": 32.5
         }
       ],
@@ -12659,6 +12959,10 @@
         {
           "date": "2026-09-27",
           "score": 32.4
+        },
+        {
+          "date": "2026-09-28",
+          "score": 32.4
         }
       ],
       "sensitivity": null,
@@ -12768,6 +13072,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 31.8
+        },
+        {
+          "date": "2026-09-28",
           "score": 31.8
         }
       ],
@@ -12939,6 +13247,10 @@
         {
           "date": "2026-09-27",
           "score": 31.3
+        },
+        {
+          "date": "2026-09-28",
+          "score": 31.3
         }
       ],
       "sensitivity": null,
@@ -13094,6 +13406,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 31.2
+        },
+        {
+          "date": "2026-09-28",
           "score": 31.2
         }
       ],
@@ -13265,6 +13581,10 @@
         {
           "date": "2026-09-27",
           "score": 30.9
+        },
+        {
+          "date": "2026-09-28",
+          "score": 30.9
         }
       ],
       "sensitivity": null,
@@ -13434,6 +13754,10 @@
         {
           "date": "2026-09-27",
           "score": 30.5
+        },
+        {
+          "date": "2026-09-28",
+          "score": 30.5
         }
       ],
       "sensitivity": null,
@@ -13590,6 +13914,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 28.9
+        },
+        {
+          "date": "2026-09-28",
           "score": 28.9
         }
       ],
@@ -13749,6 +14077,10 @@
         {
           "date": "2026-09-27",
           "score": 25.2
+        },
+        {
+          "date": "2026-09-28",
+          "score": 25.2
         }
       ],
       "sensitivity": null,
@@ -13907,6 +14239,10 @@
         {
           "date": "2026-09-27",
           "score": 23.9
+        },
+        {
+          "date": "2026-09-28",
+          "score": 23.9
         }
       ],
       "sensitivity": null,
@@ -14021,6 +14357,10 @@
         },
         {
           "date": "2026-09-27",
+          "score": 16.1
+        },
+        {
+          "date": "2026-09-28",
           "score": 16.1
         }
       ],
