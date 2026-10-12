@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-11T08:07:01.146223+00:00",
-  "next_refresh_due": "2026-10-14T08:07:01.146223+00:00",
+  "generated_at": "2026-10-12T08:11:37.583088+00:00",
+  "next_refresh_due": "2026-10-15T08:11:37.583088+00:00",
   "companies": [
     {
       "company": "Perdoceo Education Corporation",
@@ -171,6 +171,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 77.6
+        },
+        {
+          "date": "2026-10-12",
           "score": 77.6
         }
       ],
@@ -469,6 +473,10 @@
         {
           "date": "2026-10-11",
           "score": 65.0
+        },
+        {
+          "date": "2026-10-12",
+          "score": 65.0
         }
       ],
       "sensitivity": {
@@ -602,13 +610,13 @@
     {
       "company": "Worthington Enterprises, Inc.",
       "industry": "Industrials",
-      "deal_score": 64.1,
+      "deal_score": 63.7,
       "priority_tier": "Watchlist",
       "score_breakdown": {
-        "financial_quality": 10.3,
+        "financial_quality": 10.2,
         "growth": 9.9,
         "risk": 18.8,
-        "valuation": 18.0,
+        "valuation": 17.7,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.1972,
@@ -616,18 +624,18 @@
       "fcf_margin": 0.0476,
       "debt_ebitda": 1.31,
       "interest_coverage": 42.39,
-      "ev_ebitda": 12.56,
+      "ev_ebitda": 12.72,
       "peer_median_ev_ebitda": 16.53,
-      "ev_ebitda_discount": -0.2403,
+      "ev_ebitda_discount": -0.2305,
       "peer_cluster": 6,
       "peer_cluster_size": 7,
       "largest_customer_pct": 0.15,
       "recurring_revenue_pct": 0.5,
       "risk_flags": [],
-      "irr": 0.29,
-      "moic": 3.57,
-      "sponsor_equity": 1496499610.0,
-      "exit_equity": 5345342711.0,
+      "irr": 0.2894,
+      "moic": 3.56,
+      "sponsor_equity": 1515938342.0,
+      "exit_equity": 5401814852.0,
       "next_earnings_date": "2026-12-15",
       "ticker": "WOR",
       "historical": {
@@ -757,6 +765,10 @@
         {
           "date": "2026-10-11",
           "score": 64.1
+        },
+        {
+          "date": "2026-10-12",
+          "score": 63.7
         }
       ],
       "sensitivity": {
@@ -775,110 +787,110 @@
         ],
         "irr_matrix": [
           [
-            -0.1226,
-            0.0021,
-            0.0978,
-            0.1795
+            -0.1318,
+            -0.0045,
+            0.0921,
+            0.1744
           ],
           [
-            -0.0569,
-            0.0532,
-            0.1429,
-            0.2219
+            -0.0645,
+            0.0472,
+            0.1376,
+            0.2169
           ],
           [
-            -0.0057,
-            0.0959,
-            0.1819,
-            0.2591
+            -0.0124,
+            0.0903,
+            0.1768,
+            0.2542
           ],
           [
-            0.0367,
-            0.1329,
-            0.2163,
-            0.2923
+            0.0305,
+            0.1275,
+            0.2113,
+            0.2875
           ],
           [
-            0.0732,
-            0.1655,
-            0.2472,
-            0.3224
+            0.0674,
+            0.1603,
+            0.2423,
+            0.3177
           ]
         ],
         "moic_matrix": [
           [
-            0.52,
-            1.01,
-            1.59,
-            2.28
+            0.49,
+            0.98,
+            1.55,
+            2.23
           ],
           [
-            0.75,
-            1.3,
-            1.95,
-            2.72
+            0.72,
+            1.26,
+            1.91,
+            2.67
           ],
           [
-            0.97,
-            1.58,
-            2.31,
-            3.16
+            0.94,
+            1.54,
+            2.26,
+            3.1
           ],
           [
-            1.2,
-            1.87,
-            2.66,
-            3.6
+            1.16,
+            1.82,
+            2.61,
+            3.54
           ],
           [
-            1.42,
-            2.15,
-            3.02,
-            4.04
+            1.39,
+            2.1,
+            2.96,
+            3.97
           ]
         ]
       },
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.1249,
-        "irr_p50": 0.2651,
-        "irr_p90": 0.3793,
-        "moic_p10": 1.8,
-        "moic_p50": 3.24,
-        "moic_p90": 4.99,
-        "prob_irr_above_15pct": 0.857,
-        "prob_irr_above_20pct": 0.732,
+        "irr_p10": 0.1241,
+        "irr_p50": 0.2645,
+        "irr_p90": 0.3787,
+        "moic_p10": 1.79,
+        "moic_p50": 3.23,
+        "moic_p90": 4.98,
+        "prob_irr_above_15pct": 0.855,
+        "prob_irr_above_20pct": 0.729,
         "prob_loss": 0.009,
         "benchmark_cagr": 0.036,
         "prob_beat_benchmark": 0.981,
         "histogram": {
           "bin_edges": [
-            -0.1936,
-            -0.1321,
-            -0.0706,
-            -0.0091,
-            0.0525,
-            0.114,
-            0.1755,
-            0.237,
-            0.2985,
-            0.36,
-            0.4216,
-            0.4831,
-            0.5446
+            -0.1964,
+            -0.1347,
+            -0.0729,
+            -0.0112,
+            0.0505,
+            0.1122,
+            0.174,
+            0.2357,
+            0.2974,
+            0.3591,
+            0.4209,
+            0.4826,
+            0.5443
           ],
           "counts": [
             5,
             13,
             60,
-            186,
-            588,
-            1158,
-            1908,
-            2491,
-            2135,
+            182,
+            577,
+            1156,
+            1900,
+            2492,
+            2153,
             1136,
-            291,
+            297,
             29
           ]
         }
@@ -1044,6 +1056,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 63.6
+        },
+        {
+          "date": "2026-10-12",
           "score": 63.6
         }
       ],
@@ -1329,6 +1345,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 63.4
+        },
+        {
+          "date": "2026-10-12",
           "score": 63.4
         }
       ],
@@ -1629,6 +1649,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 63.0
+        },
+        {
+          "date": "2026-10-12",
           "score": 63.0
         }
       ],
@@ -1932,6 +1956,10 @@
         {
           "date": "2026-10-11",
           "score": 62.5
+        },
+        {
+          "date": "2026-10-12",
+          "score": 62.5
         }
       ],
       "sensitivity": null,
@@ -2094,6 +2122,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 62.4
+        },
+        {
+          "date": "2026-10-12",
           "score": 62.4
         }
       ],
@@ -2397,6 +2429,10 @@
         {
           "date": "2026-10-11",
           "score": 62.0
+        },
+        {
+          "date": "2026-10-12",
+          "score": 62.0
         }
       ],
       "sensitivity": {
@@ -2695,6 +2731,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 61.9
+        },
+        {
+          "date": "2026-10-12",
           "score": 61.9
         }
       ],
@@ -2996,6 +3036,10 @@
         {
           "date": "2026-10-11",
           "score": 60.5
+        },
+        {
+          "date": "2026-10-12",
+          "score": 60.5
         }
       ],
       "sensitivity": null,
@@ -3219,6 +3263,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 59.7
+        },
+        {
+          "date": "2026-10-12",
           "score": 59.7
         }
       ],
@@ -3444,6 +3492,10 @@
         {
           "date": "2026-10-11",
           "score": 59.6
+        },
+        {
+          "date": "2026-10-12",
+          "score": 59.6
         }
       ],
       "sensitivity": null,
@@ -3660,6 +3712,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 59.6
+        },
+        {
+          "date": "2026-10-12",
           "score": 59.6
         }
       ],
@@ -3880,6 +3936,10 @@
         {
           "date": "2026-10-11",
           "score": 59.2
+        },
+        {
+          "date": "2026-10-12",
+          "score": 59.2
         }
       ],
       "sensitivity": null,
@@ -4086,6 +4146,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 59.0
+        },
+        {
+          "date": "2026-10-12",
           "score": 59.0
         }
       ],
@@ -4297,6 +4361,10 @@
         {
           "date": "2026-10-11",
           "score": 58.4
+        },
+        {
+          "date": "2026-10-12",
+          "score": 58.4
         }
       ],
       "sensitivity": null,
@@ -4503,6 +4571,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 57.1
+        },
+        {
+          "date": "2026-10-12",
           "score": 57.1
         }
       ],
@@ -4726,6 +4798,10 @@
         {
           "date": "2026-10-11",
           "score": 55.5
+        },
+        {
+          "date": "2026-10-12",
+          "score": 55.5
         }
       ],
       "sensitivity": null,
@@ -4938,6 +5014,10 @@
         {
           "date": "2026-10-11",
           "score": 55.4
+        },
+        {
+          "date": "2026-10-12",
+          "score": 55.4
         }
       ],
       "sensitivity": null,
@@ -5144,6 +5224,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-12",
           "score": 55.2
         }
       ],
@@ -5367,6 +5451,10 @@
         {
           "date": "2026-10-11",
           "score": 55.1
+        },
+        {
+          "date": "2026-10-12",
+          "score": 55.1
         }
       ],
       "sensitivity": null,
@@ -5577,6 +5665,10 @@
         {
           "date": "2026-10-11",
           "score": 53.7
+        },
+        {
+          "date": "2026-10-12",
+          "score": 53.7
         }
       ],
       "sensitivity": null,
@@ -5785,6 +5877,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 53.5
+        },
+        {
+          "date": "2026-10-12",
           "score": 53.5
         }
       ],
@@ -5999,6 +6095,10 @@
         {
           "date": "2026-10-11",
           "score": 53.3
+        },
+        {
+          "date": "2026-10-12",
+          "score": 53.3
         }
       ],
       "sensitivity": null,
@@ -6211,6 +6311,10 @@
         {
           "date": "2026-10-11",
           "score": 53.1
+        },
+        {
+          "date": "2026-10-12",
+          "score": 53.1
         }
       ],
       "sensitivity": null,
@@ -6422,6 +6526,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 52.3
+        },
+        {
+          "date": "2026-10-12",
           "score": 52.3
         }
       ],
@@ -6646,6 +6754,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 52.2
+        },
+        {
+          "date": "2026-10-12",
           "score": 52.2
         }
       ],
@@ -6872,6 +6984,10 @@
         {
           "date": "2026-10-11",
           "score": 52.1
+        },
+        {
+          "date": "2026-10-12",
+          "score": 52.1
         }
       ],
       "sensitivity": null,
@@ -7093,6 +7209,10 @@
         {
           "date": "2026-10-11",
           "score": 51.5
+        },
+        {
+          "date": "2026-10-12",
+          "score": 51.5
         }
       ],
       "sensitivity": null,
@@ -7270,6 +7390,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 51.1
+        },
+        {
+          "date": "2026-10-12",
           "score": 51.1
         }
       ],
@@ -7480,6 +7604,10 @@
         {
           "date": "2026-10-11",
           "score": 50.9
+        },
+        {
+          "date": "2026-10-12",
+          "score": 50.9
         }
       ],
       "sensitivity": null,
@@ -7686,6 +7814,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 50.0
+        },
+        {
+          "date": "2026-10-12",
           "score": 50.0
         }
       ],
@@ -7898,6 +8030,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 50.0
+        },
+        {
+          "date": "2026-10-12",
           "score": 50.0
         }
       ],
@@ -8118,6 +8254,10 @@
         {
           "date": "2026-10-11",
           "score": 48.8
+        },
+        {
+          "date": "2026-10-12",
+          "score": 48.8
         }
       ],
       "sensitivity": null,
@@ -8336,6 +8476,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 48.6
+        },
+        {
+          "date": "2026-10-12",
           "score": 48.6
         }
       ],
@@ -8557,6 +8701,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 47.8
+        },
+        {
+          "date": "2026-10-12",
           "score": 47.8
         }
       ],
@@ -8782,6 +8930,10 @@
         {
           "date": "2026-10-11",
           "score": 47.7
+        },
+        {
+          "date": "2026-10-12",
+          "score": 47.7
         }
       ],
       "sensitivity": null,
@@ -9003,6 +9155,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 47.6
+        },
+        {
+          "date": "2026-10-12",
           "score": 47.6
         }
       ],
@@ -9226,6 +9382,10 @@
         {
           "date": "2026-10-11",
           "score": 47.2
+        },
+        {
+          "date": "2026-10-12",
+          "score": 47.2
         }
       ],
       "sensitivity": null,
@@ -9432,6 +9592,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 47.1
+        },
+        {
+          "date": "2026-10-12",
           "score": 47.1
         }
       ],
@@ -9653,6 +9817,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 45.8
+        },
+        {
+          "date": "2026-10-12",
           "score": 45.8
         }
       ],
@@ -9878,6 +10046,10 @@
         {
           "date": "2026-10-11",
           "score": 45.7
+        },
+        {
+          "date": "2026-10-12",
+          "score": 45.7
         }
       ],
       "sensitivity": null,
@@ -10100,6 +10272,10 @@
         {
           "date": "2026-10-11",
           "score": 45.6
+        },
+        {
+          "date": "2026-10-12",
+          "score": 45.6
         }
       ],
       "sensitivity": null,
@@ -10313,6 +10489,10 @@
         {
           "date": "2026-10-11",
           "score": 43.9
+        },
+        {
+          "date": "2026-10-12",
+          "score": 43.9
         }
       ],
       "sensitivity": null,
@@ -10481,6 +10661,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 43.9
+        },
+        {
+          "date": "2026-10-12",
           "score": 43.9
         }
       ],
@@ -10693,6 +10877,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 43.5
+        },
+        {
+          "date": "2026-10-12",
           "score": 43.5
         }
       ],
@@ -10916,6 +11104,10 @@
         {
           "date": "2026-10-11",
           "score": 43.3
+        },
+        {
+          "date": "2026-10-12",
+          "score": 43.3
         }
       ],
       "sensitivity": null,
@@ -11123,6 +11315,10 @@
         {
           "date": "2026-10-11",
           "score": 43.3
+        },
+        {
+          "date": "2026-10-12",
+          "score": 43.3
         }
       ],
       "sensitivity": null,
@@ -11329,6 +11525,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 43.2
+        },
+        {
+          "date": "2026-10-12",
           "score": 43.2
         }
       ],
@@ -11555,6 +11755,10 @@
         {
           "date": "2026-10-11",
           "score": 43.2
+        },
+        {
+          "date": "2026-10-12",
+          "score": 43.2
         }
       ],
       "sensitivity": null,
@@ -11717,6 +11921,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 41.6
+        },
+        {
+          "date": "2026-10-12",
           "score": 41.6
         }
       ],
@@ -11925,6 +12133,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 41.0
+        },
+        {
+          "date": "2026-10-12",
           "score": 41.0
         }
       ],
@@ -12151,6 +12363,10 @@
         {
           "date": "2026-10-11",
           "score": 40.5
+        },
+        {
+          "date": "2026-10-12",
+          "score": 40.5
         }
       ],
       "sensitivity": null,
@@ -12363,6 +12579,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 40.2
+        },
+        {
+          "date": "2026-10-12",
           "score": 40.2
         }
       ],
@@ -12585,6 +12805,10 @@
         {
           "date": "2026-10-11",
           "score": 40.0
+        },
+        {
+          "date": "2026-10-12",
+          "score": 40.0
         }
       ],
       "sensitivity": null,
@@ -12796,6 +13020,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 39.9
+        },
+        {
+          "date": "2026-10-12",
           "score": 39.9
         }
       ],
@@ -13019,6 +13247,10 @@
         {
           "date": "2026-10-11",
           "score": 39.7
+        },
+        {
+          "date": "2026-10-12",
+          "score": 39.7
         }
       ],
       "sensitivity": null,
@@ -13241,6 +13473,10 @@
         {
           "date": "2026-10-11",
           "score": 39.6
+        },
+        {
+          "date": "2026-10-12",
+          "score": 39.6
         }
       ],
       "sensitivity": null,
@@ -13452,6 +13688,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 39.5
+        },
+        {
+          "date": "2026-10-12",
           "score": 39.5
         }
       ],
@@ -13678,6 +13918,10 @@
         {
           "date": "2026-10-11",
           "score": 39.4
+        },
+        {
+          "date": "2026-10-12",
+          "score": 39.4
         }
       ],
       "sensitivity": null,
@@ -13901,6 +14145,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 39.2
+        },
+        {
+          "date": "2026-10-12",
           "score": 39.2
         }
       ],
@@ -14126,6 +14374,10 @@
         {
           "date": "2026-10-11",
           "score": 38.7
+        },
+        {
+          "date": "2026-10-12",
+          "score": 38.7
         }
       ],
       "sensitivity": null,
@@ -14349,6 +14601,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 38.4
+        },
+        {
+          "date": "2026-10-12",
           "score": 38.4
         }
       ],
@@ -14574,6 +14830,10 @@
         {
           "date": "2026-10-11",
           "score": 38.2
+        },
+        {
+          "date": "2026-10-12",
+          "score": 38.2
         }
       ],
       "sensitivity": null,
@@ -14629,13 +14889,13 @@
     {
       "company": "Forrester Research, Inc.",
       "industry": "B2B SaaS",
-      "deal_score": 37.1,
+      "deal_score": 36.9,
       "priority_tier": "Rejected",
       "score_breakdown": {
         "financial_quality": 2.0,
         "growth": 0.0,
         "risk": 13.3,
-        "valuation": 14.7,
+        "valuation": 14.5,
         "strategic_fit": 7.1
       },
       "revenue_growth": -0.0823,
@@ -14644,8 +14904,8 @@
       "debt_ebitda": -0.67,
       "interest_coverage": -35.55,
       "ev_ebitda": -1.57,
-      "peer_median_ev_ebitda": -1.83,
-      "ev_ebitda_discount": -0.1415,
+      "peer_median_ev_ebitda": -1.81,
+      "ev_ebitda_discount": -0.1345,
       "peer_cluster": 12,
       "peer_cluster_size": 3,
       "largest_customer_pct": 0.15,
@@ -14799,6 +15059,10 @@
         {
           "date": "2026-10-11",
           "score": 37.1
+        },
+        {
+          "date": "2026-10-12",
+          "score": 36.9
         }
       ],
       "sensitivity": null,
@@ -14967,6 +15231,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 36.8
+        },
+        {
+          "date": "2026-10-12",
           "score": 36.8
         }
       ],
@@ -15194,6 +15462,10 @@
         {
           "date": "2026-10-11",
           "score": 35.8
+        },
+        {
+          "date": "2026-10-12",
+          "score": 35.8
         }
       ],
       "sensitivity": null,
@@ -15407,6 +15679,10 @@
         {
           "date": "2026-10-11",
           "score": 35.7
+        },
+        {
+          "date": "2026-10-12",
+          "score": 35.7
         }
       ],
       "sensitivity": null,
@@ -15618,6 +15894,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 35.6
+        },
+        {
+          "date": "2026-10-12",
           "score": 35.6
         }
       ],
@@ -15844,6 +16124,10 @@
         {
           "date": "2026-10-11",
           "score": 34.5
+        },
+        {
+          "date": "2026-10-12",
+          "score": 34.5
         }
       ],
       "sensitivity": null,
@@ -16063,6 +16347,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 34.1
+        },
+        {
+          "date": "2026-10-12",
           "score": 34.1
         }
       ],
@@ -16284,6 +16572,10 @@
         {
           "date": "2026-10-11",
           "score": 33.8
+        },
+        {
+          "date": "2026-10-12",
+          "score": 33.8
         }
       ],
       "sensitivity": null,
@@ -16332,6 +16624,188 @@
           ]
         }
       },
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
+    },
+    {
+      "company": "Helen of Troy Limited",
+      "industry": "Consumer Products",
+      "deal_score": 33.2,
+      "priority_tier": "Rejected",
+      "score_breakdown": {
+        "financial_quality": 2.8,
+        "growth": 0.0,
+        "risk": 13.3,
+        "valuation": 10.0,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": -0.0636,
+      "ebitda_margin": -0.4074,
+      "fcf_margin": 0.0626,
+      "debt_ebitda": -1.0,
+      "interest_coverage": -12.61,
+      "ev_ebitda": -1.81,
+      "peer_median_ev_ebitda": -1.81,
+      "ev_ebitda_discount": 0.0,
+      "peer_cluster": 12,
+      "peer_cluster_size": 3,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [
+        "Weak Interest Coverage",
+        "Decelerating / Weak Growth"
+      ],
+      "irr": null,
+      "moic": null,
+      "sponsor_equity": null,
+      "exit_equity": null,
+      "next_earnings_date": "2027-01-07",
+      "ticker": "HELE",
+      "historical": {
+        "years": [
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
+        "revenue": [
+          2072667000.0,
+          2005050000.0,
+          1907665000.0,
+          1786290000.0
+        ],
+        "ebitda": [
+          256723000.0,
+          313606000.0,
+          198634000.0,
+          -727804000.0
+        ],
+        "debt": [
+          null,
+          977084000.0,
+          702933000.0,
+          956843000.0,
+          833695000.0
+        ],
+        "cash": [
+          null,
+          29073000.0,
+          18501000.0,
+          18867000.0,
+          18886000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 244.47
+          },
+          {
+            "year": "2022",
+            "close": 110.91
+          },
+          {
+            "year": "2023",
+            "close": 120.81
+          },
+          {
+            "year": "2024",
+            "close": 59.83
+          },
+          {
+            "year": "2025",
+            "close": 21.25
+          },
+          {
+            "year": "2026",
+            "close": 26.51
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-23",
+          "score": 28.9
+        },
+        {
+          "date": "2026-09-24",
+          "score": 29.8
+        },
+        {
+          "date": "2026-09-25",
+          "score": 29.4
+        },
+        {
+          "date": "2026-09-26",
+          "score": 32.8
+        },
+        {
+          "date": "2026-09-27",
+          "score": 32.8
+        },
+        {
+          "date": "2026-09-28",
+          "score": 32.8
+        },
+        {
+          "date": "2026-09-29",
+          "score": 32.8
+        },
+        {
+          "date": "2026-09-30",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-01",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-02",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-03",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-04",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-05",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-06",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-07",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-08",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-09",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-10",
+          "score": 32.8
+        },
+        {
+          "date": "2026-10-11",
+          "score": 30.4
+        },
+        {
+          "date": "2026-10-12",
+          "score": 33.2
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": null,
       "ai_memo": {
         "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
       }
@@ -16504,6 +16978,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 32.9
+        },
+        {
+          "date": "2026-10-12",
           "score": 32.9
         }
       ],
@@ -16719,6 +17197,10 @@
         {
           "date": "2026-10-11",
           "score": 32.4
+        },
+        {
+          "date": "2026-10-12",
+          "score": 32.4
         }
       ],
       "sensitivity": null,
@@ -16884,6 +17366,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 31.8
+        },
+        {
+          "date": "2026-10-12",
           "score": 31.8
         }
       ],
@@ -17098,6 +17584,10 @@
         {
           "date": "2026-10-11",
           "score": 31.5
+        },
+        {
+          "date": "2026-10-12",
+          "score": 31.5
         }
       ],
       "sensitivity": null,
@@ -17309,6 +17799,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 30.7
+        },
+        {
+          "date": "2026-10-12",
           "score": 30.7
         }
       ],
@@ -17535,6 +18029,10 @@
         {
           "date": "2026-10-11",
           "score": 30.5
+        },
+        {
+          "date": "2026-10-12",
+          "score": 30.5
         }
       ],
       "sensitivity": null,
@@ -17583,185 +18081,6 @@
           ]
         }
       },
-      "ai_memo": {
-        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
-      }
-    },
-    {
-      "company": "Helen of Troy Limited",
-      "industry": "Consumer Products",
-      "deal_score": 30.4,
-      "priority_tier": "Rejected",
-      "score_breakdown": {
-        "financial_quality": 0.0,
-        "growth": 0.0,
-        "risk": 13.3,
-        "valuation": 10.0,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": -0.0636,
-      "ebitda_margin": -0.4074,
-      "fcf_margin": -0.2445,
-      "debt_ebitda": -0.98,
-      "interest_coverage": -12.61,
-      "ev_ebitda": -1.83,
-      "peer_median_ev_ebitda": -1.83,
-      "ev_ebitda_discount": 0.0,
-      "peer_cluster": 12,
-      "peer_cluster_size": 3,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [
-        "Weak Interest Coverage",
-        "Negative Free Cash Flow",
-        "Decelerating / Weak Growth"
-      ],
-      "irr": null,
-      "moic": null,
-      "sponsor_equity": null,
-      "exit_equity": null,
-      "next_earnings_date": "2027-01-07",
-      "ticker": "HELE",
-      "historical": {
-        "years": [
-          "2023",
-          "2024",
-          "2025",
-          "2026"
-        ],
-        "revenue": [
-          2072667000.0,
-          2005050000.0,
-          1907665000.0,
-          1786290000.0
-        ],
-        "ebitda": [
-          256723000.0,
-          313606000.0,
-          198634000.0,
-          -727804000.0
-        ],
-        "debt": [
-          null,
-          977084000.0,
-          702933000.0,
-          956843000.0,
-          833695000.0
-        ],
-        "cash": [
-          null,
-          29073000.0,
-          18501000.0,
-          18867000.0,
-          18886000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 244.47
-          },
-          {
-            "year": "2022",
-            "close": 110.91
-          },
-          {
-            "year": "2023",
-            "close": 120.81
-          },
-          {
-            "year": "2024",
-            "close": 59.83
-          },
-          {
-            "year": "2025",
-            "close": 21.25
-          },
-          {
-            "year": "2026",
-            "close": 26.51
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-23",
-          "score": 28.9
-        },
-        {
-          "date": "2026-09-24",
-          "score": 29.8
-        },
-        {
-          "date": "2026-09-25",
-          "score": 29.4
-        },
-        {
-          "date": "2026-09-26",
-          "score": 32.8
-        },
-        {
-          "date": "2026-09-27",
-          "score": 32.8
-        },
-        {
-          "date": "2026-09-28",
-          "score": 32.8
-        },
-        {
-          "date": "2026-09-29",
-          "score": 32.8
-        },
-        {
-          "date": "2026-09-30",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-01",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-02",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-03",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-04",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-05",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-06",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-07",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-08",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-09",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-10",
-          "score": 32.8
-        },
-        {
-          "date": "2026-10-11",
-          "score": 30.4
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": null,
       "ai_memo": {
         "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
       }
@@ -17925,6 +18244,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 29.7
+        },
+        {
+          "date": "2026-10-12",
           "score": 29.7
         }
       ],
@@ -18138,6 +18461,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 28.9
+        },
+        {
+          "date": "2026-10-12",
           "score": 28.9
         }
       ],
@@ -18353,6 +18680,10 @@
         {
           "date": "2026-10-11",
           "score": 25.2
+        },
+        {
+          "date": "2026-10-12",
+          "score": 25.2
         }
       ],
       "sensitivity": null,
@@ -18423,8 +18754,8 @@
       "debt_ebitda": -6.3,
       "interest_coverage": -3.77,
       "ev_ebitda": -8.67,
-      "peer_median_ev_ebitda": -1.83,
-      "ev_ebitda_discount": 3.7462,
+      "peer_median_ev_ebitda": -1.81,
+      "ev_ebitda_discount": 3.7851,
       "peer_cluster": 12,
       "peer_cluster_size": 3,
       "largest_customer_pct": 0.15,
@@ -18566,6 +18897,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 23.9
+        },
+        {
+          "date": "2026-10-12",
           "score": 23.9
         }
       ],
@@ -18737,6 +19072,10 @@
         },
         {
           "date": "2026-10-11",
+          "score": 16.1
+        },
+        {
+          "date": "2026-10-12",
           "score": 16.1
         }
       ],
