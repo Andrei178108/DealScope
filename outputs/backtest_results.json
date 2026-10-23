@@ -1,12 +1,12 @@
 {
   "n": 30,
-  "spearman_correlation": 0.337,
-  "p_value": 0.0683,
+  "spearman_correlation": 0.326,
+  "p_value": 0.0786,
   "interpretation": "Correlación positiva: las empresas con score histórico alto tendieron a tener mejor retorno real.",
-  "avg_return_top_third": 2.4439,
-  "avg_return_bottom_third": -0.191,
+  "avg_return_top_third": 2.1451,
+  "avg_return_bottom_third": -0.1707,
   "benchmark_ticker": "^SP600 (S&P SmallCap 600)",
-  "benchmark_return": 0.1954,
+  "benchmark_return": 0.2032,
   "beat_benchmark": true,
   "results": [
     {
@@ -14,210 +14,210 @@
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 77.0,
-      "forward_return": 0.5619
+      "forward_return": 0.5966
     },
     {
       "ticker": "AWR",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 68.5,
-      "forward_return": -0.1183
+      "forward_return": -0.0871
     },
     {
       "ticker": "POWL",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 61.0,
-      "forward_return": 17.5939
+      "forward_return": 15.4531
     },
     {
       "ticker": "IIIN",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 54.9,
-      "forward_return": -0.0446
+      "forward_return": -0.0475
     },
     {
       "ticker": "FC",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 51.3,
-      "forward_return": -0.6145
+      "forward_return": -0.5917
     },
     {
       "ticker": "DGII",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 51.2,
-      "forward_return": 2.0647
+      "forward_return": 1.963
     },
     {
       "ticker": "JJSF",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 51.1,
-      "forward_return": -0.4198
+      "forward_return": -0.3974
     },
     {
       "ticker": "ESE",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 51.0,
-      "forward_return": 1.7881
+      "forward_return": 1.6244
     },
     {
       "ticker": "NVEC",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 50.0,
-      "forward_return": 0.9753
+      "forward_return": 0.3101
     },
     {
       "ticker": "BLBD",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 50.0,
-      "forward_return": 2.6522
+      "forward_return": 2.6272
     },
     {
       "ticker": "SMPL",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 49.0,
-      "forward_return": -0.7433
+      "forward_return": -0.7335
     },
     {
       "ticker": "CRVL",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 42.2,
-      "forward_return": 0.1641
+      "forward_return": 0.2099
     },
     {
       "ticker": "RGR",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 41.3,
-      "forward_return": -0.1046
+      "forward_return": -0.1496
     },
     {
       "ticker": "ALG",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 40.2,
-      "forward_return": 0.0401
+      "forward_return": 0.0312
     },
     {
       "ticker": "PLXS",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 39.9,
-      "forward_return": 1.4894
+      "forward_return": 1.3024
     },
     {
       "ticker": "ROAD",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 39.7,
-      "forward_return": 1.8881
+      "forward_return": 1.8538
     },
     {
       "ticker": "GENC",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 39.2,
-      "forward_return": 0.5178
+      "forward_return": 0.5134
     },
     {
       "ticker": "IESC",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 38.7,
-      "forward_return": 8.3448
+      "forward_return": 7.7184
     },
     {
       "ticker": "FIZZ",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 37.0,
-      "forward_return": -0.0892
+      "forward_return": -0.0306
     },
     {
       "ticker": "WERN",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 36.9,
-      "forward_return": -0.326
+      "forward_return": -0.3418
     },
     {
       "ticker": "STRA",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 35.6,
-      "forward_return": 0.5821
+      "forward_return": 0.6227
     },
     {
       "ticker": "BOOT",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 34.3,
-      "forward_return": -0.0566
+      "forward_return": -0.0267
     },
     {
       "ticker": "FELE",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 32.9,
-      "forward_return": 0.1238
+      "forward_return": 0.1012
     },
     {
       "ticker": "CVCO",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 32.7,
-      "forward_return": 0.6252
+      "forward_return": 0.7234
     },
     {
       "ticker": "LAKE",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 31.4,
-      "forward_return": -0.5601
+      "forward_return": -0.5652
     },
     {
       "ticker": "HELE",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 29.5,
-      "forward_return": -0.8839
+      "forward_return": -0.8815
     },
     {
       "ticker": "MLAB",
       "backtest_year": "2023",
       "current_year": "2026",
       "historical_score": 26.2,
-      "forward_return": -0.5961
+      "forward_return": -0.5964
     },
     {
       "ticker": "OMCL",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 23.7,
-      "forward_return": -0.7986
+      "forward_return": -0.7944
     },
     {
       "ticker": "CENT",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 23.3,
-      "forward_return": 0.0415
+      "forward_return": 0.0951
     },
     {
       "ticker": "MATW",
       "backtest_year": "2022",
       "current_year": "2026",
       "historical_score": 7.7,
-      "forward_return": -0.3877
+      "forward_return": -0.3848
     }
   ]
 }
