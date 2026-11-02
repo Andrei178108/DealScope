@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-01T14:38:20.925468+00:00",
-  "next_refresh_due": "2026-11-04T14:38:20.925468+00:00",
+  "generated_at": "2026-11-02T17:33:37.478355+00:00",
+  "next_refresh_due": "2026-11-05T17:33:37.478355+00:00",
   "companies": [
     {
       "company": "Perdoceo Education Corporation",
@@ -92,7 +92,7 @@
           },
           {
             "year": "2026",
-            "close": 29.81
+            "close": 29.93
           }
         ]
       },
@@ -256,6 +256,10 @@
         {
           "date": "2026-11-01",
           "score": 78.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 78.1
         }
       ],
       "sensitivity": {
@@ -348,7 +352,7 @@
         "prob_irr_above_15pct": 0.988,
         "prob_irr_above_20pct": 0.948,
         "prob_loss": 0.0,
-        "benchmark_cagr": 0.0401,
+        "benchmark_cagr": 0.0433,
         "prob_beat_benchmark": 1.0,
         "histogram": {
           "bin_edges": [
@@ -476,7 +480,7 @@
           },
           {
             "year": "2026",
-            "close": 62.75
+            "close": 65.26
           }
         ]
       },
@@ -628,6 +632,10 @@
         {
           "date": "2026-11-01",
           "score": 66.0
+        },
+        {
+          "date": "2026-11-02",
+          "score": 66.0
         }
       ],
       "sensitivity": {
@@ -720,8 +728,8 @@
         "prob_irr_above_15pct": 0.854,
         "prob_irr_above_20pct": 0.728,
         "prob_loss": 0.01,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.98,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.978,
         "histogram": {
           "bin_edges": [
             -0.1974,
@@ -845,7 +853,7 @@
           },
           {
             "year": "2026",
-            "close": 89.8
+            "close": 95.89
           }
         ]
       },
@@ -997,6 +1005,10 @@
         {
           "date": "2026-11-01",
           "score": 63.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 63.4
         }
       ],
       "sensitivity": {
@@ -1089,8 +1101,8 @@
         "prob_irr_above_15pct": 0.807,
         "prob_irr_above_20pct": 0.663,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.964,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.962,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -1217,7 +1229,7 @@
           },
           {
             "year": "2026",
-            "close": 206.14
+            "close": 202.51
           }
         ]
       },
@@ -1381,6 +1393,10 @@
         {
           "date": "2026-11-01",
           "score": 63.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 63.1
         }
       ],
       "sensitivity": {
@@ -1473,8 +1489,8 @@
         "prob_irr_above_15pct": 0.828,
         "prob_irr_above_20pct": 0.696,
         "prob_loss": 0.014,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.97,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.968,
         "histogram": {
           "bin_edges": [
             -0.2445,
@@ -1598,7 +1614,7 @@
           },
           {
             "year": "2026",
-            "close": 27.58
+            "close": 27.93
           }
         ]
       },
@@ -1762,6 +1778,10 @@
         {
           "date": "2026-11-01",
           "score": 62.7
+        },
+        {
+          "date": "2026-11-02",
+          "score": 62.7
         }
       ],
       "sensitivity": {
@@ -1854,8 +1874,8 @@
         "prob_irr_above_15pct": 0.802,
         "prob_irr_above_20pct": 0.459,
         "prob_loss": 0.0,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.998,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.997,
         "histogram": {
           "bin_edges": [
             0.0261,
@@ -1982,7 +2002,7 @@
           },
           {
             "year": "2026",
-            "close": 111.61
+            "close": 123.36
           }
         ]
       },
@@ -2146,6 +2166,10 @@
         {
           "date": "2026-11-01",
           "score": 62.6
+        },
+        {
+          "date": "2026-11-02",
+          "score": 62.6
         }
       ],
       "sensitivity": {
@@ -2238,8 +2262,8 @@
         "prob_irr_above_15pct": 0.852,
         "prob_irr_above_20pct": 0.726,
         "prob_loss": 0.01,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.979,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.977,
         "histogram": {
           "bin_edges": [
             -0.201,
@@ -2294,8 +2318,8 @@
       "debt_ebitda": 0.44,
       "interest_coverage": 38.19,
       "ev_ebitda": 6.46,
-      "peer_median_ev_ebitda": 14.52,
-      "ev_ebitda_discount": -0.555,
+      "peer_median_ev_ebitda": 14.55,
+      "ev_ebitda_discount": -0.556,
       "peer_cluster": 13,
       "peer_cluster_size": 9,
       "largest_customer_pct": 0.15,
@@ -2365,7 +2389,7 @@
           },
           {
             "year": "2026",
-            "close": 72.96
+            "close": 72.92
           }
         ]
       },
@@ -2529,6 +2553,10 @@
         {
           "date": "2026-11-01",
           "score": 62.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 62.4
         }
       ],
       "sensitivity": {
@@ -2621,8 +2649,8 @@
         "prob_irr_above_15pct": 0.721,
         "prob_irr_above_20pct": 0.43,
         "prob_loss": 0.004,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.985,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.983,
         "histogram": {
           "bin_edges": [
             -0.0973,
@@ -2677,8 +2705,8 @@
       "debt_ebitda": 1.19,
       "interest_coverage": 12.72,
       "ev_ebitda": 10.43,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": -0.3806,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": -0.3793,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -2749,7 +2777,7 @@
           },
           {
             "year": "2026",
-            "close": 13.18
+            "close": 13.21
           }
         ]
       },
@@ -2901,6 +2929,10 @@
         {
           "date": "2026-11-01",
           "score": 62.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 62.1
         }
       ],
       "sensitivity": {
@@ -2993,8 +3025,8 @@
         "prob_irr_above_15pct": 0.75,
         "prob_irr_above_20pct": 0.554,
         "prob_loss": 0.016,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.964,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
             -0.228,
@@ -3118,7 +3150,7 @@
           },
           {
             "year": "2026",
-            "close": 132.24
+            "close": 138.34
           }
         ]
       },
@@ -3270,6 +3302,10 @@
         {
           "date": "2026-11-01",
           "score": 61.8
+        },
+        {
+          "date": "2026-11-02",
+          "score": 61.8
         }
       ],
       "sensitivity": {
@@ -3362,8 +3398,8 @@
         "prob_irr_above_15pct": 0.853,
         "prob_irr_above_20pct": 0.728,
         "prob_loss": 0.01,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.98,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.978,
         "histogram": {
           "bin_edges": [
             -0.1985,
@@ -3418,8 +3454,8 @@
       "debt_ebitda": 0.04,
       "interest_coverage": 890.27,
       "ev_ebitda": 9.19,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": -0.4543,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": -0.4531,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -3487,7 +3523,7 @@
           },
           {
             "year": "2026",
-            "close": 28.45
+            "close": 29.05
           }
         ]
       },
@@ -3631,6 +3667,10 @@
         {
           "date": "2026-11-01",
           "score": 60.5
+        },
+        {
+          "date": "2026-11-02",
+          "score": 60.5
         }
       ],
       "sensitivity": {
@@ -3723,8 +3763,8 @@
         "prob_irr_above_15pct": 0.817,
         "prob_irr_above_20pct": 0.671,
         "prob_loss": 0.015,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.968,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.966,
         "histogram": {
           "bin_edges": [
             -0.2443,
@@ -3779,8 +3819,8 @@
       "debt_ebitda": 1.54,
       "interest_coverage": 10.81,
       "ev_ebitda": 5.47,
-      "peer_median_ev_ebitda": 14.52,
-      "ev_ebitda_discount": -0.6231,
+      "peer_median_ev_ebitda": 14.55,
+      "ev_ebitda_discount": -0.624,
       "peer_cluster": 13,
       "peer_cluster_size": 9,
       "largest_customer_pct": 0.15,
@@ -3851,7 +3891,7 @@
           },
           {
             "year": "2026",
-            "close": 27.61
+            "close": 29.6
           }
         ]
       },
@@ -4015,6 +4055,10 @@
         {
           "date": "2026-11-01",
           "score": 60.2
+        },
+        {
+          "date": "2026-11-02",
+          "score": 60.2
         }
       ],
       "sensitivity": null,
@@ -4029,7 +4073,7 @@
         "prob_irr_above_15pct": 0.868,
         "prob_irr_above_20pct": 0.657,
         "prob_loss": 0.001,
-        "benchmark_cagr": 0.0401,
+        "benchmark_cagr": 0.0433,
         "prob_beat_benchmark": 0.995,
         "histogram": {
           "bin_edges": [
@@ -4152,7 +4196,7 @@
           },
           {
             "year": "2026",
-            "close": 205.96
+            "close": 201.2
           }
         ]
       },
@@ -4304,6 +4348,10 @@
         {
           "date": "2026-11-01",
           "score": 59.8
+        },
+        {
+          "date": "2026-11-02",
+          "score": 59.8
         }
       ],
       "sensitivity": null,
@@ -4318,8 +4366,8 @@
         "prob_irr_above_15pct": 0.808,
         "prob_irr_above_20pct": 0.666,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.964,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.962,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -4443,7 +4491,7 @@
           },
           {
             "year": "2026",
-            "close": 17.1
+            "close": 17.33
           }
         ]
       },
@@ -4607,6 +4655,10 @@
         {
           "date": "2026-11-01",
           "score": 59.3
+        },
+        {
+          "date": "2026-11-02",
+          "score": 59.3
         }
       ],
       "sensitivity": null,
@@ -4621,8 +4673,8 @@
         "prob_irr_above_15pct": 0.674,
         "prob_irr_above_20pct": 0.355,
         "prob_loss": 0.004,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.985,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.983,
         "histogram": {
           "bin_edges": [
             -0.0633,
@@ -4677,8 +4729,8 @@
       "debt_ebitda": 0.6,
       "interest_coverage": 26.71,
       "ev_ebitda": 9.2,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": -0.4539,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": -0.4527,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -4746,7 +4798,7 @@
           },
           {
             "year": "2026",
-            "close": 55.9
+            "close": 58.34
           }
         ]
       },
@@ -4898,6 +4950,10 @@
         {
           "date": "2026-11-01",
           "score": 59.0
+        },
+        {
+          "date": "2026-11-02",
+          "score": 59.0
         }
       ],
       "sensitivity": null,
@@ -4912,8 +4968,8 @@
         "prob_irr_above_15pct": 0.776,
         "prob_irr_above_20pct": 0.576,
         "prob_loss": 0.01,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.973,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.971,
         "histogram": {
           "bin_edges": [
             -0.1859,
@@ -4953,13 +5009,13 @@
     {
       "company": "Brady Corporation",
       "industry": "Industrials",
-      "deal_score": 58.4,
+      "deal_score": 58.5,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 11.5,
         "growth": 4.9,
         "risk": 19.2,
-        "valuation": 15.7,
+        "valuation": 15.8,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.0978,
@@ -4968,8 +5024,8 @@
       "debt_ebitda": 0.27,
       "interest_coverage": 32.37,
       "ev_ebitda": 12.03,
-      "peer_median_ev_ebitda": 14.52,
-      "ev_ebitda_discount": -0.1713,
+      "peer_median_ev_ebitda": 14.55,
+      "ev_ebitda_discount": -0.1732,
       "peer_cluster": 13,
       "peer_cluster_size": 9,
       "largest_customer_pct": 0.15,
@@ -5040,7 +5096,7 @@
           },
           {
             "year": "2026",
-            "close": 82.77
+            "close": 86.1
           }
         ]
       },
@@ -5192,6 +5248,10 @@
         {
           "date": "2026-11-01",
           "score": 58.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 58.5
         }
       ],
       "sensitivity": null,
@@ -5206,8 +5266,8 @@
         "prob_irr_above_15pct": 0.74,
         "prob_irr_above_20pct": 0.535,
         "prob_loss": 0.016,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.963,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.96,
         "histogram": {
           "bin_edges": [
             -0.2228,
@@ -5336,7 +5396,7 @@
           },
           {
             "year": "2026",
-            "close": 21.38
+            "close": 21.55
           }
         ]
       },
@@ -5500,6 +5560,10 @@
         {
           "date": "2026-11-01",
           "score": 57.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 57.1
         }
       ],
       "sensitivity": null,
@@ -5514,8 +5578,8 @@
         "prob_irr_above_15pct": 0.384,
         "prob_irr_above_20pct": 0.143,
         "prob_loss": 0.027,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.914,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.907,
         "histogram": {
           "bin_edges": [
             -0.179,
@@ -5642,7 +5706,7 @@
           },
           {
             "year": "2026",
-            "close": 284.5
+            "close": 287.77
           }
         ]
       },
@@ -5806,6 +5870,10 @@
         {
           "date": "2026-11-01",
           "score": 56.6
+        },
+        {
+          "date": "2026-11-02",
+          "score": 56.6
         }
       ],
       "sensitivity": null,
@@ -5820,8 +5888,8 @@
         "prob_irr_above_15pct": 0.807,
         "prob_irr_above_20pct": 0.662,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.964,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.962,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -5948,7 +6016,7 @@
           },
           {
             "year": "2026",
-            "close": 9.41
+            "close": 9.81
           }
         ]
       },
@@ -6112,6 +6180,10 @@
         {
           "date": "2026-11-01",
           "score": 55.9
+        },
+        {
+          "date": "2026-11-02",
+          "score": 55.9
         }
       ],
       "sensitivity": null,
@@ -6126,8 +6198,8 @@
         "prob_irr_above_15pct": 0.818,
         "prob_irr_above_20pct": 0.678,
         "prob_loss": 0.016,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.966,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.963,
         "histogram": {
           "bin_edges": [
             -0.2659,
@@ -6182,8 +6254,8 @@
       "debt_ebitda": 0.83,
       "interest_coverage": 20.32,
       "ev_ebitda": 8.85,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": -0.4749,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": -0.4738,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -6254,7 +6326,7 @@
           },
           {
             "year": "2026",
-            "close": 57.71
+            "close": 57.59
           }
         ]
       },
@@ -6418,6 +6490,10 @@
         {
           "date": "2026-11-01",
           "score": 55.6
+        },
+        {
+          "date": "2026-11-02",
+          "score": 55.6
         }
       ],
       "sensitivity": null,
@@ -6432,8 +6508,8 @@
         "prob_irr_above_15pct": 0.444,
         "prob_irr_above_20pct": 0.221,
         "prob_loss": 0.062,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.875,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.867,
         "histogram": {
           "bin_edges": [
             -0.385,
@@ -6557,7 +6633,7 @@
           },
           {
             "year": "2026",
-            "close": 237.7
+            "close": 243.07
           }
         ]
       },
@@ -6709,6 +6785,10 @@
         {
           "date": "2026-11-01",
           "score": 54.6
+        },
+        {
+          "date": "2026-11-02",
+          "score": 54.6
         }
       ],
       "sensitivity": null,
@@ -6723,8 +6803,8 @@
         "prob_irr_above_15pct": 0.802,
         "prob_irr_above_20pct": 0.654,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.963,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -6764,13 +6844,13 @@
     {
       "company": "CTS Corporation",
       "industry": "Industrial Tech",
-      "deal_score": 54.5,
+      "deal_score": 54.6,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 13.9,
         "growth": 2.6,
         "risk": 19.2,
-        "valuation": 11.7,
+        "valuation": 11.8,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.0516,
@@ -6779,8 +6859,8 @@
       "debt_ebitda": 0.72,
       "interest_coverage": 28.46,
       "ev_ebitda": 13.78,
-      "peer_median_ev_ebitda": 14.52,
-      "ev_ebitda_discount": -0.0509,
+      "peer_median_ev_ebitda": 14.55,
+      "ev_ebitda_discount": -0.053,
       "peer_cluster": 13,
       "peer_cluster_size": 9,
       "largest_customer_pct": 0.15,
@@ -6851,7 +6931,7 @@
           },
           {
             "year": "2026",
-            "close": 61.26
+            "close": 63.67
           }
         ]
       },
@@ -7015,6 +7095,10 @@
         {
           "date": "2026-11-01",
           "score": 54.5
+        },
+        {
+          "date": "2026-11-02",
+          "score": 54.6
         }
       ],
       "sensitivity": null,
@@ -7029,8 +7113,8 @@
         "prob_irr_above_15pct": 0.483,
         "prob_irr_above_20pct": 0.247,
         "prob_loss": 0.044,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.899,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.893,
         "histogram": {
           "bin_edges": [
             -0.3013,
@@ -7068,34 +7152,335 @@
       }
     },
     {
-      "company": "Standex International Corporati",
+      "company": "TriMas Corporation",
       "industry": "Industrials",
-      "deal_score": 53.7,
+      "deal_score": 53.3,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 13.5,
+        "growth": 1.2,
+        "risk": 11.5,
+        "valuation": 20.0,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": 0.0237,
+      "ebitda_margin": 0.1538,
+      "fcf_margin": 0.2988,
+      "debt_ebitda": 4.39,
+      "interest_coverage": 5.51,
+      "ev_ebitda": 6.46,
+      "peer_median_ev_ebitda": 15.77,
+      "ev_ebitda_discount": -0.5903,
+      "peer_cluster": 9,
+      "peer_cluster_size": 4,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [
+        "High Leverage",
+        "Decelerating / Weak Growth"
+      ],
+      "irr": 0.1224,
+      "moic": 1.78,
+      "sponsor_equity": 288755510.0,
+      "exit_equity": 514361486.0,
+      "next_earnings_date": "2026-10-29",
+      "ticker": "TRS",
+      "historical": {
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "revenue": [
+          null,
+          883830000.0,
+          652150000.0,
+          630800000.0,
+          645720000.0
+        ],
+        "ebitda": [
+          null,
+          155000000.0,
+          109360000.0,
+          80300000.0,
+          99320000.0
+        ],
+        "debt": [
+          null,
+          444020000.0,
+          443250000.0,
+          434360000.0,
+          505080000.0
+        ],
+        "cash": [
+          null,
+          112090000.0,
+          34890000.0,
+          23070000.0,
+          30020000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 36.01
+          },
+          {
+            "year": "2022",
+            "close": 27.15
+          },
+          {
+            "year": "2023",
+            "close": 24.94
+          },
+          {
+            "year": "2024",
+            "close": 24.37
+          },
+          {
+            "year": "2025",
+            "close": 35.34
+          },
+          {
+            "year": "2026",
+            "close": 39.15
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-26",
+          "score": 53.3
+        },
+        {
+          "date": "2026-09-27",
+          "score": 53.3
+        },
+        {
+          "date": "2026-09-28",
+          "score": 53.3
+        },
+        {
+          "date": "2026-09-29",
+          "score": 53.3
+        },
+        {
+          "date": "2026-09-30",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-01",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-02",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-03",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-04",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-05",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-06",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-07",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-08",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-09",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-10",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-11",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-12",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-13",
+          "score": 53.4
+        },
+        {
+          "date": "2026-10-14",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-15",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-16",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-17",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-18",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-19",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-20",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-21",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-22",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-23",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-24",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-25",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-26",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-27",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-28",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-29",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-30",
+          "score": 53.3
+        },
+        {
+          "date": "2026-10-31",
+          "score": 53.3
+        },
+        {
+          "date": "2026-11-01",
+          "score": 53.3
+        },
+        {
+          "date": "2026-11-02",
+          "score": 53.3
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.0784,
+        "irr_p50": 0.1634,
+        "irr_p90": 0.2495,
+        "moic_p10": 1.46,
+        "moic_p50": 2.13,
+        "moic_p90": 3.05,
+        "prob_irr_above_15pct": 0.582,
+        "prob_irr_above_20pct": 0.291,
+        "prob_loss": 0.009,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.962,
+        "histogram": {
+          "bin_edges": [
+            -0.1267,
+            -0.0833,
+            -0.0398,
+            0.0036,
+            0.0471,
+            0.0905,
+            0.1339,
+            0.1774,
+            0.2208,
+            0.2643,
+            0.3077,
+            0.3512,
+            0.3946
+          ],
+          "counts": [
+            7,
+            23,
+            73,
+            330,
+            923,
+            1881,
+            2609,
+            2223,
+            1263,
+            552,
+            108,
+            8
+          ]
+        }
+      },
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
+    },
+    {
+      "company": "Standex International Corporati",
+      "industry": "Industrials",
+      "deal_score": 53.3,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 13.3,
         "growth": 6.4,
-        "risk": 16.7,
-        "valuation": 10.0,
+        "risk": 16.6,
+        "valuation": 9.9,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.1285,
       "ebitda_margin": 0.2605,
-      "fcf_margin": 0.1127,
-      "debt_ebitda": 2.37,
+      "fcf_margin": 0.104,
+      "debt_ebitda": 2.43,
       "interest_coverage": 7.56,
-      "ev_ebitda": 14.52,
-      "peer_median_ev_ebitda": 14.52,
-      "ev_ebitda_discount": 0.0,
+      "ev_ebitda": 14.59,
+      "peer_median_ev_ebitda": 14.55,
+      "ev_ebitda_discount": 0.0025,
       "peer_cluster": 13,
       "peer_cluster_size": 9,
       "largest_customer_pct": 0.15,
       "recurring_revenue_pct": 0.5,
       "risk_flags": [],
-      "irr": 0.2525,
+      "irr": 0.2523,
       "moic": 3.08,
-      "sponsor_equity": 1518026342.0,
-      "exit_equity": 4679457232.0,
+      "sponsor_equity": 1525321152.0,
+      "exit_equity": 4697707142.0,
       "next_earnings_date": "2027-01-28",
       "ticker": "SXI",
       "historical": {
@@ -7157,7 +7542,7 @@
           },
           {
             "year": "2026",
-            "close": 243.55
+            "close": 253.74
           }
         ]
       },
@@ -7321,348 +7706,55 @@
         {
           "date": "2026-11-01",
           "score": 53.7
+        },
+        {
+          "date": "2026-11-02",
+          "score": 53.3
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.104,
-        "irr_p50": 0.2371,
-        "irr_p90": 0.3482,
+        "irr_p10": 0.1037,
+        "irr_p50": 0.2369,
+        "irr_p90": 0.348,
         "moic_p10": 1.64,
         "moic_p50": 2.9,
         "moic_p90": 4.45,
-        "prob_irr_above_15pct": 0.805,
-        "prob_irr_above_20pct": 0.644,
+        "prob_irr_above_15pct": 0.804,
+        "prob_irr_above_20pct": 0.643,
         "prob_loss": 0.014,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.969,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.967,
         "histogram": {
           "bin_edges": [
-            -0.2259,
-            -0.1643,
-            -0.1027,
-            -0.0411,
-            0.0204,
-            0.082,
-            0.1436,
-            0.2052,
-            0.2668,
-            0.3284,
-            0.3899,
-            0.4515,
-            0.5131
+            -0.2271,
+            -0.1654,
+            -0.1037,
+            -0.0421,
+            0.0196,
+            0.0813,
+            0.1429,
+            0.2046,
+            0.2663,
+            0.328,
+            0.3897,
+            0.4513,
+            0.513
           ],
           "counts": [
             5,
             9,
             38,
-            148,
-            499,
-            1072,
-            1979,
-            2559,
-            2213,
-            1156,
-            293,
+            145,
+            495,
+            1071,
+            1981,
+            2558,
+            2217,
+            1157,
+            295,
             29
-          ]
-        }
-      },
-      "ai_memo": {
-        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
-      }
-    },
-    {
-      "company": "TriMas Corporation",
-      "industry": "Industrials",
-      "deal_score": 53.3,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 13.5,
-        "growth": 1.2,
-        "risk": 11.5,
-        "valuation": 20.0,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": 0.0237,
-      "ebitda_margin": 0.1538,
-      "fcf_margin": 0.2988,
-      "debt_ebitda": 4.39,
-      "interest_coverage": 5.51,
-      "ev_ebitda": 6.46,
-      "peer_median_ev_ebitda": 15.77,
-      "ev_ebitda_discount": -0.5903,
-      "peer_cluster": 9,
-      "peer_cluster_size": 4,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [
-        "High Leverage",
-        "Decelerating / Weak Growth"
-      ],
-      "irr": 0.1224,
-      "moic": 1.78,
-      "sponsor_equity": 288755510.0,
-      "exit_equity": 514361486.0,
-      "next_earnings_date": "2026-10-29",
-      "ticker": "TRS",
-      "historical": {
-        "years": [
-          "2021",
-          "2022",
-          "2023",
-          "2024",
-          "2025"
-        ],
-        "revenue": [
-          null,
-          883830000.0,
-          652150000.0,
-          630800000.0,
-          645720000.0
-        ],
-        "ebitda": [
-          null,
-          155000000.0,
-          109360000.0,
-          80300000.0,
-          99320000.0
-        ],
-        "debt": [
-          null,
-          444020000.0,
-          443250000.0,
-          434360000.0,
-          505080000.0
-        ],
-        "cash": [
-          null,
-          112090000.0,
-          34890000.0,
-          23070000.0,
-          30020000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 36.01
-          },
-          {
-            "year": "2022",
-            "close": 27.15
-          },
-          {
-            "year": "2023",
-            "close": 24.94
-          },
-          {
-            "year": "2024",
-            "close": 24.37
-          },
-          {
-            "year": "2025",
-            "close": 35.34
-          },
-          {
-            "year": "2026",
-            "close": 38.14
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-26",
-          "score": 53.3
-        },
-        {
-          "date": "2026-09-27",
-          "score": 53.3
-        },
-        {
-          "date": "2026-09-28",
-          "score": 53.3
-        },
-        {
-          "date": "2026-09-29",
-          "score": 53.3
-        },
-        {
-          "date": "2026-09-30",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-01",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-02",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-03",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-04",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-05",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-06",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-07",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-08",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-09",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-10",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-11",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-12",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-13",
-          "score": 53.4
-        },
-        {
-          "date": "2026-10-14",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-15",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-16",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-17",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-18",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-19",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-20",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-21",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-22",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-23",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-24",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-25",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-26",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-27",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-28",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-29",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-30",
-          "score": 53.3
-        },
-        {
-          "date": "2026-10-31",
-          "score": 53.3
-        },
-        {
-          "date": "2026-11-01",
-          "score": 53.3
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.0784,
-        "irr_p50": 0.1634,
-        "irr_p90": 0.2495,
-        "moic_p10": 1.46,
-        "moic_p50": 2.13,
-        "moic_p90": 3.05,
-        "prob_irr_above_15pct": 0.582,
-        "prob_irr_above_20pct": 0.291,
-        "prob_loss": 0.009,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.967,
-        "histogram": {
-          "bin_edges": [
-            -0.1267,
-            -0.0833,
-            -0.0398,
-            0.0036,
-            0.0471,
-            0.0905,
-            0.1339,
-            0.1774,
-            0.2208,
-            0.2643,
-            0.3077,
-            0.3512,
-            0.3946
-          ],
-          "counts": [
-            7,
-            23,
-            73,
-            330,
-            923,
-            1881,
-            2609,
-            2223,
-            1263,
-            552,
-            108,
-            8
           ]
         }
       },
@@ -7762,7 +7854,7 @@
           },
           {
             "year": "2026",
-            "close": 39.3
+            "close": 39.27
           }
         ]
       },
@@ -7914,6 +8006,10 @@
         {
           "date": "2026-11-01",
           "score": 53.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 53.1
         }
       ],
       "sensitivity": null,
@@ -7928,8 +8024,8 @@
         "prob_irr_above_15pct": 0.367,
         "prob_irr_above_20pct": 0.136,
         "prob_loss": 0.031,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.905,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.897,
         "histogram": {
           "bin_edges": [
             -0.1761,
@@ -8058,7 +8154,7 @@
           },
           {
             "year": "2026",
-            "close": 27.72
+            "close": 26.91
           }
         ]
       },
@@ -8222,6 +8318,10 @@
         {
           "date": "2026-11-01",
           "score": 52.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 52.1
         }
       ],
       "sensitivity": null,
@@ -8236,8 +8336,8 @@
         "prob_irr_above_15pct": 0.418,
         "prob_irr_above_20pct": 0.163,
         "prob_loss": 0.021,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.931,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.926,
         "histogram": {
           "bin_edges": [
             -0.1577,
@@ -8367,7 +8467,7 @@
           },
           {
             "year": "2026",
-            "close": 25.68
+            "close": 25.85
           }
         ]
       },
@@ -8531,6 +8631,10 @@
         {
           "date": "2026-11-01",
           "score": 52.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 52.1
         }
       ],
       "sensitivity": null,
@@ -8545,8 +8649,8 @@
         "prob_irr_above_15pct": 0.524,
         "prob_irr_above_20pct": 0.223,
         "prob_loss": 0.008,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.965,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.962,
         "histogram": {
           "bin_edges": [
             -0.1043,
@@ -8586,13 +8690,13 @@
     {
       "company": "Simpson Manufacturing Company, ",
       "industry": "Industrials",
-      "deal_score": 51.6,
+      "deal_score": 51.7,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 13.1,
         "growth": 2.3,
         "risk": 19.2,
-        "valuation": 9.9,
+        "valuation": 10.0,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.0451,
@@ -8601,8 +8705,8 @@
       "debt_ebitda": 0.73,
       "interest_coverage": 22.72,
       "ev_ebitda": 14.55,
-      "peer_median_ev_ebitda": 14.52,
-      "ev_ebitda_discount": 0.0023,
+      "peer_median_ev_ebitda": 14.55,
+      "ev_ebitda_discount": 0.0,
       "peer_cluster": 13,
       "peer_cluster_size": 9,
       "largest_customer_pct": 0.15,
@@ -8675,7 +8779,7 @@
           },
           {
             "year": "2026",
-            "close": 193.34
+            "close": 199.56
           }
         ]
       },
@@ -8827,6 +8931,10 @@
         {
           "date": "2026-11-01",
           "score": 51.6
+        },
+        {
+          "date": "2026-11-02",
+          "score": 51.7
         }
       ],
       "sensitivity": null,
@@ -8841,8 +8949,8 @@
         "prob_irr_above_15pct": 0.425,
         "prob_irr_above_20pct": 0.202,
         "prob_loss": 0.056,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.877,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.869,
         "histogram": {
           "bin_edges": [
             -0.3316,
@@ -8880,340 +8988,34 @@
       }
     },
     {
-      "company": "EVI Industries, Inc.",
-      "industry": "Industrials",
-      "deal_score": 50.4,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 5.3,
-        "growth": 7.3,
-        "risk": 14.8,
-        "valuation": 15.9,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": 0.1456,
-      "ebitda_margin": 0.0533,
-      "fcf_margin": 0.0158,
-      "debt_ebitda": 2.65,
-      "interest_coverage": 6.05,
-      "ev_ebitda": 13.85,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": -0.1777,
-      "peer_cluster": 2,
-      "peer_cluster_size": 14,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [],
-      "irr": 0.2589,
-      "moic": 3.16,
-      "sponsor_equity": 148492714.0,
-      "exit_equity": 469483534.0,
-      "next_earnings_date": "2026-11-09",
-      "ticker": "EVI",
-      "historical": {
-        "years": [
-          "2022",
-          "2023",
-          "2024",
-          "2025",
-          "2026"
-        ],
-        "revenue": [
-          null,
-          354173000.0,
-          353563000.0,
-          389830000.0,
-          446570000.0
-        ],
-        "ebitda": [
-          null,
-          22530000.0,
-          17611000.0,
-          20460000.0,
-          23821000.0
-        ],
-        "debt": [
-          null,
-          44450000.0,
-          21862000.0,
-          64775000.0,
-          63089000.0
-        ],
-        "cash": [
-          null,
-          5921000.0,
-          4558000.0,
-          8852000.0,
-          6774000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 30.11
-          },
-          {
-            "year": "2022",
-            "close": 23.01
-          },
-          {
-            "year": "2023",
-            "close": 23.12
-          },
-          {
-            "year": "2024",
-            "close": 16.19
-          },
-          {
-            "year": "2025",
-            "close": 24.64
-          },
-          {
-            "year": "2026",
-            "close": 21.25
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-23",
-          "score": 48.3
-        },
-        {
-          "date": "2026-09-24",
-          "score": 48.3
-        },
-        {
-          "date": "2026-09-25",
-          "score": 48.3
-        },
-        {
-          "date": "2026-09-26",
-          "score": 42.4
-        },
-        {
-          "date": "2026-09-27",
-          "score": 42.4
-        },
-        {
-          "date": "2026-09-28",
-          "score": 42.4
-        },
-        {
-          "date": "2026-09-29",
-          "score": 42.6
-        },
-        {
-          "date": "2026-09-30",
-          "score": 42.5
-        },
-        {
-          "date": "2026-10-01",
-          "score": 47.4
-        },
-        {
-          "date": "2026-10-02",
-          "score": 48.3
-        },
-        {
-          "date": "2026-10-03",
-          "score": 43.5
-        },
-        {
-          "date": "2026-10-04",
-          "score": 43.5
-        },
-        {
-          "date": "2026-10-05",
-          "score": 43.5
-        },
-        {
-          "date": "2026-10-06",
-          "score": 43.4
-        },
-        {
-          "date": "2026-10-07",
-          "score": 43.4
-        },
-        {
-          "date": "2026-10-08",
-          "score": 43.3
-        },
-        {
-          "date": "2026-10-09",
-          "score": 47.8
-        },
-        {
-          "date": "2026-10-10",
-          "score": 45.3
-        },
-        {
-          "date": "2026-10-11",
-          "score": 47.2
-        },
-        {
-          "date": "2026-10-12",
-          "score": 47.2
-        },
-        {
-          "date": "2026-10-13",
-          "score": 43.2
-        },
-        {
-          "date": "2026-10-14",
-          "score": 43.9
-        },
-        {
-          "date": "2026-10-15",
-          "score": 42.9
-        },
-        {
-          "date": "2026-10-16",
-          "score": 42.5
-        },
-        {
-          "date": "2026-10-17",
-          "score": 42.7
-        },
-        {
-          "date": "2026-10-18",
-          "score": 42.7
-        },
-        {
-          "date": "2026-10-19",
-          "score": 42.7
-        },
-        {
-          "date": "2026-10-20",
-          "score": 42.2
-        },
-        {
-          "date": "2026-10-21",
-          "score": 46.2
-        },
-        {
-          "date": "2026-10-22",
-          "score": 42.7
-        },
-        {
-          "date": "2026-10-23",
-          "score": 46.6
-        },
-        {
-          "date": "2026-10-24",
-          "score": 46.2
-        },
-        {
-          "date": "2026-10-25",
-          "score": 46.2
-        },
-        {
-          "date": "2026-10-26",
-          "score": 44.6
-        },
-        {
-          "date": "2026-10-27",
-          "score": 44.6
-        },
-        {
-          "date": "2026-10-28",
-          "score": 44.5
-        },
-        {
-          "date": "2026-10-29",
-          "score": 45.1
-        },
-        {
-          "date": "2026-10-30",
-          "score": 45.1
-        },
-        {
-          "date": "2026-10-31",
-          "score": 50.4
-        },
-        {
-          "date": "2026-11-01",
-          "score": 50.4
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.0956,
-        "irr_p50": 0.2359,
-        "irr_p90": 0.3499,
-        "moic_p10": 1.58,
-        "moic_p50": 2.88,
-        "moic_p90": 4.48,
-        "prob_irr_above_15pct": 0.791,
-        "prob_irr_above_20pct": 0.633,
-        "prob_loss": 0.018,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.962,
-        "histogram": {
-          "bin_edges": [
-            -0.2747,
-            -0.2083,
-            -0.1419,
-            -0.0755,
-            -0.009,
-            0.0574,
-            0.1238,
-            0.1902,
-            0.2566,
-            0.3231,
-            0.3895,
-            0.4559,
-            0.5223
-          ],
-          "counts": [
-            3,
-            7,
-            32,
-            110,
-            378,
-            952,
-            1828,
-            2576,
-            2419,
-            1323,
-            343,
-            29
-          ]
-        }
-      },
-      "ai_memo": {
-        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
-      }
-    },
-    {
       "company": "Cavco Industries, Inc.",
       "industry": "Industrials",
-      "deal_score": 50.3,
+      "deal_score": 50.4,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 8.1,
         "growth": 5.7,
         "risk": 19.2,
-        "valuation": 10.2,
+        "valuation": 10.3,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.1136,
       "ebitda_margin": 0.1195,
-      "fcf_margin": 0.0717,
+      "fcf_margin": 0.0699,
       "debt_ebitda": 0.15,
       "interest_coverage": 495.9,
-      "ev_ebitda": 16.75,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": -0.0057,
+      "ev_ebitda": 16.68,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": -0.0079,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
       "recurring_revenue_pct": 0.5,
       "risk_flags": [],
-      "irr": 0.2134,
+      "irr": 0.2135,
       "moic": 2.63,
-      "sponsor_equity": 2022109978.0,
-      "exit_equity": 5318265430.0,
+      "sponsor_equity": 2013477120.0,
+      "exit_equity": 5297641016.0,
       "next_earnings_date": "2027-01-28",
       "ticker": "CVCO",
       "historical": {
@@ -9272,7 +9074,7 @@
           },
           {
             "year": "2026",
-            "close": 619.0
+            "close": 664.17
           }
         ]
       },
@@ -9436,50 +9238,364 @@
         {
           "date": "2026-11-01",
           "score": 50.3
+        },
+        {
+          "date": "2026-11-02",
+          "score": 50.4
         }
       ],
       "sensitivity": null,
       "monte_carlo": {
         "n_sims": 10000,
-        "irr_p10": 0.0746,
-        "irr_p50": 0.2047,
-        "irr_p90": 0.3154,
+        "irr_p10": 0.0747,
+        "irr_p50": 0.2048,
+        "irr_p90": 0.3155,
         "moic_p10": 1.43,
         "moic_p50": 2.54,
         "moic_p90": 3.94,
-        "prob_irr_above_15pct": 0.713,
-        "prob_irr_above_20pct": 0.52,
+        "prob_irr_above_15pct": 0.714,
+        "prob_irr_above_20pct": 0.521,
         "prob_loss": 0.024,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.944,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.94,
         "histogram": {
           "bin_edges": [
             -0.3084,
-            -0.2424,
+            -0.2423,
             -0.1763,
-            -0.1103,
+            -0.1102,
             -0.0442,
-            0.0218,
+            0.0219,
             0.0879,
-            0.1539,
-            0.22,
-            0.286,
-            0.3521,
+            0.154,
+            0.2201,
+            0.2861,
+            0.3522,
             0.4182,
-            0.4842
+            0.4843
           ],
           "counts": [
             3,
             6,
             20,
             72,
-            281,
-            844,
-            1770,
-            2697,
+            279,
+            846,
+            1771,
+            2696,
             2523,
             1385,
             370,
+            29
+          ]
+        }
+      },
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
+    },
+    {
+      "company": "EVI Industries, Inc.",
+      "industry": "Industrials",
+      "deal_score": 50.4,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 5.3,
+        "growth": 7.3,
+        "risk": 14.8,
+        "valuation": 15.9,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": 0.1456,
+      "ebitda_margin": 0.0533,
+      "fcf_margin": 0.0158,
+      "debt_ebitda": 2.65,
+      "interest_coverage": 6.05,
+      "ev_ebitda": 13.85,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": -0.1759,
+      "peer_cluster": 2,
+      "peer_cluster_size": 14,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [],
+      "irr": 0.2589,
+      "moic": 3.16,
+      "sponsor_equity": 148492714.0,
+      "exit_equity": 469483534.0,
+      "next_earnings_date": "2026-11-09",
+      "ticker": "EVI",
+      "historical": {
+        "years": [
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026"
+        ],
+        "revenue": [
+          null,
+          354173000.0,
+          353563000.0,
+          389830000.0,
+          446570000.0
+        ],
+        "ebitda": [
+          null,
+          22530000.0,
+          17611000.0,
+          20460000.0,
+          23821000.0
+        ],
+        "debt": [
+          null,
+          44450000.0,
+          21862000.0,
+          64775000.0,
+          63089000.0
+        ],
+        "cash": [
+          null,
+          5921000.0,
+          4558000.0,
+          8852000.0,
+          6774000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 30.11
+          },
+          {
+            "year": "2022",
+            "close": 23.01
+          },
+          {
+            "year": "2023",
+            "close": 23.12
+          },
+          {
+            "year": "2024",
+            "close": 16.19
+          },
+          {
+            "year": "2025",
+            "close": 24.64
+          },
+          {
+            "year": "2026",
+            "close": 21.81
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-23",
+          "score": 48.3
+        },
+        {
+          "date": "2026-09-24",
+          "score": 48.3
+        },
+        {
+          "date": "2026-09-25",
+          "score": 48.3
+        },
+        {
+          "date": "2026-09-26",
+          "score": 42.4
+        },
+        {
+          "date": "2026-09-27",
+          "score": 42.4
+        },
+        {
+          "date": "2026-09-28",
+          "score": 42.4
+        },
+        {
+          "date": "2026-09-29",
+          "score": 42.6
+        },
+        {
+          "date": "2026-09-30",
+          "score": 42.5
+        },
+        {
+          "date": "2026-10-01",
+          "score": 47.4
+        },
+        {
+          "date": "2026-10-02",
+          "score": 48.3
+        },
+        {
+          "date": "2026-10-03",
+          "score": 43.5
+        },
+        {
+          "date": "2026-10-04",
+          "score": 43.5
+        },
+        {
+          "date": "2026-10-05",
+          "score": 43.5
+        },
+        {
+          "date": "2026-10-06",
+          "score": 43.4
+        },
+        {
+          "date": "2026-10-07",
+          "score": 43.4
+        },
+        {
+          "date": "2026-10-08",
+          "score": 43.3
+        },
+        {
+          "date": "2026-10-09",
+          "score": 47.8
+        },
+        {
+          "date": "2026-10-10",
+          "score": 45.3
+        },
+        {
+          "date": "2026-10-11",
+          "score": 47.2
+        },
+        {
+          "date": "2026-10-12",
+          "score": 47.2
+        },
+        {
+          "date": "2026-10-13",
+          "score": 43.2
+        },
+        {
+          "date": "2026-10-14",
+          "score": 43.9
+        },
+        {
+          "date": "2026-10-15",
+          "score": 42.9
+        },
+        {
+          "date": "2026-10-16",
+          "score": 42.5
+        },
+        {
+          "date": "2026-10-17",
+          "score": 42.7
+        },
+        {
+          "date": "2026-10-18",
+          "score": 42.7
+        },
+        {
+          "date": "2026-10-19",
+          "score": 42.7
+        },
+        {
+          "date": "2026-10-20",
+          "score": 42.2
+        },
+        {
+          "date": "2026-10-21",
+          "score": 46.2
+        },
+        {
+          "date": "2026-10-22",
+          "score": 42.7
+        },
+        {
+          "date": "2026-10-23",
+          "score": 46.6
+        },
+        {
+          "date": "2026-10-24",
+          "score": 46.2
+        },
+        {
+          "date": "2026-10-25",
+          "score": 46.2
+        },
+        {
+          "date": "2026-10-26",
+          "score": 44.6
+        },
+        {
+          "date": "2026-10-27",
+          "score": 44.6
+        },
+        {
+          "date": "2026-10-28",
+          "score": 44.5
+        },
+        {
+          "date": "2026-10-29",
+          "score": 45.1
+        },
+        {
+          "date": "2026-10-30",
+          "score": 45.1
+        },
+        {
+          "date": "2026-10-31",
+          "score": 50.4
+        },
+        {
+          "date": "2026-11-01",
+          "score": 50.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 50.4
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.0956,
+        "irr_p50": 0.2359,
+        "irr_p90": 0.3499,
+        "moic_p10": 1.58,
+        "moic_p50": 2.88,
+        "moic_p90": 4.48,
+        "prob_irr_above_15pct": 0.791,
+        "prob_irr_above_20pct": 0.633,
+        "prob_loss": 0.018,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.96,
+        "histogram": {
+          "bin_edges": [
+            -0.2747,
+            -0.2083,
+            -0.1419,
+            -0.0755,
+            -0.009,
+            0.0574,
+            0.1238,
+            0.1902,
+            0.2566,
+            0.3231,
+            0.3895,
+            0.4559,
+            0.5223
+          ],
+          "counts": [
+            3,
+            7,
+            32,
+            110,
+            378,
+            952,
+            1828,
+            2576,
+            2419,
+            1323,
+            343,
             29
           ]
         }
@@ -9506,8 +9622,8 @@
       "debt_ebitda": 3.65,
       "interest_coverage": 5.83,
       "ev_ebitda": 11.3,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": -0.3294,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": -0.3279,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -9580,7 +9696,7 @@
           },
           {
             "year": "2026",
-            "close": 39.27
+            "close": 40.59
           }
         ]
       },
@@ -9732,6 +9848,10 @@
         {
           "date": "2026-11-01",
           "score": 50.0
+        },
+        {
+          "date": "2026-11-02",
+          "score": 50.0
         }
       ],
       "sensitivity": null,
@@ -9746,8 +9866,8 @@
         "prob_irr_above_15pct": 0.574,
         "prob_irr_above_20pct": 0.344,
         "prob_loss": 0.04,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.91,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.906,
         "histogram": {
           "bin_edges": [
             -0.3517,
@@ -9876,7 +9996,7 @@
           },
           {
             "year": "2026",
-            "close": 11.99
+            "close": 12.11
           }
         ]
       },
@@ -10040,6 +10160,10 @@
         {
           "date": "2026-11-01",
           "score": 49.9
+        },
+        {
+          "date": "2026-11-02",
+          "score": 49.9
         }
       ],
       "sensitivity": null,
@@ -10054,8 +10178,8 @@
         "prob_irr_above_15pct": 0.337,
         "prob_irr_above_20pct": 0.132,
         "prob_loss": 0.056,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.866,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.857,
         "histogram": {
           "bin_edges": [
             -0.2611,
@@ -10184,7 +10308,7 @@
           },
           {
             "year": "2026",
-            "close": 181.52
+            "close": 178.89
           }
         ]
       },
@@ -10348,6 +10472,10 @@
         {
           "date": "2026-11-01",
           "score": 48.5
+        },
+        {
+          "date": "2026-11-02",
+          "score": 48.5
         }
       ],
       "sensitivity": null,
@@ -10362,8 +10490,8 @@
         "prob_irr_above_15pct": 0.801,
         "prob_irr_above_20pct": 0.652,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.963,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -10492,7 +10620,7 @@
           },
           {
             "year": "2026",
-            "close": 191.09
+            "close": 185.0
           }
         ]
       },
@@ -10644,6 +10772,10 @@
         {
           "date": "2026-11-01",
           "score": 47.7
+        },
+        {
+          "date": "2026-11-02",
+          "score": 47.7
         }
       ],
       "sensitivity": null,
@@ -10658,8 +10790,8 @@
         "prob_irr_above_15pct": 0.8,
         "prob_irr_above_20pct": 0.65,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.963,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -10785,7 +10917,7 @@
           },
           {
             "year": "2026",
-            "close": 86.32
+            "close": 87.16
           }
         ]
       },
@@ -10949,6 +11081,10 @@
         {
           "date": "2026-11-01",
           "score": 46.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 46.4
         }
       ],
       "sensitivity": null,
@@ -10963,8 +11099,8 @@
         "prob_irr_above_15pct": 0.731,
         "prob_irr_above_20pct": 0.532,
         "prob_loss": 0.02,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.954,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.951,
         "histogram": {
           "bin_edges": [
             -0.2616,
@@ -11091,7 +11227,7 @@
           },
           {
             "year": "2026",
-            "close": 77.58
+            "close": 78.34
           }
         ]
       },
@@ -11255,6 +11391,10 @@
         {
           "date": "2026-11-01",
           "score": 46.0
+        },
+        {
+          "date": "2026-11-02",
+          "score": 46.0
         }
       ],
       "sensitivity": null,
@@ -11269,8 +11409,8 @@
         "prob_irr_above_15pct": 0.208,
         "prob_irr_above_20pct": 0.072,
         "prob_loss": 0.14,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.734,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.721,
         "histogram": {
           "bin_edges": [
             -0.5237,
@@ -11400,7 +11540,7 @@
           },
           {
             "year": "2026",
-            "close": 199.44
+            "close": 202.98
           }
         ]
       },
@@ -11564,6 +11704,10 @@
         {
           "date": "2026-11-01",
           "score": 46.0
+        },
+        {
+          "date": "2026-11-02",
+          "score": 46.0
         }
       ],
       "sensitivity": null,
@@ -11578,8 +11722,8 @@
         "prob_irr_above_15pct": 0.372,
         "prob_irr_above_20pct": 0.169,
         "prob_loss": 0.078,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.844,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.836,
         "histogram": {
           "bin_edges": [
             -0.4076,
@@ -11609,297 +11753,6 @@
             1587,
             428,
             27
-          ]
-        }
-      },
-      "ai_memo": {
-        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
-      }
-    },
-    {
-      "company": "Omnicell, Inc.",
-      "industry": "Healthcare Services",
-      "deal_score": 45.9,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 8.2,
-        "growth": 3.3,
-        "risk": 17.5,
-        "valuation": 9.8,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": 0.0653,
-      "ebitda_margin": 0.0775,
-      "fcf_margin": 0.1316,
-      "debt_ebitda": 2.07,
-      "interest_coverage": 8.07,
-      "ev_ebitda": 16.96,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": 0.0068,
-      "peer_cluster": 2,
-      "peer_cluster_size": 14,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [],
-      "irr": 0.128,
-      "moic": 1.83,
-      "sponsor_equity": 700556141.0,
-      "exit_equity": 1279510155.0,
-      "next_earnings_date": "2026-10-29",
-      "ticker": "OMCL",
-      "historical": {
-        "years": [
-          "2022",
-          "2023",
-          "2024",
-          "2025"
-        ],
-        "revenue": [
-          1295947000.0,
-          1147112000.0,
-          1112238000.0,
-          1184845000.0
-        ],
-        "ebitda": [
-          96846000.0,
-          60690000.0,
-          90092000.0,
-          91794000.0
-        ],
-        "debt": [
-          null,
-          616737000.0,
-          614090000.0,
-          382546000.0,
-          204345000.0
-        ],
-        "cash": [
-          null,
-          330362000.0,
-          467972000.0,
-          369201000.0,
-          196520000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 180.44
-          },
-          {
-            "year": "2022",
-            "close": 50.42
-          },
-          {
-            "year": "2023",
-            "close": 37.63
-          },
-          {
-            "year": "2024",
-            "close": 44.52
-          },
-          {
-            "year": "2025",
-            "close": 45.3
-          },
-          {
-            "year": "2026",
-            "close": 36.65
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-26",
-          "score": 55.3
-        },
-        {
-          "date": "2026-09-27",
-          "score": 55.3
-        },
-        {
-          "date": "2026-09-28",
-          "score": 55.3
-        },
-        {
-          "date": "2026-09-29",
-          "score": 55.3
-        },
-        {
-          "date": "2026-09-30",
-          "score": 55.3
-        },
-        {
-          "date": "2026-10-01",
-          "score": 55.3
-        },
-        {
-          "date": "2026-10-02",
-          "score": 55.3
-        },
-        {
-          "date": "2026-10-03",
-          "score": 55.3
-        },
-        {
-          "date": "2026-10-04",
-          "score": 55.3
-        },
-        {
-          "date": "2026-10-05",
-          "score": 55.3
-        },
-        {
-          "date": "2026-10-06",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-07",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-08",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-09",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-10",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-11",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-12",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-13",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-14",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-15",
-          "score": 35.2
-        },
-        {
-          "date": "2026-10-16",
-          "score": 35.2
-        },
-        {
-          "date": "2026-10-17",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-18",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-19",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-20",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-21",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-22",
-          "score": 55.2
-        },
-        {
-          "date": "2026-10-23",
-          "score": 54.9
-        },
-        {
-          "date": "2026-10-24",
-          "score": 54.2
-        },
-        {
-          "date": "2026-10-25",
-          "score": 54.2
-        },
-        {
-          "date": "2026-10-26",
-          "score": 44.4
-        },
-        {
-          "date": "2026-10-27",
-          "score": 44.9
-        },
-        {
-          "date": "2026-10-28",
-          "score": 44.9
-        },
-        {
-          "date": "2026-10-29",
-          "score": 44.7
-        },
-        {
-          "date": "2026-10-30",
-          "score": 46.7
-        },
-        {
-          "date": "2026-10-31",
-          "score": 45.9
-        },
-        {
-          "date": "2026-11-01",
-          "score": 45.9
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.031,
-        "irr_p50": 0.1443,
-        "irr_p90": 0.2469,
-        "moic_p10": 1.16,
-        "moic_p50": 1.96,
-        "moic_p90": 3.01,
-        "prob_irr_above_15pct": 0.472,
-        "prob_irr_above_20pct": 0.244,
-        "prob_loss": 0.057,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.883,
-        "histogram": {
-          "bin_edges": [
-            -0.377,
-            -0.3111,
-            -0.2453,
-            -0.1794,
-            -0.1136,
-            -0.0477,
-            0.0181,
-            0.084,
-            0.1499,
-            0.2157,
-            0.2816,
-            0.3474,
-            0.4133
-          ],
-          "counts": [
-            1,
-            5,
-            11,
-            37,
-            141,
-            618,
-            1541,
-            2914,
-            2872,
-            1461,
-            374,
-            25
           ]
         }
       },
@@ -11999,7 +11852,7 @@
           },
           {
             "year": "2026",
-            "close": 4.91
+            "close": 5.09
           }
         ]
       },
@@ -12151,6 +12004,10 @@
         {
           "date": "2026-11-01",
           "score": 45.8
+        },
+        {
+          "date": "2026-11-02",
+          "score": 45.8
         }
       ],
       "sensitivity": null,
@@ -12165,8 +12022,8 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.63,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.614,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -12196,6 +12053,301 @@
             2271,
             590,
             26
+          ]
+        }
+      },
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
+    },
+    {
+      "company": "Omnicell, Inc.",
+      "industry": "Healthcare Services",
+      "deal_score": 45.8,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 8.2,
+        "growth": 3.3,
+        "risk": 17.5,
+        "valuation": 9.7,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": 0.0653,
+      "ebitda_margin": 0.0775,
+      "fcf_margin": 0.1316,
+      "debt_ebitda": 2.07,
+      "interest_coverage": 8.07,
+      "ev_ebitda": 16.96,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": 0.0089,
+      "peer_cluster": 2,
+      "peer_cluster_size": 14,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [],
+      "irr": 0.128,
+      "moic": 1.83,
+      "sponsor_equity": 700556141.0,
+      "exit_equity": 1279510155.0,
+      "next_earnings_date": "2026-10-29",
+      "ticker": "OMCL",
+      "historical": {
+        "years": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "revenue": [
+          1295947000.0,
+          1147112000.0,
+          1112238000.0,
+          1184845000.0
+        ],
+        "ebitda": [
+          96846000.0,
+          60690000.0,
+          90092000.0,
+          91794000.0
+        ],
+        "debt": [
+          null,
+          616737000.0,
+          614090000.0,
+          382546000.0,
+          204345000.0
+        ],
+        "cash": [
+          null,
+          330362000.0,
+          467972000.0,
+          369201000.0,
+          196520000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 180.44
+          },
+          {
+            "year": "2022",
+            "close": 50.42
+          },
+          {
+            "year": "2023",
+            "close": 37.63
+          },
+          {
+            "year": "2024",
+            "close": 44.52
+          },
+          {
+            "year": "2025",
+            "close": 45.3
+          },
+          {
+            "year": "2026",
+            "close": 36.86
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-26",
+          "score": 55.3
+        },
+        {
+          "date": "2026-09-27",
+          "score": 55.3
+        },
+        {
+          "date": "2026-09-28",
+          "score": 55.3
+        },
+        {
+          "date": "2026-09-29",
+          "score": 55.3
+        },
+        {
+          "date": "2026-09-30",
+          "score": 55.3
+        },
+        {
+          "date": "2026-10-01",
+          "score": 55.3
+        },
+        {
+          "date": "2026-10-02",
+          "score": 55.3
+        },
+        {
+          "date": "2026-10-03",
+          "score": 55.3
+        },
+        {
+          "date": "2026-10-04",
+          "score": 55.3
+        },
+        {
+          "date": "2026-10-05",
+          "score": 55.3
+        },
+        {
+          "date": "2026-10-06",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-07",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-08",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-09",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-10",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-11",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-12",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-13",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-14",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-15",
+          "score": 35.2
+        },
+        {
+          "date": "2026-10-16",
+          "score": 35.2
+        },
+        {
+          "date": "2026-10-17",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-18",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-19",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-20",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-21",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-22",
+          "score": 55.2
+        },
+        {
+          "date": "2026-10-23",
+          "score": 54.9
+        },
+        {
+          "date": "2026-10-24",
+          "score": 54.2
+        },
+        {
+          "date": "2026-10-25",
+          "score": 54.2
+        },
+        {
+          "date": "2026-10-26",
+          "score": 44.4
+        },
+        {
+          "date": "2026-10-27",
+          "score": 44.9
+        },
+        {
+          "date": "2026-10-28",
+          "score": 44.9
+        },
+        {
+          "date": "2026-10-29",
+          "score": 44.7
+        },
+        {
+          "date": "2026-10-30",
+          "score": 46.7
+        },
+        {
+          "date": "2026-10-31",
+          "score": 45.9
+        },
+        {
+          "date": "2026-11-01",
+          "score": 45.9
+        },
+        {
+          "date": "2026-11-02",
+          "score": 45.8
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.031,
+        "irr_p50": 0.1443,
+        "irr_p90": 0.2469,
+        "moic_p10": 1.16,
+        "moic_p50": 1.96,
+        "moic_p90": 3.01,
+        "prob_irr_above_15pct": 0.472,
+        "prob_irr_above_20pct": 0.244,
+        "prob_loss": 0.057,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.878,
+        "histogram": {
+          "bin_edges": [
+            -0.377,
+            -0.3111,
+            -0.2453,
+            -0.1794,
+            -0.1136,
+            -0.0477,
+            0.0181,
+            0.084,
+            0.1499,
+            0.2157,
+            0.2816,
+            0.3474,
+            0.4133
+          ],
+          "counts": [
+            1,
+            5,
+            11,
+            37,
+            141,
+            618,
+            1541,
+            2914,
+            2872,
+            1461,
+            374,
+            25
           ]
         }
       },
@@ -12292,7 +12444,7 @@
           },
           {
             "year": "2026",
-            "close": 147.76
+            "close": 153.73
           }
         ]
       },
@@ -12444,6 +12596,10 @@
         {
           "date": "2026-11-01",
           "score": 45.5
+        },
+        {
+          "date": "2026-11-02",
+          "score": 45.5
         }
       ],
       "sensitivity": null,
@@ -12458,8 +12614,8 @@
         "prob_irr_above_15pct": 0.236,
         "prob_irr_above_20pct": 0.077,
         "prob_loss": 0.091,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.797,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.786,
         "histogram": {
           "bin_edges": [
             -0.3314,
@@ -12583,7 +12739,7 @@
           },
           {
             "year": "2026",
-            "close": 18.1
+            "close": 18.17
           }
         ]
       },
@@ -12747,6 +12903,10 @@
         {
           "date": "2026-11-01",
           "score": 45.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 45.4
         }
       ],
       "sensitivity": null,
@@ -12761,8 +12921,8 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.63,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.614,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -12891,7 +13051,7 @@
           },
           {
             "year": "2026",
-            "close": 129.76
+            "close": 123.83
           }
         ]
       },
@@ -13043,6 +13203,10 @@
         {
           "date": "2026-11-01",
           "score": 45.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 45.4
         }
       ],
       "sensitivity": null,
@@ -13057,8 +13221,8 @@
         "prob_irr_above_15pct": 0.8,
         "prob_irr_above_20pct": 0.65,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.963,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -13187,7 +13351,7 @@
           },
           {
             "year": "2026",
-            "close": 125.44
+            "close": 131.48
           }
         ]
       },
@@ -13351,6 +13515,10 @@
         {
           "date": "2026-11-01",
           "score": 44.9
+        },
+        {
+          "date": "2026-11-02",
+          "score": 44.9
         }
       ],
       "sensitivity": null,
@@ -13365,8 +13533,8 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.63,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.614,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -13492,7 +13660,7 @@
           },
           {
             "year": "2026",
-            "close": 19.28
+            "close": 19.67
           }
         ]
       },
@@ -13656,6 +13824,10 @@
         {
           "date": "2026-11-01",
           "score": 44.3
+        },
+        {
+          "date": "2026-11-02",
+          "score": 44.3
         }
       ],
       "sensitivity": null,
@@ -13670,8 +13842,8 @@
         "prob_irr_above_15pct": 0.232,
         "prob_irr_above_20pct": 0.074,
         "prob_loss": 0.095,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.792,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.782,
         "histogram": {
           "bin_edges": [
             -0.3396,
@@ -13800,7 +13972,7 @@
           },
           {
             "year": "2026",
-            "close": 66.44
+            "close": 69.28
           }
         ]
       },
@@ -13952,6 +14124,10 @@
         {
           "date": "2026-11-01",
           "score": 44.3
+        },
+        {
+          "date": "2026-11-02",
+          "score": 44.3
         }
       ],
       "sensitivity": null,
@@ -13966,8 +14142,8 @@
         "prob_irr_above_15pct": 0.153,
         "prob_irr_above_20pct": 0.042,
         "prob_loss": 0.177,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.676,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.66,
         "histogram": {
           "bin_edges": [
             -0.5834,
@@ -14007,13 +14183,13 @@
     {
       "company": "Franklin Electric Co., Inc.",
       "industry": "Industrials",
-      "deal_score": 43.7,
+      "deal_score": 43.6,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 8.1,
         "growth": 2.7,
         "risk": 17.1,
-        "valuation": 8.7,
+        "valuation": 8.6,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.0544,
@@ -14022,8 +14198,8 @@
       "debt_ebitda": 2.36,
       "interest_coverage": 25.2,
       "ev_ebitda": 17.5,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": 0.0387,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": 0.0409,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -14091,7 +14267,7 @@
           },
           {
             "year": "2026",
-            "close": 95.38
+            "close": 100.46
           }
         ]
       },
@@ -14243,6 +14419,10 @@
         {
           "date": "2026-11-01",
           "score": 43.7
+        },
+        {
+          "date": "2026-11-02",
+          "score": 43.6
         }
       ],
       "sensitivity": null,
@@ -14257,8 +14437,8 @@
         "prob_irr_above_15pct": 0.412,
         "prob_irr_above_20pct": 0.199,
         "prob_loss": 0.07,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.86,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.852,
         "histogram": {
           "bin_edges": [
             -0.398,
@@ -14313,8 +14493,8 @@
       "debt_ebitda": 0.01,
       "interest_coverage": 1486.56,
       "ev_ebitda": 22.48,
-      "peer_median_ev_ebitda": 14.52,
-      "ev_ebitda_discount": 0.5484,
+      "peer_median_ev_ebitda": 14.55,
+      "ev_ebitda_discount": 0.5449,
       "peer_cluster": 13,
       "peer_cluster_size": 9,
       "largest_customer_pct": 0.15,
@@ -14382,7 +14562,7 @@
           },
           {
             "year": "2026",
-            "close": 156.26
+            "close": 157.18
           }
         ]
       },
@@ -14534,6 +14714,10 @@
         {
           "date": "2026-11-01",
           "score": 43.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 43.4
         }
       ],
       "sensitivity": null,
@@ -14548,8 +14732,8 @@
         "prob_irr_above_15pct": 0.613,
         "prob_irr_above_20pct": 0.387,
         "prob_loss": 0.034,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.92,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.916,
         "histogram": {
           "bin_edges": [
             -0.3371,
@@ -14675,7 +14859,7 @@
           },
           {
             "year": "2026",
-            "close": 27.71
+            "close": 28.88
           }
         ]
       },
@@ -14839,6 +15023,10 @@
         {
           "date": "2026-11-01",
           "score": 43.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 43.4
         }
       ],
       "sensitivity": null,
@@ -14853,8 +15041,8 @@
         "prob_irr_above_15pct": 0.21,
         "prob_irr_above_20pct": 0.066,
         "prob_loss": 0.111,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.768,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.756,
         "histogram": {
           "bin_edges": [
             -0.3884,
@@ -14884,314 +15072,6 @@
             1455,
             343,
             22
-          ]
-        }
-      },
-      "ai_memo": {
-        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
-      }
-    },
-    {
-      "company": "Preformed Line Products Company",
-      "industry": "Industrials",
-      "deal_score": 43.3,
-      "priority_tier": "Watchlist",
-      "score_breakdown": {
-        "financial_quality": 6.5,
-        "growth": 6.4,
-        "risk": 19.2,
-        "valuation": 4.1,
-        "strategic_fit": 7.1
-      },
-      "revenue_growth": 0.1274,
-      "ebitda_margin": 0.1045,
-      "fcf_margin": 0.0334,
-      "debt_ebitda": 0.93,
-      "interest_coverage": 53.69,
-      "ev_ebitda": 19.83,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": 0.1772,
-      "peer_cluster": 2,
-      "peer_cluster_size": 14,
-      "largest_customer_pct": 0.15,
-      "recurring_revenue_pct": 0.5,
-      "risk_flags": [
-        "Valuation Premium to Peers"
-      ],
-      "irr": 0.2317,
-      "moic": 2.83,
-      "sponsor_equity": 624227962.0,
-      "exit_equity": 1769527657.0,
-      "next_earnings_date": "2026-10-28",
-      "ticker": "PLPC",
-      "historical": {
-        "years": [
-          "2021",
-          "2022",
-          "2023",
-          "2024",
-          "2025"
-        ],
-        "revenue": [
-          null,
-          637021000.0,
-          669679000.0,
-          593714000.0,
-          669338000.0
-        ],
-        "ebitda": [
-          null,
-          93348000.0,
-          105163000.0,
-          73821000.0,
-          69953000.0
-        ],
-        "debt": [
-          null,
-          98165000.0,
-          71813000.0,
-          36695000.0,
-          47144000.0
-        ],
-        "cash": [
-          null,
-          37239000.0,
-          53607000.0,
-          57244000.0,
-          83389000.0
-        ],
-        "price_history": [
-          {
-            "year": "2021",
-            "close": 62.78
-          },
-          {
-            "year": "2022",
-            "close": 81.57
-          },
-          {
-            "year": "2023",
-            "close": 131.95
-          },
-          {
-            "year": "2024",
-            "close": 126.76
-          },
-          {
-            "year": "2025",
-            "close": 206.13
-          },
-          {
-            "year": "2026",
-            "close": 291.15
-          }
-        ]
-      },
-      "score_history": [
-        {
-          "date": "2026-09-23",
-          "score": 38.6
-        },
-        {
-          "date": "2026-09-24",
-          "score": 38.6
-        },
-        {
-          "date": "2026-09-25",
-          "score": 38.6
-        },
-        {
-          "date": "2026-09-26",
-          "score": 38.7
-        },
-        {
-          "date": "2026-09-27",
-          "score": 38.7
-        },
-        {
-          "date": "2026-09-28",
-          "score": 38.7
-        },
-        {
-          "date": "2026-09-29",
-          "score": 38.7
-        },
-        {
-          "date": "2026-09-30",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-01",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-02",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-03",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-04",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-05",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-06",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-07",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-08",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-09",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-10",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-11",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-12",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-13",
-          "score": 38.8
-        },
-        {
-          "date": "2026-10-14",
-          "score": 38.7
-        },
-        {
-          "date": "2026-10-15",
-          "score": 38.8
-        },
-        {
-          "date": "2026-10-16",
-          "score": 38.8
-        },
-        {
-          "date": "2026-10-17",
-          "score": 38.8
-        },
-        {
-          "date": "2026-10-18",
-          "score": 38.8
-        },
-        {
-          "date": "2026-10-19",
-          "score": 38.8
-        },
-        {
-          "date": "2026-10-20",
-          "score": 38.8
-        },
-        {
-          "date": "2026-10-21",
-          "score": 38.8
-        },
-        {
-          "date": "2026-10-22",
-          "score": 38.8
-        },
-        {
-          "date": "2026-10-23",
-          "score": 38.9
-        },
-        {
-          "date": "2026-10-24",
-          "score": 38.9
-        },
-        {
-          "date": "2026-10-25",
-          "score": 38.9
-        },
-        {
-          "date": "2026-10-26",
-          "score": 38.9
-        },
-        {
-          "date": "2026-10-27",
-          "score": 38.9
-        },
-        {
-          "date": "2026-10-28",
-          "score": 38.9
-        },
-        {
-          "date": "2026-10-29",
-          "score": 38.9
-        },
-        {
-          "date": "2026-10-30",
-          "score": 39.8
-        },
-        {
-          "date": "2026-10-31",
-          "score": 44.3
-        },
-        {
-          "date": "2026-11-01",
-          "score": 43.3
-        }
-      ],
-      "sensitivity": null,
-      "monte_carlo": {
-        "n_sims": 10000,
-        "irr_p10": 0.0835,
-        "irr_p50": 0.217,
-        "irr_p90": 0.3292,
-        "moic_p10": 1.49,
-        "moic_p50": 2.67,
-        "moic_p90": 4.15,
-        "prob_irr_above_15pct": 0.745,
-        "prob_irr_above_20pct": 0.568,
-        "prob_loss": 0.021,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.952,
-        "histogram": {
-          "bin_edges": [
-            -0.2932,
-            -0.2271,
-            -0.161,
-            -0.0949,
-            -0.0288,
-            0.0373,
-            0.1034,
-            0.1695,
-            0.2356,
-            0.3017,
-            0.3678,
-            0.4339,
-            0.5
-          ],
-          "counts": [
-            3,
-            7,
-            24,
-            79,
-            341,
-            908,
-            1823,
-            2641,
-            2455,
-            1338,
-            352,
-            29
           ]
         }
       },
@@ -15289,7 +15169,7 @@
           },
           {
             "year": "2026",
-            "close": 28.89
+            "close": 29.7
           }
         ]
       },
@@ -15453,10 +15333,326 @@
         {
           "date": "2026-11-01",
           "score": 43.2
+        },
+        {
+          "date": "2026-11-02",
+          "score": 43.2
         }
       ],
       "sensitivity": null,
       "monte_carlo": null,
+      "ai_memo": {
+        "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
+      }
+    },
+    {
+      "company": "Preformed Line Products Company",
+      "industry": "Industrials",
+      "deal_score": 43.2,
+      "priority_tier": "Watchlist",
+      "score_breakdown": {
+        "financial_quality": 6.5,
+        "growth": 6.4,
+        "risk": 19.2,
+        "valuation": 4.0,
+        "strategic_fit": 7.1
+      },
+      "revenue_growth": 0.1274,
+      "ebitda_margin": 0.1045,
+      "fcf_margin": 0.0334,
+      "debt_ebitda": 0.93,
+      "interest_coverage": 53.69,
+      "ev_ebitda": 19.83,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": 0.1797,
+      "peer_cluster": 2,
+      "peer_cluster_size": 14,
+      "largest_customer_pct": 0.15,
+      "recurring_revenue_pct": 0.5,
+      "risk_flags": [
+        "Valuation Premium to Peers"
+      ],
+      "irr": 0.2317,
+      "moic": 2.83,
+      "sponsor_equity": 624227962.0,
+      "exit_equity": 1769527657.0,
+      "next_earnings_date": "2026-10-28",
+      "ticker": "PLPC",
+      "historical": {
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "revenue": [
+          null,
+          637021000.0,
+          669679000.0,
+          593714000.0,
+          669338000.0
+        ],
+        "ebitda": [
+          null,
+          93348000.0,
+          105163000.0,
+          73821000.0,
+          69953000.0
+        ],
+        "debt": [
+          null,
+          98165000.0,
+          71813000.0,
+          36695000.0,
+          47144000.0
+        ],
+        "cash": [
+          null,
+          37239000.0,
+          53607000.0,
+          57244000.0,
+          83389000.0
+        ],
+        "price_history": [
+          {
+            "year": "2021",
+            "close": 62.78
+          },
+          {
+            "year": "2022",
+            "close": 81.57
+          },
+          {
+            "year": "2023",
+            "close": 131.95
+          },
+          {
+            "year": "2024",
+            "close": 126.76
+          },
+          {
+            "year": "2025",
+            "close": 206.13
+          },
+          {
+            "year": "2026",
+            "close": 287.36
+          }
+        ]
+      },
+      "score_history": [
+        {
+          "date": "2026-09-23",
+          "score": 38.6
+        },
+        {
+          "date": "2026-09-24",
+          "score": 38.6
+        },
+        {
+          "date": "2026-09-25",
+          "score": 38.6
+        },
+        {
+          "date": "2026-09-26",
+          "score": 38.7
+        },
+        {
+          "date": "2026-09-27",
+          "score": 38.7
+        },
+        {
+          "date": "2026-09-28",
+          "score": 38.7
+        },
+        {
+          "date": "2026-09-29",
+          "score": 38.7
+        },
+        {
+          "date": "2026-09-30",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-01",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-02",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-03",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-04",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-05",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-06",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-07",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-08",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-09",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-10",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-11",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-12",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-13",
+          "score": 38.8
+        },
+        {
+          "date": "2026-10-14",
+          "score": 38.7
+        },
+        {
+          "date": "2026-10-15",
+          "score": 38.8
+        },
+        {
+          "date": "2026-10-16",
+          "score": 38.8
+        },
+        {
+          "date": "2026-10-17",
+          "score": 38.8
+        },
+        {
+          "date": "2026-10-18",
+          "score": 38.8
+        },
+        {
+          "date": "2026-10-19",
+          "score": 38.8
+        },
+        {
+          "date": "2026-10-20",
+          "score": 38.8
+        },
+        {
+          "date": "2026-10-21",
+          "score": 38.8
+        },
+        {
+          "date": "2026-10-22",
+          "score": 38.8
+        },
+        {
+          "date": "2026-10-23",
+          "score": 38.9
+        },
+        {
+          "date": "2026-10-24",
+          "score": 38.9
+        },
+        {
+          "date": "2026-10-25",
+          "score": 38.9
+        },
+        {
+          "date": "2026-10-26",
+          "score": 38.9
+        },
+        {
+          "date": "2026-10-27",
+          "score": 38.9
+        },
+        {
+          "date": "2026-10-28",
+          "score": 38.9
+        },
+        {
+          "date": "2026-10-29",
+          "score": 38.9
+        },
+        {
+          "date": "2026-10-30",
+          "score": 39.8
+        },
+        {
+          "date": "2026-10-31",
+          "score": 44.3
+        },
+        {
+          "date": "2026-11-01",
+          "score": 43.3
+        },
+        {
+          "date": "2026-11-02",
+          "score": 43.2
+        }
+      ],
+      "sensitivity": null,
+      "monte_carlo": {
+        "n_sims": 10000,
+        "irr_p10": 0.0835,
+        "irr_p50": 0.217,
+        "irr_p90": 0.3292,
+        "moic_p10": 1.49,
+        "moic_p50": 2.67,
+        "moic_p90": 4.15,
+        "prob_irr_above_15pct": 0.745,
+        "prob_irr_above_20pct": 0.568,
+        "prob_loss": 0.021,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.949,
+        "histogram": {
+          "bin_edges": [
+            -0.2932,
+            -0.2271,
+            -0.161,
+            -0.0949,
+            -0.0288,
+            0.0373,
+            0.1034,
+            0.1695,
+            0.2356,
+            0.3017,
+            0.3678,
+            0.4339,
+            0.5
+          ],
+          "counts": [
+            3,
+            7,
+            24,
+            79,
+            341,
+            908,
+            1823,
+            2641,
+            2455,
+            1338,
+            352,
+            29
+          ]
+        }
+      },
       "ai_memo": {
         "error": "Fallo al llamar al LLM: Invalid leading whitespace, reserved character(s), or return character(s) in header value: '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\\n'"
       }
@@ -15554,7 +15750,7 @@
           },
           {
             "year": "2026",
-            "close": 2.66
+            "close": 2.65
           }
         ]
       },
@@ -15718,6 +15914,10 @@
         {
           "date": "2026-11-01",
           "score": 43.2
+        },
+        {
+          "date": "2026-11-02",
+          "score": 43.2
         }
       ],
       "sensitivity": null,
@@ -15819,7 +16019,7 @@
           },
           {
             "year": "2026",
-            "close": 67.4
+            "close": 68.92
           }
         ]
       },
@@ -15971,6 +16171,10 @@
         {
           "date": "2026-11-01",
           "score": 43.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 43.1
         }
       ],
       "sensitivity": null,
@@ -15985,8 +16189,8 @@
         "prob_irr_above_15pct": 0.801,
         "prob_irr_above_20pct": 0.651,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.963,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -16026,13 +16230,13 @@
     {
       "company": "Huron Consulting Group Inc.",
       "industry": "Financial Services",
-      "deal_score": 42.7,
+      "deal_score": 42.6,
       "priority_tier": "Watchlist",
       "score_breakdown": {
         "financial_quality": 8.9,
         "growth": 5.8,
         "risk": 11.1,
-        "valuation": 9.8,
+        "valuation": 9.7,
         "strategic_fit": 7.1
       },
       "revenue_growth": 0.1165,
@@ -16041,8 +16245,8 @@
       "debt_ebitda": 3.93,
       "interest_coverage": 4.24,
       "ev_ebitda": 16.94,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": 0.0057,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": 0.0079,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -16113,7 +16317,7 @@
           },
           {
             "year": "2026",
-            "close": 194.43
+            "close": 195.63
           }
         ]
       },
@@ -16277,6 +16481,10 @@
         {
           "date": "2026-11-01",
           "score": 42.7
+        },
+        {
+          "date": "2026-11-02",
+          "score": 42.6
         }
       ],
       "sensitivity": null,
@@ -16291,8 +16499,8 @@
         "prob_irr_above_15pct": 0.724,
         "prob_irr_above_20pct": 0.536,
         "prob_loss": 0.023,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.947,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.943,
         "histogram": {
           "bin_edges": [
             -0.3051,
@@ -16417,7 +16625,7 @@
           },
           {
             "year": "2026",
-            "close": 20.67
+            "close": 22.01
           }
         ]
       },
@@ -16581,6 +16789,10 @@
         {
           "date": "2026-11-01",
           "score": 42.5
+        },
+        {
+          "date": "2026-11-02",
+          "score": 42.5
         }
       ],
       "sensitivity": null,
@@ -16682,7 +16894,7 @@
           },
           {
             "year": "2026",
-            "close": 14.97
+            "close": 16.32
           }
         ]
       },
@@ -16834,6 +17046,10 @@
         {
           "date": "2026-11-01",
           "score": 42.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 42.4
         }
       ],
       "sensitivity": null,
@@ -16932,7 +17148,7 @@
           },
           {
             "year": "2026",
-            "close": 118.28
+            "close": 128.85
           }
         ]
       },
@@ -17096,6 +17312,10 @@
         {
           "date": "2026-11-01",
           "score": 41.7
+        },
+        {
+          "date": "2026-11-02",
+          "score": 41.7
         }
       ],
       "sensitivity": null,
@@ -17110,8 +17330,8 @@
         "prob_irr_above_15pct": 0.536,
         "prob_irr_above_20pct": 0.269,
         "prob_loss": 0.019,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.939,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.934,
         "histogram": {
           "bin_edges": [
             -0.1873,
@@ -17237,7 +17457,7 @@
           },
           {
             "year": "2026",
-            "close": 8.79
+            "close": 8.96
           }
         ]
       },
@@ -17401,6 +17621,10 @@
         {
           "date": "2026-11-01",
           "score": 41.5
+        },
+        {
+          "date": "2026-11-02",
+          "score": 41.5
         }
       ],
       "sensitivity": null,
@@ -17427,8 +17651,8 @@
       "debt_ebitda": 1.31,
       "interest_coverage": 14.32,
       "ev_ebitda": 31.51,
-      "peer_median_ev_ebitda": 14.52,
-      "ev_ebitda_discount": 1.1697,
+      "peer_median_ev_ebitda": 14.55,
+      "ev_ebitda_discount": 1.1648,
       "peer_cluster": 13,
       "peer_cluster_size": 9,
       "largest_customer_pct": 0.15,
@@ -17497,7 +17721,7 @@
           },
           {
             "year": "2026",
-            "close": 72.74
+            "close": 72.45
           }
         ]
       },
@@ -17649,6 +17873,10 @@
         {
           "date": "2026-11-01",
           "score": 41.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 41.1
         }
       ],
       "sensitivity": null,
@@ -17663,8 +17891,8 @@
         "prob_irr_above_15pct": 0.183,
         "prob_irr_above_20pct": 0.058,
         "prob_loss": 0.151,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.715,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.702,
         "histogram": {
           "bin_edges": [
             -0.5472,
@@ -17716,11 +17944,11 @@
       "revenue_growth": -0.0823,
       "ebitda_margin": -0.2401,
       "fcf_margin": -0.144,
-      "debt_ebitda": -0.0,
+      "debt_ebitda": -0.67,
       "interest_coverage": -35.55,
-      "ev_ebitda": -2.2,
+      "ev_ebitda": -1.49,
       "peer_median_ev_ebitda": -5.49,
-      "ev_ebitda_discount": -0.5996,
+      "ev_ebitda_discount": -0.7284,
       "peer_cluster": 5,
       "peer_cluster_size": 6,
       "largest_customer_pct": 0.15,
@@ -17795,7 +18023,7 @@
           },
           {
             "year": "2026",
-            "close": 11.01
+            "close": 10.8
           }
         ]
       },
@@ -17959,6 +18187,10 @@
         {
           "date": "2026-11-01",
           "score": 40.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 40.4
         }
       ],
       "sensitivity": null,
@@ -18059,7 +18291,7 @@
           },
           {
             "year": "2026",
-            "close": 12.82
+            "close": 13.07
           }
         ]
       },
@@ -18211,6 +18443,10 @@
         {
           "date": "2026-11-01",
           "score": 40.3
+        },
+        {
+          "date": "2026-11-02",
+          "score": 40.3
         }
       ],
       "sensitivity": null,
@@ -18225,8 +18461,8 @@
         "prob_irr_above_15pct": 0.128,
         "prob_irr_above_20pct": 0.032,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.633,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.616,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -18281,8 +18517,8 @@
       "debt_ebitda": 0.16,
       "interest_coverage": 102.66,
       "ev_ebitda": 22.45,
-      "peer_median_ev_ebitda": 14.52,
-      "ev_ebitda_discount": 0.5458,
+      "peer_median_ev_ebitda": 14.55,
+      "ev_ebitda_discount": 0.5423,
       "peer_cluster": 13,
       "peer_cluster_size": 9,
       "largest_customer_pct": 0.15,
@@ -18352,7 +18588,7 @@
           },
           {
             "year": "2026",
-            "close": 82.22
+            "close": 83.27
           }
         ]
       },
@@ -18516,6 +18752,10 @@
         {
           "date": "2026-11-01",
           "score": 39.9
+        },
+        {
+          "date": "2026-11-02",
+          "score": 39.9
         }
       ],
       "sensitivity": null,
@@ -18530,8 +18770,8 @@
         "prob_irr_above_15pct": 0.504,
         "prob_irr_above_20pct": 0.273,
         "prob_loss": 0.051,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.892,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.887,
         "histogram": {
           "bin_edges": [
             -0.3683,
@@ -18655,7 +18895,7 @@
           },
           {
             "year": "2026",
-            "close": 45.58
+            "close": 46.44
           }
         ]
       },
@@ -18819,6 +19059,10 @@
         {
           "date": "2026-11-01",
           "score": 39.7
+        },
+        {
+          "date": "2026-11-02",
+          "score": 39.7
         }
       ],
       "sensitivity": null,
@@ -18833,8 +19077,8 @@
         "prob_irr_above_15pct": 0.213,
         "prob_irr_above_20pct": 0.067,
         "prob_loss": 0.108,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.772,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.76,
         "histogram": {
           "bin_edges": [
             -0.3802,
@@ -18963,7 +19207,7 @@
           },
           {
             "year": "2026",
-            "close": 61.25
+            "close": 60.25
           }
         ]
       },
@@ -19115,6 +19359,10 @@
         {
           "date": "2026-11-01",
           "score": 39.6
+        },
+        {
+          "date": "2026-11-02",
+          "score": 39.6
         }
       ],
       "sensitivity": null,
@@ -19129,8 +19377,8 @@
         "prob_irr_above_15pct": 0.798,
         "prob_irr_above_20pct": 0.644,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.963,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
             -0.2716,
@@ -19260,7 +19508,7 @@
           },
           {
             "year": "2026",
-            "close": 40.1
+            "close": 41.98
           }
         ]
       },
@@ -19424,6 +19672,10 @@
         {
           "date": "2026-11-01",
           "score": 39.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 39.4
         }
       ],
       "sensitivity": null,
@@ -19438,8 +19690,8 @@
         "prob_irr_above_15pct": 0.704,
         "prob_irr_above_20pct": 0.507,
         "prob_loss": 0.025,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.941,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.937,
         "histogram": {
           "bin_edges": [
             -0.3132,
@@ -19566,7 +19818,7 @@
           },
           {
             "year": "2026",
-            "close": 35.3
+            "close": 35.9
           }
         ]
       },
@@ -19718,6 +19970,10 @@
         {
           "date": "2026-11-01",
           "score": 38.7
+        },
+        {
+          "date": "2026-11-02",
+          "score": 38.7
         }
       ],
       "sensitivity": null,
@@ -19732,8 +19988,8 @@
         "prob_irr_above_15pct": 0.182,
         "prob_irr_above_20pct": 0.054,
         "prob_loss": 0.137,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.732,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.717,
         "histogram": {
           "bin_edges": [
             -0.5097,
@@ -19858,7 +20114,7 @@
           },
           {
             "year": "2026",
-            "close": 127.81
+            "close": 125.52
           }
         ]
       },
@@ -20022,6 +20278,10 @@
         {
           "date": "2026-11-01",
           "score": 38.6
+        },
+        {
+          "date": "2026-11-02",
+          "score": 38.6
         }
       ],
       "sensitivity": null,
@@ -20036,8 +20296,8 @@
         "prob_irr_above_15pct": 0.299,
         "prob_irr_above_20pct": 0.12,
         "prob_loss": 0.1,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.802,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.792,
         "histogram": {
           "bin_edges": [
             -0.4904,
@@ -20088,7 +20348,7 @@
       },
       "revenue_growth": 0.0054,
       "ebitda_margin": 0.1019,
-      "fcf_margin": 0.0378,
+      "fcf_margin": 0.0363,
       "debt_ebitda": 1.19,
       "interest_coverage": 108.01,
       "ev_ebitda": 10.69,
@@ -20162,7 +20422,7 @@
           },
           {
             "year": "2026",
-            "close": 85.39
+            "close": 87.78
           }
         ]
       },
@@ -20314,6 +20574,10 @@
         {
           "date": "2026-11-01",
           "score": 38.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 38.1
         }
       ],
       "sensitivity": null,
@@ -20328,8 +20592,8 @@
         "prob_irr_above_15pct": 0.187,
         "prob_irr_above_20pct": 0.058,
         "prob_loss": 0.142,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.727,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.712,
         "histogram": {
           "bin_edges": [
             -0.6788,
@@ -20458,7 +20722,7 @@
           },
           {
             "year": "2026",
-            "close": 133.06
+            "close": 134.03
           }
         ]
       },
@@ -20622,6 +20886,10 @@
         {
           "date": "2026-11-01",
           "score": 37.7
+        },
+        {
+          "date": "2026-11-02",
+          "score": 37.7
         }
       ],
       "sensitivity": null,
@@ -20636,8 +20904,8 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.63,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.614,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -20767,7 +21035,7 @@
           },
           {
             "year": "2026",
-            "close": 49.7
+            "close": 51.59
           }
         ]
       },
@@ -20919,6 +21187,10 @@
         {
           "date": "2026-11-01",
           "score": 37.6
+        },
+        {
+          "date": "2026-11-02",
+          "score": 37.6
         }
       ],
       "sensitivity": null,
@@ -20933,8 +21205,8 @@
         "prob_irr_above_15pct": 0.252,
         "prob_irr_above_20pct": 0.084,
         "prob_loss": 0.08,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.816,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.805,
         "histogram": {
           "bin_edges": [
             -0.3034,
@@ -21064,7 +21336,7 @@
           },
           {
             "year": "2026",
-            "close": 41.09
+            "close": 40.73
           }
         ]
       },
@@ -21216,6 +21488,10 @@
         {
           "date": "2026-11-01",
           "score": 36.8
+        },
+        {
+          "date": "2026-11-02",
+          "score": 36.8
         }
       ],
       "sensitivity": null,
@@ -21230,8 +21506,8 @@
         "prob_irr_above_15pct": 0.8,
         "prob_irr_above_20pct": 0.65,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.963,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -21361,7 +21637,7 @@
           },
           {
             "year": "2026",
-            "close": 222.06
+            "close": 221.95
           }
         ]
       },
@@ -21525,6 +21801,10 @@
         {
           "date": "2026-11-01",
           "score": 35.9
+        },
+        {
+          "date": "2026-11-02",
+          "score": 35.9
         }
       ],
       "sensitivity": null,
@@ -21539,8 +21819,8 @@
         "prob_irr_above_15pct": 0.8,
         "prob_irr_above_20pct": 0.65,
         "prob_loss": 0.017,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.963,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.961,
         "histogram": {
           "bin_edges": [
             -0.2705,
@@ -21670,7 +21950,7 @@
           },
           {
             "year": "2026",
-            "close": 265.28
+            "close": 283.7
           }
         ]
       },
@@ -21822,6 +22102,10 @@
         {
           "date": "2026-11-01",
           "score": 35.3
+        },
+        {
+          "date": "2026-11-02",
+          "score": 35.3
         }
       ],
       "sensitivity": null,
@@ -21836,8 +22120,8 @@
         "prob_irr_above_15pct": 0.136,
         "prob_irr_above_20pct": 0.036,
         "prob_loss": 0.2,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.642,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.627,
         "histogram": {
           "bin_edges": [
             -0.5396,
@@ -21892,8 +22176,8 @@
       "debt_ebitda": 3.05,
       "interest_coverage": 10.0,
       "ev_ebitda": 28.33,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": 0.682,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": 0.6855,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -21966,7 +22250,7 @@
           },
           {
             "year": "2026",
-            "close": 43.5
+            "close": 44.68
           }
         ]
       },
@@ -22130,6 +22414,10 @@
         {
           "date": "2026-11-01",
           "score": 34.4
+        },
+        {
+          "date": "2026-11-02",
+          "score": 34.4
         }
       ],
       "sensitivity": null,
@@ -22144,8 +22432,8 @@
         "prob_irr_above_15pct": 0.69,
         "prob_irr_above_20pct": 0.482,
         "prob_loss": 0.026,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.938,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.935,
         "histogram": {
           "bin_edges": [
             -0.3127,
@@ -22275,7 +22563,7 @@
           },
           {
             "year": "2026",
-            "close": 23.83
+            "close": 24.31
           }
         ]
       },
@@ -22439,6 +22727,10 @@
         {
           "date": "2026-11-01",
           "score": 34.2
+        },
+        {
+          "date": "2026-11-02",
+          "score": 34.2
         }
       ],
       "sensitivity": null,
@@ -22453,8 +22745,8 @@
         "prob_irr_above_15pct": 0.127,
         "prob_irr_above_20pct": 0.032,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.631,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.615,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -22584,7 +22876,7 @@
           },
           {
             "year": "2026",
-            "close": 95.82
+            "close": 100.22
           }
         ]
       },
@@ -22736,6 +23028,10 @@
         {
           "date": "2026-11-01",
           "score": 33.6
+        },
+        {
+          "date": "2026-11-02",
+          "score": 33.6
         }
       ],
       "sensitivity": null,
@@ -22750,8 +23046,8 @@
         "prob_irr_above_15pct": 0.184,
         "prob_irr_above_20pct": 0.055,
         "prob_loss": 0.135,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.735,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.721,
         "histogram": {
           "bin_edges": [
             -0.4935,
@@ -22878,7 +23174,7 @@
           },
           {
             "year": "2026",
-            "close": 44.2
+            "close": 44.22
           }
         ]
       },
@@ -23030,6 +23326,10 @@
         {
           "date": "2026-11-01",
           "score": 31.8
+        },
+        {
+          "date": "2026-11-02",
+          "score": 31.8
         }
       ],
       "sensitivity": null,
@@ -23044,8 +23344,8 @@
         "prob_irr_above_15pct": 0.208,
         "prob_irr_above_20pct": 0.07,
         "prob_loss": 0.137,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.738,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.727,
         "histogram": {
           "bin_edges": [
             -0.5123,
@@ -23175,7 +23475,7 @@
           },
           {
             "year": "2026",
-            "close": 2.31
+            "close": 2.32
           }
         ]
       },
@@ -23339,6 +23639,10 @@
         {
           "date": "2026-11-01",
           "score": 30.5
+        },
+        {
+          "date": "2026-11-02",
+          "score": 30.5
         }
       ],
       "sensitivity": null,
@@ -23353,8 +23657,8 @@
         "prob_irr_above_15pct": 0.147,
         "prob_irr_above_20pct": 0.04,
         "prob_loss": 0.183,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.669,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.652,
         "histogram": {
           "bin_edges": [
             -0.7295,
@@ -23409,8 +23713,8 @@
       "debt_ebitda": 2.82,
       "interest_coverage": 5.91,
       "ev_ebitda": 28.21,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": 0.6746,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": 0.6781,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -23483,7 +23787,7 @@
           },
           {
             "year": "2026",
-            "close": 221.94
+            "close": 225.92
           }
         ]
       },
@@ -23635,6 +23939,10 @@
         {
           "date": "2026-11-01",
           "score": 29.9
+        },
+        {
+          "date": "2026-11-02",
+          "score": 29.9
         }
       ],
       "sensitivity": null,
@@ -23649,8 +23957,8 @@
         "prob_irr_above_15pct": 0.441,
         "prob_irr_above_20pct": 0.218,
         "prob_loss": 0.062,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.874,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.866,
         "histogram": {
           "bin_edges": [
             -0.3859,
@@ -23705,8 +24013,8 @@
       "debt_ebitda": 3.59,
       "interest_coverage": 4.64,
       "ev_ebitda": 29.5,
-      "peer_median_ev_ebitda": 16.85,
-      "ev_ebitda_discount": 0.7511,
+      "peer_median_ev_ebitda": 16.81,
+      "ev_ebitda_discount": 0.7548,
       "peer_cluster": 2,
       "peer_cluster_size": 14,
       "largest_customer_pct": 0.15,
@@ -23779,7 +24087,7 @@
           },
           {
             "year": "2026",
-            "close": 59.39
+            "close": 61.06
           }
         ]
       },
@@ -23931,6 +24239,10 @@
         {
           "date": "2026-11-01",
           "score": 29.3
+        },
+        {
+          "date": "2026-11-02",
+          "score": 29.3
         }
       ],
       "sensitivity": null,
@@ -23945,8 +24257,8 @@
         "prob_irr_above_15pct": 0.573,
         "prob_irr_above_20pct": 0.338,
         "prob_loss": 0.039,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.911,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.907,
         "histogram": {
           "bin_edges": [
             -0.347,
@@ -24076,7 +24388,7 @@
           },
           {
             "year": "2026",
-            "close": 57.41
+            "close": 58.39
           }
         ]
       },
@@ -24228,6 +24540,10 @@
         {
           "date": "2026-11-01",
           "score": 28.5
+        },
+        {
+          "date": "2026-11-02",
+          "score": 28.5
         }
       ],
       "sensitivity": null,
@@ -24242,8 +24558,8 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.63,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.614,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -24374,7 +24690,7 @@
           },
           {
             "year": "2026",
-            "close": 163.78
+            "close": 161.93
           }
         ]
       },
@@ -24526,6 +24842,10 @@
         {
           "date": "2026-11-01",
           "score": 25.2
+        },
+        {
+          "date": "2026-11-02",
+          "score": 25.2
         }
       ],
       "sensitivity": null,
@@ -24540,8 +24860,8 @@
         "prob_irr_above_15pct": 0.127,
         "prob_irr_above_20pct": 0.032,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.631,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.615,
         "histogram": {
           "bin_edges": [
             -0.5402,
@@ -24672,7 +24992,7 @@
           },
           {
             "year": "2026",
-            "close": 11.25
+            "close": 12.27
           }
         ]
       },
@@ -24836,6 +25156,10 @@
         {
           "date": "2026-11-01",
           "score": 24.1
+        },
+        {
+          "date": "2026-11-02",
+          "score": 24.1
         }
       ],
       "sensitivity": null,
@@ -24938,7 +25262,7 @@
           },
           {
             "year": "2026",
-            "close": 12.75
+            "close": 13.83
           }
         ]
       },
@@ -25089,6 +25413,10 @@
         },
         {
           "date": "2026-11-01",
+          "score": 24.1
+        },
+        {
+          "date": "2026-11-02",
           "score": 24.1
         }
       ],
@@ -25187,7 +25515,7 @@
           },
           {
             "year": "2026",
-            "close": 22.05
+            "close": 22.07
           }
         ]
       },
@@ -25338,6 +25666,10 @@
         },
         {
           "date": "2026-11-01",
+          "score": 23.9
+        },
+        {
+          "date": "2026-11-02",
           "score": 23.9
         }
       ],
@@ -25442,7 +25774,7 @@
           },
           {
             "year": "2026",
-            "close": 67.0
+            "close": 72.26
           }
         ]
       },
@@ -25594,6 +25926,10 @@
         {
           "date": "2026-11-01",
           "score": 17.5
+        },
+        {
+          "date": "2026-11-02",
+          "score": 17.5
         }
       ],
       "sensitivity": null,
@@ -25608,8 +25944,8 @@
         "prob_irr_above_15pct": 0.123,
         "prob_irr_above_20pct": 0.03,
         "prob_loss": 0.208,
-        "benchmark_cagr": 0.0401,
-        "prob_beat_benchmark": 0.63,
+        "benchmark_cagr": 0.0433,
+        "prob_beat_benchmark": 0.614,
         "histogram": {
           "bin_edges": [
             -0.5402,
